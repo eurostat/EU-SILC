@@ -1,0 +1,2580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SVAL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../XSD/SVAL-R.xsd">
+	<nucleus>
+		<variable id="DB010">
+			<type>YEAR</type>
+			<req>Y</req>
+			<format>4.</format>
+			<minval>2015</minval>
+			<maxval>2018</maxval>
+			<flag> </flag>
+			<label>Year of the survey</label>
+		</variable>
+		<variable id="DB020">
+			<type>COUNTRY</type>
+			<req>Y</req>
+			<format>$2.</format>
+			<flag> </flag>
+			<label>Country</label>
+		</variable>
+		<variable id="DB030">
+			<type>ID</type>
+			<req>Y</req>
+			<format>10.</format>
+			<flag> </flag>
+			<label>Household ID</label>
+		</variable>
+		<variable id="DB040">
+			<type>NUTS</type>
+			<req>Y</req>
+			<format>$5.</format>
+			<flag>(-1,1)</flag>
+			<label>Region</label>
+		</variable>
+		<variable id="DB050">
+			<req>Y</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1,2,3)</flag>
+			<label>Primary strata</label>
+		</variable>
+		<variable id="DB060">
+			<req>Y</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1,2)</flag>
+			<label>PSU-1</label>
+		</variable>
+		<variable id="DB061">
+			<req>N</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1)</flag>
+			<label>PSU-2</label>
+		</variable>
+		<variable id="DB062">
+			<req>Y</req>
+			<format>6.</format>
+			<minval>1</minval>
+			<maxval>999999</maxval>
+			<flag>(-2,1,2)</flag>
+			<label>SSU-1</label>
+		</variable>
+		<variable id="DB063">
+			<req>N</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1)</flag>
+			<label>SSU-2</label>
+		</variable>
+		<variable id="DB070">
+			<req>Y</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1,11,12,21,22)</flag>
+			<label>Order of the selection of PSU-1</label>
+		</variable>
+		<variable id="DB071">
+			<req>N</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1,11,12,21,22)</flag>
+			<label>Order of the selection of PSU-2</label>
+		</variable>
+		<variable id="DB072">
+			<req>N</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1,11,12,21,22)</flag>
+			<label>Order of the selection of SSU-1</label>
+		</variable>
+		<variable id="DB073">
+			<req>N</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1,11,12,21,22)</flag>
+			<label>Order of the selection of SSU-2</label>
+		</variable>
+		<variable id="DB075">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>9</maxval>
+			<flag>(-2,1)</flag>
+			<label>Rotational group</label>
+		</variable>
+		<variable id="DB080">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1)</flag>
+			<label>Household design weight</label>
+		</variable>
+		<variable id="DB090">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-7,1)</flag>
+			<label>Household cross-sectional weight</label>
+		</variable>
+		<variable id="DB095">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>999999</maxval>
+			<flag>(-2,1)</flag>
+			<na>DB110=9 and DB010 = 2018</na>
+			<disp>DB110</disp>
+			<label>Household longitudinal weight</label>
+		</variable>
+		<variable id="DB100">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>Degree of urbanisation</label>
+		</variable>
+		<variable id="DB110">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-1,1)</flag>
+			<label>Household status</label>
+		</variable>
+		<variable id="DB120">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(11,21,22,23)</list>
+			<flag>(-2,-1,1)</flag>
+			<na>DB110 not in (2,8,9)</na>
+			<disp>DB110</disp>
+			<label>Record of contact at address</label>
+		</variable>
+		<variable id="DB130">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(11,21,22,23,24)</list>
+			<flag>(-2,-1,1)</flag>
+			<na>DB120 ne 11 and DB110 ne 1</na>
+			<disp>DB110,DB120,DB135</disp>
+			<label>Household questionnaire result</label>
+		</variable>
+		<variable id="DB135">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>DB130 ne 11</na>
+			<disp>DB110,DB120,DB130</disp>
+			<label>Household interview acceptance</label>
+		</variable>
+		<variable id="HB010">
+			<type>YEAR</type>
+			<req>Y</req>
+			<format>4.</format>
+			<minval>2015</minval>
+			<maxval>2018</maxval>
+			<flag> </flag>
+			<label>Year of the survey</label>
+		</variable>
+		<variable id="HB020">
+			<type>COUNTRY</type>
+			<req>Y</req>
+			<format>$2.</format>
+			<flag> </flag>
+			<label>Country</label>
+		</variable>
+		<variable id="HB030">
+			<type>ID</type>
+			<req>Y</req>
+			<format>10.</format>
+			<flag> </flag>
+			<label>Household ID</label>
+		</variable>
+		<variable id="HB040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>31</maxval>
+			<flag>(-1,1)</flag>
+			<label>Day of household interview</label>
+		</variable>
+		<variable id="HB050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Month of household interview</label>
+		</variable>
+		<variable id="HB060">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>2015</minval>
+			<maxval>2018</maxval>
+			<flag>(-1,1)</flag>
+			<label>Year of Household interview</label>
+		</variable>
+		<variable id="HB070">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-1,1)</flag>
+			<label>ID of person responding the questionnaire</label>
+		</variable>
+		<variable id="HB080">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-1,1)</flag>
+			<label>ID of person 1 responsible for the accommodation</label>
+		</variable>
+		<variable id="HB090">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>ID of person 2 responsible for the accommodation</label>
+		</variable>
+		<variable id="HB100">
+			<req>Y</req>
+			<format>3.</format>
+			<minval>1</minval>
+			<maxval>90</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of minutes to complete</label>
+		</variable>
+		<variable id="HD080">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-7,-1,1)</flag>
+			<label>Replacing worn-out furniture</label>
+		</variable>
+		<variable id="HH010">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>5</maxval>
+			<flag>(-1,1)</flag>
+			<label>Dwelling type</label>
+		</variable>
+		<variable id="HH021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>5</maxval>
+			<flag>(-1,1)</flag>
+			<label>Tenure status</label>
+		</variable>
+		<variable id="HH030">
+			<req>Y</req>
+			<format>3.1</format>
+			<minval>1</minval>
+			<maxval>10</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of rooms available to household</label>
+		</variable>
+		<variable id="HH031">
+			<req>N</req>
+			<format>4.</format>
+			<minval>1900</minval>
+			<maxval>2018</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Year of contract or purchasing or installation</label>
+		</variable>
+		<variable id="HH040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Leaking roof/damp walls/floors/foundation or rot in window frames or floor</label>
+		</variable>
+		<variable id="HH050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Ability to keep home adequately warm</label>
+		</variable>
+		<variable id="HH060">
+			<req>Y</req>
+			<format>12.2</format>
+			<minval>1</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-2,-1,1)</flag>
+			<na>HH021 not in (3,4)</na>
+			<disp>HH021</disp>
+			<label>Current rent related to occupied dwelling</label>
+		</variable>
+		<variable id="HH061">
+			<req>N</req>
+			<format>12.2</format>
+			<minval>1</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-2,-1,1)</flag>
+			<na>(HH021 =3)</na>
+			<disp>HH021</disp>
+			<label>Subjective rent related to non-tenant paying rent at market price</label>
+		</variable>
+		<variable id="HH070">
+			<req>Y</req>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-1,1)</flag>
+			<label>Total housing cost</label>
+		</variable>
+		<variable id="HH071">
+			<req>Y</req>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-2,-1,1)</flag>
+			<na>(HH021 ne 2)</na>
+			<disp>HH021</disp>
+			<label>Mortgage principal repayment</label>
+		</variable>
+		<variable id="HH081">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>Bath or shower in dwelling</label>
+		</variable>
+		<variable id="HH091">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>Indoor flushing toilet for sole use of household</label>
+		</variable>
+		<variable id="HS011">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Arrears on mortgage or rent payments</label>
+		</variable>
+		<variable id="HS021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Arrears on utility bills</label>
+		</variable>
+		<variable id="HS031">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Arrears on hire purchase instalments or other loan payments</label>
+		</variable>
+		<variable id="HS040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Capacity to afford paying for one week annual holiday away from home</label>
+		</variable>
+		<variable id="HS050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Capacity to afford a meal with meat chicken fish or vegetarian equivalent every second day</label>
+		</variable>
+		<variable id="HS060">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Capacity to face unexpected financial expenses</label>
+		</variable>
+		<variable id="HS070">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>Do you have a telephone (including mobile phone)?</label>
+		</variable>
+		<variable id="HS080">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>HS080: Do you have a colour TV?</label>
+		</variable>
+		<variable id="HS090">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>Do you have a computer?</label>
+		</variable>
+		<variable id="HS110">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>Do you have a car?</label>
+		</variable>
+		<variable id="HS120">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>6</maxval>
+			<flag>(-1,1)</flag>
+			<label>Ability to make ends meet</label>
+		</variable>
+		<variable id="HS130">
+			<req>Y</req>
+			<format>12.2</format>
+			<minval>1</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-1,1)</flag>
+			<label>Lowest monthly income to make ends meet</label>
+		</variable>
+		<variable id="HS140">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Total housing cost is a financial burden</label>
+		</variable>
+		<variable id="HS150">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Repayment of debts from hire purchases or loans are a financial burden to the household</label>
+		</variable>
+		<variable id="HS160">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Problems with the dwelling: too dark not enough light</label>
+		</variable>
+		<variable id="HS170">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Noise from neighbours or noise from the street</label>
+		</variable>
+		<variable id="HS180">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Pollution grime or other environmental problems in area caused by traffic or industry</label>
+		</variable>
+		<variable id="HS190">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Crime violence or vandalism in the area</label>
+		</variable>
+		<variable id="HY010">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4)</flag>
+			<label>Total gross income</label>
+		</variable>
+		<variable id="HY020">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4)</flag>
+			<label>Total disposable income</label>
+		</variable>
+		<variable id="HY022">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4)</flag>
+			<label>Total disposable income before social transfers except old-age ans survivors benefits</label>
+		</variable>
+		<variable id="HY023">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4)</flag>
+			<label>Total disposable income before social transfers including old-age ans survivors benefits</label>
+		</variable>
+		<variable id="HY030G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1)</flag>
+			<label>Imputed rent</label>
+		</variable>
+		<variable id="HY030N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-5,-1,0,1)</flag>
+			<label>Imputed rent</label>
+		</variable>
+		<variable id="HY040G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Income from rental of property or land</label>
+		</variable>
+		<variable id="HY040N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Income from rental of property or land</label>
+		</variable>
+		<variable id="HY050G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Family-children related allowances</label>
+		</variable>
+		<variable id="HY050N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Family-children related allowances</label>
+		</variable>
+		<variable id="HY051G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Family-children related allowances (Contributory and means-tested)</label>
+		</variable>
+		<variable id="HY052G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Family-children related allowances (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY053G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Family-children related allowances (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="HY054G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Family-children related allowances (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY060G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Social assistance</label>
+		</variable>
+		<variable id="HY060N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Social assistance</label>
+		</variable>
+		<variable id="HY061G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Social exclusion not elsewhere classified (Contributory and means-tested)</label>
+		</variable>
+		<variable id="HY062G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Social exclusion not elsewhere classified (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY063G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Social exclusion not elsewhere classified (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="HY064G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Social exclusion not elsewhere classified (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY070G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Housing allowances</label>
+		</variable>
+		<variable id="HY070N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Housing allowances</label>
+		</variable>
+		<variable id="HY071G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Housing allowances (Contributory and means-tested)</label>
+		</variable>
+		<variable id="HY072G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Housing allowances (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY073G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Housing allowances (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="HY074G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Housing allowances (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY080G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Regular inter-household cash transfer received</label>
+		</variable>
+		<variable id="HY080N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Regular inter-household cash transfer received</label>
+		</variable>
+		<variable id="HY081G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Almonies received</label>
+		</variable>
+		<variable id="HY081N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Almonies received</label>
+		</variable>
+		<variable id="HY090G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Interest dividends profit from capital investments in unincorporated business</label>
+		</variable>
+		<variable id="HY090N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Interest dividends profit from capital investments in unincorporated business</label>
+		</variable>
+		<variable id="HY100G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1)</flag>
+			<label>Interest paid on mortgage</label>
+		</variable>
+		<variable id="HY100N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,1,11,12,13)</flag>
+			<label>Interest paid on mortgage</label>
+		</variable>
+		<variable id="HY110G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Income received by people aged under 16</label>
+		</variable>
+		<variable id="HY110N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Income received by people aged under 16</label>
+		</variable>
+		<variable id="HY120G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-4,-1,0,1)</flag>
+			<label>Regular taxes on wealth</label>
+		</variable>
+		<variable id="HY120N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-4,-1,0,1,11,12,13)</flag>
+			<label>Regular taxes on wealth</label>
+		</variable>
+		<variable id="HY130G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Regular inter-household cash transfer paid</label>
+		</variable>
+		<variable id="HY130N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Regular inter-household cash transfer paid</label>
+		</variable>
+		<variable id="HY131G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Almonies paid</label>
+		</variable>
+		<variable id="HY131N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Almonies paid</label>
+		</variable>
+		<variable id="HY140G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1)</flag>
+			<label>Tax on income and social contributions</label>
+		</variable>
+		<variable id="HY140N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-5,-1,0,1)</flag>
+			<label>Tax on income and social contributions</label>
+		</variable>
+		<variable id="HY145N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-5,-1,0,1,11,12,13)</flag>
+			<label>Repayments-receipts from tax adjustments</label>
+		</variable>
+		<variable id="HY170G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Value of goods produced for own consumption</label>
+		</variable>
+		<variable id="HY170N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Value of goods produced for own consumption</label>
+		</variable>
+		<variable id="PB010">
+			<type>YEAR</type>
+			<req>Y</req>
+			<format>4.</format>
+			<minval>2015</minval>
+			<maxval>2018</maxval>
+			<flag> </flag>
+			<label>Year of the survey</label>
+		</variable>
+		<variable id="PB020">
+			<type>COUNTRY</type>
+			<req>Y</req>
+			<format>$2.</format>
+			<flag> </flag>
+			<label>Country</label>
+		</variable>
+		<variable id="PB030">
+			<type>ID</type>
+			<req>Y</req>
+			<format>12.</format>
+			<flag> </flag>
+			<label>Personal ID</label>
+		</variable>
+		<variable id="PB040">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-7,1)</flag>
+			<label>Personal cross-sectional weight 16+</label>
+		</variable>
+		<variable id="PB050">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-1,1)</flag>
+			<label>Personal base weight 16+</label>
+		</variable>
+		<variable id="PB060">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-7,-3,-2,1)</flag>
+			<label>Personal cross-sectional weight for selected respondent</label>
+		</variable>
+		<variable id="PB070">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-3,-2,1)</flag>
+			<label>Personal design weight for selected respondent</label>
+		</variable>
+		<variable id="PB080">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-3,-2,1)</flag>
+			<label>Personal base weight for selected respondent</label>
+		</variable>
+		<variable id="PB090">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>31</maxval>
+			<flag>(-1,1)</flag>
+			<label>Day of the personal interview</label>
+		</variable>
+		<variable id="PB100">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Month of the personal interview</label>
+		</variable>
+		<variable id="PB110">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>2015</minval>
+			<maxval>2018</maxval>
+			<flag>(-1,1)</flag>
+			<label>Year of the personal interview</label>
+		</variable>
+		<variable id="PB120">
+			<req>Y</req>
+			<format>3.</format>
+			<minval>1</minval>
+			<maxval>90</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Number of minutes to complete the  questionnaire</label>
+		</variable>
+		<variable id="PB130">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Month of birth</label>
+		</variable>
+		<variable id="PB140">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>1900</minval>
+			<maxval>$YEAR-17</maxval>
+			<flag>(-1,1)</flag>
+			<label>Year of birth</label>
+		</variable>
+		<variable id="PB150">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Sex</label>
+		</variable>
+		<variable id="PB160">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Father ID</label>
+		</variable>
+		<variable id="PB170">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Mother ID</label>
+		</variable>
+		<variable id="PB180">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Spouse/partner ID</label>
+		</variable>
+		<variable id="PB190">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>5</maxval>
+			<flag>(-1,1)</flag>
+			<label>Marital status</label>
+		</variable>
+		<variable id="PB200">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>Consensual Union</label>
+		</variable>
+		<variable id="PB210">
+			<req>Y</req>
+			<format>$3.</format>
+			<list>("BE","DK","DE","EL","ES","FR","IE","IT","LU","NL","AT","PT","FI","SE","UK","BG","CY","CZ","EE","HU","LV","LT","MT","PL","RO","SK","SI","IS","NO","CH","TR","HR","MK","ME","AL","XK","OEU","NAF","WAF","OAF","USA","CAN","CSA","NME","OAS","OCE","OTH","RS")</list>
+			<flag>(-1,1)</flag>
+			<label>Country of birth</label>
+		</variable>
+		<variable id="PB220A">
+			<req>Y</req>
+			<format>$3.</format>
+			<list>("BE","DK","DE","EL","ES","FR","IE","IT","LU","NL","AT","PT","FI","SE","UK","BG","CY","CZ","EE","HU","LV","LT","MT","PL","RO","SK","SI","IS","NO","CH","TR","HR","MK","ME","AL","XK","OEU","NAF","WAF","OAF","USA","CAN","CSA","NME","OAS","OCE","OTH","RS")</list>
+			<flag>(-1,1)</flag>
+			<label>Citizenship 1</label>
+		</variable>
+		<variable id="PB220B">
+			<req>Y</req>
+			<format>$3.</format>
+			<list>("BE","DK","DE","EL","ES","FR","IE","IT","LU","NL","AT","PT","FI","SE","UK","BG","CY","CZ","EE","HU","LV","LT","MT","PL","RO","SK","SI","IS","NO","CH","TR","HR","MK","ME","AL","XK","OEU","NAF","WAF","OAF","USA","CAN","CSA","NME","OAS","OCE","OTH","RS")</list>
+			<flag>(-2,-1,1)</flag>
+			<label>Citizenship 2</label>
+		</variable>
+		<variable id="PD020">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Replace worn-out clothes by some new (not second-hand) ones</label>
+		</variable>
+		<variable id="PD030">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Two pairs of properly fitting shoes (including a pair of all-weather shoes)</label>
+		</variable>
+		<variable id="PD050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Get-together with friends/family (relatives) for a drink/meal at least once a month</label>
+		</variable>
+		<variable id="PD060">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Regularly participate in a leisure activity such as sport, cinema, concert</label>
+		</variable>
+		<variable id="PD070">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Spend a small amount of money each week on yourself</label>
+		</variable>
+		<variable id="PD080">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Internet connection for personal use at home</label>
+		</variable>
+		<variable id="PE010">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Current education activity</label>
+		</variable>
+		<variable id="PE020">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(0,1,2,3,4,5,6,00,10,20,30,34,35,40,44,45,50,60,70,80)</list>
+			<flag>(-2,-1,1)</flag>
+			<na>PE010 ne 1</na>
+			<disp>PE010</disp>
+			<label>ISCED level currently attended</label>
+		</variable>
+		<variable id="PE030">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>1900</minval>
+			<maxval>2018</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>PE040=0</na>
+			<disp>PB010,PE040</disp>
+			<label>Year highest level of education attained</label>
+		</variable>
+		<variable id="PE040">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(000,100,200,300,340,342,343,344,350,352,353,354,400,440,450,500,600,700,800)</list>
+			<flag>(-2,-1,1)</flag>
+			<label>Highest ISCED level attained</label>
+		</variable>
+		<variable id="PH010">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>5</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>General health</label>
+		</variable>
+		<variable id="PH020">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Suffer from any chronic illness or condition</label>
+		</variable>
+		<variable id="PH030">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Limitation in activities because health problems</label>
+		</variable>
+		<variable id="PH040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<label>Unmet need for medical examination or treatment</label>
+		</variable>
+		<variable id="PH050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>8</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>PH040 ne 1</na>
+			<disp>PH040</disp>
+			<label>Reason for unmet need for medical examination or treatment</label>
+		</variable>
+		<variable id="PH060">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<label>Unmet need for dental examination or treatment</label>
+		</variable>
+		<variable id="PH070">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>8</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>PH060 ne 1</na>
+			<disp>PH060</disp>
+			<label>Reason for unmet need for dental examination or treatment</label>
+		</variable>
+		<variable id="PHD01T">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>5</maxval>
+			<flag>(-8,-7,-3,-1,1)</flag>
+			<label>Past experience of housing difficulties (OPTIONAL)</label>
+		</variable>
+		<variable id="PHD02T">
+			<req>N</req>
+			<format>12.</format>
+			<minval>0</minval>
+			<maxval>1000000000000</maxval>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>PHD01T = 5</na>
+			<disp>PHD01T</disp>
+			<label>Duration of the most recent experience of housing difficulties (OPTIONAL)</label>
+		</variable>
+		<variable id="PHD03T">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>8</maxval>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>PHD01T = 5</na>
+			<disp>PHD01T</disp>
+			<label>Main reason for past housing difficulties (OPTIONAL)</label>
+		</variable>
+		<variable id="PHD04T">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>9</maxval>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>PHD01T = 5</na>
+			<disp>PHD01T</disp>
+			<label>Other reason for past housing difficulties (OPTIONAL)</label>
+		</variable>
+		<variable id="PHD05T">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>6</maxval>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>PHD01T = 5</na>
+			<disp>PHD01T</disp>
+			<label>Exit from housing difficulties (OPTIONAL)</label>
+		</variable>
+		<variable id="PL015">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>(PL031 in (1,2,3,4))</na>
+			<disp>PL031</disp>
+			<label>Have you ever worked?</label>
+		</variable>
+		<variable id="PL020">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Actively looking for a job</label>
+		</variable>
+		<variable id="PL025">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>PL020 ne 1</na>
+			<disp>PL020</disp>
+			<label>Available for work</label>
+		</variable>
+		<variable id="PL031">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-1,1)</flag>
+			<label>Self-defined current economic status</label>
+		</variable>
+		<variable id="PL035">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<label>Worked at least 1 hour ,previous week</label>
+		</variable>
+		<variable id="PL040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>4</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>(PL031 not in (1,2,3,4) and PL015 ne 1)</na>
+			<disp>PL031,PL015</disp>
+			<label>Status in employment</label>
+		</variable>
+		<variable id="PL051">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(11,12,13,14,21,22,23,24,25,26,31,32,33,34,35,41,42,43,44,51,52,53,54,61,62,63,71,72,73,74,75,81,82,83,91,92,93,94,95,96,01,02,03,1,2,3)</list>
+			<flag>(-2,-1,1)</flag>
+			<na>(PL031 not in (1,2,3,4) and PL015 ne 1)</na>
+			<disp>PL031,PL015</disp>
+			<label>Occupation/ISCO-08-COM</label>
+		</variable>
+		<variable id="PL060">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>99</maxval>
+			<flag>(-6,-2,-1,1)</flag>
+			<na>(PL031 not in (1,2,3,4) )</na>
+			<disp>PL031</disp>
+			<label>Number of hours per week worked in main job</label>
+		</variable>
+		<variable id="PL073">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of months spent at full-time work as employee</label>
+		</variable>
+		<variable id="PL074">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of months spent at part-time work as employee</label>
+		</variable>
+		<variable id="PL075">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of months spent at full-time work as self-employed (including family worker)</label>
+		</variable>
+		<variable id="PL076">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of months spent at part-time work as self-employed (including family worker)</label>
+		</variable>
+		<variable id="PL080">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of months spent in unemployment</label>
+		</variable>
+		<variable id="PL085">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of months spent in retirement or early retirement</label>
+		</variable>
+		<variable id="PL086">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of months spent as disabled or/and unfit to work</label>
+		</variable>
+		<variable id="PL087">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of months spent studying</label>
+		</variable>
+		<variable id="PL088">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-5,-1,1)</flag>
+			<label>Number of months spent in compulsory military service</label>
+		</variable>
+		<variable id="PL089">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-5,-1,1)</flag>
+			<label>Number of months spent fulfilling domestic tasks and care responsibilities</label>
+		</variable>
+		<variable id="PL090">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of months spent in other inactivity</label>
+		</variable>
+		<variable id="PL100">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Total number of hours usually worked in second third jobs</label>
+		</variable>
+		<variable id="PL111">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(01,02,03,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,35,36,37,38,39,41,42,43,45,46,47,49,50,51,52,53,55,56,58,59,60,61,62,63,64,65,66,68,69,70,71,72,73,74,75,77,78,79,80,81,82,84,85,86,87,88,90,91,92,93,94,95,96,97,98,99)</list>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>(PL031 not in (1,2,3,4) )</na>
+			<disp>PL031</disp>
+			<label>NACE Rev2</label>
+		</variable>
+		<variable id="PL120">
+			<subtype src="_PL120_r.sql">CUSTOM</subtype>
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>7</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>(PL031 not in (1,2,3,4))  or sum(PL060,PL100) ge 30</na>
+			<disp>PL031,PL060,PL060_F,PL100</disp>
+			<label>Reason for working less than 30 hours</label>
+		</variable>
+		<variable id="PL130">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>15</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>(PL031 not in (1,2,3,4) )</na>
+			<disp>PL031</disp>
+			<label>Number of persons working at the local unit</label>
+		</variable>
+		<variable id="PL140">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-4,-3,-2,-1,1)</flag>
+			<na>PL040 ne 3</na>
+			<disp>PL040</disp>
+			<label>Type of contract</label>
+		</variable>
+		<variable id="PL150">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>PL040 ne 3</na>
+			<disp>PL040</disp>
+			<label>Managerial position</label>
+		</variable>
+		<variable id="PL160">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>(PL031 not in (1,2,3,4) )</na>
+			<disp>PL031</disp>
+			<label>Change of job since last year</label>
+		</variable>
+		<variable id="PL170">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>7</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>PL160 ne 1</na>
+			<disp>PL160</disp>
+			<label>Reason for change</label>
+		</variable>
+		<variable id="PL180">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>12</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<label>Most recent change in the individuals activity status</label>
+		</variable>
+		<variable id="PL190">
+			<req>N</req>
+			<format>2.</format>
+			<minval>8</minval>
+			<maxval>65</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>(PL031 not in (1,2,3,4) and PL015 ne 1)</na>
+			<disp>PL031,PL015</disp>
+			<label>When began first regular job</label>
+		</variable>
+		<variable id="PL200">
+			<req>N</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>65</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>(PL031 not in (1,2,3,4) and PL015 ne 1)</na>
+			<disp>PL031,PL015</disp>
+			<label>Number of years spent in paid work</label>
+		</variable>
+		<variable id="PL211A">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in January</label>
+		</variable>
+		<variable id="PL211B">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in February</label>
+		</variable>
+		<variable id="PL211C">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in March</label>
+		</variable>
+		<variable id="PL211D">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in April</label>
+		</variable>
+		<variable id="PL211E">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in May</label>
+		</variable>
+		<variable id="PL211F">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in June</label>
+		</variable>
+		<variable id="PL211G">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in July</label>
+		</variable>
+		<variable id="PL211H">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in August</label>
+		</variable>
+		<variable id="PL211I">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in September</label>
+		</variable>
+		<variable id="PL211J">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in October</label>
+		</variable>
+		<variable id="PL211K">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in November</label>
+		</variable>
+		<variable id="PL211L">
+			<req>N</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1)</flag>
+			<label>Main activity in December</label>
+		</variable>
+		<variable id="PW005T">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-8,-7,-3,-1,1)</flag>
+			<label>Module weight</label>
+		</variable>
+		<variable id="PW010T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Overall life satisfaction</label>
+		</variable>
+		<variable id="PW030T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Satisfaction with financial situation</label>
+		</variable>
+		<variable id="PW040T">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Material help</label>
+		</variable>
+		<variable id="PW050T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(1,2,3,4,5,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Being very nervous</label>
+		</variable>
+		<variable id="PW060T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(1,2,3,4,5,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Feeling down in the dumps</label>
+		</variable>
+		<variable id="PW070T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(1,2,3,4,5,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Feeling calm and peaceful</label>
+		</variable>
+		<variable id="PW080T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(1,2,3,4,5,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Feeling downhearted or depressed</label>
+		</variable>
+		<variable id="PW090T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(1,2,3,4,5,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Being happy</label>
+		</variable>
+		<variable id="PW100T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+			<flag>(-7,-3,-2,-1,1)</flag>
+			<label>Satisfaction with job</label>
+		</variable>
+		<variable id="PW110T">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Non-material help</label>
+		</variable>
+		<variable id="PW120T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Satisfaction with time use (amount of leisure time)</label>
+		</variable>
+		<variable id="PW160T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Satisfaction with personal relationships</label>
+		</variable>
+		<variable id="PW190T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Trust in others</label>
+		</variable>
+		<variable id="PW230T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(1,2,3,4,5,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Feeling lonely</label>
+		</variable>
+		<variable id="PW240T">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<label>Perceived social exclusion</label>
+		</variable>
+		<variable id="PY010G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Gross employee cash or near cash income</label>
+		</variable>
+		<variable id="PY010N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Net employee cash or near cash income</label>
+		</variable>
+		<variable id="PY020G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-4,-1,0,1,2,3,4,5,6)</flag>
+			<label>Gross Non-Cash employee income</label>
+		</variable>
+		<variable id="PY020N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-4,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Net Non-Cash employee income</label>
+		</variable>
+		<variable id="PY021G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-4,-1,0,1,2,3,4,5,6)</flag>
+			<label>Company car</label>
+		</variable>
+		<variable id="PY021N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-4,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Company car</label>
+		</variable>
+		<variable id="PY030G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1)</flag>
+			<label>Employers social insurance contribution</label>
+		</variable>
+		<variable id="PY031G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1)</flag>
+			<label>Optional employers social insurance contribution</label>
+		</variable>
+		<variable id="PY035G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1)</flag>
+			<label>Contributions to individual pension plans</label>
+		</variable>
+		<variable id="PY035N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-5,-1,0,1)</flag>
+			<label>Contributions to individual pension plans</label>
+		</variable>
+		<variable id="PY050G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-1000000000</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Gross cash benefits or losses from self- employment</label>
+		</variable>
+		<variable id="PY050N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-1000000000</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Net cash benefits or losses from self- employment</label>
+		</variable>
+		<variable id="PY080G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Regular pension from private schemes</label>
+		</variable>
+		<variable id="PY080N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Regular pension from private plans</label>
+		</variable>
+		<variable id="PY090G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Unemployment benefits</label>
+		</variable>
+		<variable id="PY090N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Unemployment benefits</label>
+		</variable>
+		<variable id="PY091G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Unemployment benefits (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY092G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Unemployment benefits (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY093G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Unemployment benefits (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY094G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Unemployment benefits (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY100G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-4,-1,0,1,2,3,4,5,6)</flag>
+			<label>Old-age benefits</label>
+		</variable>
+		<variable id="PY100N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-4,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Old-age benefits</label>
+		</variable>
+		<variable id="PY101G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Old-age benefits (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY102G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Old-age benefits (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY103G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Old-age benefits (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY104G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Old-age benefits (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY110G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-4,-1,0,1,2,3,4,5,6)</flag>
+			<label>Survivor benefits</label>
+		</variable>
+		<variable id="PY110N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-4,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Survivor benefits</label>
+		</variable>
+		<variable id="PY111G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Survivor benefits (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY112G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Survivor benefits (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY113G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Survivor benefits(non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY114G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Survivor benefits (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY120G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-4,-1,0,1,2,3,4,5,6)</flag>
+			<label>Sickness benefits</label>
+		</variable>
+		<variable id="PY120N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-4,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Sickness benefits</label>
+		</variable>
+		<variable id="PY121G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Sickness benefits (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY122G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Sickness benefits (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY123G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Sickness benefits (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY124G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Sickness benefits (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY130G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-4,-1,0,1,2,3,4,5,6)</flag>
+			<label>Disability benefits</label>
+		</variable>
+		<variable id="PY130N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-4,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Disability benefits</label>
+		</variable>
+		<variable id="PY131G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Disability benefits (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY132G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Disability benefits (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY133G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Disability benefits (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY134G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Disability benefits (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY140G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-1,0,1,2,3,4,5,6)</flag>
+			<label>Education-related allowances</label>
+		</variable>
+		<variable id="PY140N">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-5,-1,0,11,12,13, 21,22,23,31,32,33, 41,42,43,51,52,53,55,56)</flag>
+			<label>Education-related allowances</label>
+		</variable>
+		<variable id="PY141G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Education-related allowances (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY142G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Education-related allowances (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY143G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Education-related allowances (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY144G">
+			<req>N</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(2,1,0,-1,-2,-7)</flag>
+			<label>Education-related allowances (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY200G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="1" split="3">(-2,-1,0,1,2,3,4,5,6)</flag>
+			<label>Gross monthly earnings for employees</label>
+		</variable>
+		<variable id="RB010">
+			<type>YEAR</type>
+			<req>Y</req>
+			<format>4.</format>
+			<minval>2015</minval>
+			<maxval>2018</maxval>
+			<flag> </flag>
+			<label>Year of the survey</label>
+		</variable>
+		<variable id="RB020">
+			<type>COUNTRY</type>
+			<req>Y</req>
+			<format>$2.</format>
+			<flag> </flag>
+			<label>Country</label>
+		</variable>
+		<variable id="RB030">
+			<type>ID</type>
+			<req>Y</req>
+			<format>12.</format>
+			<flag> </flag>
+			<label>Personal ID</label>
+		</variable>
+		<variable id="RB031">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>1900</minval>
+			<maxval>2018</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Year of imigration</label>
+		</variable>
+		<variable id="RB040">
+			<type>ID</type>
+			<req>Y</req>
+			<format>10.</format>
+			<flag> </flag>
+			<label>Current Household ID</label>
+		</variable>
+		<variable id="RB050">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-7,-2,1)</flag>
+			<na>RB110 not in (1,2,3,4) and RB010 = 2018</na>
+			<disp>RB110</disp>
+			<label>Personal cross-sectional weight</label>
+		</variable>
+		<variable id="RB060">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-1,1)</flag>
+			<label>Personal base weight</label>
+		</variable>
+		<variable id="RB062">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Longitudinal weight (two-year duration)</label>
+		</variable>
+		<variable id="RB063">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Longitudinal weight (three-year duration)</label>
+		</variable>
+		<variable id="RB064">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Longitudinal weight (four-year duration)</label>
+		</variable>
+		<variable id="RB070">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Month of birth</label>
+		</variable>
+		<variable id="RB080">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>1890</minval>
+			<maxval>2018</maxval>
+			<flag>(-1,1)</flag>
+			<label>Year of birth</label>
+		</variable>
+		<variable id="RB090">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Sex</label>
+		</variable>
+		<variable id="RB100">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Sample person or co-resident</label>
+		</variable>
+		<variable id="RB110">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>7</maxval>
+			<flag>(-1,1)</flag>
+			<label>Membership status</label>
+		</variable>
+		<variable id="RB120">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>4</maxval>
+			<flag>(-2,1)</flag>
+			<na>RB110 ne 5</na>
+			<disp>RB110</disp>
+			<label>To where did the person move</label>
+		</variable>
+		<variable id="RB140">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>12</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB110 not in (5,6)</na>
+			<disp>RB110</disp>
+			<label>Month when the person moved out or died</label>
+		</variable>
+		<variable id="RB150">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>2015</minval>
+			<maxval>2018</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB110 not in (5,6)</na>
+			<disp>RB110</disp>
+			<label>Year when the person moved out or died</label>
+		</variable>
+		<variable id="RB160">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB110 not in (5,6,7)</na>
+			<disp>RB110</disp>
+			<label>Number of months in household during the income reference period</label>
+		</variable>
+		<variable id="RB170">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>4</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB110 not in (5,6,7)</na>
+			<disp>RB110</disp>
+			<label>Main activity status during the income reference period</label>
+		</variable>
+		<variable id="RB180">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>12</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB110 ne 3</na>
+			<disp>RB110</disp>
+			<label>Month when the person moved in</label>
+		</variable>
+		<variable id="RB190">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>2015</minval>
+			<maxval>2018</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB110 ne 3</na>
+			<disp>RB110</disp>
+			<label>Year when the person moved in</label>
+		</variable>
+		<variable id="RB200">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB110 not in (1,2,3,4)</na>
+			<disp>RB110</disp>
+			<label>Residential status</label>
+		</variable>
+		<variable id="RB210">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>4</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB110 not in (1,2,3,4)</na>
+			<disp>RB110</disp>
+			<label>Basic activity status</label>
+		</variable>
+		<variable id="RB220">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<disp>RB110</disp>
+			<label>Father ID</label>
+		</variable>
+		<variable id="RB230">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<disp>RB110</disp>
+			<label>Mother ID</label>
+		</variable>
+		<variable id="RB240">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<disp>RB110</disp>
+			<label>Spouse/partner ID</label>
+		</variable>
+		<variable id="RB245">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>4</maxval>
+			<flag>(-2,1)</flag>
+			<na>RB110 not in (1,2,3,4)</na>
+			<disp>RB110</disp>
+			<label>Respondent Status</label>
+		</variable>
+		<variable id="RB250">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(11,12,13,14,21,22,23,31,32,33)</list>
+			<flag>(-2,1)</flag>
+			<na>RB245 not in (1,2,3)</na>
+			<disp>RB245</disp>
+			<label>Data Status</label>
+		</variable>
+		<variable id="RB260">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>10</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>(RB250 not in (11,13) or RB245=3)</na>
+			<disp>RB245,RB250</disp>
+			<label>Type of interview</label>
+		</variable>
+		<variable id="RB270">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB260 not in (6,7,8,9,10)</na>
+			<disp>RB010,RB245,RB250,RB260</disp>
+			<label>ID of person who filled in the individual questionnaire</label>
+		</variable>
+		<variable id="RL010">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Education at pre-school</label>
+		</variable>
+		<variable id="RL020">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Education at compulsory school</label>
+		</variable>
+		<variable id="RL030">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Childcare at center based services</label>
+		</variable>
+		<variable id="RL040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Childcare at day-care center</label>
+		</variable>
+		<variable id="RL050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Childcare by professional child-minder</label>
+		</variable>
+		<variable id="RL060">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Childcare by relatives etc</label>
+		</variable>
+		<variable id="RL070">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-7,-2,1)</flag>
+			<label>Childcare weight</label>
+		</variable>
+	</nucleus>
+</SVAL>

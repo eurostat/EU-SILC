@@ -1,0 +1,4455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by  (European Commission - DG EUROSTAT) -->
+<!-- Revision: May 16th 2023 -->
+<SVAL missthres="0.05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../XSD/SVAL-R.xsd">
+	<nucleus>
+		<variable id="DB010" key="Y">
+			<type>YEAR</type>
+			<req>Y</req>
+			<format>4.</format>
+			<minval>$YEAR-5</minval>
+			<maxval>$YEAR</maxval>
+			<flag> </flag>
+			<label>Year of the survey</label>
+		</variable>
+		<variable id="DB020" key="Y">
+			<type>COUNTRY</type>
+			<req>Y</req>
+			<format>$2.</format>
+			<list ref="SCL_CTRY"/>
+			<flag> </flag>
+			<label>Country</label>
+		</variable>
+		<variable id="DB030" key="Y">
+			<type>ID</type>
+			<req>Y</req>
+			<format>10.</format>
+			<minval>100</minval>
+			<maxval>999999999999</maxval>
+			<flag> </flag>
+			<label>Household ID</label>
+		</variable>
+		<variable id="DB040">
+			<req>Y</req>
+			<format>$5.</format>
+			<list ref="SCL_NUTS"/>
+			<flag>(-1,1)</flag>
+			<label>Region of residence</label>
+		</variable>
+		<variable id="DB050">
+			<req>Y</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1,2,3)</flag>
+			<label>Stratum</label>
+		</variable>
+		<variable id="DB060">
+			<req>Y</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1,2)</flag>
+			<label>PSU-1</label>
+		</variable>
+		<variable id="DB062">
+			<req>Y</req>
+			<format>6.</format>
+			<minval>1</minval>
+			<maxval>999999</maxval>
+			<flag>(-2,1,2)</flag>
+			<label>SSU-1</label>
+		</variable>
+		<variable id="DB070">
+			<req>Y</req>
+			<format>5.</format>
+			<minval>1</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1,11,12,21,22)</flag>
+			<label>Order of the selection of PSU-1</label>
+		</variable>
+		<variable id="DB075">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>9</maxval>
+			<flag>(-2,1)</flag>
+			<label>Rotational group</label>
+		</variable>
+		<variable id="DB076" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>9</maxval>
+			<flag>(-7,1)</flag>
+			<na flag="-7"/>
+			<label>Interview</label>
+		</variable>
+		<variable id="DB080">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-2,1)</flag>
+			<label>Household design weight</label>
+		</variable>
+		<variable id="DB090">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-7,1)</flag>
+			<label>Household cross-sectional weight</label>
+		</variable>
+		<variable id="DB095">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>999999</maxval>
+			<flag>(-2,1)</flag>
+			<na>DB110=9 and DB010 = $YEAR</na>
+			<disp>DB110</disp>
+			<label>Household longitudinal weight</label>
+		</variable>
+		<variable id="DB100">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>Degree of urbanisation</label>
+		</variable>
+		<variable id="DB110">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-1,1)</flag>
+			<label>Household status</label>
+		</variable>
+		<variable id="DB120">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(11,21,22,23)</list>
+			<flag>(-2,-1,1)</flag>
+			<na>DB110 not in (2,8,9)</na>
+			<disp>DB110</disp>
+			<label>Record of contact at address</label>
+		</variable>
+		<variable id="DB130">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(11,21,22,23,24)</list>
+			<flag>(-2,-1,1)</flag>
+			<na>DB120 ne 11 and DB110 ne 1</na>
+			<disp>DB110,DB120,DB135</disp>
+			<label>Household questionnaire result</label>
+		</variable>
+		<variable id="DB135">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>DB130 ne 11</na>
+			<disp>DB110,DB120,DB130</disp>
+			<label>Household interview acceptance</label>
+		</variable>
+		<variable id="HB010" key="Y">
+			<type>YEAR</type>
+			<req>Y</req>
+			<format>4.</format>
+			<minval>$YEAR-5</minval>
+			<maxval>$YEAR</maxval>
+			<flag> </flag>
+			<label>Year of the survey</label>
+		</variable>
+		<variable id="HB020" key="Y">
+			<type>COUNTRY</type>
+			<req>Y</req>
+			<format>$2.</format>
+			<list ref="SCL_CTRY"/>
+			<flag> </flag>
+			<label>Country</label>
+		</variable>
+		<variable id="HB030" key="Y">
+			<type>ID</type>
+			<req>Y</req>
+			<format>10.</format>
+			<minval>100</minval>
+			<maxval>999999999</maxval>
+			<flag> </flag>
+			<label>Household ID</label>
+		</variable>
+		<variable id="HB040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>31</maxval>
+			<flag>(-1,1)</flag>
+			<label>Day of household interview</label>
+		</variable>
+		<variable id="HB050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1)</flag>
+			<label>Month of household interview</label>
+		</variable>
+		<variable id="HB060">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>$YEAR-5</minval>
+			<maxval>$YEAR</maxval>
+			<flag>(-1,1)</flag>
+			<label>Year of Household interview</label>
+		</variable>
+		<variable id="HB070">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10000</minval>
+			<maxval>999999999999</maxval>
+			<flag>(-1,1)</flag>
+			<label>ID of person responding the questionnaire</label>
+		</variable>
+		<variable id="HB100">
+			<req>Y</req>
+			<format>3.</format>
+			<minval>1</minval>
+			<maxval>90</maxval>
+			<flag>(-1,1)</flag>
+			<label>Number of minutes to complete</label>
+		</variable>
+		<variable id="HB110" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,7)</list>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Household type</label>
+		</variable>
+		<variable id="HB120" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>99</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Household size</label>
+		</variable>
+		<variable id="HB130" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Interview mode</label>
+		</variable>
+		<variable id="HD080">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-1,1)</flag>
+			<label>Replacing worn-out furniture</label>
+		</variable>
+		<variable id="HH010">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>5</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Dwelling type</label>
+		</variable>
+		<variable id="HH021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>5</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Tenure status</label>
+		</variable>
+		<variable id="HH030">
+			<req>Y</req>
+			<format>3.1</format>
+			<minval>1</minval>
+			<maxval>10</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of rooms available to household</label>
+		</variable>
+		<variable id="HH050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Ability to keep home adequately warm</label>
+		</variable>
+		<variable id="HH060">
+			<req>Y</req>
+			<format>12.2</format>
+			<minval>1</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-2,-1,1,2,3,4)</flag>
+			<na>HH021 not in (3,4)</na>
+			<disp>HH021</disp>
+			<label>Current rent related to occupied dwelling</label>
+		</variable>
+		<variable id="HH070">
+			<req>Y</req>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-1,1,2,3,4)</flag>
+			<label>Total housing cost</label>
+		</variable>
+		<variable id="HH071">
+			<req>Y</req>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag substr="2" split="3">(-2,-1,1)</flag>
+			<na>(HH021 ne 2)</na>
+			<disp>HH021</disp>
+			<label>Mortgage principal repayment</label>
+		</variable>
+		<variable id="HI010" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Change in the household income compared to previous year</label>
+		</variable>
+		<variable id="HI020" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>7</maxval>
+			<flag>(-7,-2,-1,1)</flag>
+			<na>HI010 in (2,3)</na>
+			<na flag="-7"/>
+			<disp>HI010</disp>
+			<label>Reason for increase in income</label>
+		</variable>
+		<variable id="HI030" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>9</maxval>
+			<flag>(-7,-2,-1,1)</flag>
+			<na>HI010 in (1,2)</na>
+			<na flag="-7"/>
+			<disp>HI010</disp>
+			<label>Reason for decrease in income</label>
+		</variable>
+		<variable id="HI040" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-8,-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>expectation of the income in the next 12 months</label>
+		</variable>
+		<variable id="HS011">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Arrears on mortgage or rent payments</label>
+		</variable>
+		<variable id="HS021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Arrears on utility bills</label>
+		</variable>
+		<variable id="HS022" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-2,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Reduced utility cost</label>
+		</variable>
+		<variable id="HS031">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Arrears on hire purchase instalments or other loan payments</label>
+		</variable>
+		<variable id="HS040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Capacity to afford paying for one week annual holiday away from home</label>
+		</variable>
+		<variable id="HS050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Capacity to afford a meal with meat chicken fish or vegetarian equivalent every second day</label>
+		</variable>
+		<variable id="HS060">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Capacity to face unexpected financial expenses</label>
+		</variable>
+		<variable id="HS090">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>Do you have a computer?</label>
+		</variable>
+		<variable id="HS110">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1)</flag>
+			<label>Do you have a car?</label>
+		</variable>
+		<variable id="HS120">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>6</maxval>
+			<flag>(-1,1)</flag>
+			<label>Ability to make ends meet</label>
+		</variable>
+		<variable id="HS150">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Repayment of debts from hire purchases or loans are a financial burden to the household</label>
+		</variable>
+		<variable id="HY010">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Total household gross income</label>
+		</variable>
+		<variable id="HY020">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Total disposable household income</label>
+		</variable>
+		<variable id="HY022">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Total disposable household income before social transfers other than old-age and survivors benefits</label>
+		</variable>
+		<variable id="HY023">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Total disposable income before social transfers including old-age and survivors benefits</label>
+		</variable>
+		<variable id="HY040G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Income from rental of property or land</label>
+		</variable>
+		<variable id="HY040N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Income from rental of property or land</label>
+			<parent>
+				<item x="HY040G"/>
+			</parent>
+		</variable>
+		<variable id="HY050G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Family-children related allowances</label>
+			<checksum child_nullable="Y" tolerance="0.01">
+				<item x="HY051G"/>
+				<item x="HY052G"/>
+				<item x="HY053G"/>
+				<item x="HY054G"/>
+			</checksum>
+		</variable>
+		<variable id="HY050N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Family-children related allowances</label>
+			<parent>
+				<item x="HY050G"/>
+			</parent>
+		</variable>
+		<variable id="HY051G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Family-children related allowances (Contributory and means-tested)</label>
+		</variable>
+		<variable id="HY052G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Family-children related allowances (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY053G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Family-children related allowances (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="HY054G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Family-children related allowances (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY060G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Social assistance</label>
+			<checksum child_nullable="Y" tolerance="0.01">
+				<item x="HY061G"/>
+				<item x="HY062G"/>
+				<item x="HY063G"/>
+				<item x="HY064G"/>
+			</checksum>
+		</variable>
+		<variable id="HY060N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Social assistance</label>
+			<parent>
+				<item x="HY060G"/>
+			</parent>
+		</variable>
+		<variable id="HY061G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Social exclusion not elsewhere classified (Contributory and means-tested)</label>
+		</variable>
+		<variable id="HY062G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Social exclusion not elsewhere classified (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY063G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Social exclusion not elsewhere classified (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="HY064G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Social exclusion not elsewhere classified (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY070G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Housing allowances</label>
+			<checksum child_nullable="Y" tolerance="0.01">
+				<item x="HY071G"/>
+				<item x="HY072G"/>
+				<item x="HY073G"/>
+				<item x="HY074G"/>
+			</checksum>
+		</variable>
+		<variable id="HY070N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Housing allowances</label>
+			<parent>
+				<item x="HY070G"/>
+			</parent>
+		</variable>
+		<variable id="HY071G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Housing allowances (Contributory and means-tested)</label>
+		</variable>
+		<variable id="HY072G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Housing allowances (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY073G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Housing allowances (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="HY074G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Housing allowances (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="HY080G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Regular inter-household cash transfer received</label>
+		</variable>
+		<variable id="HY080N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Regular inter-household cash transfer received</label>
+			<parent>
+				<item x="HY080G"/>
+			</parent>
+		</variable>
+		<variable id="HY081G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Almonies received</label>
+			<parent>
+				<item x="HY080G"/>
+			</parent>
+		</variable>
+		<variable id="HY081N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Almonies received</label>
+			<parent>
+				<item x="HY080N"/>
+			</parent>
+		</variable>
+		<variable id="HY090G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Interest dividends profit from capital investments in unincorporated business</label>
+		</variable>
+		<variable id="HY090N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Interest dividends profit from capital investments in unincorporated business</label>
+			<parent>
+				<item x="HY090G"/>
+			</parent>
+		</variable>
+		<variable id="HY100G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<label>Interest paid on mortgage</label>
+		</variable>
+		<variable id="HY100N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<label>Interest paid on mortgage</label>
+			<parent>
+				<item x="HY100G"/>
+			</parent>
+		</variable>
+		<variable id="HY110G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Income received by people aged under 16</label>
+		</variable>
+		<variable id="HY110N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Income received by people aged under 16</label>
+			<parent>
+				<item x="HY110G"/>
+			</parent>
+		</variable>
+		<variable id="HY120G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<label>Regular taxes on wealth</label>
+		</variable>
+		<variable id="HY120N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<label>Regular taxes on wealth</label>
+			<parent>
+				<item x="HY120G"/>
+			</parent>
+		</variable>
+		<variable id="HY121G" start="2021">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-7,-4,-2,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<na>HH021 ne 1 and HH021 ne 2</na>
+			<na flag="-7"/>
+			<disp>HH021</disp>
+			<label>Taxes paid on ownership of household main dwelling</label>
+		</variable>
+		<variable id="HY121N" start="2021">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-7,-4,-2,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<na>HH021 ne 1 and HH021 ne 2</na>
+			<na flag="-7"/>
+			<disp>HH021</disp>
+			<label>Taxes paid on ownership of household main dwelling</label>
+		</variable>
+		<variable id="HY130G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Regular inter-household cash transfer paid</label>
+		</variable>
+		<variable id="HY130N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Regular inter-household cash transfer paid</label>
+			<parent>
+				<item x="HY130G"/>
+			</parent>
+		</variable>
+		<variable id="HY131G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Almonies paid</label>
+		</variable>
+		<variable id="HY131N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Almonies paid</label>
+		</variable>
+		<variable id="HY140G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Tax on income and social contributions</label>
+		</variable>
+		<variable id="HY140N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Tax on income and social contributions</label>
+			<parent>
+				<item x="HY140G"/>
+			</parent>
+		</variable>
+		<variable id="HY145N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-99999999.99</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<label>Repayments-receipts from tax adjustments</label>
+		</variable>
+		<variable id="HY170G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-8,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Value of goods produced for own consumption</label>
+		</variable>
+		<variable id="HY170N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-8,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Value of goods produced for own consumption</label>
+		</variable>
+		<variable id="PB010" key="Y">
+			<type>YEAR</type>
+			<req>Y</req>
+			<format>4.</format>
+			<minval>$YEAR-5</minval>
+			<maxval>$YEAR</maxval>
+			<flag> </flag>
+			<label>Year of the survey</label>
+		</variable>
+		<variable id="PB020" key="Y">
+			<type>COUNTRY</type>
+			<req>Y</req>
+			<format>$2.</format>
+			<list ref="SCL_CTRY"/>
+			<flag> </flag>
+			<label>Country</label>
+		</variable>
+		<variable id="PB030" key="Y">
+			<type>ID</type>
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10000</minval>
+			<maxval>999999999999</maxval>
+			<flag> </flag>
+			<label>Personal ID</label>
+		</variable>
+		<variable id="PB040">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-7,1)</flag>
+			<label>Personal cross-sectional weight 16+</label>
+		</variable>
+		<variable id="PB050">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(1)</flag>
+			<label>Personal base weight 16+</label>
+		</variable>
+		<variable id="PB060">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-7,-3,-2,1)</flag>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Personal cross-sectional weight for selected respondent</label>
+		</variable>
+		<variable id="PB070">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-3,-2,1)</flag>
+			<na flag="-3"/>
+			<label>Personal design weight for selected respondent</label>
+		</variable>
+		<variable id="PB080">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-3,-2,1)</flag>
+			<na flag="-3"/>
+			<label>Personal base weight for selected respondent</label>
+		</variable>
+		<variable id="PB090">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>31</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Day of the personal interview</label>
+		</variable>
+		<variable id="PB100">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>12</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Month of the personal interview</label>
+		</variable>
+		<variable id="PB110">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>$YEAR-5</minval>
+			<maxval>$YEAR</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Year of the personal interview</label>
+		</variable>
+		<variable id="PB120">
+			<req>Y</req>
+			<format>3.</format>
+			<minval>1</minval>
+			<maxval>90</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Number of minutes to complete the  questionnaire</label>
+		</variable>
+		<variable id="PB140">
+                        <type>YEAR</type>
+			<req>Y</req>
+			<format>4.</format>
+			<minval>$YEAR-120</minval>
+			<maxval>$YEAR-17</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Year of birth</label>
+		</variable>
+		<variable id="PB150">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Sex</label>
+		</variable>
+		<variable id="PB160">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10000</minval>
+			<maxval>999999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Father ID</label>
+		</variable>
+		<variable id="PB170">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10000</minval>
+			<maxval>999999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Mother ID</label>
+		</variable>
+		<variable id="PB180">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10001</minval>
+			<maxval>99999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Spouse/partner ID</label>
+		</variable>
+		<variable id="PB190">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>5</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Marital status</label>
+		</variable>
+		<variable id="PB200">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Consensual Union</label>
+		</variable>
+		<variable id="PB205" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Partners living in the same household</label>
+		</variable>
+		<variable id="PB230" start="2021">
+			<req>Y</req>
+			<format>$3.</format>
+			<list ref="SCL_GEO" filt="B">("FOR")</list>
+			<flag>(-7,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Country of birth of father</label>
+		</variable>
+		<variable id="PB240" start="2021">
+			<req>Y</req>
+			<format>$3.</format>
+			<list ref="SCL_GEO" filt="B">("FOR")</list>
+			<flag>(-7,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Country of birth of mother</label>
+		</variable>
+		<variable id="PB260" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Nature of participation in the survey</label>
+		</variable>
+		<variable id="PB265" start="2021">
+			<type/>
+			<req>Y</req>
+			<format>12.</format>
+			<minval>1</minval>
+			<maxval>999999999999</maxval>
+			<flag>(-7,-2,-1,1)</flag>
+			<na>PB260 ne 2</na>
+			<na flag="-7"/>
+			<disp>PB260</disp>
+			<label>Personal ID of person who filled in the individual questionnaire</label>
+		</variable>
+		<variable id="PB270" start="2021">
+			<req>Y</req>
+			<format>12.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Interviewing mode used (person)</label>
+		</variable>
+		<variable id="PD020">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Replace worn-out clothes by some new (not second-hand) ones</label>
+		</variable>
+		<variable id="PD030">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Two pairs of properly fitting shoes (including a pair of all-weather shoes)</label>
+		</variable>
+		<variable id="PD050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Get-together with friends/family (relatives) for a drink/meal at least once a month</label>
+		</variable>
+		<variable id="PD060">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Regularly participate in a leisure activity such as sport, cinema, concert</label>
+		</variable>
+		<variable id="PD070">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Spend a small amount of money each week on yourself</label>
+		</variable>
+		<variable id="PD080">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Internet connection for personal use at home</label>
+		</variable>
+		<variable id="PE010">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Participation in formal education</label>
+		</variable>
+		<variable id="PE021" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(0,10,20,30,34,35,39,40,44,45,49,50,54,55,59,60,70,80)</list>
+			<flag>(-7,-2,-1,1,2,3,4)</flag>
+			<na>PE010 ne 1</na>
+			<na flag="-7"/>
+			<disp>PE010</disp>
+			<label>Level of current/most recent formal education or training activity</label>
+		</variable>
+		<variable id="PE041" start="2021">
+			<req>Y</req>
+			<format>3.</format>
+			<list>(000,100,200,340,342,343,344,349,350,352,353,354,359,390,392,393,394,399,400,440,450,490,540,550,590,600,700,800)</list>
+			<flag>(-7,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Educationnal attainment level</label>
+		</variable>
+		<variable id="PH010">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>5</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>General health</label>
+		</variable>
+		<variable id="PH020">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Suffer from any chronic illness or condition</label>
+		</variable>
+		<variable id="PH030">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-3,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Limitation in activities because health problems</label>
+		</variable>
+		<variable id="PH040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Unmet need for medical examination or treatment</label>
+		</variable>
+		<variable id="PH050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>8</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>PH040 ne 1</na>
+			<na flag="-3"/>
+			<disp>PH040</disp>
+			<label>Reason for unmet need for medical examination or treatment</label>
+		</variable>
+		<variable id="PH060">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na flag="-3"/>
+			<label>Unmet need for dental examination or treatment</label>
+		</variable>
+		<variable id="PH070">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>8</maxval>
+			<flag>(-3,-2,-1,1)</flag>
+			<na>PH060 ne 1</na>
+			<na flag="-3"/>
+			<disp>PH060</disp>
+			<label>Reason for unmet need for dental examination or treatment</label>
+		</variable>
+		<variable id="PL016" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-7,-2,-1,1,2,3,4)</flag>
+			<na>(PL032 eq 1)</na>
+			<na flag="-7"/>
+			<disp>PL032</disp>
+			<label>Existence of previous employment experience</label>
+		</variable>
+		<variable id="PL032" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>8</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Self-defined current economic status</label>
+		</variable>
+		<variable id="PL040A" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>4</maxval>
+			<flag>(-7,-2,-1,1,2,3,4)</flag>
+			<na>(PL032 ne 1)</na>
+			<na flag="-7"/>
+			<disp>PL032</disp>
+			<label>Status in employment (main job)</label>
+		</variable>
+		<variable id="PL040B" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>4</maxval>
+			<flag>(-7,-2,-1,1,2,3,4)</flag>
+			<na>(PL016 ne 3) or (PL032 eq 1)</na>
+			<na flag="-7"/>
+			<disp>PL016,PL032</disp>
+			<label>Status in employment (last job)</label>
+		</variable>
+		<variable id="PL051A" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list ref="SCL_ISCO"/>
+			<flag>(-7,-2,-1,1,2,3,4)</flag>
+			<na>(PL032 ne 1)</na>
+			<na flag="-7"/>
+			<disp>PL032</disp>
+			<label>Occupation/ISCO-08-COM (main job)</label>
+		</variable>
+		<variable id="PL051B" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list ref="SCL_ISCO"/>
+			<flag>(-7,-2,-1,1,2,3,4)</flag>
+			<na>(PL016 ne 3) or (PL032 eq 1)</na>
+			<na flag="-7"/>
+			<disp>PL016,PL032</disp>
+			<label>Occupation/ISCO-08-COM (side job)</label>
+		</variable>
+		<variable id="PL060">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>99</maxval>
+			<flag>(-6,-2,-1,1,2,3,4)</flag>
+			<na>(PL032 ne 1)</na>
+			<disp>PL032</disp>
+			<label>Number of hours usually worked per week in main job</label>
+		</variable>
+		<variable id="PL073">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of months spent in full-time work as employee</label>
+		</variable>
+		<variable id="PL074">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of months spent in part-time work as employee</label>
+		</variable>
+		<variable id="PL075">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of months spent in full-time work as self-employed (including family worker)</label>
+		</variable>
+		<variable id="PL076">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of months spent in part-time work as self-employed (including family worker)</label>
+		</variable>
+		<variable id="PL080">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of months spent in unemployment</label>
+		</variable>
+		<variable id="PL085">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of months spent in retirement</label>
+		</variable>
+		<variable id="PL086">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of months unable to work due to long-standing health problems</label>
+		</variable>
+		<variable id="PL087">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of months spent studying</label>
+		</variable>
+		<variable id="PL088">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-5,-1,1,2,3,4)</flag>
+			<label>Number of months spent in compulsory military service</label>
+		</variable>
+		<variable id="PL089">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of months spent fulfilling domestic tasks</label>
+		</variable>
+		<variable id="PL090">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>12</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Number of months spent in other inactivity</label>
+		</variable>
+		<variable id="PL100">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>99</maxval>
+			<flag>(-6,-4,-2,-1,1,2,3,4)</flag>
+			<na>PL032 ne 1</na>
+			<disp>PL032</disp>
+			<label>Total number of hours per week usually worked in second third jobs</label>
+		</variable>
+		<variable id="PL111A" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list ref="SCL_NACE"/>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na>PL032 ne 1</na>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<disp>PL032</disp>
+			<label>Economic activity of the local unit (main job)</label>
+		</variable>
+		<variable id="PL111B" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list ref="SCL_NACE"/>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<disp>PL016,PL032</disp>
+			<label>Economic activity of the local unit (last job)</label>
+		</variable>
+		<variable id="PL141" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(11,12,21,22)</list>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na>PL040A ne 3</na>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<disp>PL040A</disp>
+			<label>Permanency of main job</label>
+		</variable>
+		<variable id="PL145" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-2,-1,1,2,3,4)</flag>
+			<na>PL032 ne 1</na>
+			<na flag="-7"/>
+			<disp>PL032</disp>
+			<label>Full or part-time main job (self-defined)</label>
+		</variable>
+		<variable id="PL150">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-3,-2,-1,1,2,3,4)</flag>
+			<na>PL040A ne 3</na>
+			<na flag="-3"/>
+			<disp>PL040A</disp>
+			<label>Managerial position</label>
+		</variable>
+		<variable id="PL200">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>65</maxval>
+			<flag>(-3,-2,-1,1,2,3,4)</flag>
+			<na>(PL016 ne 3) and (PL032 ne 1)</na>
+			<na flag="-3"/>
+			<disp>PL032,PL016</disp>
+			<label>Number of years spent in paid work</label>
+		</variable>
+		<variable id="PL211A">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in January</label>
+		</variable>
+		<variable id="PL211B">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in February</label>
+		</variable>
+		<variable id="PL211C">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in March</label>
+		</variable>
+		<variable id="PL211D">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in April</label>
+		</variable>
+		<variable id="PL211E">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in May</label>
+		</variable>
+		<variable id="PL211F">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in June</label>
+		</variable>
+		<variable id="PL211G">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in July</label>
+		</variable>
+		<variable id="PL211H">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in August</label>
+		</variable>
+		<variable id="PL211I">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in September</label>
+		</variable>
+		<variable id="PL211J">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in October</label>
+		</variable>
+		<variable id="PL211K">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in November</label>
+		</variable>
+		<variable id="PL211L">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>11</maxval>
+			<flag>(-3,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<label>Main activity in December</label>
+		</variable>
+		<variable id="PL271" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Duration of the most recent unemployment spell (months)</label>
+		</variable>
+		<variable id="PY010G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Gross employee cash or near cash income</label>
+		</variable>
+		<variable id="PY010N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Net employee cash or near cash income</label>
+			<parent>
+				<item x="PY010G"/>
+			</parent>
+		</variable>
+		<variable id="PY020G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Non-cash employee income</label>
+		</variable>
+		<variable id="PY020N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Non-cash employee income</label>
+			<parent>
+				<item x="PY020G"/>
+			</parent>
+		</variable>
+		<variable id="PY021G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Company car</label>
+		</variable>
+		<variable id="PY021N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Company car</label>
+			<parent>
+				<item x="PY021G"/>
+			</parent>
+		</variable>
+		<variable id="PY030G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Employers social insurance contribution</label>
+		</variable>
+		<variable id="PY035G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Contributions to individual pension plans</label>
+		</variable>
+		<variable id="PY035N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Contributions to individual pension plans</label>
+			<parent>
+				<item x="PY035G"/>
+			</parent>
+		</variable>
+		<variable id="PY050G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-1000000000</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Gross cash benefits or losses from self- employment</label>
+		</variable>
+		<variable id="PY050N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-1000000000</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Net cash benefits or losses from self- employment</label>
+			<parent>
+				<item x="PY050G"/>
+			</parent>
+		</variable>
+		<variable id="PY080G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Regular pension from private schemes</label>
+		</variable>
+		<variable id="PY080N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Regular pension from private plans</label>
+			<parent>
+				<item x="PY080G"/>
+			</parent>
+		</variable>
+		<variable id="PY090G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Unemployment benefits</label>
+			<checksum child_nullable="Y" tolerance="0.01">
+				<item x="PY091G"/>
+				<item x="PY092G"/>
+				<item x="PY093G"/>
+				<item x="PY094G"/>
+			</checksum>
+		</variable>
+		<variable id="PY090N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Unemployment benefits</label>
+			<parent>
+				<item x="PY090G"/>
+			</parent>
+		</variable>
+		<variable id="PY091G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Unemployment benefits (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY092G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Unemployment benefits (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY093G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Unemployment benefits (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY094G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Unemployment benefits (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY100G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Old-age benefits</label>
+			<checksum child_nullable="Y" tolerance="0.01">
+				<item x="PY101G"/>
+				<item x="PY102G"/>
+				<item x="PY103G"/>
+				<item x="PY104G"/>
+			</checksum>
+		</variable>
+		<variable id="PY100N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Old-age benefits</label>
+			<parent>
+				<item x="PY100G"/>
+			</parent>
+		</variable>
+		<variable id="PY101G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Old-age benefits (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY102G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Old-age benefits (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY103G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Old-age benefits (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY104G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Old-age benefits (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY110G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Survivor benefits</label>
+			<checksum child_nullable="Y" tolerance="0.01">
+				<item x="PY111G"/>
+				<item x="PY112G"/>
+				<item x="PY113G"/>
+				<item x="PY114G"/>
+			</checksum>
+		</variable>
+		<variable id="PY110N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Survivor benefits</label>
+			<parent>
+				<item x="PY110G"/>
+			</parent>
+		</variable>
+		<variable id="PY111G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Survivor benefits (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY112G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Survivor benefits (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY113G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Survivor benefits(non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY114G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Survivor benefits (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY120G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Sickness benefits</label>
+			<checksum child_nullable="Y" tolerance="0.01">
+				<item x="PY121G"/>
+				<item x="PY122G"/>
+				<item x="PY123G"/>
+				<item x="PY124G"/>
+			</checksum>
+		</variable>
+		<variable id="PY120N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Sickness benefits</label>
+			<parent>
+				<item x="PY120G"/>
+			</parent>
+		</variable>
+		<variable id="PY121G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Sickness benefits (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY122G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Sickness benefits (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY123G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Sickness benefits (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY124G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Sickness benefits (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY130G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Disability benefits</label>
+			<checksum child_nullable="Y" tolerance="0.01">
+				<item x="PY131G"/>
+				<item x="PY132G"/>
+				<item x="PY133G"/>
+				<item x="PY134G"/>
+			</checksum>
+		</variable>
+		<variable id="PY130N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Disability benefits</label>
+			<parent>
+				<item x="PY130G"/>
+			</parent>
+		</variable>
+		<variable id="PY131G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Disability benefits (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY132G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Disability benefits (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY133G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Disability benefits (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY134G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Disability benefits (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY140G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Education-related allowances</label>
+			<checksum child_nullable="Y" tolerance="0.01">
+				<item x="PY141G"/>
+				<item x="PY142G"/>
+				<item x="PY143G"/>
+				<item x="PY144G"/>
+			</checksum>
+		</variable>
+		<variable id="PY140N">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="2" digit="1">(1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<impute>Y</impute>
+			<label>Education-related allowances</label>
+			<parent>
+				<item x="PY140G"/>
+			</parent>
+		</variable>
+		<variable id="PY141G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Education-related allowances (Contributory and means-tested)</label>
+		</variable>
+		<variable id="PY142G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Education-related allowances (Contributory and non means-tested)</label>
+		</variable>
+		<variable id="PY143G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Education-related allowances (non-contributory and means-tested)</label>
+		</variable>
+		<variable id="PY144G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
+			<flag digit="3">(1,2)</flag>
+			<impute>Y</impute>
+			<label>Education-related allowances (non-contributory and non means-tested)</label>
+		</variable>
+		<variable id="PW010" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>10</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Overall life satisfaction</label>
+		</variable>
+		<variable id="PW191" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>10</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Trust in others</label>
+		</variable>
+		<variable id="RB010" key="Y">
+			<type>YEAR</type>
+			<req>Y</req>
+			<format>4.</format>
+			<minval>$YEAR-5</minval>
+			<maxval>$YEAR</maxval>
+			<flag> </flag>
+			<label>Year of the survey</label>
+		</variable>
+		<variable id="RB020" key="Y">
+			<type>COUNTRY</type>
+			<req>Y</req>
+			<format>$2.</format>
+			<list ref="SCL_CTRY"/>
+			<flag> </flag>
+			<label>Country</label>
+		</variable>
+		<variable id="RB030" key="Y">
+			<type>ID</type>
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10000</minval>
+			<maxval>999999999999</maxval>
+			<flag> </flag>
+			<label>Personal ID</label>
+		</variable>
+		<variable id="RB032" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>99</maxval>
+			<flag>(-7,-2,1)</flag>
+			<na flag="-7"/>
+			<label>Sequential number of the persons in the household</label>
+		</variable>
+		<variable id="RB040" key="Y">
+			<type>ID</type>
+			<req>Y</req>
+			<format>10.</format>
+			<minval>100</minval>
+			<maxval>999999999999</maxval>
+			<flag> </flag>
+			<label>Current Household ID</label>
+		</variable>
+		<variable id="RB050">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-7,1)</flag>
+			<label>Personal cross-sectional weight</label>
+		</variable>
+		<variable id="RB060">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>999999</maxval>
+			<flag>(1)</flag>
+			<label>Personal base weight</label>
+		</variable>
+		<variable id="RB062">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Longitudinal weight (two-year duration)</label>
+		</variable>
+		<variable id="RB063">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Longitudinal weight (three-year duration)</label>
+		</variable>
+		<variable id="RB064">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Longitudinal weight (four-year duration)</label>
+		</variable>
+		<variable id="RB065" start="2021">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>999999</maxval>
+			<flag>(-7,-5,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Longitudinal weight (five-year duration)</label>
+		</variable>
+		<variable id="RB066" start="2021">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>999999</maxval>
+			<flag>(-7,-5,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Longitudinal weight (six-year duration)</label>
+		</variable>
+		<variable id="RB080">
+		        <type>YEAR</type>
+			<req>Y</req>
+			<format>4.</format>
+			<minval>$YEAR-120</minval>
+			<maxval>$YEAR</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Year of birth</label>
+		</variable>
+		<variable id="RB081" start="2021">
+			<req>Y</req>
+			<format>3.</format>
+			<minval>0</minval>
+			<maxval>120</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Age in completed years (at the end of the income reference period)</label>
+		</variable>
+		<variable id="RB082" start="2021">
+			<req>Y</req>
+			<format>3.</format>
+			<minval>0</minval>
+			<maxval>120</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Age in completed years (at the time of the interview)</label>
+		</variable>
+		<variable id="RB083" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Passing of birthday at the time of the interview</label>
+		</variable>
+		<variable id="RB090">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Sex</label>
+		</variable>
+		<variable id="RB100">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1)</flag>
+			<label>Sample person or co-resident</label>
+		</variable>
+		<variable id="RB110" key="Y">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6)</list>
+			<flag>(-1,1)</flag>
+			<break ante="2022">
+				<list>(1,2,3,4,5,6,8)</list>
+			</break>
+			<label>Membership status</label>
+		</variable>
+		<variable id="RB120">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>4</maxval>
+			<flag>(-2,-1,1,2,3,4)</flag>
+			<na>RB110 ne 5</na>
+			<disp>RB110</disp>
+			<label>Location where the person moved</label>
+		</variable>
+		<variable id="RB200">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-1,1,2,3,4)</flag>
+			<label>Residential status</label>
+		</variable>
+		<variable id="RB211" start="2021">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>8</maxval>
+			<flag>(-7,-4,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Main activity status</label>
+		</variable>
+		<variable id="RB220">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10000</minval>
+			<maxval>999999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Father ID</label>
+		</variable>
+		<variable id="RB230">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10000</minval>
+			<maxval>999999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Mother ID</label>
+		</variable>
+		<variable id="RB240">
+			<req>Y</req>
+			<format>12.</format>
+			<minval>10000</minval>
+			<maxval>999999999999</maxval>
+			<flag>(-2,-1,1)</flag>
+			<label>Spouse/partner ID</label>
+		</variable>
+		<variable id="RB245">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>4</maxval>
+			<flag>(1)</flag>
+			<label>Respondent status</label>
+		</variable>
+		<variable id="RB250">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(11,12,13,14,21,22,23,31,32,33)</list>
+			<flag>(-2,1)</flag>
+			<na>RB245 not in (1,2,3)</na>
+			<disp>RB245</disp>
+			<label>Data Status</label>
+		</variable>
+		<variable id="RB280" start="2021">
+			<req>Y</req>
+			<format>$3.</format>
+			<list ref="SCL_GEO" filt="B">("FOR")</list>
+			<flag>(-7,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Country of birth</label>
+		</variable>
+		<variable id="RB285" start="2021">
+			<req>Y</req>
+			<format>3.</format>
+			<minval>0</minval>
+			<maxval>199</maxval>
+			<flag>(-7,-2,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Duration of stay in the country of residence in completed years</label>
+		</variable>
+		<variable id="RB290" start="2021">
+			<req>Y</req>
+			<format>$3.</format>
+			<list ref="SCL_GEO" filt="C">("FOR","RNC","STLS")</list>
+			<flag>(-7,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Country of main citizenship</label>
+		</variable>
+		<variable id="RG_1" start="2021" father_id="RB220" mother_id="RB230" spouse_id="RB240" sequence_id="RB032" gender_id="RB090">
+			<type>HGRID</type>
+			<req>Y</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_10" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_11" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_12" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_13" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_14" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_15" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_16" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_17" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_18" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_19" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_2" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_20" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_21" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_22" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_3" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_4" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_5" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_6" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_7" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_8" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RG_9" start="2021">
+			<type>HGRID</type>
+			<req>N</req>
+			<format>2.</format>
+			<list>(10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			<flag>(-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<break ante="2022">
+				<list>(-1,10,11,12,20,21,22,30,40,50,51,52,60,70,80,81,82,90,95)</list>
+			</break>
+			<na flag="-7"/>
+			<label>Household grid</label>
+		</variable>
+		<variable id="RL010">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1,2,3,4)</flag>
+			<label>Education at pre-school</label>
+		</variable>
+		<variable id="RL020">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1,2,3,4)</flag>
+			<label>Education at compulsory school</label>
+		</variable>
+		<variable id="RL030">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1,2,3,4)</flag>
+			<label>Childcare at center based services</label>
+		</variable>
+		<variable id="RL040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1,2,3,4)</flag>
+			<na>RB082 gt 12</na>
+			<disp>RB082</disp>
+			<label>Childcare at day-care center</label>
+		</variable>
+		<variable id="RL050">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB082 gt 12</na>
+			<disp>RB082</disp>
+			<label>Childcare by professional child-minder</label>
+		</variable>
+		<variable id="RL060">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-2,-1,1)</flag>
+			<na>RB082 gt 12</na>
+			<disp>RB082</disp>
+			<label>Childcare by relatives etc</label>
+		</variable>
+		<variable id="RL070">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>99999</maxval>
+			<flag>(-7,-2,1)</flag>
+			<na>RB082 gt 12</na>
+			<na flag="-7"/>
+			<disp>RB082</disp>
+			<label>Childcare weight</label>
+		</variable>
+		<variable id="RL080" start="2022">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-8,-7,-2,-1,1,2,3,4)</flag>
+			<na>RB082 gt 12</na>
+			<na flag="-7"/>
+			<disp>RB082</disp>
+			<label>Remote education (OPTIONAL)</label>
+		</variable>
+	</nucleus>
+	<recur3 title="General Health (Child)" id="RCH_HCH" start="2021" switch="ON">
+		<variable id="RCH010">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-4">RB081 gt 15</na>
+			<disp flag="-4">RB081</disp>
+			<label>General Health (child)</label>
+		</variable>
+		<variable id="RCH020">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-4">RB081 gt 15</na>
+			<disp flag="-4">RB081</disp>
+			<label>Limitation in activities because of health problems (child)</label>
+		</variable>
+		<variable id="HCH010">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-4,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Unmet need for medical examination or treatment (children)</label>
+		</variable>
+		<variable id="HCH020">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-4,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<na>HCH010 ne 1</na>
+			<disp>HCH010</disp>
+			<label>Main reason for unmet need for medical examination or treatment (children)</label>
+		</variable>
+		<variable id="HCH030">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-4,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Unmet need for dental examination or treatment (children)</label>
+		</variable>
+		<variable id="HCH040">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-4,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<na>HCH030 ne 1</na>
+			<disp>HCH030</disp>
+			<label>Main reason for unmet need for dental examination or treatment (children)</label>
+		</variable>
+	</recur3>
+	<recur3 title="Children-specific Deprivation" id="HD" start="2021" switch="ON">
+		<variable id="HD100">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Some new (not second-hand) clothes</label>
+		</variable>
+		<variable id="HD110">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Two pairs of properly fitting shoes (including a pair of all-weather shoes)</label>
+		</variable>
+		<variable id="HD120">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Fruits and vegetables once a day</label>
+		</variable>
+		<variable id="HD140">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>One meal with meat, chicken or fish (or vegetarian equivalent) at least once a day</label>
+		</variable>
+		<variable id="HD150">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Books at home suitable for their age</label>
+		</variable>
+		<variable id="HD160">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Outdoor leisure equipment</label>
+		</variable>
+		<variable id="HD170">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Indoor games</label>
+		</variable>
+		<variable id="HD180">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Regular leisure activity</label>
+		</variable>
+		<variable id="HD190">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Celebration on special occasions</label>
+		</variable>
+		<variable id="HD200">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Invite friends round to play or eat from time to time</label>
+		</variable>
+		<variable id="HD210">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Participate in school trips and school events that cost money</label>
+		</variable>
+		<variable id="HD220">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Suitable place to study or do homework</label>
+		</variable>
+		<variable id="HD240">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-4,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Go on holiday away from home at least one week per year</label>
+		</variable>
+	</recur3>
+	
+	<recur3 title="Health" id="H22" start="2022" switch="ON">
+		<variable id="HS200">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Financial burden of medical care</label>
+		</variable>
+		<variable id="HS210">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Financial burden of dental care</label>
+		</variable>
+		<variable id="HS220">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Financial burden of medicines</label>
+		</variable>
+		<variable id="PH090">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-3,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Number of consultations with a general practitioner or family doctor in the past 12 months</label>
+		</variable>
+		<variable id="PH080">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-3,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Number of consultations with dentist, orthodontist or other dental care specialists in the past 12 months</label>
+		</variable>
+		<variable id="PH100">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-3,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Number of consultations of a medical or surgical specialist (excluding dental care specialists) in the past 12 months</label>
+		</variable>
+		<variable id="PH110A">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>20</minval>
+			<maxval>350</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>BMI 1 Weight</label>
+		</variable>
+		<variable id="PH110B">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>50</minval>
+			<maxval>250</maxval>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>BMI 2 Height</label>
+		</variable>
+		<variable id="PH122">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4)</list>
+			<flag>(-7,-3,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<na>PL032 in (2,3,4,5,6,7,8)</na>
+			<disp>PL032</disp>
+			<label>Type of physical activity when working</label>
+		</variable>
+		<variable id="PH132">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Frequency of physical activities (excluding working)</label>
+		</variable>
+		<variable id="PH142">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Frequency of eating fruit (excluding any juice)</label>
+		</variable>
+		<variable id="PH152">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Frequency of eating vegetables or salad (excluding any juice)</label>
+		</variable>
+		<variable id="PH171">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Frequency of tobacco use (including electronic cigarettes or similar electronic devices)</label>
+		</variable>
+		<variable id="PH180">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Frequency of consumption of an alcoholic drink of any kind Checks</label>
+		</variable>
+		<variable id="PH101">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Difficulty in seeing, even when wearing glasses or contact lenses</label>
+		</variable>
+		<variable id="PH111">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Difficulty in seeing, even when wearing glasses or contact lenses</label>
+		</variable>
+		<variable id="PH121">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Difficulty in walking or climbing steps</label>
+		</variable>
+		<variable id="PH131">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Difficulty in remembering or concentrating</label>
+		</variable>
+		<variable id="PH141">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Difficulty (with self-care such as) washing all over or dressing</label>
+		</variable>
+		<variable id="PH151">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Difficulty in communicating (using usual language)</label>
+		</variable>
+	</recur3>
+	<recur3 title="Labour market and housing" id="LMH23" start="2023" switch="ON">
+		<variable id="PE030">
+			<req>Y</req>
+			<format>4.</format>
+			<minval>$YEAR-110</minval>
+			<maxval>$YEAR</maxval>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na>PE041=0</na>
+			<disp>PB010,PE041</disp>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Year highest level of education attained</label>
+		</variable>
+		<variable id="PE050">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Education interrupted or abandoned</label>
+		</variable>
+ 		<variable id="PL020">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-3,-2,-1,1)</flag>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Actively looking for a job</label>
+		</variable>
+		<variable id="PL025">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-3,-2,-1,1,2)</flag>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Available for work</label>
+		</variable>
+		<variable id="PL035">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Worked at least 1 hour ,previous week</label>
+		</variable>
+ 		<variable id="PL120">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>7</maxval>
+			<flag>(-7,-3,-2,-1,1)</flag>
+			<na>(PL032 ne 1 ) or (PL032=1 and sum(PL060,PL100) ge 30)</na>
+			<disp>PL032,PL060,PL100</disp>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Reason for working less than 30 hours</label>
+		</variable>
+		<variable id="PL130">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>15</maxval>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na>(PL032 ne 1)</na>
+			<disp>PL032</disp>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Number of persons working at the local unit</label>
+		</variable>
+		<variable id="PL230">
+			<req>Y</req>
+			<format>2.</format>
+                        <list>(1,2,3,99)</list>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na>((PL032 ne 1) or (PL040a ne 3))</na>
+			<disp>PL032,PL040a</disp>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Public/private employment sector</label>
+		</variable>
+		<variable id="PL260">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na>PL211A not in (1,2,3,4) and PL211B not in (1,2,3,4) and PL211C not in (1,2,3,4) and PL211D not in (1,2,3,4) and PL211E not in (1,2,3,4) and PL211F not in (1,2,3,4) and PL211G not in (1,2,3,4) and PL211H not in (1,2,3,4) and PL211I not in (1,2,3,4) and PL211J not in (1,2,3,4) and PL211K not in (1,2,3,4) and PL211L not in (1,2,3,4)</na>
+			<disp>PL211A,PL211B,PL211C,PL211D,PL211E,PL211F,PL211G,PL211H,PL211I,PL211J,PL211K,PL211L</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Usual hours worked per week</label>
+		</variable>
+ 		<variable id="PL280">
+			<req>Y</req>
+			<format>2.</format>
+            <minval>1</minval>
+            <maxval>3</maxval>
+			<flag>(-7,-3,-2,-1,1,2,3,4)</flag>
+			<na flag="-3"/>
+			<na flag="-7"/>
+			<label>Length of registration of unemployment</label>
+		</variable>
+		<variable id="PW100">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+                        <flag>(-7,-3,-2,-1,1)</flag>
+                        <na>(PL032 ne 1)</na>
+			<disp>PL032</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Job satisfaction</label>
+		</variable>
+        <variable id="HC020">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>0</minval>
+			<maxval>350</maxval>
+			<flag>(-7,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Size of the dwelling in square metres</label>
+		</variable>
+		<variable id="HC080">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>4</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Overall satisfaction with the dwelling</label>
+		</variable>
+		<variable id="HH040">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Leaking roof/damp walls/floors/foundation or rot in window frames or floor</label>
+		</variable>
+		<variable id="HH081">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-8,-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Bath or shower in dwelling (OPTIONAL)</label>
+		</variable>
+		<variable id="HH091">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-8,-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Indoor flushing toilet for sole use of the household (OPTIONAL)</label>
+		</variable>
+		<variable id="HS140">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>3</maxval>
+			<flag>(-7,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Total housing cost is a financial burden</label>
+		</variable>
+		<variable id="HS160">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Problems with the dwelling: too dark not enough light</label>
+		</variable>
+		<variable id="HS170">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Noise from neighbours or noise from the street</label>
+		</variable>
+		<variable id="HS180">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Pollution grime or other environmental problems in area caused by traffic or industry</label>
+		</variable>
+		<variable id="HS190">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Crime violence or vandalism in the area</label>
+		</variable>
+ 		<variable id="HY030G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>99999999.99</maxval>
+			<flag>(-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Imputed rent</label>
+		</variable>
+	</recur3>
+	<recur6 title="Quality of Life" id="Q22" start="2022" switch="ON">
+		<variable id="PW005">
+			<req>Y</req>
+			<format>8.5</format>
+			<minval>0</minval>
+			<maxval>999999</maxval>
+			<flag>(-8,-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Wellbeing-module weight</label>
+		</variable>
+		<variable id="PW241">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Feeling left out</label>
+		</variable>
+		<variable id="PW030">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Satisfaction with financial situation</label>
+		</variable>
+		<variable id="PW160">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Satisfaction with personal relationships</label>
+		</variable>
+		<variable id="PW120">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(0,1,2,3,4,5,6,7,8,9,10,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Satisfaction with time use (amount of leisure time)</label>
+		</variable>
+		<variable id="PW230">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Feeling lonely</label>
+		</variable>
+		<variable id="PW090">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Being happy</label>
+		</variable>
+		<variable id="PW180">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Help from others</label>
+		</variable>
+		<variable id="PS010">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,7,8)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Number of times going to the cinema</label>
+		</variable>
+		<variable id="PS011">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>(PS010 ge 1) AND (PS010 le 7)</na>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<disp>PS010</disp>
+			<label>Not going to the cinema due to the COVID-19 crisis</label>
+		</variable>
+		<variable id="PS020">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,7)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Number of times going to live performances</label>
+		</variable>
+		<variable id="PS021">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>(PS020 ge 1) AND (PS020 le 6)</na>
+			<disp>PS020</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Not going to live performances</label>
+		</variable>
+		<variable id="PS030">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,7)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Number of visits to cultural sites</label>
+		</variable>
+		<variable id="PS031">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>(PS030 ge 1) AND (PS030 le 6)</na>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<disp>PS030</disp>
+			<label>Not visiting cultural sites due to the COVID-19 crisis</label>
+		</variable>
+		<variable id="PS040">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,7,8)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Number of times attending live sport events</label>
+		</variable>
+		<variable id="PS040B">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>(PS040 ge 1) AND (PS040 le 7)</na>
+			<disp>PS040</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Not attending live sport events due to the COVID-19 crisis</label>
+		</variable>
+		<variable id="PS041">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Practice of artistic activities</label>
+		</variable>
+		<variable id="PS042">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,7,8)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Reading books (including e-books or audio books, during year)</label>
+		</variable>
+		<variable id="PS050">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Frequency of getting together with family (relatives)</label>
+		</variable>
+		<variable id="PS060">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Frequency of getting together with friends</label>
+		</variable>
+		<variable id="PS070">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,99)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Frequency of contacts with family (relatives)</label>
+		</variable>
+		<variable id="PS080">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Frequency of contacts with friends</label>
+		</variable>
+		<variable id="PS110">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Participation in formal voluntary activities</label>
+		</variable>
+		<variable id="PS111">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Participation in informal voluntary activities</label>
+		</variable>
+		<variable id="PS102">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Active citizenship</label>
+		</variable>
+	</recur6>
+	
+<recur6 title="Intergenerational transmission of advantages and disavantadges, housing difficulties" id="ITADH23" start="2023" switch="ON">
+		
+		<variable id="PT070">
+			<req>Y</req>
+			<format>$3.</format>
+            <list ref="SCL_GEO" filt="C">("FOR","RNC","STLS","99")</list>
+			<flag>(-8,-7,-6,-5,-3,-2,-1,1,2,3,4)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Citizenship of the father (OPTIONAL)</label>
+		</variable>
+		<variable id="PT100">
+			<req>Y</req>
+			<format>$3.</format>
+                        <list ref="SCL_GEO" filt="C">("FOR","RNC","STLS","99")</list>
+			<flag>(-8,-7,-6,-5,-3,-2,-1,1,2,3,4)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Citizenship of the mother (OPTIONAL)</label>
+		</variable>
+		<variable id="PT110">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,99)</list>
+			<flag>(-7,-6,-5,-3,-2,-1,1,2,3,4)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Highest level of education attained by the father</label>
+		</variable>
+		<variable id="PT120">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,99)</list>
+			<flag>(-7,-6,-5,-3,-2,-1,1,2,3,4)</flag>
+                        <na>PT220=2</na>
+                        <disp>PT220</disp>
+                        <na flag="-7"/>
+			<na flag="-3"/>
+			<label>Highest level of education attained by the mother</label>
+		</variable>
+		<variable id="PT130">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,7,99)</list>
+			<flag>(-7,-6,-5,-3,-2,-1,1,2,3,4)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Activity status of the father when respondent was around 14 years old</label>
+		</variable>
+		<variable id="PT150">
+			<req>Y</req>
+			<format>2.</format>
+                        <list>(0,1,2,3,4,5,6,7,8,9,99)</list>
+			<flag>(-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Main occupation of the father when respondent was around 14 years old (OPTIONAL)</label>
+		</variable>
+		<variable id="PT160">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,7,99)</list>
+			<flag>(-7,-6,-5,-3,-2,-1,1,2,3,4)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Activity status of the mother when respondent was around 14 years old</label>
+		</variable>
+		<variable id="PT180">
+			<req>Y</req>
+			<format>2.</format>
+                        <list>(0,1,2,3,4,5,6,7,8,9,99)</list>
+			<flag>(-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Main occupation of the mother when respondent was around 14 years old (OPTIONAL)</label>
+		</variable>
+		<variable id="PT190">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,99)</list>
+			<flag>(-7,-6,-3,-2,-1,1)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Financial situation of the household when respondent was around 14 years old</label>
+		</variable>
+		<variable id="PT210">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,99)</list>
+			<flag>(-7,-6,-3,-2,-1,1,2,3,4)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Tenancy status when respondent was around 14 years old</label>
+		</variable>
+		<variable id="PT220">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-6,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Type of household when respondent was around 14 years old</label>
+		</variable>
+		<variable id="PT230">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4)</list>
+			<flag>(-7,-6,-3,-2,-1,1)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Presence of mother when respondent was around 14 years old</label>
+		</variable>
+		<variable id="PT240">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4)</list>
+			<flag>(-7,-6,-3,-2,-1,1)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Presence of father when respondent was around 14 years old</label>
+		</variable>
+		<variable id="PT260">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-6,-3,-2,-1,1)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Basic school needs (books and equipment for school) met when respondent was around 14 years old</label>
+		</variable>
+		<variable id="PT270">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-6,-3,-2,-1,1)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Having daily meal with meat, chicken, fish (or vegetarian equivalent) when respondent was around 14 years old</label>
+		</variable>
+		<variable id="PT280">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-7,-6,-3,-2,-1,1)</flag>
+			<na>PT220=2</na>
+			<disp>PT220</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>One week of annual holiday away from home when respondent was around 14 years old</label>
+		</variable>
+		<variable id="PHD01">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-7,-3,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Past experience of housing difficulties</label>
+		</variable>
+		<variable id="PHD02">
+			<req>Y</req>
+			<format>4.1</format>
+			<minval>0</minval>
+			<maxval>99</maxval>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>PHD01=5</na>
+			<disp>PHD01</disp>
+                        <na flag="-7"/>
+			<na flag="-3"/>
+			<label>Duration of the most recent experience of housing difficulties (OPTIONAL)</label>
+		</variable>
+		<variable id="PHD03">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,7,8)</list>
+			<flag>(-7,-3,-2,-1,1)</flag>
+			<na>PHD01=5</na>
+			<disp>PHD01</disp>
+                        <na flag="-7"/>
+			<na flag="-3"/>
+			<label>Main reason for past housing difficulties</label>
+		</variable>
+		<variable id="PHD05">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6)</list>
+			<flag>(-7,-3,-2,-1,1)</flag>
+			<na>PHD01=5</na>
+			<disp>PHD01</disp>
+                        <na flag="-7"/>
+			<na flag="-3"/>
+			<label>Exit from housing difficulties</label>
+		</variable>
+		<variable id="PHD06">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-3,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Renting difficulties</label>
+		</variable>
+		<variable id="PHD07">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>PHD01=5</na>
+			<disp>PHD01</disp>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>When housing difficulties took place (OPTIONAL)</label>
+		</variable>
+		
+		
+	</recur6>
+	
+	<adhoc title="COVID-19" id="M21" start="2021" switch="ON">
+		<variable id="HD225">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5)</list>
+			<flag>(-8,-7,-5,-4,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Distance learning courses/school during lockdown (OPTIONAL)</label>
+		</variable>
+		<variable id="HI012">
+			<req>Y</req>
+			<format>2.</format>
+			<minval>1</minval>
+			<maxval>2</maxval>
+			<flag>(-8,-7,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Change in income due to COVID-19 (OPTIONAL)</label>
+		</variable>
+		<variable id="HI130G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>999999.99</maxval>
+			<flag len="2" digit="1">(-8,-7,-5,-4,-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<na flag="-7"/>
+			<impute>Y</impute>
+			<label>Interest expenses [not including interest expenses for purchasing the main dwelling](OPTIONAL)</label>
+		</variable>
+		<variable id="HI140G">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>0</minval>
+			<maxval>999999.99</maxval>
+			<flag len="2" digit="1">(-8,-7,-5,-4,-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+                        <na flag="-7"/>
+			<impute>Y</impute>
+			<label>Household debts (OPTIONAL)</label>
+		</variable>
+		<variable id="HY150_1">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Financial support (government funded) from the COVID-19 related support schemes during 2020: housing, children (OPTIONAL)</label>
+		</variable>
+		<variable id="HY150_2">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Financial support (government funded) from the COVID-19 related support schemes during 2020: reduced working hours (OPTIONAL)</label>
+		</variable>
+		<variable id="HY150_3">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Financial support (government funded) from the COVID-19 related support schemes during 2020: self-employement (OPTIONAL)</label>
+		</variable>
+		<variable id="HY150_4">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-5,-4,-2,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Financial support (government funded) from the COVID-19 related support schemes during 2020: other (OPTIONAL)</label>
+		</variable>
+		<variable id="HY155G_1">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-999999</minval>
+			<maxval>999999</maxval>
+			<flag len="2" digit="1">(-8,-7,-5,-4,-2,-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<na flag="-7"/>
+			<label>Financial support (government funded) from the COVID-19 related support schemes during 2020 (OPTIONAL)</label>
+		</variable>
+		<variable id="HY155G_2">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-999999</minval>
+			<maxval>999999</maxval>
+			<flag len="2" digit="1">(-8,-7,-5,-4,-2,-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<na flag="-7"/>
+			<label>Financial support (government funded) from the COVID-19 related support schemes during 2020 (OPTIONAL)</label>
+		</variable>
+		<variable id="HY155G_3">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-999999</minval>
+			<maxval>999999</maxval>
+			<flag len="2" digit="1">(-8,-7,-5,-4,-2,-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<na flag="-7"/>
+			<label>Financial support (government funded) from the COVID-19 related support schemes during 2020 (OPTIONAL)</label>
+		</variable>
+		<variable id="HY155G_4">
+			<req>Y</req>
+			<income>Y</income>
+			<format>12.2</format>
+			<minval>-999999</minval>
+			<maxval>999999</maxval>
+			<flag len="2" digit="1">(-8,-7,-5,-4,-2,-1,1,2,3,4,5,6,7)</flag>
+			<flag digit="2">(1,9)</flag>
+			<impute>Y</impute>
+			<na flag="-7"/>
+			<label>Financial support (government funded) from the COVID-19 related support schemes during 2020 (OPTIONAL)</label>
+		</variable>
+		<variable id="PH051">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>PH040 ne 1</na>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<disp>PH040</disp>
+			<label>Unmet need for medical examination or treatment due to COVID-19 crisis (OPTIONAL)</label>
+		</variable>
+		<variable id="PH071">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na>PH060 ne 1</na>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<disp>PH060</disp>
+			<label>Unmet need for dental examination or treatment due to COVID-19 crisis (OPTIONAL)</label>
+		</variable>
+		<variable id="PMH010">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3)</list>
+			<flag>(-8,-7,-3,-2,-1,1)</flag>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<label>Mental health affected by the COVID-19 crisis (OPTIONAL)</label>
+		</variable>
+		<variable id="PL220">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6)</list>
+			<flag>(-8,-7,-4,-3,-2,-1,1)</flag>
+			<na>PL211A not in (1,2,3,4) and PL211B not in (1,2,3,4) and PL211C not in (1,2,3,4) and PL211D not in (1,2,3,4) and PL211E not in (1,2,3,4) and PL211F not in (1,2,3,4) and PL211G not in (1,2,3,4) and PL211H not in (1,2,3,4) and PL211I not in (1,2,3,4) and PL211J not in (1,2,3,4) and PL211K not in (1,2,3,4) and PL211L not in (1,2,3,4)</na>
+			<na flag="-7"/>
+			<na flag="-3"/>
+			<disp>PL211A,PL211B,PL211C,PL211D,PL211E,PL211F,PL211G,PL211H,PL211I,PL211J,PL211K,PL211L</disp>
+			<label>Working from home during pandemic (OPTIONAL)</label>
+		</variable>
+
+	</adhoc>
+	<adhoc title="Household energy efficiency" id="ENER23" start="2023" switch="ON">
+		<variable id="HC001">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,99)</list>
+			<flag>(-7,-1,1,2,3,4)</flag>
+            <na flag="-7"/>
+			<label>Heating system used</label>
+		</variable>
+		<variable id="HC002">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,7,8,99)</list>
+			<flag>(-7,-2,-1,1,2,3,4)</flag>
+                        <na>HC001 = 5</na>
+                        <disp>HC001</disp>
+			<na flag="-7"/>
+			<label>Main energy source</label>
+		</variable>
+		<variable id="HC003">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,99)</list>
+			<flag>(-7,-1,1,2,3,4)</flag>
+            <na flag="-7"/>
+			<label>Renovation (thermal insulation, windows or heating system)</label>
+		</variable>
+		<variable id="HC004">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,99)</list>
+                        <flag>(-8,-7,-1,1)</flag>
+			<na flag="-7"/>
+			<label>Type of windows (OPTIONAL)</label>
+		</variable>
+		<variable id="HC005">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2,3,4,5,6,99)</list>
+                        <flag>(-8,-7,-1,1,2,3,4)</flag>
+			<na flag="-7"/>
+			<label>Year of construction (OPTIONAL)</label>
+		</variable>
+		<variable id="HC060">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-7,-1,1,2,3,4)</flag>
+            <na flag="-7"/>
+			<label>Inability to keep the dwelling comfortably warm during winter</label>
+		</variable>
+		<variable id="HC070">
+			<req>Y</req>
+			<format>2.</format>
+			<list>(1,2)</list>
+			<flag>(-8,-7,-1,1,2,3,4)</flag>
+                        <na flag="-7"/>
+			<label>Inability to keep the dwelling comfortably cool during summer (OPTIONAL)</label>
+		</variable>
+		
+		
+	</adhoc>
+	<trans_list flag="-7">
+		<trans id="HB080" req="Y">
+			<label>ID of person 1 responsible for the accommodation</label>
+		</trans>
+		<trans id="HB090" req="Y">
+			<label>ID of person 2 responsible for the accommodation</label>
+		</trans>
+		<trans id="HH031" req="N">
+			<label>Year of contract or purchasing or installation</label>
+		</trans>
+		
+		<trans id="HH061" req="N">
+			<label>Subjective rent</label>
+		</trans>
+		
+		
+		<trans id="HS070" req="N">
+			<label>Do you have a telephone?</label>
+		</trans>
+		<trans id="HS080" req="N">
+			<label>Do you have a colour TV?</label>
+		</trans>
+		<trans id="HS100" req="N">
+			<label>Do you have a washing machine?</label>
+		</trans>
+		<trans id="HS130" req="Y">
+			<label>Lowest monthly income to make ends meet</label>
+		</trans>
+		
+		
+		
+		
+		
+		
+		<trans id="HY030N" req="Y">
+			<label>Imputed rent</label>
+		</trans>
+		<trans id="PB130" req="Y">
+			<label>Month of birth</label>
+		</trans>
+		<trans id="PB210" req="Y">
+			<label>Country of birth</label>
+		</trans>
+		<trans id="PB220A" req="Y">
+			<label>Citizenship 1</label>
+		</trans>
+		<trans id="PB220B" req="Y">
+			<label>Citizenship 2</label>
+		</trans>
+		<trans id="PE020" req="Y">
+			<label>Level of current/most recent formal education or training activity</label>
+		</trans>
+		
+		<trans id="PE040" req="Y">
+			<label>Educational attainment level</label>
+		</trans>
+		<trans id="PL015" req="Y">
+			<label>Whether person has ever worked</label>
+		</trans>
+		
+		
+		<trans id="PL031" req="Y">
+			<label>Self-defined current economic status</label>
+		</trans>
+		
+		<trans id="PL040" req="Y">
+			<label>Status in employment</label>
+		</trans>
+		<trans id="PL051" req="Y">
+			<label>Occupation (ISCO)</label>
+		</trans>
+		<trans id="PL111" req="Y">
+			<label>NACE Rev.2</label>
+		</trans>
+		
+		
+		<trans id="PL140" req="Y">
+			<label>Type of contract</label>
+		</trans>
+		<trans id="PL160" req="Y">
+			<label>Change of job since last year</label>
+		</trans>
+		<trans id="PL170" req="Y">
+			<label>Reason to change</label>
+		</trans>
+		<trans id="PL180" req="Y">
+			<label>Most recent change in the individual's activity status</label>
+		</trans>
+		<trans id="PL190" req="Y">
+			<label>When began first regular job</label>
+		</trans>
+		<trans id="PY031G" req="Y">
+			<label>Optional employers social insurance contribution</label>
+		</trans>
+		<trans id="PY200G" req="N">
+			<label>Gross monthly earnings for employees</label>
+		</trans>
+		<trans id="RB031" req="Y">
+			<label>Year of imigration</label>
+		</trans>
+		<trans id="RB070" req="Y">
+			<label>Month of birth</label>
+		</trans>
+		<trans id="RB140" req="Y">
+			<label>Month when the person moved out or died</label>
+		</trans>
+		<trans id="RB150" req="Y">
+			<label>Year when the person moved out or died</label>
+		</trans>
+		<trans id="RB160" req="Y">
+			<label>Number of months in household during the income reference period</label>
+		</trans>
+		<trans id="RB170" req="Y">
+			<label>Main activity status during the income reference period</label>
+		</trans>
+		<trans id="RB180" req="Y">
+			<label>Month when the person moved in</label>
+		</trans>
+		<trans id="RB190" req="Y">
+			<label>Year when the person moved in</label>
+		</trans>
+		<trans id="RB210" req="Y">
+			<label>Basic activity status</label>
+		</trans>
+		<trans id="RB260" req="Y">
+			<label>Type of interview</label>
+		</trans>
+		<trans id="RB270" req="Y">
+			<label>Personal ID of person who filled in the individual questionnaire</label>
+		</trans>
+	</trans_list>
+	<selresp na="RB245 eq 3" disp="RB245">
+		<cntry>NO</cntry>
+		<cntry>IS</cntry>
+		<cntry>DK</cntry>
+		<cntry>FI</cntry>
+		<cntry>NL</cntry>
+		<cntry>SE</cntry>
+		<cntry>SI</cntry>
+	</selresp>
+	<hh_membership_status x="RB110">
+		<list>(1,2,3,4)</list>
+		<mandatory status="." checkNull="Y">
+			<col id="RB010"/>
+			<col id="RB020"/>
+			<col id="RB030"/>
+                        <col id="RB040"/>
+			<col id="RB100"/>
+			<col id="RB110"/>
+			<col id="RB120"/>
+		</mandatory>
+		<mandatory status="5" checkNull="Y">
+			<col id="RB010"/>
+			<col id="RB020"/>
+			<col id="RB030"/>
+			<col id="RB040"/>
+			<col id="RB100"/>
+			<col id="RB110"/>
+			<col id="RB120"/>
+		</mandatory>
+		<mandatory status="6" checkNull="Y">
+			<col id="RB010"/>
+			<col id="RB020"/>
+			<col id="RB030"/>
+                        <col id="RB040"/>
+			<col id="RB100"/>
+			<col id="RB110"/>
+			<col id="RB120"/>
+		</mandatory>
+	</hh_membership_status>
+
+</SVAL>
+
+
