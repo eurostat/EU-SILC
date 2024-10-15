@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by  (European Commission - DG EUROSTAT) -->
+<!-- Revision: March 30th 2023 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="SVAL">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="nucleus"/>
+				<xs:element ref="recur3" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="recur6" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="adhoc" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="trans_list" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="selresp" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="hh_membership_status" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="missthres" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:float"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+		<xs:unique name="globalID">
+			<xs:selector xpath="*/variable | */trans | */calculated | */precalculated"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="hh_membership_status">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="list"/>
+				<xs:element ref="mandatory" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="x" type="xs:IDREF" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mandatory">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="col" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="status" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:byte"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="checkNull" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="N"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="col">
+		<xs:complexType>
+			<xs:attribute name="id" type="xs:IDREF" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="selresp">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="cntry" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="na" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="disp" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="req">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Y"/>
+				<xs:enumeration value="N"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="trans">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="label"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="req" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="N"/>
+						<xs:enumeration value="Y"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cntry">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="flag">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_flag">
+					<xs:attribute name="dflt">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="N"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="substr">
+						<xs:simpleType>
+							<xs:restriction base="xs:integer"/>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="len" use="optional">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:pattern value="[0-9]{1}[-]{0,1}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="digit">
+						<xs:simpleType>
+							<xs:restriction base="xs:integer"/>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="split">
+						<xs:simpleType>
+							<xs:restriction base="xs:integer"/>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="impute">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_impute">
+					<xs:attribute name="dflt">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="N"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="type">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value=""/>
+				<xs:enumeration value="COUNTRY"/>
+				<xs:enumeration value="YEAR"/>
+				<xs:enumeration value="NUTS"/>
+				<xs:enumeration value="PHID"/>
+				<xs:enumeration value="RHID"/>
+				<xs:enumeration value="ID"/>
+				<xs:enumeration value="HGRID"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="subtype">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_subtype">
+					<xs:attribute name="src" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="_PL120_r.sql"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ST_subtype">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="adhoc">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="variable" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="title" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="start" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="2019"/>
+						<xs:enumeration value="2020"/>
+						<xs:enumeration value="2021"/>
+						<xs:enumeration value="2022"/>
+						<xs:enumeration value="2023"/>
+						<xs:enumeration value="2024"/>
+						<xs:enumeration value="2025"/>
+						<xs:enumeration value="2026"/>
+						<xs:enumeration value="2027"/>
+						<xs:enumeration value="2028"/>
+						<xs:enumeration value="2029"/>
+						<xs:enumeration value="2030"/>
+						<xs:enumeration value="2031"/>
+						<xs:enumeration value="2032"/>
+						<xs:enumeration value="2033"/>
+						<xs:enumeration value="2034"/>
+						<xs:enumeration value="2035"/>
+						<xs:enumeration value="2036"/>
+						<xs:enumeration value="2037"/>
+						<xs:enumeration value="2038"/>
+						<xs:enumeration value="2039"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="switch" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ON"/>
+						<xs:enumeration value="OFF"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trans_list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="trans" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="flag" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<!--xs:element name="na">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element-->
+	<xs:element name="na">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_na">
+					<xs:attribute name="flag">
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:enumeration value="-2"/>
+								<xs:enumeration value="-3"/>
+								<xs:enumeration value="-4"/>
+								<xs:enumeration value="-5"/>
+								<xs:enumeration value="-7"/>
+								<xs:enumeration value="-8"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ST_na">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<!--xs:element name="disp">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element-->
+	<xs:element name="disp">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_disp">
+					<xs:attribute name="flag">
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:enumeration value="-2"/>
+								<xs:enumeration value="-3"/>
+								<xs:enumeration value="-4"/>
+								<xs:enumeration value="-5"/>
+								<xs:enumeration value="-7"/>
+								<xs:enumeration value="-8"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ST_disp">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="label">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="format">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_format">
+					<xs:attribute name="dflt">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="N"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="income">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Y"/>
+				<xs:enumeration value="N"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="maxval">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_maxval">
+					<xs:attribute name="dflt">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="N"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_list">
+					<xs:attribute name="dflt">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="N"/>
+								<xs:enumeration value="Y"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="ref">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="SCL_GEO"/>
+								<xs:enumeration value="SCL_NACE"/>
+								<xs:enumeration value="SCL_ISCO"/>
+								<xs:enumeration value="SCL_ISCED"/>
+								<xs:enumeration value="SCL_NUTS"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="filt">
+						<xs:simpleType>
+							<xs:restriction base="xs:string"/>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="minval">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_minval">
+					<xs:attribute name="dflt">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="N"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="recur3">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="variable" maxOccurs="unbounded"/>
+				</xs:sequence>
+			<xs:attribute name="title" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="start" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="2019"/>
+						<xs:enumeration value="2020"/>
+						<xs:enumeration value="2021"/>
+						<xs:enumeration value="2022"/>
+						<xs:enumeration value="2023"/>
+						<xs:enumeration value="2024"/>
+						<xs:enumeration value="2025"/>
+						<xs:enumeration value="2026"/>
+						<xs:enumeration value="2027"/>
+						<xs:enumeration value="2028"/>
+						<xs:enumeration value="2029"/>
+						<xs:enumeration value="2030"/>
+						<xs:enumeration value="2031"/>
+						<xs:enumeration value="2032"/>
+						<xs:enumeration value="2033"/>
+						<xs:enumeration value="2034"/>
+						<xs:enumeration value="2035"/>
+						<xs:enumeration value="2036"/>
+						<xs:enumeration value="2037"/>
+						<xs:enumeration value="2038"/>
+						<xs:enumeration value="2039"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="switch" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ON"/>
+						<xs:enumeration value="OFF"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="recur6">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="variable" maxOccurs="unbounded"/>
+				</xs:sequence>
+			<xs:attribute name="title" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="start" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="2019"/>
+						<xs:enumeration value="2020"/>
+						<xs:enumeration value="2021"/>
+						<xs:enumeration value="2022"/>
+						<xs:enumeration value="2023"/>
+						<xs:enumeration value="2024"/>
+						<xs:enumeration value="2025"/>
+						<xs:enumeration value="2026"/>
+						<xs:enumeration value="2027"/>
+						<xs:enumeration value="2028"/>
+						<xs:enumeration value="2029"/>
+						<xs:enumeration value="2030"/>
+						<xs:enumeration value="2031"/>
+						<xs:enumeration value="2032"/>
+						<xs:enumeration value="2033"/>
+						<xs:enumeration value="2034"/>
+						<xs:enumeration value="2035"/>
+						<xs:enumeration value="2036"/>
+						<xs:enumeration value="2037"/>
+						<xs:enumeration value="2038"/>
+						<xs:enumeration value="2039"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="switch" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="ON"/>
+						<xs:enumeration value="OFF"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="nucleus">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="variable" maxOccurs="unbounded"/>
+				</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="parent">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="item" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="parent_nullable" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="N"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="checksum">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="item" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="child_nullable" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="N"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="tolerance" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="waiver">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="cntry" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="flag" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="variable">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="type" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="subtype" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="req" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="income" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="format" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="minval" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="maxval" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="list" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="flag" minOccurs="0" maxOccurs="3"/>
+				<xs:element name="break" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="list" minOccurs="0" maxOccurs="1"/>
+							<xs:element ref="flag" minOccurs="0" maxOccurs="1"/>
+						</xs:sequence>
+						<xs:attribute name="ante" use="optional">
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
+									<xs:pattern value="20[0-9]{2}"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						</xs:complexType>
+				</xs:element>
+				<xs:element ref="impute" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="na" minOccurs="0" maxOccurs="3"/>
+				<xs:element ref="disp" minOccurs="0" maxOccurs="3"/>
+				<xs:element ref="label" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="checksum" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="parent" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="key" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Y"/>
+						<xs:enumeration value="N"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="id" type="xs:ID" use="required">
+				<!--xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[D,R,H,P][B,D,E,G,L,H,M,K,I,Y,T,C,S,V,W]{1,3}[_]{0,1}[0-9]{1,3}[N,G,A,B,C,D,E,F,G,H,I,J,K,L,T]{0,1}[_]{0,1}[0-9]{0,1}"/>
+					</xs:restriction>
+				</xs:simpleType-->
+			</xs:attribute>
+			<xs:attribute name="start" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:pattern value="20[0-9]{2}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="end" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:pattern value="20[0-9]{2}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="missthres" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:float"/>
+				</xs:simpleType>
+			</xs:attribute>						
+								
+			<xs:attribute name="father_id" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="mother_id" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="spouse_id" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="sequence_id" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="gender_id" type="xs:IDREF" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ST_flag">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[' ']{0,1}"/>
+			<xs:pattern value="[(][0-9, A-Z, ',', ' ', '\-', '+', &quot;]{1,99999}[)]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_format">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="$2."/>
+			<xs:enumeration value="$3."/>
+			<xs:enumeration value="$4."/>
+			<xs:enumeration value="$5."/>
+			<xs:enumeration value="10."/>
+			<xs:enumeration value="2."/>
+			<xs:enumeration value="3."/>
+			<xs:enumeration value="3.1"/>
+			<xs:enumeration value="4."/>
+			<xs:enumeration value="5."/>
+			<xs:enumeration value="6."/>
+			<xs:enumeration value="8."/>
+			<xs:enumeration value="8.5"/>
+			<xs:enumeration value="12."/>
+			<xs:enumeration value="12.2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_maxval">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ST_minval">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ST_list">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[' ']{0,1}"/>
+			<xs:pattern value="[(][0-9, A-Z, ',', ' ', '\-', '+', &quot;]{1,99999}[)]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ST_impute">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Y"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="calculated">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="func" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="PL111"/>
+						<xs:enumeration value="PL140"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="x" type="xs:IDREF"/>
+			<xs:attribute name="y" type="xs:IDREF"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="func">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_func">
+					<xs:attribute name="cond">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="$X gt 0"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="priority">
+						<xs:simpleType>
+							<xs:restriction base="xs:byte">
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ST_func">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="item">
+		<xs:complexType>
+			<xs:attribute name="sign" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:byte">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="7"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="9"/>
+						<xs:enumeration value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="x" type="xs:IDREF" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="precalculated">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="select"/>
+				<xs:element ref="case"/>
+				<xs:element ref="group"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:ID" use="required"/>
+			<xs:attribute name="i" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="j" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="k" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="x" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="y" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="z" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="w" type="xs:IDREF" use="optional"/>
+			<xs:attribute name="q" type="xs:IDREF" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="select">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_select">
+					<xs:attribute name="as" type="xs:ID" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ST_select">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="min($X)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="case">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="when"/>
+				<xs:element ref="else"/>
+			</xs:sequence>
+			<xs:attribute name="as" type="xs:ID" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="when">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="then" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:byte">
+								<xs:enumeration value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="else">
+		<xs:complexType>
+			<xs:attribute name="then" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:byte">
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="group">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="$Y"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>
