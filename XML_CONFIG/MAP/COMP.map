@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<SXLEMAP version="2.1">   
+  <TABLE name="COMP_THRES"> 
+    <TABLE-PATH syntax="XPath">/COMP/threshold/tol</TABLE-PATH>
+    <COLUMN name="CONTEXT" retain="Y">
+      <PATH syntax="XPath">/COMP/threshold@context</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        	
+    </COLUMN>
+    <COLUMN name="TYPE">
+      <PATH syntax="XPath">/COMP/threshold/tol@type</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="TOL">
+      <PATH syntax="XPath">/COMP/threshold/tol</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>FLOAT</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>	
+  </TABLE>		
+  <TABLE name="COMP"> 
+    <TABLE-PATH syntax="XPath">/COMP/variable</TABLE-PATH>
+    <COLUMN name="ID">
+      <PATH syntax="XPath">/COMP/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="TYPE">
+      <PATH syntax="XPath">/COMP/variable@type</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="CONTEXT">
+      <PATH syntax="XPath">/COMP/variable@context</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>	
+    <COLUMN name="W">
+      <PATH syntax="XPath">/COMP/variable@w</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="TOL">
+      <PATH syntax="XPath">/COMP/variable@tol</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>FLOAT</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="DESC">
+      <PATH syntax="XPath">/COMP/variable@desc</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="reqfm2">
+      <PATH syntax="XPath">/COMP/variable@reqfm2</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="reqfm3">
+      <PATH syntax="XPath">/COMP/variable@reqfm3</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="reqfm4">
+      <PATH syntax="XPath">/COMP/variable@reqfm4</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="reqfm5">
+      <PATH syntax="XPath">/COMP/variable@reqfm5</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+  </TABLE>	
+ </SXLEMAP>
+

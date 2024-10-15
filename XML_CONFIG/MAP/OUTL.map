@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<SXLEMAP version="2.1">   
+
+  <TABLE name="OUTL"> 
+    <TABLE-PATH syntax="XPath">/OUTL/variable</TABLE-PATH>
+    <COLUMN name="ID">
+      <PATH syntax="XPath">/OUTL/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FORMULA">
+      <PATH syntax="XPath">/OUTL/variable/formula</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="LB_LOC">
+      <PATH syntax="XPath">/OUTL/variable/lb/loc</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="LB_SCAL">
+      <PATH syntax="XPath">/OUTL/variable/lb/scal</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="LB_K">
+      <PATH syntax="XPath">/OUTL/variable/lb/k</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>FLOAT</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="UB_LOC">
+      <PATH syntax="XPath">/OUTL/variable/ub/loc</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="UB_SCAL">
+      <PATH syntax="XPath">/OUTL/variable/ub/scal</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="UB_K">
+      <PATH syntax="XPath">/OUTL/variable/ub/k</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>FLOAT</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+  </TABLE>	
+
+  </SXLEMAP>

@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+
+<SXLEMAP version="2.1">   
+
+  <TABLE name="SIZE_TARGET"> 
+  
+    <TABLE-PATH syntax="XPath">/SIZE_TARGET/cntry/nuts</TABLE-PATH>
+	
+    <COLUMN name="CNTRY" retain="Y">
+      <PATH syntax="XPath">/SIZE_TARGET/cntry@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+    <COLUMN name="nuts">
+      <PATH syntax="XPath">/SIZE_TARGET/cntry/nuts@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="hh_c">
+      <PATH syntax="XPath">SIZE_TARGET/cntry/nuts/hh_c</PATH>
+      <TYPE>NUMERIC</TYPE> 
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>5</LENGTH>        
+    </COLUMN>
+    <COLUMN name="hh_l">
+      <PATH syntax="XPath">SIZE_TARGET/cntry/nuts/hh_l</PATH>
+      <TYPE>NUMERIC</TYPE> 
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>5</LENGTH>        
+    </COLUMN>   
+  </TABLE>	
+
+
+</SXLEMAP>   

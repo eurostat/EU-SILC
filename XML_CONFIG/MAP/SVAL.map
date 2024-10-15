@@ -1,0 +1,1204 @@
+<?xml version="1.0" ?>
+<!-- Revision: March 30th 2023 -->
+<SXLEMAP version="2.1">   
+  <TABLE name="MISSTHRES"> 
+    <TABLE-PATH syntax="XPath">/SVAL</TABLE-PATH>
+    <COLUMN name="MISSTHRES">
+      <PATH>/SVAL@missthres</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>FLOAT</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+  </TABLE>
+
+  <TABLE name="BRK_LOV"> 
+    <TABLE-PATH syntax="XPath">/SVAL/nucleus/variable/break/list</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/nucleus/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="LIST">
+      <PATH>/SVAL/nucleus/variable/break/list</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1024</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="ANTE">
+      <PATH>/SVAL/nucleus/variable/break@ante</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+  </TABLE>
+
+  <TABLE name="BRK_FLAG"> 
+    <TABLE-PATH syntax="XPath">/SVAL/nucleus/variable/break/flag</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/nucleus/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG">
+      <PATH>/SVAL/nucleus/variable/break/flag</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_LEN">
+      <PATH>/SVAL/nucleus/variable/break/flag@len</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>    
+    <COLUMN name="FLAG_SUBSTR">
+      <PATH>/SVAL/nucleus/variable/break/flag@substr</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_SPLIT">
+      <PATH>/SVAL/nucleus/variable/break/flag@split</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_DIGIT">
+      <PATH>/SVAL/nucleus/variable/break/flag@digit</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="ANTE">
+      <PATH>/SVAL/nucleus/variable/break@ante</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+ </TABLE>	
+
+  <TABLE name="TRANS_LIST">
+    <TABLE-PATH syntax="XPath">/SVAL/trans_list/trans</TABLE-PATH>
+    <COLUMN name="ID">
+      <PATH>/SVAL/trans_list/trans@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="REQ">
+      <PATH>/SVAL/trans_list/trans@req</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="LABEL">
+      <PATH>/SVAL/trans_list/trans/label</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>256</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG" retain="Y">
+      <PATH>/SVAL/trans_list@flag</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+  </TABLE>   
+  <TABLE name="NUCLEUS_PARENT">
+    <TABLE-PATH syntax="XPath">/SVAL/nucleus/variable/parent/item</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/nucleus/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="PARENT_ID" retain="Y">
+      <PATH>/SVAL/nucleus/variable/parent/item@x</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+  </TABLE>
+  <TABLE name="ADHOC_PARENT">
+    <TABLE-PATH syntax="XPath">/SVAL/adhoc/variable/parent/item</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/adhoc/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="PARENT_ID" retain="Y">
+      <PATH>/SVAL/adhoc/variable/parent/item@x</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+  </TABLE>
+  <TABLE name="RECUR3_PARENT">
+    <TABLE-PATH syntax="XPath">/SVAL/recur3/variable/parent/item</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/recur3/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="PARENT_ID" retain="Y">
+      <PATH>/SVAL/recur3/variable/parent/item@x</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+  </TABLE>
+  <TABLE name="NUCLEUS_CHKSUM">
+    <TABLE-PATH syntax="XPath">/SVAL/nucleus/variable/checksum/item</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/nucleus/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="CHILD_ID" retain="Y">
+      <PATH>/SVAL/nucleus/variable/checksum/item@x</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+  </TABLE>
+  <TABLE name="ADHOC_CHKSUM">
+    <TABLE-PATH syntax="XPath">/SVAL/adhoc/variable/checksum/item</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/adhoc/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="CHILD_ID" retain="Y">
+      <PATH>/SVAL/adhoc/variable/checksum/item@x</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+  </TABLE>
+  <TABLE name="RECUR3_CHKSUM">
+    <TABLE-PATH syntax="XPath">/SVAL/recur3/variable/checksum/item</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/recur3/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="CHILD_ID" retain="Y">
+      <PATH>/SVAL/recur3/variable/checksum/item@x</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+  </TABLE>
+  <TABLE name="NUCLEUS_NAS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/nucleus/variable/na</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/nucleus/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="NA">
+      <PATH>/SVAL/nucleus/variable/na</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1024</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA_FLAG">
+      <PATH>/SVAL/nucleus/variable/na@flag</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+  </TABLE>
+  <TABLE name="ADHOC_NAS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/adhoc/variable/na</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/adhoc/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="NA">
+      <PATH>/SVAL/adhoc/variable/na</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1024</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA_FLAG">
+      <PATH>/SVAL/adhoc/variable/na@flag</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+  </TABLE>
+  <TABLE name="RECUR3_NAS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/recur3/variable/na</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/recur3/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="NA">
+      <PATH>/SVAL/recur3/variable/na</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1024</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA_FLAG">
+      <PATH>/SVAL/recur3/variable/na@flag</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+  </TABLE>
+
+  <TABLE name="NUCLEUS_DISPS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/nucleus/variable/disp</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/nucleus/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="DISP">
+      <PATH>/SVAL/nucleus/variable/disp</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1024</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA_FLAG">
+      <PATH>/SVAL/nucleus/variable/disp@flag</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+  </TABLE>
+  <TABLE name="ADHOC_DISPS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/adhoc/variable/disp</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/adhoc/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="DISP">
+      <PATH>/SVAL/adhoc/variable/disp</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1024</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA_FLAG">
+      <PATH>/SVAL/adhoc/variable/disp@flag</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+  </TABLE>
+  <TABLE name="RECUR3_DISPS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/recur3/variable/disp</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/recur3/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="DISP">
+      <PATH>/SVAL/recur3/variable/disp</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1024</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA_FLAG">
+      <PATH>/SVAL/recur3/variable/disp@flag</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+  </TABLE>
+
+<!-- FLAGS -->
+ <TABLE name="NUCLEUS_FLAGS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/nucleus/variable/flag</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/nucleus/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+	<COLUMN name="START_V">
+      <PATH>/SVAL/nucleus/variable@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="END_V">
+      <PATH>/SVAL/nucleus/variable@end</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG">
+      <PATH>/SVAL/nucleus/variable/flag</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_LEN">
+      <PATH>/SVAL/nucleus/variable/flag@len</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>    
+    <COLUMN name="FLAG_SUBSTR">
+      <PATH>/SVAL/nucleus/variable/flag@substr</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_SPLIT">
+      <PATH>/SVAL/nucleus/variable/flag@split</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_DIGIT">
+      <PATH>/SVAL/nucleus/variable/flag@digit</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+ </TABLE>	
+ <TABLE name="ADHOC_FLAGS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/adhoc/variable/flag</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/adhoc/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+	<COLUMN name="SWITCH" retain="YES">
+      <PATH>/SVAL/adhoc@switch</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>3</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="START_M" retain="YES">
+      <PATH>/SVAL/adhoc@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>  
+    <COLUMN name="FLAG">
+      <PATH>/SVAL/adhoc/variable/flag</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_LEN">
+      <PATH>/SVAL/adhoc/variable/flag@len</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>2</LENGTH>       
+    </COLUMN>      
+    <COLUMN name="FLAG_SUBSTR">
+      <PATH>/SVAL/adhoc/variable/flag@substr</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_SPLIT">
+      <PATH>/SVAL/adhoc/variable/flag@split</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_DIGIT">
+      <PATH>/SVAL/adhoc/variable/flag@digit</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+ </TABLE>	
+ <TABLE name="RECUR3_FLAGS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/recur3/variable/flag</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/recur3/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="SWITCH" retain="YES">
+      <PATH>/SVAL/recur3@switch</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>3</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="START_M" retain="YES">
+      <PATH>/SVAL/recur3@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="FLAG">
+      <PATH>/SVAL/recur3/variable/flag</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_LEN">
+      <PATH>/SVAL/recur3/variable/flag@len</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>2</LENGTH>       
+    </COLUMN>      
+    <COLUMN name="FLAG_SUBSTR">
+      <PATH>/SVAL/recur3/variable/flag@substr</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_SPLIT">
+      <PATH>/SVAL/recur3/variable/flag@split</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_DIGIT">
+      <PATH>/SVAL/recur3/variable/flag@digit</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+</TABLE>
+ <TABLE name="RECUR6_FLAGS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/recur6/variable/flag</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/recur6/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="SWITCH" retain="YES">
+      <PATH>/SVAL/recur6@switch</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>3</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="START_M" retain="YES">
+      <PATH>/SVAL/recur6@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="FLAG">
+      <PATH>/SVAL/recur6/variable/flag</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_LEN">
+      <PATH>/SVAL/recur6/variable/flag@len</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>2</LENGTH>       
+    </COLUMN>      
+    <COLUMN name="FLAG_SUBSTR">
+      <PATH>/SVAL/recur6/variable/flag@substr</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_SPLIT">
+      <PATH>/SVAL/recur6/variable/flag@split</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_DIGIT">
+      <PATH>/SVAL/recur6/variable/flag@digit</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+</TABLE>
+<!-- SELRESP -->
+
+<TABLE name="SELRESP"> 
+    <TABLE-PATH syntax="XPath">/SVAL/selresp</TABLE-PATH>
+    <COLUMN name="NA">
+      <PATH>/SVAL/selresp@na</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>128</LENGTH>        
+    </COLUMN>
+    <COLUMN name="DISP">
+      <PATH>/SVAL/selresp@disp</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>128</LENGTH>        
+    </COLUMN>
+</TABLE>
+<TABLE name="SELRESP_CNTRY_LST"> 
+    <TABLE-PATH syntax="XPath">/SVAL/selresp/cntry</TABLE-PATH>
+    <COLUMN name="CNTRY">
+      <PATH>/SVAL/selresp/cntry</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+</TABLE>
+
+<!-- HH MEMBERSHIP STATUS -->
+
+<TABLE name="HH_MEMBERSHIP_STATUS_LIST"> 
+    <TABLE-PATH syntax="XPath">/SVAL/hh_membership_status</TABLE-PATH>
+    <COLUMN name="LX">
+      <PATH>/SVAL/hh_membership_status@x</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="RX">
+      <PATH>/SVAL/hh_membership_status/list</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>128</LENGTH>        
+    </COLUMN>
+</TABLE>
+
+<TABLE name="HH_MEMBERSHIP_MANDATORY"> 
+    <TABLE-PATH syntax="XPath">/SVAL/hh_membership_status/mandatory/col</TABLE-PATH>
+    <COLUMN name="ID">
+      <PATH>/SVAL/hh_membership_status/mandatory/col@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="STATUS" retain="Y">
+      <PATH>/SVAL/hh_membership_status/mandatory@status</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="CHECKNULL" retain="Y">
+      <PATH>/SVAL/hh_membership_status/mandatory@checkNull</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+</TABLE>
+
+
+<!-- NUCLEUS VARIABLE SET -->
+
+<TABLE name="NUCLEUS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/nucleus/variable</TABLE-PATH>
+    <COLUMN name="VARIABLE">
+      <PATH>/SVAL/nucleus/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="MISSTHRES">
+      <PATH>/SVAL/nucleus/variable@missthres</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>FLOAT</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="KEY">
+      <PATH>/SVAL/nucleus/variable@key</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="START_V">
+      <PATH>/SVAL/nucleus/variable@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="END_V">
+      <PATH>/SVAL/nucleus/variable@end</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="TYPE">
+      <PATH>/SVAL/nucleus/variable/type</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>16</LENGTH>        
+    </COLUMN>
+    <COLUMN name="REQ">
+      <PATH>/SVAL/nucleus/variable/req</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="INCOME">
+      <PATH>/SVAL/nucleus/variable/income</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FORMAT">
+      <PATH>/SVAL/nucleus/variable/format</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>5</LENGTH>        
+    </COLUMN>
+    <COLUMN name="MINVAL">
+      <PATH>/SVAL/nucleus/variable/minval</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="MAXVAL">
+      <PATH>/SVAL/nucleus/variable/maxval</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST">
+      <PATH>/SVAL/nucleus/variable/list</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>30000</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST_REF">
+      <PATH>/SVAL/nucleus/variable/list@ref</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>32</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST_FILT">
+      <PATH>/SVAL/nucleus/variable/list@filt</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>32</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="FLAG">
+      <PATH>/SVAL/nucleus/variable/flag</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="FLAG_SUBSTR">
+      <PATH>/SVAL/nucleus/variable/flag@substr</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_SPLIT">
+      <PATH>/SVAL/nucleus/variable/flag@split</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="IMPUTE">
+      <PATH>/SVAL/nucleus/variable/impute</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA">
+      <PATH>/SVAL/nucleus/variable/na</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="DISP">
+      <PATH>/SVAL/nucleus/variable/disp</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LABEL">
+      <PATH>/SVAL/nucleus/variable/label</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+</TABLE>
+<TABLE name="ADHOC"> 
+    <TABLE-PATH syntax="XPath">/SVAL/adhoc/variable</TABLE-PATH>
+    <COLUMN name="SWITCH" retain="YES">
+      <PATH>/SVAL/adhoc@switch</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>3</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="START_M" retain="YES">
+      <PATH>/SVAL/adhoc@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="MOD_ID" retain="YES">
+      <PATH>/SVAL/adhoc@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>16</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="VARIABLE">
+      <PATH>/SVAL/adhoc/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="MISSTHRES">
+      <PATH>/SVAL/adhoc/variable@missthres</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>FLOAT</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>    
+    <COLUMN name="START_V">
+      <PATH>/SVAL/adhoc/variable@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="END_V">
+      <PATH>/SVAL/adhoc/variable@end</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>    
+    <COLUMN name="TYPE">
+      <PATH>/SVAL/adhoc/variable/type</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>16</LENGTH>        
+    </COLUMN>
+    <COLUMN name="REQ">
+      <PATH>/SVAL/adhoc/variable/req</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="INCOME">
+      <PATH>/SVAL/adhoc/variable/income</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FORMAT">
+      <PATH>/SVAL/adhoc/variable/format</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>5</LENGTH>        
+    </COLUMN>
+    <COLUMN name="MINVAL">
+      <PATH>/SVAL/adhoc/variable/minval</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="MAXVAL">
+      <PATH>maxval</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST">
+      <PATH>/SVAL/adhoc/variable/list</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>30000</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST_REF">
+      <PATH>/SVAL/adhoc/variable/list@ref</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>32</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST_FILT">
+      <PATH>/SVAL/adhoc/variable/list@filt</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>32</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="FLAG">
+      <PATH>flag</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="FLAG_SUBSTR">
+      <PATH>/SVAL/adhoc/variable/flag@substr</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_SPLIT">
+      <PATH>/SVAL/adhoc/variable/flag@split</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="IMPUTE">
+      <PATH>/SVAL/adhoc/variable/impute</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA">
+      <PATH>/SVAL/adhoc/variable/na</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="DISP">
+      <PATH>/SVAL/adhoc/variable/disp</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LABEL">
+      <PATH>/SVAL/adhoc/variable/label</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+</TABLE>
+<TABLE name="RECUR3"> 
+    <TABLE-PATH syntax="XPath">/SVAL/recur3/variable</TABLE-PATH>
+    <COLUMN name="SWITCH" retain="YES">
+      <PATH>/SVAL/recur3@switch</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>3</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="START_M" retain="YES">
+      <PATH>/SVAL/recur3@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="MOD_ID" retain="YES">
+      <PATH>/SVAL/recur3@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>16</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="VARIABLE">
+      <PATH>/SVAL/recur3/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="MISSTHRES">
+      <PATH>/SVAL/recur3/variable@missthres</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>FLOAT</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>    
+    <COLUMN name="START_V">
+      <PATH>/SVAL/recur3/variable@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="END_V">
+      <PATH>/SVAL/recur3/variable@end</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>    
+    <COLUMN name="TYPE">
+      <PATH>/SVAL/recur3/variable/type</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>16</LENGTH>        
+    </COLUMN>
+    <COLUMN name="REQ">
+      <PATH>/SVAL/recur3/variable/req</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="INCOME">
+      <PATH>/SVAL/recur3/income</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FORMAT">
+      <PATH>/SVAL/recur3/variable/format</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>5</LENGTH>        
+    </COLUMN>
+    <COLUMN name="MINVAL">
+      <PATH>/SVAL/recur3/variable/minval</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="MAXVAL">
+      <PATH>maxval</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST">
+      <PATH>/SVAL/recur3/variable/list</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>30000</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST_REF">
+      <PATH>/SVAL/recur3/variable/list@ref</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>32</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST_FILT">
+      <PATH>/SVAL/recur3/variable/list@filt</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>32</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="FLAG">
+      <PATH>flag</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="FLAG_SUBSTR">
+      <PATH>/SVAL/recur3/variable/flag@substr</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_SPLIT">
+      <PATH>/SVAL/recur3/variable/flag@split</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="IMPUTE">
+      <PATH>/SVAL/recur3/variable/impute</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA">
+      <PATH>/SVAL/recur3/variable/na</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="DISP">
+      <PATH>/SVAL/recur3/variable/disp</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LABEL">
+      <PATH>/SVAL/recur3/variable/label</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+</TABLE>
+<TABLE name="RECUR6"> 
+    <TABLE-PATH syntax="XPath">/SVAL/recur6/variable</TABLE-PATH>
+    <COLUMN name="SWITCH" retain="YES">
+      <PATH>/SVAL/recur6@switch</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>3</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="START_M" retain="YES">
+      <PATH>/SVAL/recur6@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="MOD_ID" retain="YES">
+      <PATH>/SVAL/recur6@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>16</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="VARIABLE">
+      <PATH>/SVAL/recur6/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+     <COLUMN name="MISSTHRES">
+      <PATH>/SVAL/recur6/variable@missthres</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>FLOAT</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>   
+    <COLUMN name="START_V">
+      <PATH>/SVAL/recur6/variable@start</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="END_V">
+      <PATH>/SVAL/recur6/variable@end</PATH>
+      <TYPE>numeric</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>    
+    <COLUMN name="TYPE">
+      <PATH>/SVAL/recur6/variable/type</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>16</LENGTH>        
+    </COLUMN>
+    <COLUMN name="REQ">
+      <PATH>/SVAL/recur6/variable/req</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="INCOME">
+      <PATH>/SVAL/recur6/income</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FORMAT">
+      <PATH>/SVAL/recur6/variable/format</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>5</LENGTH>        
+    </COLUMN>
+    <COLUMN name="MINVAL">
+      <PATH>/SVAL/recur6/variable/minval</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="MAXVAL">
+      <PATH>maxval</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST">
+      <PATH>/SVAL/recur6/variable/list</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>30000</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST_REF">
+      <PATH>/SVAL/recur6/variable/list@ref</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>32</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LIST_FILT">
+      <PATH>/SVAL/recur6/variable/list@filt</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>32</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="FLAG">
+      <PATH>flag</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="FLAG_SUBSTR">
+      <PATH>/SVAL/recur6/variable/flag@substr</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FLAG_SPLIT">
+      <PATH>/SVAL/recur6/variable/flag@split</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+    <COLUMN name="IMPUTE">
+      <PATH>/SVAL/recur6/variable/impute</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA">
+      <PATH>/SVAL/recur6/variable/na</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="DISP">
+      <PATH>/SVAL/recur6/variable/disp</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="LABEL">
+      <PATH>/SVAL/recur6/variable/label</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>125</LENGTH>        
+    </COLUMN> 
+</TABLE>
+
+
+
+  
+  <TABLE name="RECUR6_NAS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/recur6/variable/na</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/recur6/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="NA">
+      <PATH>/SVAL/recur6/variable/na</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1024</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA_FLAG">
+      <PATH>/SVAL/recur6/variable/na@flag</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+  </TABLE>
+   
+  <TABLE name="RECUR6_DISPS"> 
+    <TABLE-PATH syntax="XPath">/SVAL/recur6/variable/disp</TABLE-PATH>
+    <COLUMN name="VARIABLE" retain="Y">
+      <PATH>/SVAL/recur6/variable@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+    <COLUMN name="DISP">
+      <PATH>/SVAL/recur6/variable/disp</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1024</LENGTH>        
+    </COLUMN> 
+    <COLUMN name="NA_FLAG">
+      <PATH>/SVAL/recur6/variable/disp@flag</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+  </TABLE>
+
+
+
+</SXLEMAP>          

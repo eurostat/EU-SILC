@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<SXLEMAP version="2.1">   
+
+  <TABLE name="SCL_GEO"> 
+    <TABLE-PATH syntax="XPath">/SCL_GEO/GEO</TABLE-PATH>
+    <COLUMN name="FILT">
+      <PATH syntax="XPath">/SCL_GEO/GEO@filt</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>32</LENGTH>        
+    </COLUMN>
+    <COLUMN name="ID">
+      <PATH syntax="XPath">/SCL_GEO/GEO/ID</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+    <COLUMN name="DESC">
+      <PATH syntax="XPath">/SCL_GEO/GEO/DESC</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>50</LENGTH>        
+    </COLUMN>
+	<COLUMN name="START">
+      <PATH syntax="XPath">/SCL_GEO/GEO@start</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="END">
+      <PATH syntax="XPath">/SCL_GEO/GEO@end</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+  </TABLE>	
+
+  </SXLEMAP>

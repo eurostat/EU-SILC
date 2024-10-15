@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<SXLEMAP version="2.1">   
+  <TABLE name="EU_AGGR"> 
+    	<TABLE-PATH syntax="XPath">/EU/aggr</TABLE-PATH>
+        <COLUMN name="ID">
+            <PATH syntax="XPath">/EU/aggr/@id</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>10</LENGTH>        
+        </COLUMN>
+        <COLUMN name="EU_FROM">
+            <PATH>appl@fr</PATH>
+            <TYPE>NUMERIC</TYPE>
+            <DATATYPE>INTEGER</DATATYPE>
+            <LENGTH>4</LENGTH>        
+        </COLUMN>
+  </TABLE>
+  <TABLE name="EU_CNTR"> 
+    	<TABLE-PATH syntax="XPath">/EU/aggr/scope/cntry</TABLE-PATH>
+        <COLUMN name="ID" retain="YES">
+            <PATH syntax="XPath">/EU/aggr/@id</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>10</LENGTH>
+        </COLUMN>
+        <COLUMN name="CNTRY">  
+	    <PATH syntax="XPath">/EU/aggr/scope/cntry</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>2</LENGTH>        
+        </COLUMN>
+        <COLUMN name="CNTR_FROM">
+            <PATH syntax="XPath">/EU/aggr/scope/cntry@fr</PATH>
+            <TYPE>NUMERIC</TYPE>
+            <DATATYPE>INTEGER</DATATYPE>
+            <LENGTH>4</LENGTH>        
+        </COLUMN>
+  </TABLE>
+</SXLEMAP>  

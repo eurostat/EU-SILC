@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<SXLEMAP version="2.1">   
+
+  <TABLE name="SCL_CTRY"> 
+    <TABLE-PATH syntax="XPath">/SCL_CTRY/GEO</TABLE-PATH>
+    <COLUMN name="ID">
+      <PATH syntax="XPath">/SCL_CTRY/GEO/ID</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>2</LENGTH>        
+    </COLUMN>
+	<COLUMN name="START">
+      <PATH syntax="XPath">/SCL_NACE/NACE/ID@start</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="END">
+      <PATH syntax="XPath">/SCL_NACE/NACE/ID@end</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>    
+    <COLUMN name="DESC">
+      <PATH syntax="XPath">/SCL_CTRY/GEO/DESC</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>50</LENGTH>        
+    </COLUMN>
+  </TABLE>	
+
+  </SXLEMAP>

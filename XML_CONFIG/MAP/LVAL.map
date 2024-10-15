@@ -1,0 +1,147 @@
+<?xml version="1.0" ?>
+<SXLEMAP version="2.1">   
+
+  <TABLE name="LVAL_STEPS"> 
+    <TABLE-PATH syntax="XPath">/LVAL/preprocessing/step</TABLE-PATH>
+    <COLUMN name="STEP">
+      <PATH syntax="XPath">/LVAL/preprocessing/step</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>32</LENGTH>        
+    </COLUMN>
+  </TABLE>	
+
+  <TABLE name="LVAL_LOOP"> 
+    <TABLE-PATH syntax="XPath">/LVAL/check/loop/x</TABLE-PATH>
+    <COLUMN name="ID" retain="Y">
+      <PATH syntax="XPath">/LVAL/check@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="X">
+      <PATH syntax="XPath">/LVAL/check/loop/x</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>12</LENGTH>        
+    </COLUMN>
+  </TABLE>	
+
+  <TABLE name="LVAL"> 
+    <TABLE-PATH syntax="XPath">/LVAL/check</TABLE-PATH>
+    <COLUMN name="ID">
+      <PATH syntax="XPath">/LVAL/check@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="START">
+      <PATH syntax="XPath">/LVAL/check@start</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="END">
+      <PATH syntax="XPath">/LVAL/check@end</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="CATEGORY">
+      <PATH syntax="XPath">/LVAL/check@category</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>15</LENGTH>        
+    </COLUMN>
+    <COLUMN name="MODULE">
+      <PATH syntax="XPath">/LVAL/check@module</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+    <COLUMN name="TITLE">
+      <PATH>title</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>256</LENGTH>        
+    </COLUMN>
+    <COLUMN name="SELECT">
+      <PATH>select</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+    <COLUMN name="FROM">
+      <PATH>from</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+    <COLUMN name="JOIN">
+      <PATH>join</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+	<COLUMN name="JOIN2">
+      <PATH>join2</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+	<COLUMN name="JOIN3">
+      <PATH>join3</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+    <COLUMN name="ON">
+      <PATH>on</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+    <COLUMN name="ON2">
+      <PATH>on2</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+    <COLUMN name="ON3">
+      <PATH>on3</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+    <COLUMN name="ON4">
+      <PATH>on4</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+    <COLUMN name="WHERE">
+      <PATH>where</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+    <COLUMN name="GROUP">
+      <PATH>group</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+    <COLUMN name="HAVING">
+      <PATH>having</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>512</LENGTH>        
+    </COLUMN>
+    <COLUMN name="SELRESP">
+      <PATH>selresp</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>1</LENGTH>        
+    </COLUMN>
+</TABLE>
+</SXLEMAP>          

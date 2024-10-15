@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<SXLEMAP version="2.1">   
+
+  <TABLE name="SCL_NUTS"> 
+    <TABLE-PATH syntax="XPath">/NUTS/CNTRY/REGION</TABLE-PATH>
+    <COLUMN name="ID">
+      <PATH syntax="XPath">/NUTS/CNTRY/REGION@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+ 	<COLUMN name="START">
+      <PATH syntax="XPath">/NUTS/CNTRY/REGION@start</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+    <COLUMN name="END">
+      <PATH syntax="XPath">/NUTS/CNTRY/REGION@end</PATH>
+      <TYPE>NUMERIC</TYPE>
+      <DATATYPE>INTEGER</DATATYPE>
+      <LENGTH>4</LENGTH>        
+    </COLUMN>
+   <COLUMN name="CNTRY"  retain="Y">
+      <PATH syntax="XPath">/NUTS/CNTRY@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>8</LENGTH>        
+    </COLUMN>
+  </TABLE>	
+
+  </SXLEMAP>
