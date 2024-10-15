@@ -1,0 +1,1862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Revision: March 23rd 2023 -->
+<SIZE_TARGET xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../XSD/SIZE.xsd">
+  <cntry id="AL">
+    <nuts id="AL">
+      <hh_c>3575</hh_c>
+      <hh_l>1379</hh_l>
+    </nuts>
+    <nuts id="AL0">
+      <hh_c>652</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AL01">
+      <hh_c>345</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AL02">
+      <hh_c>420</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AL03">
+      <hh_c>357</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="AT">
+    <nuts id="AT">
+      <hh_c>4373</hh_c>
+      <hh_l>1689</hh_l>
+    </nuts>
+    <nuts id="AT1">
+      <hh_c>796</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT11">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT12">
+      <hh_c>506</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT13">
+      <hh_c>581</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT2">
+      <hh_c>527</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT21">
+      <hh_c>296</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT22">
+      <hh_c>436</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT3">
+      <hh_c>694</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT31">
+      <hh_c>474</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT32">
+      <hh_c>292</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT33">
+      <hh_c>338</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="AT34">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="BE">
+    <nuts id="BE">
+      <hh_c>4606</hh_c>
+      <hh_l>1780</hh_l>
+    </nuts>
+    <nuts id="BE1">
+      <hh_c>459</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE10">
+      <hh_c>460</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE2">
+      <hh_c>1002</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE21">
+      <hh_c>537</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE22">
+      <hh_c>357</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE23">
+      <hh_c>484</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE24">
+      <hh_c>415</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE25">
+      <hh_c>431</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE3">
+      <hh_c>753</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE31">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE32">
+      <hh_c>459</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE33">
+      <hh_c>423</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE34">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BE35">
+      <hh_c>276</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="BG">
+    <nuts id="BG">
+      <hh_c>4112</hh_c>
+      <hh_l>1588</hh_l>
+    </nuts>
+    <nuts id="BG3">
+      <hh_c>712</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BG31">
+      <hh_c>329</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BG32">
+      <hh_c>339</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BG33">
+      <hh_c>365</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BG34">
+      <hh_c>383</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BG4">
+      <hh_c>717</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BG41">
+      <hh_c>565</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="BG42">
+      <hh_c>440</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="CH">
+    <nuts id="CH">
+      <hh_c>4354</hh_c>
+      <hh_l>1682</hh_l>
+    </nuts>
+    <nuts id="CH0">
+      <hh_c>1165</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CH01">
+      <hh_c>505</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CH02">
+      <hh_c>549</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CH03">
+      <hh_c>434</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CH04">
+      <hh_c>509</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CH05">
+      <hh_c>428</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CH06">
+      <hh_c>353</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CH07">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="CY">
+    <nuts id="CY">
+      <hh_c>3111</hh_c>
+      <hh_l>1199</hh_l>
+    </nuts>
+    <nuts id="CY0">
+      <hh_c>339</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CY00">
+      <hh_c>341</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="CZ">
+    <nuts id="CZ">
+      <hh_c>4506</hh_c>
+      <hh_l>1741</hh_l>
+    </nuts>
+    <nuts id="CZ0">
+      <hh_c>1270</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CZ01">
+      <hh_c>468</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CZ02">
+      <hh_c>452</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CZ03">
+      <hh_c>433</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CZ04">
+      <hh_c>417</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CZ05">
+      <hh_c>475</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CZ06">
+      <hh_c>497</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CZ07">
+      <hh_c>419</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="CZ08">
+      <hh_c>425</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="DE">
+    <nuts id="DE">
+      <hh_c>8169</hh_c>
+      <hh_l>3166</hh_l>
+    </nuts>
+    <nuts id="DE1">
+      <hh_c>1327</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE11">
+      <hh_c>811</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE12">
+      <hh_c>675</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE13">
+      <hh_c>601</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE14">
+      <hh_c>534</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE2">
+      <hh_c>1451</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE21">
+      <hh_c>884</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE22">
+      <hh_c>432</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE23">
+      <hh_c>414</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE24">
+      <hh_c>412</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE25">
+      <hh_c>542</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE26">
+      <hh_c>455</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE27">
+      <hh_c>548</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE3">
+      <hh_c>843</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE30">
+      <hh_c>842</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE4">
+      <hh_c>656</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE40">
+      <hh_c>658</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE5">
+      <hh_c>352</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE50">
+      <hh_c>352</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE6">
+      <hh_c>581</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE60">
+      <hh_c>582</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE7">
+      <hh_c>1010</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE71">
+      <hh_c>814</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE72">
+      <hh_c>404</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE73">
+      <hh_c>442</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE8">
+      <hh_c>532</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE80">
+      <hh_c>533</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE9">
+      <hh_c>1131</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE91">
+      <hh_c>515</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE92">
+      <hh_c>601</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE93">
+      <hh_c>518</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DE94">
+      <hh_c>621</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEA">
+      <hh_c>1723</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEA1">
+      <hh_c>944</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEA2">
+      <hh_c>862</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEA3">
+      <hh_c>643</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEA4">
+      <hh_c>565</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEA5">
+      <hh_c>773</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEB">
+      <hh_c>805</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEB1">
+      <hh_c>484</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEB2">
+      <hh_c>290</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEB3">
+      <hh_c>575</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEC">
+      <hh_c>398</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEC0">
+      <hh_c>397</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DED">
+      <hh_c>854</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DED2">
+      <hh_c>530</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DED4">
+      <hh_c>502</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DED5">
+      <hh_c>441</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEE">
+      <hh_c>620</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEE0">
+      <hh_c>618</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEF">
+      <hh_c>692</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEF0">
+      <hh_c>692</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEG">
+      <hh_c>604</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DEG0">
+      <hh_c>602</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="DK">
+    <nuts id="DK">
+      <hh_c>4065</hh_c>
+      <hh_l>1570</hh_l>
+    </nuts>
+    <nuts id="DK0">
+      <hh_c>975</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DK01">
+      <hh_c>556</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DK02">
+      <hh_c>368</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DK03">
+      <hh_c>447</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DK04">
+      <hh_c>461</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="DK05">
+      <hh_c>312</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="EE">
+    <nuts id="EE">
+      <hh_c>3306</hh_c>
+      <hh_l>1275</hh_l>
+    </nuts>
+    <nuts id="EE0">
+      <hh_c>471</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EE00">
+      <hh_c>471</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="EL">
+    <nuts id="EL">
+      <hh_c>4418</hh_c>
+      <hh_l>1707</hh_l>
+    </nuts>
+    <nuts id="EL3">
+      <hh_c>729</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL30">
+      <hh_c>729</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL4">
+      <hh_c>411</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL41">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL42">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL43">
+      <hh_c>298</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL5">
+      <hh_c>648</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL51">
+      <hh_c>288</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL52">
+      <hh_c>504</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL53">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL54">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL6">
+      <hh_c>595</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL61">
+      <hh_c>304</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL62">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL63">
+      <hh_c>288</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL64">
+      <hh_c>270</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="EL65">
+      <hh_c>275</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="ES">
+    <nuts id="ES">
+      <hh_c>6451</hh_c>
+      <hh_l>2498</hh_l>
+    </nuts>
+    <nuts id="ES1">
+      <hh_c>782</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES11">
+      <hh_c>609</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES12">
+      <hh_c>394</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES13">
+      <hh_c>290</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES2">
+      <hh_c>807</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES21">
+      <hh_c>566</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES22">
+      <hh_c>303</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES23">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES24">
+      <hh_c>438</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES3">
+      <hh_c>966</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES30">
+      <hh_c>967</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES4">
+      <hh_c>881</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES41">
+      <hh_c>592</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES42">
+      <hh_c>525</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES43">
+      <hh_c>383</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES5">
+      <hh_c>1403</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES51">
+      <hh_c>1040</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES52">
+      <hh_c>849</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES53">
+      <hh_c>414</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES6">
+      <hh_c>1155</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES61">
+      <hh_c>1063</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES62">
+      <hh_c>438</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES63">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES64">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES7">
+      <hh_c>553</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ES70">
+      <hh_c>553</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="FI">
+    <nuts id="FI">
+      <hh_c>4055</hh_c>
+      <hh_l>1566</hh_l>
+    </nuts>
+    <nuts id="FI1">
+      <hh_c>966</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FI19">
+      <hh_c>482</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FI1B">
+      <hh_c>536</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FI1C">
+      <hh_c>449</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FI1D">
+      <hh_c>462</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FI2">
+      <hh_c>71</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FI20">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="FR">
+    <nuts id="FR">
+      <hh_c>7454</hh_c>
+      <hh_l>2888</hh_l>
+    </nuts>
+    <nuts id="FR1">
+      <hh_c>1365</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FR10">
+      <hh_c>1368</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRB">
+      <hh_c>635</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRB0">
+      <hh_c>635</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRC">
+      <hh_c>668</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRC1">
+      <hh_c>510</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRC2">
+      <hh_c>430</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRD">
+      <hh_c>716</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRD1">
+      <hh_c>480</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRD2">
+      <hh_c>531</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRE">
+      <hh_c>937</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRE1">
+      <hh_c>772</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRE2">
+      <hh_c>532</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRF">
+      <hh_c>924</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRF1">
+      <hh_c>540</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRF2">
+      <hh_c>455</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRF3">
+      <hh_c>598</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRG">
+      <hh_c>767</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRG0">
+      <hh_c>771</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRH">
+      <hh_c>732</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRH0">
+      <hh_c>735</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRI">
+      <hh_c>987</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRI1">
+      <hh_c>751</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRI2">
+      <hh_c>348</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRI3">
+      <hh_c>543</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRJ">
+      <hh_c>977</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRJ1">
+      <hh_c>680</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRJ2">
+      <hh_c>708</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRK">
+      <hh_c>1120</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRK1">
+      <hh_c>474</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRK2">
+      <hh_c>1018</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRL">
+      <hh_c>898</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRL0">
+      <hh_c>901</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRM">
+      <hh_c>230</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRM0">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRY">
+      <hh_c>523</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRY1">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRY2">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRY3">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRY4">
+      <hh_c>332</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="FRY5">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="HR">
+    <nuts id="HR">
+      <hh_c>3765</hh_c>
+      <hh_l>1453</hh_l>
+    </nuts>
+    <nuts id="HR0">
+      <hh_c>779</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HR02">
+      <hh_c>395</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HR03">
+      <hh_c>452</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HR04">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HR05">
+      <hh_c>348</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HR06">
+      <hh_c>348</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="HU">
+    <nuts id="HU">
+      <hh_c>4404</hh_c>
+      <hh_l>1702</hh_l>
+    </nuts>
+    <nuts id="HU1">
+      <hh_c>690</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HU11">
+      <hh_c>519</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HU12">
+      <hh_c>452</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HU2">
+      <hh_c>651</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HU21">
+      <hh_c>391</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HU22">
+      <hh_c>378</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HU23">
+      <hh_c>357</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HU3">
+      <hh_c>745</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HU31">
+      <hh_c>402</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HU32">
+      <hh_c>452</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="HU33">
+      <hh_c>432</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="IE">
+    <nuts id="IE">
+      <hh_c>3808</hh_c>
+      <hh_l>1470</hh_l>
+    </nuts>
+    <nuts id="IE0">
+      <hh_c>802</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="IE04">
+      <hh_c>338</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="IE05">
+      <hh_c>463</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="IE06">
+      <hh_c>565</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="IS">
+    <nuts id="IS">
+      <hh_c>2936</hh_c>
+      <hh_l>1130</hh_l>
+    </nuts>
+    <nuts id="IS0">
+      <hh_c>222</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="IS00">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="IT">
+    <nuts id="IT">
+      <hh_c>7055</hh_c>
+      <hh_l>2732</hh_l>
+    </nuts>
+    <nuts id="ITC">
+      <hh_c>1590</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITC1">
+      <hh_c>829</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITC2">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITC3">
+      <hh_c>513</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITC4">
+      <hh_c>1240</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITF">
+      <hh_c>1361</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITF1">
+      <hh_c>430</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITF2">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITF3">
+      <hh_c>850</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITF4">
+      <hh_c>732</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITF5">
+      <hh_c>279</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITF6">
+      <hh_c>514</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITG">
+      <hh_c>963</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITG1">
+      <hh_c>826</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITG2">
+      <hh_c>486</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITH">
+      <hh_c>1335</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITH1">
+      <hh_c>279</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITH2">
+      <hh_c>288</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITH3">
+      <hh_c>847</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITH4">
+      <hh_c>441</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITH5">
+      <hh_c>840</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITI">
+      <hh_c>1341</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITI1">
+      <hh_c>753</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITI2">
+      <hh_c>360</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITI3">
+      <hh_c>467</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ITI4">
+      <hh_c>935</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="LI">
+    <nuts id="LI">
+      <hh_c>2717</hh_c>
+      <hh_l>1046</hh_l>
+    </nuts>
+    <nuts id="LI0">
+      <hh_c>78</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="LI00">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="LT">
+    <nuts id="LT">
+      <hh_c>3571</hh_c>
+      <hh_l>1378</hh_l>
+    </nuts>
+    <nuts id="LT0">
+      <hh_c>647</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="LT01">
+      <hh_c>354</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="LT02">
+      <hh_c>542</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="LU">
+    <nuts id="LU">
+      <hh_c>3057</hh_c>
+      <hh_l>1178</hh_l>
+    </nuts>
+    <nuts id="LU0">
+      <hh_c>303</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="LU00">
+      <hh_c>305</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="LV">
+    <nuts id="LV">
+      <hh_c>3398</hh_c>
+      <hh_l>1310</hh_l>
+    </nuts>
+    <nuts id="LV0">
+      <hh_c>534</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="LV00">
+      <hh_c>532</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="ME">
+    <nuts id="ME">
+      <hh_c>3057</hh_c>
+      <hh_l>1178</hh_l>
+    </nuts>
+    <nuts id="ME0">
+      <hh_c>305</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="ME00">
+      <hh_c>305</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="MK">
+    <nuts id="MK">
+      <hh_c>3434</hh_c>
+      <hh_l>1324</hh_l>
+    </nuts>
+    <nuts id="MK0">
+      <hh_c>557</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="MK00">
+      <hh_c>556</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="MT">
+    <nuts id="MT">
+      <hh_c>2991</hh_c>
+      <hh_l>1152</hh_l>
+    </nuts>
+    <nuts id="MT0">
+      <hh_c>261</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="MT00">
+      <hh_c>261</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="NL">
+    <nuts id="NL">
+      <hh_c>5115</hh_c>
+      <hh_l>1978</hh_l>
+    </nuts>
+    <nuts id="NL1">
+      <hh_c>529</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL11">
+      <hh_c>320</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL12">
+      <hh_c>320</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL13">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL2">
+      <hh_c>749</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL21">
+      <hh_c>422</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL22">
+      <hh_c>569</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL23">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL3">
+      <hh_c>1173</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL31">
+      <hh_c>467</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL32">
+      <hh_c>700</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL33">
+      <hh_c>783</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL34">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL4">
+      <hh_c>764</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL41">
+      <hh_c>635</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL42">
+      <hh_c>426</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="NO">
+    <nuts id="NO">
+      <hh_c>3997</hh_c>
+      <hh_l>1543</hh_l>
+    </nuts>
+    <nuts id="NO0">
+      <hh_c>929</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NO01">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NO02">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NO03">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NO04">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NO05">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NO06">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NO07">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NO08">
+      <hh_c>575</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NO09">
+      <hh_c>334</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NO0A">
+      <hh_c>464</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="PL">
+    <nuts id="PL">
+      <hh_c>5890</hh_c>
+      <hh_l>2279</hh_l>
+    </nuts>
+    <nuts id="PL2">
+      <hh_c>999</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL21">
+      <hh_c>627</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL22">
+      <hh_c>775</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL4">
+      <hh_c>874</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL41">
+      <hh_c>640</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL42">
+      <hh_c>472</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL43">
+      <hh_c>358</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL5">
+      <hh_c>714</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL51">
+      <hh_c>624</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL52">
+      <hh_c>345</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL6">
+      <hh_c>855</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL61">
+      <hh_c>506</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL62">
+      <hh_c>422</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL63">
+      <hh_c>544</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL7">
+      <hh_c>689</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL71">
+      <hh_c>570</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL72">
+      <hh_c>382</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL8">
+      <hh_c>794</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL81">
+      <hh_c>504</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL82">
+      <hh_c>478</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL84">
+      <hh_c>379</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL9">
+      <hh_c>847</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL91">
+      <hh_c>641</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PL92">
+      <hh_c>553</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="PT">
+    <nuts id="PT">
+      <hh_c>4387</hh_c>
+      <hh_l>1695</hh_l>
+    </nuts>
+    <nuts id="PT1">
+      <hh_c>1165</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT11">
+      <hh_c>680</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT15">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT16">
+      <hh_c>559</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT17">
+      <hh_c>648</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT18">
+      <hh_c>317</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT2">
+      <hh_c>170</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT20">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT3">
+      <hh_c>178</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT30">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="RO">
+    <nuts id="RO">
+      <hh_c>5003</hh_c>
+      <hh_l>1935</hh_l>
+    </nuts>
+    <nuts id="RO1">
+      <hh_c>801</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO11">
+      <hh_c>577</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO12">
+      <hh_c>553</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO2">
+      <hh_c>863</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO21">
+      <hh_c>648</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO22">
+      <hh_c>564</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO3">
+      <hh_c>839</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO31">
+      <hh_c>610</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO32">
+      <hh_c>575</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO4">
+      <hh_c>702</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO41">
+      <hh_c>501</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RO42">
+      <hh_c>487</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="RS">
+    <nuts id="RS">
+      <hh_c>4120</hh_c>
+      <hh_l>1591</hh_l>
+    </nuts>
+    <nuts id="RS1">
+      <hh_c>727</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RS11">
+      <hh_c>503</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RS12">
+      <hh_c>523</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RS2">
+      <hh_c>711</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RS21">
+      <hh_c>530</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="RS22">
+      <hh_c>467</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="SE">
+    <nuts id="SE">
+      <hh_c>4484</hh_c>
+      <hh_l>1732</hh_l>
+    </nuts>
+    <nuts id="SE1">
+      <hh_c>782</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SE11">
+      <hh_c>590</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SE12">
+      <hh_c>516</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SE2">
+      <hh_c>823</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SE21">
+      <hh_c>364</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SE22">
+      <hh_c>484</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SE23">
+      <hh_c>561</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SE3">
+      <hh_c>528</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SE31">
+      <hh_c>373</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SE32">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SE33">
+      <hh_c>284</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="SI">
+    <nuts id="SI">
+      <hh_c>3423</hh_c>
+      <hh_l>1320</hh_l>
+    </nuts>
+    <nuts id="SI0">
+      <hh_c>547</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SI03">
+      <hh_c>400</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SI04">
+      <hh_c>376</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="SK">
+    <nuts id="SK">
+      <hh_c>3815</hh_c>
+      <hh_l>1473</hh_l>
+    </nuts>
+    <nuts id="SK0">
+      <hh_c>810</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SK01">
+      <hh_c>311</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SK02">
+      <hh_c>474</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SK03">
+      <hh_c>399</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="SK04">
+      <hh_c>421</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+  <cntry id="TR">
+    <nuts id="TR">
+      <hh_c>7901</hh_c>
+      <hh_l>3062</hh_l>
+    </nuts>
+    <nuts id="TR1">
+      <hh_c>1523</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR10">
+      <hh_c>1520</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR2">
+      <hh_c>734</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR21">
+      <hh_c>526</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR22">
+      <hh_c>516</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR3">
+      <hh_c>1259</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR31">
+      <hh_c>810</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR32">
+      <hh_c>687</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR33">
+      <hh_c>684</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR4">
+      <hh_c>1102</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR41">
+      <hh_c>793</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR42">
+      <hh_c>776</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR5">
+      <hh_c>1102</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR51">
+      <hh_c>920</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR52">
+      <hh_c>612</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR6">
+      <hh_c>1260</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR61">
+      <hh_c>697</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR62">
+      <hh_c>785</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR63">
+      <hh_c>710</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR7">
+      <hh_c>780</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR71">
+      <hh_c>491</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR72">
+      <hh_c>608</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR8">
+      <hh_c>835</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR81">
+      <hh_c>393</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR82">
+      <hh_c>343</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR83">
+      <hh_c>649</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR9">
+      <hh_c>634</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TR90">
+      <hh_c>632</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TRA">
+      <hh_c>573</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TRA1">
+      <hh_c>401</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TRA2">
+      <hh_c>409</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TRB">
+      <hh_c>766</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TRB1">
+      <hh_c>513</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TRB2">
+      <hh_c>572</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TRC">
+      <hh_c>1158</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TRC1">
+      <hh_c>656</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TRC2">
+      <hh_c>763</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="TRC3">
+      <hh_c>592</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+  </cntry>
+</SIZE_TARGET>
+
+

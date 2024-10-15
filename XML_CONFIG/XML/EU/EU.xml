@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EU xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../XSD/EU.xsd">
+	<aggr id="EU">
+		<!--id>EU</id-->
+		<appl fr="2000"/>
+		<scope>
+			<cntry>AT</cntry>
+			<cntry>BE</cntry>
+			<cntry>DE</cntry>
+			<cntry>DK</cntry>
+			<cntry>ES</cntry>
+			<cntry>FI</cntry>
+			<cntry>FR</cntry>
+			<cntry>EL</cntry>
+			<cntry>IE</cntry>
+			<cntry>IT</cntry>
+			<cntry>LU</cntry>
+			<cntry>NL</cntry>
+			<cntry>PT</cntry>
+			<cntry>SE</cntry>
+			<cntry>UK</cntry>
+			<cntry fr="2004">CY</cntry>
+			<cntry fr="2004">CZ</cntry>
+			<cntry fr="2004">EE</cntry>
+			<cntry fr="2004">HU</cntry>
+			<cntry fr="2004">LT</cntry>
+			<cntry fr="2004">LV</cntry>
+			<cntry fr="2004">MT</cntry>
+			<cntry fr="2004">PL</cntry>
+			<cntry fr="2004">SI</cntry>
+			<cntry fr="2004">SK</cntry>
+			<cntry fr="2007">BG</cntry>
+			<cntry fr="2007">RO</cntry>
+			<cntry fr="2010">HR</cntry>
+		</scope>
+	</aggr>
+	<aggr id="EU27">
+		<appl fr="2007"/>
+		<scope>
+			<cntry>AT</cntry>
+			<cntry>BE</cntry>
+			<cntry>BG</cntry>
+			<cntry>CY</cntry>
+			<cntry>CZ</cntry>
+			<cntry>DE</cntry>
+			<cntry>DK</cntry>
+			<cntry>EE</cntry>
+			<cntry>ES</cntry>
+			<cntry>FI</cntry>
+			<cntry>FR</cntry>
+			<cntry>EL</cntry>
+			<cntry>HU</cntry>
+			<cntry>IE</cntry>
+			<cntry>IT</cntry>
+			<cntry>LT</cntry>
+			<cntry>LU</cntry>
+			<cntry>LV</cntry>
+			<cntry>MT</cntry>
+			<cntry>NL</cntry>
+			<cntry>PL</cntry>
+			<cntry>PT</cntry>
+			<cntry>RO</cntry>
+			<cntry>SE</cntry>
+			<cntry>SI</cntry>
+			<cntry>SK</cntry>
+			<cntry>UK</cntry>
+		</scope>
+	</aggr>
+	<aggr id="EU28">
+		<appl fr="2010"/>
+		<scope>
+			<cntry>AT</cntry>
+			<cntry>BE</cntry>
+			<cntry>BG</cntry>
+			<cntry>CY</cntry>
+			<cntry>CZ</cntry>
+			<cntry>DE</cntry>
+			<cntry>DK</cntry>
+			<cntry>EE</cntry>
+			<cntry>ES</cntry>
+			<cntry>FI</cntry>
+			<cntry>FR</cntry>
+			<cntry>EL</cntry>
+			<cntry>HR</cntry>
+			<cntry>HU</cntry>
+			<cntry>IE</cntry>
+			<cntry>IT</cntry>
+			<cntry>LT</cntry>
+			<cntry>LU</cntry>
+			<cntry>LV</cntry>
+			<cntry>MT</cntry>
+			<cntry>NL</cntry>
+			<cntry>PL</cntry>
+			<cntry>PT</cntry>
+			<cntry>RO</cntry>
+			<cntry>SE</cntry>
+			<cntry>SI</cntry>
+			<cntry>SK</cntry>
+			<cntry>UK</cntry>
+		</scope>
+	</aggr>
+	<aggr id="EU27_2019">
+		<appl fr="2010"/>
+		<scope>
+			<cntry>AT</cntry>
+			<cntry>BE</cntry>
+			<cntry>BG</cntry>
+			<cntry>CY</cntry>
+			<cntry>CZ</cntry>
+			<cntry>DE</cntry>
+			<cntry>DK</cntry>
+			<cntry>EE</cntry>
+			<cntry>ES</cntry>
+			<cntry>FI</cntry>
+			<cntry>FR</cntry>
+			<cntry>EL</cntry>
+			<cntry>HR</cntry>
+			<cntry>HU</cntry>
+			<cntry>IE</cntry>
+			<cntry>IT</cntry>
+			<cntry>LT</cntry>
+			<cntry>LU</cntry>
+			<cntry>LV</cntry>
+			<cntry>MT</cntry>
+			<cntry>NL</cntry>
+			<cntry>PL</cntry>
+			<cntry>PT</cntry>
+			<cntry>RO</cntry>
+			<cntry>SE</cntry>
+			<cntry>SI</cntry>
+			<cntry>SK</cntry>
+		</scope>
+	</aggr>
+	<aggr id="EA">
+		<appl fr="2000"/>
+		<scope>
+			<cntry>AT</cntry>
+			<cntry>BE</cntry>
+			<cntry>DE</cntry>
+			<cntry>ES</cntry>
+			<cntry>FI</cntry>
+			<cntry>FR</cntry>
+			<cntry>EL</cntry>
+			<cntry>IE</cntry>
+			<cntry>IT</cntry>
+			<cntry>LU</cntry>
+			<cntry>NL</cntry>
+			<cntry>PT</cntry>
+			<cntry fr="2007">SI</cntry>
+			<cntry fr="2008">CY</cntry>
+			<cntry fr="2008">MT</cntry>
+			<cntry fr="2009">SK</cntry>
+			<cntry fr="2011">EE</cntry>
+			<cntry fr="2014">LV</cntry>
+			<cntry fr="2015">LT</cntry>
+		</scope>
+	</aggr>
+	<aggr id="EA18">
+		<appl fr="2005"/>
+		<scope>
+			<cntry>AT</cntry>
+			<cntry>BE</cntry>
+			<cntry>DE</cntry>
+			<cntry>ES</cntry>
+			<cntry>FI</cntry>
+			<cntry>FR</cntry>
+			<cntry>EL</cntry>
+			<cntry>IE</cntry>
+			<cntry>IT</cntry>
+			<cntry>LU</cntry>
+			<cntry>NL</cntry>
+			<cntry>PT</cntry>
+			<cntry>SI</cntry>
+			<cntry>CY</cntry>
+			<cntry>MT</cntry>
+			<cntry>SK</cntry>
+			<cntry>EE</cntry>
+			<cntry>LV</cntry>
+		</scope>
+	</aggr>
+	<aggr id="EA19">
+		<appl fr="2005"/>
+		<scope>
+			<cntry>AT</cntry>
+			<cntry>BE</cntry>
+			<cntry>DE</cntry>
+			<cntry>ES</cntry>
+			<cntry>FI</cntry>
+			<cntry>FR</cntry>
+			<cntry>EL</cntry>
+			<cntry>IE</cntry>
+			<cntry>IT</cntry>
+			<cntry>LU</cntry>
+			<cntry>NL</cntry>
+			<cntry>PT</cntry>
+			<cntry>SI</cntry>
+			<cntry>CY</cntry>
+			<cntry>MT</cntry>
+			<cntry>SK</cntry>
+			<cntry>EE</cntry>
+			<cntry>LV</cntry>
+			<cntry>LT</cntry>
+		</scope>
+	</aggr>
+</EU>

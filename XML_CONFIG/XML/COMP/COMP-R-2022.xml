@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by  (European Commission - DG EUROSTAT) -->
+<!-- Revision history: Mar 1st 2022 -->
+<COMP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../XSD/COMP.xsd">
+	<threshold context="">
+		<tol type="NMISS">0.05</tol>
+		<tol type="NEG">0.05</tol>
+		<tol type="ZERO">1.00</tol>
+		<tol type="POS">1.00</tol>
+		<tol type="YTY">0.05</tol>
+	</threshold>
+	<threshold context="EUROMOD">
+		<tol type="NMISS">0.99</tol>
+		<tol type="NEG">0.99</tol>
+		<tol type="ZERO">0.99</tol>
+		<tol type="POS">0.99</tol>
+		<tol type="YTY">0.05</tol>
+	</threshold>
+	<!-- CONTINUOUS VARIABLES -->
+	<variable id="HY010" type="C" w="DB090" desc="Y"/>
+	<variable id="HY020" type="C" w="DB090" desc="Y"/>
+	<variable id="HY022" type="C" w="DB090" desc="Y"/>
+	<variable id="HY023" type="C" w="DB090" desc="Y"/>
+	<variable id="HY040N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY050N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY060N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY070N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY080N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY081N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY090N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY100N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY110N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY120N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY130N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY131N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY140N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY145N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY170N" type="C" w="DB090" desc="Y"/>
+	<variable id="HY040G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY050G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY060G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY070G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY080G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY081G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY090G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY100G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY110G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY120G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY130G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY131G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY140G" type="C" w="DB090" desc="Y"/>
+	<variable id="HY170G" type="C" w="DB090" desc="Y"/>
+	<variable id="HH060" type="C" w="DB090" reqfm2="Y" desc="Y"/>
+	<variable id="HH070" type="C" w="DB090" desc="Y"/>
+	<variable id="PY010N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY020N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY021N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY035N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY050G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY050N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY080N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY090N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY100N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY110N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY120N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY130N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY140N" type="C" w="PB040" desc="Y"/>
+	<variable id="PY010G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY020G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY021G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY030G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY035G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY050G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY080G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY090G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY100G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY110G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY120G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY130G" type="C" w="PB040" desc="Y"/>
+	<variable id="PY140G" type="C" w="PB040" desc="Y"/>
+ 	<!-- CONTINUOUS VARIABLES ADDED IN 2022-->
+        <variable id="HB100" type="C" w="DB090" desc="Y"/>
+        <variable id="HB120" type="C" w="DB090" desc="Y"/>
+        <variable id="HH071" type="C" w="DB090" reqfm2="Y" desc="Y"/>
+        <variable id="HY051G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY052G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY053G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY054G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY061G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY062G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY063G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY064G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY071G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY072G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY073G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY074G" type="C" w="DB090" reqfm5="Y" desc="Y"/>
+        <variable id="HY121G" type="C" w="DB090" reqfm2="Y" desc="Y"/>
+        <variable id="HY121N" type="C" w="DB090" reqfm2="Y" desc="Y"/>
+        <variable id="PB120" type="C" w="PB040" reqfm3="Y" desc="Y"/>
+        <variable id="PL060" type="C" w="PB040" reqfm2="Y" desc="Y"/>
+        <variable id="PL100" type="C" w="PB040" reqfm2="Y" reqfm4="Y" desc="Y"/>
+        <variable id="PL271" type="C" w="PB040" reqfm2="Y" desc="Y"/>
+        <variable id="PY091G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY092G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY093G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY094G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY101G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY102G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY103G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY104G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY111G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY112G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY113G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY114G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY121G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY122G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY123G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY124G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY131G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY132G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY133G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY134G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY141G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY142G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY143G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="PY144G" type="C" w="PB040" reqfm5="Y" desc="Y"/>
+        <variable id="RB285" type="C" w="RB050" reqfm2="Y" desc="Y"/>
+        <variable id="RL010" type="C" w="RB050" reqfm2="Y" desc="Y"/>
+        <variable id="RL020" type="C" w="RB050" reqfm2="Y" desc="Y"/>
+        <variable id="RL030" type="C" w="RB050" reqfm2="Y" desc="Y"/>
+        <variable id="RL040" type="C" w="RB050" reqfm2="Y" desc="Y"/>
+        <variable id="RL050" type="C" w="RB050" reqfm2="Y" desc="Y"/>
+        <variable id="RL060" type="C" w="RB050" reqfm2="Y" desc="Y"/>
+
+
+	<!-- DISCRETE VARIABLES -->
+	<variable id="DB100" type="D" w="DB090" desc="Y"/>
+	<variable id="DB120" type="D" w="DB090" reqfm2="Y" desc="Y"/>
+	<variable id="DB130" type="D" w="DB090" reqfm2="Y" desc="Y"/>
+	<variable id="DB135" type="D" w="DB090" reqfm2="Y" desc="Y"/>
+	<variable id="RB090" type="D" w="RB050" desc="Y"/>
+	<variable id="RB200" type="D" w="RB050" desc="Y"/>
+	<variable id="RB245" type="D" w="RB050" desc="Y"/>
+	<variable id="RB250" type="D" w="RB050" reqfm2="Y" desc="Y"/>
+	<variable id="HS011" type="D" w="DB090" reqfm2="Y" desc="Y"/>
+	<variable id="HS021" type="D" w="DB090" reqfm2="Y" desc="Y"/>
+	<variable id="HS031" type="D" w="DB090" reqfm2="Y" desc="Y"/>
+	<variable id="HS040" type="D" w="DB090" desc="Y"/>
+	<variable id="HS050" type="D" w="DB090" desc="Y"/>
+	<variable id="HS060" type="D" w="DB090" desc="Y"/>
+	<variable id="HS090" type="D" w="DB090" desc="Y"/>
+	<variable id="HS110" type="D" w="DB090" desc="Y"/>
+	<variable id="HS120" type="D" w="DB090" desc="Y"/>
+	<variable id="HS150" type="D" w="DB090" reqfm2="Y" desc="Y"/>
+	<variable id="HH010" type="D" w="DB090" desc="Y"/>
+	<variable id="HH021" type="D" w="DB090" desc="Y"/>
+	<variable id="HH030" type="D" w="DB090" desc="Y"/>
+	<variable id="HH050" type="D" w="DB090" desc="Y"/>
+	<variable id="PB150" type="D" w="PB040" desc="Y"/>
+	<variable id="PB190" type="D" w="PB040" desc="Y"/>
+	<variable id="PB200" type="D" w="PB040" desc="Y"/>
+	<variable id="PE010" type="D" w="PB040" desc="Y"/>
+	<variable id="PL032" type="D" w="PB040" desc="Y"/>
+	<variable id="PL040A" type="D" w="PB040" reqfm2="Y" desc="Y"/>
+	<variable id="PL040B" type="D" w="PB040" reqfm2="Y" desc="Y"/>
+	<variable id="PL051A" type="D" w="PB040" reqfm2="Y" desc="Y"/>
+	<variable id="PL051B" type="D" w="PB040" reqfm2="Y" desc="Y"/>
+	<variable id="PL073" type="D" w="PB040" desc="Y"/>
+	<variable id="PL074" type="D" w="PB040" desc="Y"/>
+	<variable id="PL075" type="D" w="PB040" desc="Y"/>
+	<variable id="PL076" type="D" w="PB040" desc="Y"/>
+	<variable id="PL080" type="D" w="PB040" desc="Y"/>
+	<variable id="PL085" type="D" w="PB040" desc="Y"/>
+	<variable id="PL086" type="D" w="PB040" desc="Y"/>
+	<variable id="PL087" type="D" w="PB040" desc="Y"/>
+	<variable id="PL088" type="D" w="PB040" desc="Y"/>
+	<variable id="PL089" type="D" w="PB040" desc="Y"/>
+	<variable id="PL090" type="D" w="PB040" desc="Y"/>
+	<variable id="PL111A" type="D" w="PB040" reqfm2="Y" reqfm3="Y" desc="Y"/>
+	<variable id="PL111B" type="D" w="PB040" reqfm2="Y" reqfm3="Y" desc="Y"/>
+	<variable id="PL150" type="D" w="PB040" reqfm2="Y" reqfm3="Y" desc="Y"/>
+	<variable id="PL200" type="D" w="PB040" reqfm2="Y" reqfm3="Y" desc="Y"/>
+	<variable id="PL211A" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211B" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211C" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211D" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211E" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211F" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211G" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211H" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211I" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211J" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211K" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PL211L" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PH010" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PH020" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PH030" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+	<variable id="PH040" type="D" w="PB040" reqfm2="Y" reqfm3="Y" desc="Y"/>
+	<variable id="PH050" type="D" w="PB040" reqfm2="Y" reqfm3="Y" desc="Y"/>
+	<variable id="PH060" type="D" w="PB040" reqfm2="Y" reqfm3="Y" desc="Y"/>
+	<variable id="PH070" type="D" w="PB040" reqfm2="Y" reqfm3="Y" desc="Y"/>
+	
+	<!-- DISCRETE VARIABLES ADDED IN 2022 -->
+        <variable id="DB110" type="D" w="DB090" desc="Y"/>
+        <variable id="HB110" type="D" w="DB090" desc="Y"/>
+        <variable id="HB130" type="D" w="DB090" desc="Y"/>
+        <variable id="HD080" type="D" w="DB090" desc="Y"/>
+        <variable id="HI010" type="D" w="DB090" desc="Y"/>
+        <variable id="HI020" type="D" w="DB090" reqfm2="Y" desc="Y"/>
+        <variable id="HI030" type="D" w="DB090" reqfm2="Y" desc="Y"/>
+        <variable id="HI040" type="D" w="DB090" desc="Y"/>
+        <variable id="HS022" type="D" w="DB090" desc="Y"/>
+        <variable id="HS090" type="D" w="DB090" desc="Y"/>
+        <variable id="PB205" type="D" w="PB040" desc="Y"/>
+        <variable id="PB260" type="D" w="PB040" desc="Y"/>
+        <variable id="PB270" type="D" w="PB040" desc="Y"/>
+        <variable id="PD020" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+        <variable id="PD030" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+        <variable id="PD050" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+        <variable id="PD060" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+        <variable id="PD070" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+        <variable id="PD080" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+        <variable id="PE021" type="D" w="PB040" reqfm2="Y" desc="Y"/>
+        <variable id="PE041" type="D" w="PB040" desc="Y"/>
+        <variable id="PL016" type="D" w="PB040" reqfm2="Y" desc="Y"/>
+        <variable id="PL032" type="D" w="PB040" desc="Y"/>
+        <variable id="PL141" type="D" w="PB040" reqfm2="Y" reqfm3="Y" desc="Y"/>
+        <variable id="PL145" type="D" w="PB040" reqfm2="Y" desc="Y"/>
+        <variable id="PW010" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+        <variable id="PW191" type="D" w="PB040" reqfm3="Y" desc="Y"/>
+        <variable id="RB100" type="D" w="RB050" desc="Y"/>
+        <variable id="RB110" type="D" w="RB050" desc="Y"/>
+        <variable id="RB120" type="D" w="RB050" reqfm2="Y" desc="Y"/>
+        <variable id="RB211" type="D" w="RB050" desc="Y"/>
+        <variable id="RB245" type="D" w="RB050" desc="Y"/>
+
+        <variable id="RG_1" type="D" w="RB050" reqfm2="Y" desc="Y"/>
+        <variable id="RG_2" type="D" w="RB050" reqfm2="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_3" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_4" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_5" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_6" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_7" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_8" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_9" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_10" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_11" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_12" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_13" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_14" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_15" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_16" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_17" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_18" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_19" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_20" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_21" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+        <variable id="RG_22" type="D" w="RB050" reqfm2="Y" reqfm4="Y" reqfm5="Y" desc="Y"/>
+
+ 	<!-- VARIABLES WITH REQUIRED FLAGS BUT NOT IN COMP REPORT -->
+  	<variable id="DB080" type="D" w="DB090" reqfm2="Y" desc="N"/>
+  	<variable id="DB095" type="D" w="DB090" reqfm2="Y" desc="N"/>
+        <variable id="RB032" type="D" w="RB050" reqfm2="Y" desc="N"/>
+        <variable id="RB062" type="D" w="RB050" reqfm2="Y" desc="N"/>
+        <variable id="RB063" type="D" w="RB050" reqfm2="Y" desc="N"/>
+        <variable id="RB064" type="D" w="RB050" reqfm2="Y" desc="N"/>
+        <variable id="RB220" type="D" w="RB050" reqfm2="Y" desc="N"/>
+        <variable id="RB230" type="D" w="RB050" reqfm2="Y" desc="N"/>
+        <variable id="RB240" type="D" w="RB050" reqfm2="Y" desc="N"/>
+        <variable id="RL070" type="D" w="RB050" reqfm2="Y" desc="N"/>
+        <variable id="PB160" type="D" w="PB040" reqfm2="Y" desc="N"/>
+        <variable id="PB170" type="D" w="PB040" reqfm2="Y" desc="N"/>
+        <variable id="PB180" type="D" w="PB040" reqfm2="Y" desc="N"/>
+        <variable id="PB265" type="D" w="PB040" reqfm2="Y" desc="N"/>
+        
+        <variable id="PB060" type="D" w="PB040" reqfm3="S" desc="N"/>
+        <variable id="PB070" type="D" w="PB040" reqfm3="S" desc="N"/>
+        <variable id="PB080" type="D" w="PB040" reqfm3="S" desc="N"/>
+        <variable id="PB090" type="D" w="PB040" reqfm3="S" desc="N"/>
+        <variable id="PB260" type="D" w="PB040" reqfm3="S" desc="N"/>
+        <variable id="PB270" type="D" w="PB040" reqfm3="S" desc="N"/>
+        <variable id="PL271" type="D" w="PB040" reqfm3="S" desc="N"/>
+
+  </COMP>
+
+
+
+

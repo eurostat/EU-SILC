@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Revision: Dec 21st 2022 -->
+<NUTS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../XSD/SCL_NUTS.xsd">
+	<CNTRY id="AT">
+		<REGION id="AT11"/>
+		<REGION id="AT12"/>
+		<REGION id="AT13"/>
+		<REGION id="AT21"/>
+		<REGION id="AT22"/>
+		<REGION id="AT31"/>
+		<REGION id="AT32"/>
+		<REGION id="AT33"/>
+		<REGION id="AT34"/>
+		<REGION id="ATZZ"/>
+	</CNTRY>
+	<CNTRY id="BE">
+		<REGION id="BE10"/>
+		<REGION id="BE21"/>
+		<REGION id="BE22"/>
+		<REGION id="BE23"/>
+		<REGION id="BE24"/>
+		<REGION id="BE25"/>
+		<REGION id="BE31"/>
+		<REGION id="BE32"/>
+		<REGION id="BE33"/>
+		<REGION id="BE34"/>
+		<REGION id="BE35"/>
+		<REGION id="BEZZ"/>
+	</CNTRY>
+	<CNTRY id="BG">
+		<REGION id="BG31"/>
+		<REGION id="BG32"/>
+		<REGION id="BG33"/>
+		<REGION id="BG34"/>
+		<REGION id="BG41"/>
+		<REGION id="BG42"/>
+		<REGION id="BGZZ"/>
+	</CNTRY>
+	<CNTRY id="CZ">
+		<REGION id="CZ01"/>
+		<REGION id="CZ02"/>
+		<REGION id="CZ03"/>
+		<REGION id="CZ04"/>
+		<REGION id="CZ05"/>
+		<REGION id="CZ06"/>
+		<REGION id="CZ07"/>
+		<REGION id="CZ08"/>
+		<REGION id="CZZZ"/>
+	</CNTRY>
+	<CNTRY id="DK">
+		<REGION id="DK01"/>
+		<REGION id="DK02"/>
+		<REGION id="DK03"/>
+		<REGION id="DK04"/>
+		<REGION id="DK05"/>
+		<REGION id="DKZZ"/>
+	</CNTRY>
+	<CNTRY id="DE">
+		<REGION id="DE11"/>
+		<REGION id="DE12"/>
+		<REGION id="DE13"/>
+		<REGION id="DE14"/>
+		<REGION id="DE21"/>
+		<REGION id="DE22"/>
+		<REGION id="DE23"/>
+		<REGION id="DE24"/>
+		<REGION id="DE25"/>
+		<REGION id="DE26"/>
+		<REGION id="DE27"/>
+		<REGION id="DE30"/>
+		<REGION id="DE40"/>
+		<REGION id="DE50"/>
+		<REGION id="DE60"/>
+		<REGION id="DE71"/>
+		<REGION id="DE72"/>
+		<REGION id="DE73"/>
+		<REGION id="DE80"/>
+		<REGION id="DE91"/>
+		<REGION id="DE92"/>
+		<REGION id="DE93"/>
+		<REGION id="DE94"/>
+		<REGION id="DEA1"/>
+		<REGION id="DEA2"/>
+		<REGION id="DEA3"/>
+		<REGION id="DEA4"/>
+		<REGION id="DEA5"/>
+		<REGION id="DEB1"/>
+		<REGION id="DEB2"/>
+		<REGION id="DEB3"/>
+		<REGION id="DEC0"/>
+		<REGION id="DED2"/>
+		<REGION id="DED4"/>
+		<REGION id="DED5"/>
+		<REGION id="DEE0"/>
+		<REGION id="DEF0"/>
+		<REGION id="DEG0"/>
+		<REGION id="DEZZ"/>
+	</CNTRY>
+	<CNTRY id="EE">
+		<REGION id="EE00"/>
+		<REGION id="EEZZ"/>
+	</CNTRY>
+	<CNTRY id="IE">
+		<REGION id="IE04"/>
+		<REGION id="IE05"/>
+		<REGION id="IE06"/>
+		<REGION id="IEZZ"/>
+	</CNTRY>
+	<CNTRY id="EL">
+		<REGION id="EL30"/>
+		<REGION id="EL41"/>
+		<REGION id="EL42"/>
+		<REGION id="EL43"/>
+		<REGION id="EL51"/>
+		<REGION id="EL52"/>
+		<REGION id="EL53"/>
+		<REGION id="EL54"/>
+		<REGION id="EL61"/>
+		<REGION id="EL62"/>
+		<REGION id="EL63"/>
+		<REGION id="EL64"/>
+		<REGION id="EL65"/>
+		<REGION id="ELZZ"/>
+	</CNTRY>
+	<CNTRY id="ES">
+		<REGION id="ES11"/>
+		<REGION id="ES12"/>
+		<REGION id="ES13"/>
+		<REGION id="ES21"/>
+		<REGION id="ES22"/>
+		<REGION id="ES23"/>
+		<REGION id="ES24"/>
+		<REGION id="ES30"/>
+		<REGION id="ES41"/>
+		<REGION id="ES42"/>
+		<REGION id="ES43"/>
+		<REGION id="ES51"/>
+		<REGION id="ES52"/>
+		<REGION id="ES53"/>
+		<REGION id="ES61"/>
+		<REGION id="ES62"/>
+		<REGION id="ES63"/>
+		<REGION id="ES64"/>
+		<REGION id="ES70"/>
+		<REGION id="ESZZ"/>
+	</CNTRY>
+	<CNTRY id="FR">
+		<REGION id="FR10"/>
+		<REGION id="FRB0"/>
+		<REGION id="FRC1"/>
+		<REGION id="FRC2"/>
+		<REGION id="FRD1"/>
+		<REGION id="FRD2"/>
+		<REGION id="FRE1"/>
+		<REGION id="FRE2"/>
+		<REGION id="FRF1"/>
+		<REGION id="FRF2"/>
+		<REGION id="FRF3"/>
+		<REGION id="FRG0"/>
+		<REGION id="FRH0"/>
+		<REGION id="FRI1"/>
+		<REGION id="FRI2"/>
+		<REGION id="FRI3"/>
+		<REGION id="FRJ1"/>
+		<REGION id="FRJ2"/>
+		<REGION id="FRK1"/>
+		<REGION id="FRK2"/>
+		<REGION id="FRL0"/>
+		<REGION id="FRM0"/>
+		<REGION id="FRY1"/>
+		<REGION id="FRY2"/>
+		<REGION id="FRY3"/>
+		<REGION id="FRY4"/>
+		<REGION id="FRY5"/>
+		<REGION id="FRZZ"/>
+	</CNTRY>
+	<CNTRY id="HR">
+		<REGION id="HR03"/>
+		<REGION id="HR05"/>
+		<REGION id="HR06"/>
+		<REGION id="HR02"/>
+		<REGION id="HRZZ"/>
+	</CNTRY>
+	<CNTRY id="IT">
+		<REGION id="ITC1"/>
+		<REGION id="ITC2"/>
+		<REGION id="ITC3"/>
+		<REGION id="ITC4"/>
+		<REGION id="ITF1"/>
+		<REGION id="ITF2"/>
+		<REGION id="ITF3"/>
+		<REGION id="ITF4"/>
+		<REGION id="ITF5"/>
+		<REGION id="ITF6"/>
+		<REGION id="ITG1"/>
+		<REGION id="ITG2"/>
+		<REGION id="ITH1"/>
+		<REGION id="ITH2"/>
+		<REGION id="ITH3"/>
+		<REGION id="ITH4"/>
+		<REGION id="ITH5"/>
+		<REGION id="ITI1"/>
+		<REGION id="ITI2"/>
+		<REGION id="ITI3"/>
+		<REGION id="ITI4"/>
+		<REGION id="ITZZ"/>
+	</CNTRY>
+	<CNTRY id="CY">
+		<REGION id="CY00"/>
+		<REGION id="CYZZ"/>
+	</CNTRY>
+	<CNTRY id="LV">
+		<REGION id="LV00"/>
+		<REGION id="LVZZ"/>
+	</CNTRY>
+	<CNTRY id="LT">
+		<REGION id="LT01"/>
+		<REGION id="LT02"/>
+		<REGION id="LTZZ"/>
+	</CNTRY>
+	<CNTRY id="LU">
+		<REGION id="LU00"/>
+		<REGION id="LUZZ"/>
+	</CNTRY>
+	<CNTRY id="HU">
+		<REGION id="HU11"/>
+		<REGION id="HU12"/>
+		<REGION id="HU21"/>
+		<REGION id="HU22"/>
+		<REGION id="HU23"/>
+		<REGION id="HU31"/>
+		<REGION id="HU32"/>
+		<REGION id="HU33"/>
+		<REGION id="HUZZ"/>
+	</CNTRY>
+	<CNTRY id="MT">
+		<REGION id="MT00"/>
+		<REGION id="MTZZ"/>
+	</CNTRY>
+	<CNTRY id="NL">
+		<REGION id="NL11"/>
+		<REGION id="NL12"/>
+		<REGION id="NL13"/>
+		<REGION id="NL21"/>
+		<REGION id="NL22"/>
+		<REGION id="NL23"/>
+		<REGION id="NL31" end="2029"/>
+		<REGION id="NL32"/>
+		<REGION id="NL33" end="2029"/>
+		<REGION id="NL34"/>
+		<REGION id="NL41"/>
+		<REGION id="NL42"/>
+		<REGION id="NLZZ"/>
+        <REGION id="NL35" start="2024"/>
+		<REGION id="NL36" start="2024"/>
+	</CNTRY>
+	<CNTRY id="PL">
+		<REGION id="PL21"/>
+		<REGION id="PL22"/>
+		<REGION id="PL41"/>
+		<REGION id="PL42"/>
+		<REGION id="PL43"/>
+		<REGION id="PL51"/>
+		<REGION id="PL52"/>
+		<REGION id="PL61"/>
+		<REGION id="PL62"/>
+		<REGION id="PL63"/>
+		<REGION id="PL71"/>
+		<REGION id="PL72"/>
+		<REGION id="PL81"/>
+		<REGION id="PL82"/>
+		<REGION id="PL84"/>
+		<REGION id="PL91"/>
+		<REGION id="PL92"/>
+		<REGION id="PLZZ"/>
+	</CNTRY>
+	<CNTRY id="PT">
+		<REGION id="PT11"/>
+		<REGION id="PT15"/>
+		<REGION id="PT16" end="2027"/>
+		<REGION id="PT17" end="2027"/>
+		<REGION id="PT18" end="2027"/>
+		<REGION id="PT20"/>
+		<REGION id="PT30"/>
+		<REGION id="PTZZ"/>
+		<REGION id="PT19" start="2024"/>
+		<REGION id="PT1A" start="2024"/>
+		<REGION id="PT1B" start="2024"/>
+		<REGION id="PT1C" start="2024"/>
+		<REGION id="PT1D" start="2024"/>
+	</CNTRY>
+	<CNTRY id="RO">
+		<REGION id="RO11"/>
+		<REGION id="RO12"/>
+		<REGION id="RO21"/>
+		<REGION id="RO22"/>
+		<REGION id="RO31"/>
+		<REGION id="RO32"/>
+		<REGION id="RO41"/>
+		<REGION id="RO42"/>
+		<REGION id="ROZZ"/>
+	</CNTRY>
+	<CNTRY id="SI">
+		<REGION id="SI03"/>
+		<REGION id="SI04"/>
+		<REGION id="SIZZ"/>
+	</CNTRY>
+	<CNTRY id="SK">
+		<REGION id="SK01"/>
+		<REGION id="SK02"/>
+		<REGION id="SK03"/>
+		<REGION id="SK04"/>
+		<REGION id="SKZZ"/>
+	</CNTRY>
+	<CNTRY id="FI">
+		<REGION id="FI19"/>
+		<REGION id="FI1B"/>
+		<REGION id="FI1C"/>
+		<REGION id="FI1D"/>
+		<REGION id="FI20"/>
+		<REGION id="FIZZ"/>
+	</CNTRY>
+	<CNTRY id="SE">
+		<REGION id="SE11"/>
+		<REGION id="SE12"/>
+		<REGION id="SE21"/>
+		<REGION id="SE22"/>
+		<REGION id="SE23"/>
+		<REGION id="SE31"/>
+		<REGION id="SE32"/>
+		<REGION id="SE33"/>
+		<REGION id="SEZZ"/>
+	</CNTRY>
+	<CNTRY id="UK">
+		<REGION id="UKC1"/>
+		<REGION id="UKC2"/>
+		<REGION id="UKD1"/>
+		<REGION id="UKD3"/>
+		<REGION id="UKD4"/>
+		<REGION id="UKD6"/>
+		<REGION id="UKD7"/>
+		<REGION id="UKE1"/>
+		<REGION id="UKE2"/>
+		<REGION id="UKE3"/>
+		<REGION id="UKE4"/>
+		<REGION id="UKF1"/>
+		<REGION id="UKF2"/>
+		<REGION id="UKF3"/>
+		<REGION id="UKG1"/>
+		<REGION id="UKG2"/>
+		<REGION id="UKG3"/>
+		<REGION id="UKH1"/>
+		<REGION id="UKH2"/>
+		<REGION id="UKH3"/>
+		<REGION id="UKI3"/>
+		<REGION id="UKI4"/>
+		<REGION id="UKI5"/>
+		<REGION id="UKI6"/>
+		<REGION id="UKI7"/>
+		<REGION id="UKJ1"/>
+		<REGION id="UKJ2"/>
+		<REGION id="UKJ3"/>
+		<REGION id="UKJ4"/>
+		<REGION id="UKK1"/>
+		<REGION id="UKK2"/>
+		<REGION id="UKK3"/>
+		<REGION id="UKK4"/>
+		<REGION id="UKL1"/>
+		<REGION id="UKL2"/>
+		<REGION id="UKM5"/>
+		<REGION id="UKM6"/>
+		<REGION id="UKM7"/>
+		<REGION id="UKM8"/>
+		<REGION id="UKM9"/>
+		<REGION id="UKN0"/>
+		<REGION id="UKZZ"/>
+	</CNTRY>
+	<CNTRY id="IS">
+		<REGION id="IS00"/>
+		<REGION id="ISZZ"/>
+	</CNTRY>
+	<CNTRY id="LI">
+		<REGION id="LI00"/>
+		<REGION id="LIZZ"/>
+	</CNTRY>
+	<CNTRY id="NO">
+		<REGION id="NO02"/>
+		<REGION id="NO06"/>
+		<REGION id="NO07"/>
+		<REGION id="NO08"/>
+		<REGION id="NO09"/>
+		<REGION id="NO0A"/>
+		<REGION id="NO0B"/>
+		<REGION id="NOZZ"/>
+	</CNTRY>
+	<CNTRY id="CH">
+		<REGION id="CH01"/>
+		<REGION id="CH02"/>
+		<REGION id="CH03"/>
+		<REGION id="CH04"/>
+		<REGION id="CH05"/>
+		<REGION id="CH06"/>
+		<REGION id="CH07"/>
+		<REGION id="CHZZ"/>
+	</CNTRY>
+	<CNTRY id="ME">
+		<REGION id="ME00"/>
+		<REGION id="MEZZ"/>
+	</CNTRY>
+	<CNTRY id="MK">
+		<REGION id="MK00"/>
+		<REGION id="MKZZ"/>
+	</CNTRY>
+	<CNTRY id="AL">
+		<REGION id="AL01"/>
+		<REGION id="AL02"/>
+		<REGION id="AL03"/>
+		<REGION id="ALZZ"/>
+	</CNTRY>
+	<CNTRY id="RS">
+		<REGION id="RS11"/>
+		<REGION id="RS12"/>
+		<REGION id="RS21"/>
+		<REGION id="RS22"/>
+		<REGION id="RSZZ"/>
+	</CNTRY>
+	<CNTRY id="TR">
+		<REGION id="TR10"/>
+		<REGION id="TR21"/>
+		<REGION id="TR22"/>
+		<REGION id="TR31"/>
+		<REGION id="TR32"/>
+		<REGION id="TR33"/>
+		<REGION id="TR41"/>
+		<REGION id="TR42"/>
+		<REGION id="TR51"/>
+		<REGION id="TR52"/>
+		<REGION id="TR61"/>
+		<REGION id="TR62"/>
+		<REGION id="TR63"/>
+		<REGION id="TR71"/>
+		<REGION id="TR72"/>
+		<REGION id="TR81"/>
+		<REGION id="TR82"/>
+		<REGION id="TR83"/>
+		<REGION id="TR90"/>
+		<REGION id="TRA1"/>
+		<REGION id="TRA2"/>
+		<REGION id="TRB1"/>
+		<REGION id="TRB2"/>
+		<REGION id="TRC1"/>
+		<REGION id="TRC2"/>
+		<REGION id="TRC3"/>
+		<REGION id="TRZZ"/>
+	</CNTRY>
+	<CNTRY id="BA">
+		<REGION id="BA00"/>
+		<REGION id="BAZZ"/>
+	</CNTRY>
+</NUTS>
+
+

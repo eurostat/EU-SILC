@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Revision: Apr 12th 2022 -->
+<NUTS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../XSD/SCL_NUTS.xsd">
+		<CNTRY id="AT" desc="Österreich">
+		<REGION id="AT11" desc="Burgenland"/>
+		<REGION id="AT12" desc="Niederösterreich"/>
+		<REGION id="AT13" desc="Wien"/>
+		<REGION id="AT21" desc="Kärnten"/>
+		<REGION id="AT22" desc="Steiermark"/>
+		<REGION id="AT31" desc="Oberösterreich"/>
+		<REGION id="AT32" desc="Salzburg"/>
+		<REGION id="AT33" desc="Tirol"/>
+		<REGION id="AT34" desc="Vorarlberg"/>
+		<REGION id="ATZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="BE" desc="Belgique/België">
+		<REGION id="BE10" desc="RégiondeBruxelles-Capitale/BrusselsHoofdstedelijk"/>
+		<REGION id="BE21" desc="Antwerpen"/>
+		<REGION id="BE22" desc="Limburg(BE)"/>
+		<REGION id="BE23" desc="Oost-Vlaanderen"/>
+		<REGION id="BE24" desc="Vlaams-Brabant"/>
+		<REGION id="BE25" desc="West-Vlaanderen"/>
+		<REGION id="BE31" desc="BrabantWallon"/>
+		<REGION id="BE32" desc="Hainaut"/>
+		<REGION id="BE33" desc="Liège"/>
+		<REGION id="BE34" desc="Luxembourg(BE)"/>
+		<REGION id="BE35" desc="Namur"/>
+		<REGION id="BEZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="BG" desc="Bulgaria">
+		<REGION id="BG31" desc="Severozapaden"/>
+		<REGION id="BG32" desc="Severentsentralen"/>
+		<REGION id="BG33" desc="Severoiztochen"/>
+		<REGION id="BG34" desc="Yugoiztochen"/>
+		<REGION id="BG41" desc="Yugozapaden"/>
+		<REGION id="BG42" desc="Yuzhentsentralen"/>
+		<REGION id="BGZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="CZ" desc="Cesko">
+		<REGION id="CZ01" desc="Praha"/>
+		<REGION id="CZ02" desc="StredníCechy"/>
+		<REGION id="CZ03" desc="Jihozápad"/>
+		<REGION id="CZ04" desc="Severozápad"/>
+		<REGION id="CZ05" desc="Severovýchod"/>
+		<REGION id="CZ06" desc="Jihovýchod"/>
+		<REGION id="CZ07" desc="StredníMorava"/>
+		<REGION id="CZ08" desc="Moravskoslezsko"/>
+		<REGION id="CZZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="DK" desc="Danmark">
+		<REGION id="DK01" desc="Hovedstaden"/>
+		<REGION id="DK02" desc="Sjælland"/>
+		<REGION id="DK03" desc="Syddanmark"/>
+		<REGION id="DK04" desc="Midtjylland"/>
+		<REGION id="DK05" desc="Nordjylland"/>
+		<REGION id="DKZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="DE" desc="Deutschland">
+		<REGION id="DE11" desc="Stuttgart"/>
+		<REGION id="DE12" desc="Karlsruhe"/>
+		<REGION id="DE13" desc="Freiburg"/>
+		<REGION id="DE14" desc="Tübingen"/>
+		<REGION id="DE21" desc="Oberbayern"/>
+		<REGION id="DE22" desc="Niederbayern"/>
+		<REGION id="DE23" desc="Oberpfalz"/>
+		<REGION id="DE24" desc="Oberfranken"/>
+		<REGION id="DE25" desc="Mittelfranken"/>
+		<REGION id="DE26" desc="Unterfranken"/>
+		<REGION id="DE27" desc="Schwaben"/>
+		<REGION id="DE30" desc="Berlin"/>
+		<REGION id="DE40" desc="Brandenburg"/>
+		<REGION id="DE50" desc="Bremen"/>
+		<REGION id="DE60" desc="Hamburg"/>
+		<REGION id="DE71" desc="Darmstadt"/>
+		<REGION id="DE72" desc="Gießen"/>
+		<REGION id="DE73" desc="Kassel"/>
+		<REGION id="DE80" desc="Mecklenburg-Vorpommern"/>
+		<REGION id="DE91" desc="Braunschweig"/>
+		<REGION id="DE92" desc="Hannover"/>
+		<REGION id="DE93" desc="Lüneburg"/>
+		<REGION id="DE94" desc="Weser-Ems"/>
+		<REGION id="DEA1" desc="Düsseldorf"/>
+		<REGION id="DEA2" desc="Köln"/>
+		<REGION id="DEA3" desc="Münster"/>
+		<REGION id="DEA4" desc="Detmold"/>
+		<REGION id="DEA5" desc="Arnsberg"/>
+		<REGION id="DEB1" desc="Koblenz"/>
+		<REGION id="DEB2" desc="Trier"/>
+		<REGION id="DEB3" desc="Rheinhessen-Pfalz"/>
+		<REGION id="DEC0" desc="Saarland"/>
+		<REGION id="DED2" desc="Dresden"/>
+		<REGION id="DED4" desc="Chemnitz"/>
+		<REGION id="DED5" desc="Leipzig"/>
+		<REGION id="DEE0" desc="Sachsen-Anhalt"/>
+		<REGION id="DEF0" desc="Schleswig-Holstein"/>
+		<REGION id="DEG0" desc="Thüringen"/>
+		<REGION id="DEZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="EE" desc="Eesti">
+		<REGION id="EE00" desc="Eesti"/>
+		<REGION id="EEZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="IE" desc="Éire/Ireland">
+		<REGION id="IE04" desc="NorthernandWestern"/>
+		<REGION id="IE05" desc="Southern"/>
+		<REGION id="IE06" desc="EasternandMidland"/>
+		<REGION id="IEZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="EL" desc="Elláda">
+		<REGION id="EL30" desc="Attiki"/>
+		<REGION id="EL41" desc="VoreioAigaio"/>
+		<REGION id="EL42" desc="NotioAigaio"/>
+		<REGION id="EL43" desc="Kriti"/>
+		<REGION id="EL51" desc="AnatolikiMakedonia,Thraki"/>
+		<REGION id="EL52" desc="KentrikiMakedonia"/>
+		<REGION id="EL53" desc="DytikiMakedonia"/>
+		<REGION id="EL54" desc="Ipeiros"/>
+		<REGION id="EL61" desc="Thessalia"/>
+		<REGION id="EL62" desc="IoniaNisia"/>
+		<REGION id="EL63" desc="DytikiEllada"/>
+		<REGION id="EL64" desc="StereaEllada"/>
+		<REGION id="EL65" desc="Peloponnisos"/>
+		<REGION id="ELZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="ES" desc="España">
+		<REGION id="ES11" desc="Galicia"/>
+		<REGION id="ES12" desc="PrincipadodeAsturias"/>
+		<REGION id="ES13" desc="Cantabria"/>
+		<REGION id="ES21" desc="PaísVasco"/>
+		<REGION id="ES22" desc="ComunidadForaldeNavarra"/>
+		<REGION id="ES23" desc="LaRioja"/>
+		<REGION id="ES24" desc="Aragón"/>
+		<REGION id="ES30" desc="ComunidaddeMadrid"/>
+		<REGION id="ES41" desc="CastillayLeón"/>
+		<REGION id="ES42" desc="Castilla-LaMancha"/>
+		<REGION id="ES43" desc="Extremadura"/>
+		<REGION id="ES51" desc="Cataluña"/>
+		<REGION id="ES52" desc="ComunitatValenciana"/>
+		<REGION id="ES53" desc="IllesBalears"/>
+		<REGION id="ES61" desc="Andalucía"/>
+		<REGION id="ES62" desc="RegióndeMurcia"/>
+		<REGION id="ES63" desc="CiudaddeCeuta"/>
+		<REGION id="ES64" desc="CiudaddeMelilla"/>
+		<REGION id="ES70" desc="Canarias"/>
+		<REGION id="ESZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="FR" desc="France">
+		<REGION id="FR10" desc="Ile-de-France"/>
+		<REGION id="FRB0" desc="Centre-ValdeLoire"/>
+		<REGION id="FRC1" desc="Bourgogne"/>
+		<REGION id="FRC2" desc="Franche-Comté"/>
+		<REGION id="FRD1" desc="Basse-Normandie"/>
+		<REGION id="FRD2" desc="Haute-Normandie"/>
+		<REGION id="FRE1" desc="Nord-PasdeCalais"/>
+		<REGION id="FRE2" desc="Picardie"/>
+		<REGION id="FRF1" desc="Alsace"/>
+		<REGION id="FRF2" desc="Champagne-Ardenne"/>
+		<REGION id="FRF3" desc="Lorraine"/>
+		<REGION id="FRG0" desc="PaysdelaLoire"/>
+		<REGION id="FRH0" desc="Bretagne"/>
+		<REGION id="FRI1" desc="Aquitaine"/>
+		<REGION id="FRI2" desc="Limousin"/>
+		<REGION id="FRI3" desc="Poitou-Charentes"/>
+		<REGION id="FRJ1" desc="Languedoc-Roussillon"/>
+		<REGION id="FRJ2" desc="Midi-Pyrénées"/>
+		<REGION id="FRK1" desc="Auvergne"/>
+		<REGION id="FRK2" desc="Rhône-Alpes"/>
+		<REGION id="FRL0" desc="Provence-Alpes-Côted’Azur"/>
+		<REGION id="FRM0" desc="Corse"/>
+		<REGION id="FRY1" desc="Guadeloupe"/>
+		<REGION id="FRY2" desc="Martinique"/>
+		<REGION id="FRY3" desc="Guyane"/>
+		<REGION id="FRY4" desc="LaRéunion"/>
+		<REGION id="FRY5" desc="Mayotte"/>
+		<REGION id="FRZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="HR" desc="Hrvatska">
+		<REGION id="HR03" desc="JadranskaHrvatska"/>
+		<REGION id="HR05" desc="GradZagreb"/>
+		<REGION id="HR06" desc="SjevernaHrvatska"/>
+		<REGION id="HR02" desc="PanonskaHrvatska"/>
+		<REGION id="HRZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="IT" desc="Italia">
+		<REGION id="ITC1" desc="Piemonte"/>
+		<REGION id="ITC2" desc="Valled’Aosta/Valléed’Aoste"/>
+		<REGION id="ITC3" desc="Liguria"/>
+		<REGION id="ITC4" desc="Lombardia"/>
+		<REGION id="ITF1" desc="Abruzzo"/>
+		<REGION id="ITF2" desc="Molise"/>
+		<REGION id="ITF3" desc="Campania"/>
+		<REGION id="ITF4" desc="Puglia"/>
+		<REGION id="ITF5" desc="Basilicata"/>
+		<REGION id="ITF6" desc="Calabria"/>
+		<REGION id="ITG1" desc="Sicilia"/>
+		<REGION id="ITG2" desc="Sardegna"/>
+		<REGION id="ITH1" desc="ProvinciaAutonomadiBolzano/Bozen"/>
+		<REGION id="ITH2" desc="ProvinciaAutonomadiTrento"/>
+		<REGION id="ITH3" desc="Veneto"/>
+		<REGION id="ITH4" desc="Friuli-VeneziaGiulia"/>
+		<REGION id="ITH5" desc="Emilia-Romagna"/>
+		<REGION id="ITI1" desc="Toscana"/>
+		<REGION id="ITI2" desc="Umbria"/>
+		<REGION id="ITI3" desc="Marche"/>
+		<REGION id="ITI4" desc="Lazio"/>
+		<REGION id="ITZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="CY" desc="Kýpros">
+		<REGION id="CY00" desc="Kypros"/>
+		<REGION id="CYZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="LV" desc="Latvija">
+		<REGION id="LV00" desc="Latvija"/>
+		<REGION id="LVZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="LT" desc="Lietuva">
+		<REGION id="LT01" desc="Sostinesregionas"/>
+		<REGION id="LT02" desc="VidurioirvakaruLietuvosregionas"/>
+		<REGION id="LTZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="LU" desc="Luxembourg">
+		<REGION id="LU00" desc="Luxembourg"/>
+		<REGION id="LUZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="HU" desc="Magyarország">
+		<REGION id="HU11" desc="Budapest"/>
+		<REGION id="HU12" desc="Pest"/>
+		<REGION id="HU21" desc="Közép-Dunántúl"/>
+		<REGION id="HU22" desc="Nyugat-Dunántúl"/>
+		<REGION id="HU23" desc="Dél-Dunántúl"/>
+		<REGION id="HU31" desc="Észak-Magyarország"/>
+		<REGION id="HU32" desc="Észak-Alföld"/>
+		<REGION id="HU33" desc="Dél-Alföld"/>
+		<REGION id="HUZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="MT" desc="Malta">
+		<REGION id="MT00" desc="Malta"/>
+		<REGION id="MTZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="NL" desc="Nederland">
+		<REGION id="NL11" desc="Groningen"/>
+		<REGION id="NL12" desc="Friesland(NL)"/>
+		<REGION id="NL13" desc="Drenthe"/>
+		<REGION id="NL21" desc="Overijssel"/>
+		<REGION id="NL22" desc="Gelderland"/>
+		<REGION id="NL23" desc="Flevoland"/>
+		<REGION id="NL31" desc="Utrecht" end="2029"/>
+		<REGION id="NL32" desc="Noord-Holland"/>
+		<REGION id="NL33" desc="Zuid-Holland" end="2029"/>
+		<REGION id="NL34" desc="Zeeland"/>
+		<REGION id="NL41" desc="Noord-Brabant"/>
+		<REGION id="NL42" desc="Limburg(NL)"/>
+		<REGION id="NLZZ" desc="Extra-Regio"/>
+		<REGION id="NL35" desc="Utrecht" start="2024"/>
+		<REGION id="NL36" desc="Zuid-Holland" start="2024"/>
+       	</CNTRY>
+	<CNTRY id="PL" desc="Polska">
+		<REGION id="PL21" desc="Malopolskie"/>
+		<REGION id="PL22" desc="Slaskie"/>
+		<REGION id="PL41" desc="Wielkopolskie"/>
+		<REGION id="PL42" desc="Zachodniopomorskie"/>
+		<REGION id="PL43" desc="Lubuskie"/>
+		<REGION id="PL51" desc="Dolnoslaskie"/>
+		<REGION id="PL52" desc="Opolskie"/>
+		<REGION id="PL61" desc="Kujawsko-pomorskie"/>
+		<REGION id="PL62" desc="Warminsko-mazurskie"/>
+		<REGION id="PL63" desc="Pomorskie"/>
+		<REGION id="PL71" desc="Lódzkie"/>
+		<REGION id="PL72" desc="Swietokrzyskie"/>
+		<REGION id="PL81" desc="Lubelskie"/>
+		<REGION id="PL82" desc="Podkarpackie"/>
+		<REGION id="PL84" desc="Podlaskie"/>
+		<REGION id="PL91" desc="Warszawskistoleczny"/>
+		<REGION id="PL92" desc="Mazowieckiregionalny"/>
+		<REGION id="PLZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="PT" desc="Portugal">
+		<REGION id="PT11" desc="Norte"/>
+		<REGION id="PT15" desc="Algarve"/>
+		<REGION id="PT16" desc="Centro(PT)" end="2027"/>
+		<REGION id="PT17" desc="ÁreaMetropolitanadeLisboa" end="2027"/>
+		<REGION id="PT18" desc="Alentejo" end="2027"/>
+		<REGION id="PT20" desc="RegiãoAutónomadosAçores"/>
+		<REGION id="PT30" desc="RegiãoAutónomadaMadeira"/>
+		<REGION id="PTZZ" desc="Extra-Regio"/>
+		<REGION id="PT19" desc="Centro(PT)" start="2024"/>
+		<REGION id="PT1A" desc="GrandeLisboa" start="2024"/>
+		<REGION id="PT1B" desc="PeninsuladeSetubal" start="2024"/>
+		<REGION id="PT1C" desc="Alentejo" start="2024"/>
+		<REGION id="PT1D" desc="OesteeValedoTejo" start="2024"/>
+	</CNTRY>
+	<CNTRY id="RO" desc="România">
+		<REGION id="RO11" desc="Nord-Vest"/>
+		<REGION id="RO12" desc="Centru"/>
+		<REGION id="RO21" desc="Nord-Est"/>
+		<REGION id="RO22" desc="Sud-Est"/>
+		<REGION id="RO31" desc="Sud-Muntenia"/>
+		<REGION id="RO32" desc="Bucuresti-Ilfov"/>
+		<REGION id="RO41" desc="Sud-VestOltenia"/>
+		<REGION id="RO42" desc="Vest"/>
+		<REGION id="ROZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="SI" desc="Slovenija">
+		<REGION id="SI03" desc="VzhodnaSlovenija"/>
+		<REGION id="SI04" desc="ZahodnaSlovenija"/>
+		<REGION id="SIZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="SK" desc="Slovensko">
+		<REGION id="SK01" desc="Bratislavskýkraj"/>
+		<REGION id="SK02" desc="ZápadnéSlovensko"/>
+		<REGION id="SK03" desc="StrednéSlovensko"/>
+		<REGION id="SK04" desc="VýchodnéSlovensko"/>
+		<REGION id="SKZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="FI" desc="Suomi/Finland">
+		<REGION id="FI19" desc="Länsi-Suomi"/>
+		<REGION id="FI1B" desc="Helsinki-Uusimaa"/>
+		<REGION id="FI1C" desc="Etelä-Suomi"/>
+		<REGION id="FI1D" desc="Pohjois-jaItä-Suomi"/>
+		<REGION id="FI20" desc="Åland"/>
+		<REGION id="FIZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="SE" desc="Sverige">
+		<REGION id="SE11" desc="Stockholm"/>
+		<REGION id="SE12" desc="ÖstraMellansverige"/>
+		<REGION id="SE21" desc="Smålandmedöarna"/>
+		<REGION id="SE22" desc="Sydsverige"/>
+		<REGION id="SE23" desc="Västsverige"/>
+		<REGION id="SE31" desc="NorraMellansverige"/>
+		<REGION id="SE32" desc="MellerstaNorrland"/>
+		<REGION id="SE33" desc="ÖvreNorrland"/>
+		<REGION id="SEZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="UK" desc="UnitedKingdom">
+		<REGION id="UKC1" desc="TeesValleyandDurham"/>
+		<REGION id="UKC2" desc="NorthumberlandandTyneandWear"/>
+		<REGION id="UKD1" desc="Cumbria"/>
+		<REGION id="UKD3" desc="GreaterManchester"/>
+		<REGION id="UKD4" desc="Lancashire"/>
+		<REGION id="UKD6" desc="Cheshire"/>
+		<REGION id="UKD7" desc="Merseyside"/>
+		<REGION id="UKE1" desc="EastYorkshireandNorthernLincolnshire"/>
+		<REGION id="UKE2" desc="NorthYorkshire"/>
+		<REGION id="UKE3" desc="SouthYorkshire"/>
+		<REGION id="UKE4" desc="WestYorkshire"/>
+		<REGION id="UKF1" desc="DerbyshireandNottinghamshire"/>
+		<REGION id="UKF2" desc="Leicestershire,RutlandandNorthamptonshire"/>
+		<REGION id="UKF3" desc="Lincolnshire"/>
+		<REGION id="UKG1" desc="Herefordshire,WorcestershireandWarwickshire"/>
+		<REGION id="UKG2" desc="ShropshireandStaffordshire"/>
+		<REGION id="UKG3" desc="WestMidlands"/>
+		<REGION id="UKH1" desc="EastAnglia"/>
+		<REGION id="UKH2" desc="BedfordshireandHertfordshire"/>
+		<REGION id="UKH3" desc="Essex"/>
+		<REGION id="UKI3" desc="InnerLondon-West"/>
+		<REGION id="UKI4" desc="InnerLondon-East"/>
+		<REGION id="UKI5" desc="OuterLondon-Eastand"/>
+		<REGION id="UKI6" desc="OuterLondon-South"/>
+		<REGION id="UKI7" desc="OuterLondon-Westand"/>
+		<REGION id="UKJ1" desc="Berkshire,BuckinghamshireandOxfordshire"/>
+		<REGION id="UKJ2" desc="Surrey,EastandWestSussex"/>
+		<REGION id="UKJ3" desc="HampshireandIsleofWight"/>
+		<REGION id="UKJ4" desc="Kent"/>
+		<REGION id="UKK1" desc="Gloucestershire,WiltshireandBristol/Batharea"/>
+		<REGION id="UKK2" desc="DorsetandSomerset"/>
+		<REGION id="UKK3" desc="CornwallandIslesofScilly"/>
+		<REGION id="UKK4" desc="Devon"/>
+		<REGION id="UKL1" desc="WestWalesandTheValleys"/>
+		<REGION id="UKL2" desc="EastWales"/>
+		<REGION id="UKM5" desc="NorthEasternScotland"/>
+		<REGION id="UKM6" desc="HighlandsandIslands"/>
+		<REGION id="UKM7" desc="EasternScotland"/>
+		<REGION id="UKM8" desc="WestCentralScotland"/>
+		<REGION id="UKM9" desc="SouthernScotland"/>
+		<REGION id="UKN0" desc="NorthernIreland"/>
+		<REGION id="UKZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="IS" desc="Ísland">
+		<REGION id="IS00" desc="Ísland"/>
+		<REGION id="ISZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="LI" desc="Liechtenstein">
+		<REGION id="LI00" desc="Liechtenstein"/>
+		<REGION id="LIZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="NO" desc="Norge">
+		<REGION id="NO02" desc="Innlandet"/>
+		<REGION id="NO06" desc="Trøndelag"/>
+		<REGION id="NO07" desc="Nord-Norge"/>
+		<REGION id="NO08" desc="OsloogViken"/>
+		<REGION id="NO09" desc="AgderogSør-Østlandet"/>
+		<REGION id="NO0A" desc="Vestlandet"/>
+		<REGION id="NO0B" desc="JanMayenandSvalbard"/>
+		<REGION id="NOZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="CH" desc="Schweiz/Suisse/Svizzera">
+		<REGION id="CH01" desc="Régionlémanique"/>
+		<REGION id="CH02" desc="EspaceMittelland"/>
+		<REGION id="CH03" desc="Nordwestschweiz"/>
+		<REGION id="CH04" desc="Zürich"/>
+		<REGION id="CH05" desc="Ostschweiz"/>
+		<REGION id="CH06" desc="Zentralschweiz"/>
+		<REGION id="CH07" desc="Ticino"/>
+		<REGION id="CHZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="ME" desc="CrnaGora">
+		<REGION id="ME00" desc="CrnaGora"/>
+		<REGION id="MEZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="MK" desc="SevernaMakedonija">
+		<REGION id="MK00" desc="SevernaMakedonija"/>
+		<REGION id="MKZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="AL" desc="Shqipëria">
+		<REGION id="AL01" desc="Veri"/>
+		<REGION id="AL02" desc="Qender"/>
+		<REGION id="AL03" desc="Jug"/>
+		<REGION id="ALZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="RS" desc="Serbia">
+		<REGION id="RS11" desc="Beogradskiregion"/>
+		<REGION id="RS12" desc="RegionVojvodine"/>
+		<REGION id="RS21" desc="RegionŠumadijeiZapadneSrbije"/>
+		<REGION id="RS22" desc="RegionJužneiIstocneSrbije"/>
+		<REGION id="RSZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="TR" desc="Türkiye">
+		<REGION id="TR10" desc="Istanbul"/>
+		<REGION id="TR21" desc="Tekirdag,Edirne,Kirklareli"/>
+		<REGION id="TR22" desc="Balikesir,Çanakkale"/>
+		<REGION id="TR31" desc="Izmir"/>
+		<REGION id="TR32" desc="Aydin,Denizli,Mugla"/>
+		<REGION id="TR33" desc="Manisa,Afyonkarahisar,Kütahya,Usak"/>
+		<REGION id="TR41" desc="Bursa,Eskisehir,Bilecik"/>
+		<REGION id="TR42" desc="Kocaeli,Sakarya,Düzce,Bolu,Yalova"/>
+		<REGION id="TR51" desc="Ankara"/>
+		<REGION id="TR52" desc="Konya,Karaman"/>
+		<REGION id="TR61" desc="Antalya,Isparta,Burdur"/>
+		<REGION id="TR62" desc="Adana,Mersin"/>
+		<REGION id="TR63" desc="Hatay,Kahramanmaras,Osmaniye"/>
+		<REGION id="TR71" desc="Kirikkale,Aksaray,Nigde,Nevsehir,Kirsehir"/>
+		<REGION id="TR72" desc="Kayseri,Sivas,Yozgat"/>
+		<REGION id="TR81" desc="Zonguldak,Karabük,Bartin"/>
+		<REGION id="TR82" desc="Kastamonu,Çankiri,Sinop"/>
+		<REGION id="TR83" desc="Samsun,Tokat,Çorum,Amasya"/>
+		<REGION id="TR90" desc="Trabzon,Ordu,Giresun,Rize,Artvin,"/>
+		<REGION id="TRA1" desc="Erzurum,Erzincan,Bayburt"/>
+		<REGION id="TRA2" desc="Agri,Kars,Igdir,Ardahan"/>
+		<REGION id="TRB1" desc="Malatya,Elazig,Bingöl,Tunceli"/>
+		<REGION id="TRB2" desc="Van,Mus,Bitlis,Hakkari"/>
+		<REGION id="TRC1" desc="Gaziantep,Adiyaman,Kilis"/>
+		<REGION id="TRC2" desc="Sanliurfa,Diyarbakir"/>
+		<REGION id="TRC3" desc="Mardin,Batman,Sirnak,Siirt"/>
+		<REGION id="TRZZ" desc="Extra-Regio"/>
+	</CNTRY>
+	<CNTRY id="BA" desc="Bosna i Hercegovina">
+		<REGION id="BA00" desc="Bosna i Hercegovina"/>
+		<REGION id="BAZZ" desc="Extra-Regio"/>
+	</CNTRY>
+</NUTS>
+
