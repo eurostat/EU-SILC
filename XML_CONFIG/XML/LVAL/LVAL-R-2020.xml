@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by  (European Commission - DG EUROSTAT) -->
+<!-- Revision: Feb 25th 2022 -->
+<LVAL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../XSD/LVAL.xsd">
+	<!-- FIGURES: EQUALITIES, INEQUALITIES OR OUTLIERS  -->
+	<check id="551">
+		<title>Income - Error: HY020 - No disposible household income , but components with income</title>
+		<select>HB010,HB030,HY020,HNETINC,PB030,PNETINC</select>
+		<from>h</from>
+		<join>p</join>
+		<on>HB030 = PHID and HB010 = PB010</on>
+		<group>HB030,HB010</group>
+		<having>HY020 = 0 and sum(HNETINC,PNETINC,0) ne 0</having>
+	</check>
+	<check id="550">
+		<title>Income - Error: HY010 - No total household income , but components with income</title>
+		<select>HB010,HB030,HY010,HNETINC,HGROINC,PB030,PNETINC,PGROINC</select>
+		<from>h</from>
+		<join>p</join>
+		<on>HB030 = PHID and HB010 = PB010</on>
+		<group>HB030,HB010</group>
+		<having>HY010 = 0 and sum(HNETINC,HGROINC,PNETINC,PGROINC,0) ne 0 and HGROINC ne 0</having>
+	</check>
+	<check id="560">
+		<title>Income - Warning: HY010 - Great difference between total and components</title>
+		<select>HB010,HB030,HY010,gross</select>
+		<from>h</from>
+		<where>HY010  GT  0 and  (HY010  LT  gross * 0.9 or HY010  GT  gross * 1.1)</where>
+	</check>
+	<check id="565">
+		<title>Income - Warning: HY020 - Should be equal or greater than HY022 (except if pay-backs are taken into account)</title>
+		<select>HB010,HB030,HY020,HY022</select>
+		<from>h</from>
+		<where>HY020  GT  0 and  HY022  GT  HY020</where>
+	</check>
+	<check id="566">
+		<title>Income - Error: HY022- Must be equal or greater HY023</title>
+		<select>HB010,HB030,HY022,HY023</select>
+		<from>h</from>
+		<where>HY022  GT  0 and  HY023  GT  HY022</where>
+	</check>
+	<check id="567">
+		<title>Income - Warning: HY020 - Great difference between total and components</title>
+		<select>HB010,HB030,HY020,net20</select>
+		<from>h</from>
+		<where>HY020  GT  0 and  (HY020  LT  net20 * 0.9 or HY020  GT  net20 * 1.1)</where>
+	</check>
+	<check id="580">
+		<title>Income - Warning: Big difference in personal income from one year to the next year</title>
+		<select>a.PB010,a.PB030,a.PL031,a.PL051,a.PL060,a.PNETINC,B.PB010 as _PB010,b.PL031 as _PL031,b.PL051 as _PL051,b.PL060 as _PL060,b.PL160,b.PNETINC as _PNETINC</select>
+		<from>p</from>
+		<join>p</join>
+		<on>a.PB030 = b.PB030</on>
+		<where>a.PB010+1 = b.PB010 and (a.PL031 = b.PL031 and a.PL051 = b.PL051) and abs((a.PNETINC - b.PNETINC)/(a.PNETINC+1))  GT  0.20</where>
+	</check>
+	<check id="581">
+		<title>Income - Warning: PY010G - Big difference in income from one year to the next year</title>
+		<select>a.PB010,a.PB030,a.PL031,a.PL051,a.PL060,a.PY010G,B.PB010 as _PB010,b.PL031 as _PL031,b.PL051 as _PL051,b.PL060 as _PL060,b.PL160,b.PY010G as _PY010G</select>
+		<from>p</from>
+		<join>p</join>
+		<on>a.PB030 = b.PB030</on>
+		<where>a.PB010+1 = b.PB010 and (a.PL031 = b.PL031 and a.PL051 = b.PL051) and (b.PL160 =2 or b.PL160_F = -1) and abs((a.PY010G - b.PY010G)/(a.PY010G+1))  GT  0.20</where>
+	</check>
+	<check id="585">
+		<title>Income - Warning: HY020 HH070 - Total housing cost > total net income</title>
+		<select>HB010,HB030,HY020,HH070</select>
+		<from>h</from>
+		<where>HH070  GT  0 and  (HH070 * 12)  GT  HY020</where>
+	</check>
+	<check id="586">
+		<title>Income - Error: PY020G should include company car (PY021G)</title>
+		<select>PB010,PB030,PY020G,PY021G</select>
+		<from>p</from>
+		<where>(PY020G  LT  PY021G)</where>
+	</check>
+	<check id="753">
+		<title>Labour - Error: PL073 - PL090 - Sum of months not equal to 12 or 0</title>
+		<select>PB010,PB030,PL073,PL074, PL075, PL076, PL080,PL085,PL086, PL087, PL088, PL089, PL090</select>
+		<from>p</from>
+		<where>sum(PL073,PL074, PL075, PL076, PL080,PL085, PL086, PL087, PL088, PL089, PL090,0) not in (12, 0)</where>
+	</check>
+	<check id="757">
+		<title>Labour - Warning: PL031 PL060 PL100 Nr of hours usually worked is greater than 35 hours per week while the self-declared status is part-time</title>
+		<select>PB010,PB030, PL031, PL060, PL100</select>
+		<from>p</from>
+		<where>(Sum(PL060, PL100) GT 35 and PL031 in (2,4))</where>
+	</check>
+	<check id="760">
+		<title>Labour - Warning: PL031 PL060 PL100 Nr of hours usually worked is greater than 60 hours per week</title>
+		<select>PB010,PB030, PL031, PL060, PL100</select>
+		<from>p</from>
+		<where>(Sum(PL060, PL100)) GT 60</where>
+	</check>
+	<check id="802">
+		<title>Housing Cost - Error: Rent is higher than total housing cost</title>
+		<select>HB010,HB030, HH060, HH070</select>
+		<from>h</from>
+		<where>(HH060  GT  HH070)</where>
+	</check>
+	<check id="615">
+		<title>Child Care - Warning: Value for RL070 not realistic</title>
+		<select>RB010,RB030,RL070,AGE</select>
+		<from>r</from>
+		<where>(RL070_F = 1 and (RL070 le 1 or RL070 ge 20000))</where>
+	</check>
+	<!-- SAMPLING -->
+	<check id="147">
+		<title>Structural - Warning: RB080 RB090 - Age at date of interview is -1</title>
+		<select>RHID,HB010,RB030,RB070,RB080,HB050,HB060</select>
+		<from>h</from>
+		<join>r</join>
+		<on>RB010 = HB010 and RHID = HB030</on>
+		<where>floor(((HB060*100+HB050) - (RB080*100+RB070))/100) = -1</where>
+	</check>
+	<check id="137">
+		<title>Structural - Error: RB100 - If 4 year rotational panel: Person should be sample person (applicable only for non-selected respondent countries)</title>
+		<select>RB010,DB010,DB030,RB030,RB100,RB110,RB245,AGE</select>
+		<from>r</from>
+		<join>d</join>
+		<on>DB030 = RHID and DB010 = RB010</on>
+		<where>RB110 = 1 and DB110 = 9 and (RB245 in (1,2) or (RB245 = 4 and AGE ge 14)) and RB100 ne 1</where>
+	</check>
+	<check id="138">
+		<title>Structural - Error: RB100 - If 4 year rotational panel: Person should not be sample person</title>
+		<select>RB010,DB010,DB030,RB030,RB100,RB110,RB245,AGE</select>
+		<from>r</from>
+		<join>d</join>
+		<on>DB030 = RHID and DB010 = RB010</on>
+		<where>RB110 = 1 and DB110 = 9 and (RB245 not in (1,2) and (RB245 = 4 and AGE lt 14)) and RB100 ne 2</where>
+	</check>
+	<!-- AGE-->
+	<check id="174">
+		<title>Structural - Warning: PB130 PB140 PB150 - Birth date or sex are missing</title>
+		<select>PB010,PB030,PB130,PB140,PB150</select>
+		<from>p</from>
+		<where>(PB130_F ne 1) or (PB140_F ne 1) or (PB150_F ne 1)</where>
+	</check>
+	<check id="755">
+		<title>Labour - Warning: PL088 Nr of Months in compulsory military service > 1 but younger than 18 or older than 55</title>
+		<select>PB010,PB030, b.AGE, PL088</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>((b.AGE  LT 18 or b.AGE  GT  55) and PL088  GT 1)</where>
+	</check>
+	<check id="813">
+		<title>Status - Warning: Self defined economic status as in compulsory military service but younger than 18 or older than 55</title>
+		<select>PB010,PB030, b.AGE, PL031</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>((b.AGE  LT 18 or b.AGE  GT  55) and PL031=9)</where>
+	</check>
+	<check id="756">
+		<title>Labour - Warning: PL031 Self defined economic status as in compulsory military service but younger than 18 or older than 55</title>
+		<select>PB010,PB030, b.AGE, PL031</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>((b.AGE  LT 18 or b.AGE  GT  55) and PL031=9)</where>
+	</check>
+	<check id="754">
+		<title>Labour - Warning:PL085  Nr of Months in Retirement > 1 but younger than 27</title>
+		<select>PB010,PB030, b.AGE, PL085</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>(b.AGE  LT  27 and PL085  GT 1)</where>
+	</check>
+	<check id="123">
+		<title>Structural - Warning: RB210 - Age and basic activity status may be not consistent</title>
+		<select>RB010,RB030,RB070,RB080,AGE,RB210</select>
+		<from>r</from>
+		<where>AGE  LT  16 and RB210 in (1,2,3)</where>
+	</check>
+	<check id="124">
+		<title>Structural - Warning: RB245 - Age and eligibility are not consistent</title>
+		<select>RB010,RB030,RB070,RB080,AGE,RB245</select>
+		<from>r</from>
+		<where>RB245_F ne -2 and ((AGE  GE  16 and RB245 not in (1,2,3)) or (AGE  LT  16 and RB245 in (1,2,3)))</where>
+	</check>
+	<check id="154">
+		<title>Structural - Warning: HB080 - Age of Person 1 responsible for the accomodation is below 16</title>
+		<select>HB010,HB030,HB080,RB030,AGE</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB080 = RB030 and HB010 = RB010</on>
+		<where>HB080_F ge 0 and   AGE  LT  16</where>
+	</check>
+	<check id="156">
+		<title>Structural - Warning: HB090 - Age of Person 2 responsible for the accomodation is below 16</title>
+		<select>HB010,HB030,HB090,RB030,AGE</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB090 = RB030 and HB010 = RB010</on>
+		<where>HB090_F ge 0 and   AGE  LT  16</where>
+	</check>
+	<check id="601">
+		<title>Child Care - Error: RL010 - Value of variable not possible because of age</title>
+		<select>RB010,RB030,RL010,RL010_F,AGE</select>
+		<from>r</from>
+		<where>(RL010_F = 1 and age gt 12)</where>
+	</check>
+	<check id="602">
+		<title>Child Care - Error: RL020 - Value of variable not possible because of age</title>
+		<select>RB010,RB030,RL020,RL020_F,AGE</select>
+		<from>r</from>
+		<where>(RL020_F = 1 and age gt 12)</where>
+	</check>
+	<check id="603">
+		<title>Child Care - Error: RL030 - Value of variable not possible because of age</title>
+		<select>RB010,RB030,RL030,RL030_F,AGE</select>
+		<from>r</from>
+		<where>(RL030_F = 1 and age gt 12)</where>
+	</check>
+	<check id="604">
+		<title>Child Care - Error: RL040 - Value of variable not possible because of age</title>
+		<select>RB010,RB030,RL040,RL040_F,AGE</select>
+		<from>r</from>
+		<where>(RL040_F = 1 and age gt 12)</where>
+	</check>
+	<check id="605">
+		<title>Child Care - Error: RL050 - Value of variable not possible because of age</title>
+		<select>RB010,RB030,RL050,RL050_F,AGE</select>
+		<from>r</from>
+		<where>(RL050_F = 1 and age gt 12)</where>
+	</check>
+	<check id="606">
+		<title>Child Care - Error: RL060 - Value of variable not possible because of age</title>
+		<select>RB010,RB030,RL060,RL060_F,AGE</select>
+		<from>r</from>
+		<where>(RL060_F = 1 and age gt 12)</where>
+	</check>
+	<!-- RELATIVES -->
+	<check id="303">
+		<title>Relationship - Error: RB230 - Mother is not household member or does not exist</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB070,a.RB080,a.RB230</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB230 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB230_F ge 0 and b.RB030 = .</where>
+	</check>
+	<check id="304">
+		<title>Relationship - Error: RB230 - The person cannot be his own mother</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB090,RB230</select>
+		<from>r</from>
+		<where>RB030 = RB230</where>
+	</check>
+	<check id="305">
+		<title>Relationship - Error: RB240 - Spouse/partner is not household member or does not exist</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB070,a.RB080,a.RB240</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB240 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB240_F ge 0  and b.RB030 = .</where>
+	</check>
+	<check id="306">
+		<title>Relationship - Error: RB240 - The person cannot be his own spouse/partner</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB090,RB240</select>
+		<from>r</from>
+		<where>RB030 = RB240</where>
+	</check>
+	<check id="307">
+		<title>Relationship - Error: PB160 PB170 PB180 - Parents and/or spouse/partner must be equal in R- and P-file</title>
+		<select>RB010,RHID,RB030,RB220,RB230,RB240,PHID,PB010,PB030,PB160,PB170,PB180</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and RB010 = PB010 and RHID = PHID</on>
+		<where>((PB160_F ge 0 and PB160 ne RB220) or (PB170_F ge 0 and PB170 ne RB230) or (PB180_F ge 0 and PB180 ne RB240)) and RB030 ne  .</where>
+	</check>
+	<check id="301">
+		<title>Relationship - Error: RB220 - Father is not household member or does not exist</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB070,a.RB080,a.RB220</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB220 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB220_F ge 0  and b.RB030 = .</where>
+	</check>
+	<check id="302">
+		<title>Relationship - Error: RB220 - The person cannot be his own father</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB090,RB220</select>
+		<from>r</from>
+		<where>RB030 = RB220</where>
+	</check>
+	<check id="308">
+		<title>Relationship - Error: RB240 - Father and spouse(partner) cannot be the same</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB090,RB220,RB220_F,RB240,RB240_F</select>
+		<from>r</from>
+		<where>RB220_F ge 0 and RB240_F ge 0 and RB220 = RB240</where>
+	</check>
+	<check id="309">
+		<title>Relationship - Error: RB240 - Father and spouse(partner) cannot be the same</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB090,RB230,RB230_F,RB240,RB240_F</select>
+		<from>r</from>
+		<where>RB230_F ge 0 and RB240_F ge 0 and RB230 = RB240</where>
+	</check>
+	<check id="310">
+		<title>Relationship - Error: RB240 - The spouse/partner is not the same for both</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB110, a.RB240,b.RB030 as s_RB030,b.RB240 as s_RB240, b.RB110 as s_RB110</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB240 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB240_F  GT  0 and b.RB110 in (1,2,3,4) and a.RB030 ne b.RB240</where>
+	</check>
+	<check id="311">
+		<title>Relationship - Error: RB240 - Parents of spouses/partners must be different</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB220,a.RB230,a.RB240,b.RB030 as s_RB030,b.RB220 as s_RB220,b.RB230 as s_RB230,b.RB240 as s_RB240</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB240 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>(a.RB220_F ge 0 and  a.RB220 = b.RB220) or (a.RB230_F ge 0 and  a.RB230 = b.RB230)</where>
+	</check>
+	<check id="312">
+		<title>Relationship - Warning: RB220 - Sex of father is female</title>
+		<select>a.RB010, a.RHID,a.RB030,a.RB220, b.RB090</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB220 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>b.RB090 = 2</where>
+	</check>
+	<check id="313">
+		<title>Relationship - Warning: RB230 - Sex of mother is male</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB230,b.RB090</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB230 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>b.RB090 = 1</where>
+	</check>
+	<check id="315">
+		<title>Relationship - Warning:  RB230 - Child should be at least 15 years younger than its mother</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB070,a.RB080,a.AGE,a.RB230,b.RB070 as m_RB070,b.RB080 as m_RB080,b.AGE as m_AGE</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB230 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB230_F ge 0 and b.AGE - a.AGE  LT  15 and a.AGE ge 0 and b.AGE ge 0</where>
+	</check>
+	<check id="316">
+		<title>Relationship - Warning:  RB230 - Child should be at least 15 years younger than its father</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB070,a.RB080,a.AGE,a.RB220,b.RB070 as f_RB070,b.RB080 as f_RB080,b.AGE as f_AGE</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB220 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB220_F ge 0 and b.AGE - a.AGE  LT  15 and a.AGE ge 0 and b.AGE ge 0</where>
+	</check>
+	<!-- LONGITUDINAL & MONOTONICITY -->
+	<check id="706">
+		<title>Education - Error: PE030 - Year highest level of education attained inconsistent with previous year</title>
+		<select>a.PB010,a.PB030,a.PE030,B.PB010 as _PB010,b.PE030 as _PE030</select>
+		<from>p</from>
+		<join>p</join>
+		<on>a.PB030 = b.PB030</on>
+		<where>a.PB010 = b.PB010+1 and a.PE030 not is missing and b.PE030 not is missing and a.PE030 ne b.PE030 and a.PE030  LT  a.PB010-1</where>
+	</check>
+	<check id="182">
+		<title>Longitudinal - Error: PL200 - number of years spent at work cannot be less than previous year</title>
+		<select>a.PB010,a.PB030,a.PL200,b.PL200 as _PL200</select>
+		<from>p</from>
+		<join>p</join>
+		<on>a.PB030 = b.PB030</on>
+		<where>(a.PB010+1 = b.PB010) and (b.PL120 not is missing) and (a.PL200  GT  b.PL200)</where>
+	</check>
+	<check id="707">
+		<title>Education - Error: PE040 - Highest ISCED level attained inconsistent with previous year</title>
+		<select>a.PB010,a.PB030,a.PE040,b.PB010 as _PB010,b.PE040 as _PE040</select>
+		<from>p</from>
+		<join>p</join>
+		<on>a.PB030 = b.PB030</on>
+		<where>( (a.PB010 = b.PB010+1) and ( a.PE040 + 55  LT  b.PE040 ))</where>
+	</check>
+	<check id="105">
+		<title>Structural - Error (follow-up): DB110 = 1,2,3,4,5,6,7 or 10 => must be 1,2,8 or 9 in previous year</title>
+		<select>a.DB010,a.DB030,a.DB110,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>a.DB010+1 = b.DB010 and b.DB110 in (1,2,3,4,5,6,7,10) and a.DB110 not in (1,2,8,9)</where>
+	</check>
+	<check id="106">
+		<title>Structural - Error (follow-up): DB110 = 8 or 9 => household should not exist in previous year</title>
+		<select>a.DB010,a.DB030,a.DB110,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>a.DB010+1 = b.DB010 and b.DB110 in (8,9)</where>
+	</check>
+	<check id="107">
+		<title>Structural - Error (follow-up): DB110=1 and (DB130=21 or DB130_F=-1) in previous year => household should be dropped</title>
+		<select>a.DB010,a.DB030,a.DB110,a.DB130,a.DB130_F,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>a.DB010+1 = b.DB010 and a.DB110 = 1 and (a.DB130 =21 or a.DB130_F = -1)</where>
+	</check>
+	<check id="108">
+		<title>Structural - Error (follow-up): DB110 = 2 and (DB120 in (21,23) or DB120_F = -1 or DB130 = 21 or DB130_F = -1 ) in previous year => household should be dropped</title>
+		<select>a.DB010,a.DB030,a.DB110,a.DB120,a.DB120_F,a.DB130,a.DB130_F,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>a.DB010+1 = b.DB010 and a.DB110 = 2 and (a.DB120 in (21,23) or a.DB130_F = -1 or a.DB130 =21 or a.DB130_F = -1)</where>
+	</check>
+	<check id="109">
+		<title>Structural - Error (follow-up): DB110 = 3,4,5,6,7 or 10  in previous year => household should be dropped</title>
+		<select>a.DB010,a.DB030,a.DB110,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>a.DB010+1 = b.DB010 and a.DB110 in (3,4,5,6,7,10)</where>
+	</check>
+	<check id="110">
+		<title>Structural - Error (follow-up): DB110 = 8 and (DB120 in (21,23) or DB120_F = -1 or DB130 = 21 or DB130_F = -1 ) in previous year => household should be dropped</title>
+		<select>a.DB010,a.DB030,a.DB110,a.DB120,a.DB120_F,a.DB130,a.DB130_F,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>a.DB010+1 = b.DB010 and a.DB110 = 8 and (a.DB120 in (21,23) or a.DB130_F = -1 or a.DB130 =21 or a.DB130_F = -1)</where>
+	</check>
+	<check id="111">
+		<title>Structural - Error (follow-up): DB110 = 9 and (DB120 in (21,22,23) or DB120_F = -1 or DB130 in (21,22,23,24) or DB130_F = -1 ) in previous year => household should be dropped</title>
+		<select>a.DB010,a.DB030,a.DB110,a.DB120,a.DB120_F,a.DB130,a.DB130_F,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>a.DB010 +1 = b.DB010 and a.DB110 = 9 and (a.DB120 in (21,22,23) or a.DB130_F = -1 or a.DB130 in (21,22,23,24) or a.DB130_F = -1)</where>
+	</check>
+	<check id="112">
+		<title>Structural - Error (follow-up): Interview not accepted for 2 consecutive years => household should be dropped</title>
+		<select>a.DB010,a.DB030,a.DB110,a.DB120,a.DB120_F,a.DB130,a.DB130_F,a.DB135,a.DB135_F,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>a.DB010+1 = b.DB010 and a.DB135 not  = 1 and b.DB135 not  = 1</where>
+		<group>a.DB030</group>
+		<having>max(a.DB010)  GT  b.DB010</having>
+	</check>
+	<check id="115">
+		<title>Longitudinal - Error:  DB075 must be the same every year</title>
+		<select>DB010,DB030,DB075</select>
+		<from>d</from>
+		<group>DB030</group>
+		<having>count(distinct DB075)  GT  1</having>
+	</check>
+	<check id="116">
+		<title>Longitudinal - Error: DB040 must be the same every year if household is at the same adress</title>
+		<select>a.DB010,a.DB030,a.DB040,a.DB110,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110,b.DB040 as _DB040</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>b.DB110 = 1 and a.DB010+1 = b.DB010 and a.DB040 ne b.DB040</where>
+	</check>
+	<check id="117">
+		<title>Longitudinal - Error: DB100 must be the same every year if household is at the same adress</title>
+		<select>a.DB010,a.DB030,a.DB100,a.DB110,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110,b.DB100 as _DB100</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>b.DB110 = 1 and a.DB010+1 = b.DB010 and a.DB100 ne b.DB100</where>
+	</check>
+	<check id="131">
+		<title>Structural - Error (follow-up): RB110 = 1,5 or 6 => must be 1,2,3 or 4 in previous year</title>
+		<select>a.RHID,a.RB010,a.RB030,a.RB110,b.RHID as _RHID,b.RB010 as  _RB010,b.RB030 as _RB030,b.RB110 as _RB110</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB030 = b.RB030 and a.RHID = b.RHID</on>
+		<where>a.RB010+1 = b.RB010 and b.RB110 in (1,5,6) and a.RB110 not in (1,2,3,4,7)</where>
+	</check>
+	<check id="132">
+		<title>Structural - Error (follow-up): RB110 = 2,3,4 or 7 => household member should not exist in previous year</title>
+		<select>a.RHID,a.RB010,a.RB030,a.RB110,b.RHID as _RHID,b.RB010 as  _RB010,b.RB030 as _RB030,b.RB110 as _RB110</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB030 = b.RB030 and a.RHID = b.RHID</on>
+		<where>a.RB010+1 = b.RB010 and b.RB110 in (2,3,4,7) and  a.RB110 not in (5,7)</where>
+	</check>
+	<check id="140">
+		<title>Longitudinal - Error:  RB070 - Month of birth must be the same every year</title>
+		<select>RB010,RB030,RHID,RB070</select>
+		<from>r</from>
+		<group>RB030</group>
+		<having>count(distinct RB070)  GT  1</having>
+	</check>
+	<check id="141">
+		<title>Longitudinal - Error:  RB080 - Year of birth must be the same every year</title>
+		<select>RB010,RB030,RHID,RB080</select>
+		<from>r</from>
+		<group>RB030</group>
+		<having>count(distinct RB080)  GT  1</having>
+	</check>
+	<check id="142">
+		<title>Longitudinal - Error:  RB090 - Sex must be the same every year</title>
+		<select>RB010,RB030,RHID,RB090</select>
+		<from>r</from>
+		<group>RB030</group>
+		<having>count(distinct RB090)  GT  1</having>
+	</check>
+	<check id="143">
+		<title>Longitudinal - Warning:  RB220 - Father should be the same every year</title>
+		<select>RB010,RB030,RHID,RB220</select>
+		<from>r</from>
+		<where>RB220 ne .</where>
+		<group>RB030</group>
+		<having>count(distinct RB220)  GT  1</having>
+	</check>
+	<check id="144">
+		<title>Longitudinal - Warning:  RB230 - Mother should be the same every year</title>
+		<select>RB010,RB030,RHID,RB230</select>
+		<from>r</from>
+		<where>RB230 ne .</where>
+		<group>RB030</group>
+		<having>count(distinct RB230)  GT  1</having>
+	</check>
+	<check id="145">
+		<title>Longitudinal - Error:  RB245 - Respondant status (16+) must be the same every year</title>
+		<select>RB010,RB030,RHID,RB245</select>
+		<from>r</from>
+		<where>RB245 in (1,2,3)</where>
+		<group>RB030</group>
+		<having>count(distinct RB245)  GT  1</having>
+	</check>
+	<check id="146">
+		<title>Longitudinal - Error: RB040 must be the same every year if person was in this household in previous waves</title>
+		<select>a.RB010,a.RB030,a.RB040,a.RB110,b.RB010 as  _RB010,b.RB030 as _RB030,b.RB110 as _RB110,b.RB040 as _RB040</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB030 = b.RB030</on>
+		<where>b.RB110 = 1 and a.RB110 in (1,2,3,4) and a.RB010+1 = b.RB010 and a.RB040 ne b.RB040</where>
+	</check>
+	<check id="180">
+		<title>Longitudinal - Error: DB030 - Household should exist in following year (or should not be in the file at all)</title>
+		<select>a.DB010,a.DB030,a.DB075,a.DB110,a.DB120,a.DB130,a.DB135,b.DB030 as _DB030</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030 and a.DB010+1 = b.DB010</on>
+		<where>a.DB135 = 1 and b.DB030 = . and a.DB010 ne $YEAR</where>
+	</check>
+	<!-- HH STATUS & INTRA-HH CONSISTENCY -->
+	<check id="113">
+		<title>Structural - Error: DB110 must be 9 for household first time in survey</title>
+		<select>DB010,DB030,DB110</select>
+		<from>d</from>
+		<where>mod(DB030,100) = 0</where>
+		<group>DB030</group>
+		<having>count(DB030) = 1 and min(DB110) ne 9</having>
+	</check>
+	<check id="114">
+		<title>Structural - Error: DB110 must be 8 for split-off household first time in survey</title>
+		<select>DB010,DB030,DB110</select>
+		<from>d</from>
+		<where>mod(DB030,100)  GT  0</where>
+		<group>DB030</group>
+		<having>count(DB030) = 1 and min(DB110) ne 8</having>
+	</check>
+	<check id="125">
+		<title>Structural - Error: RB245 - Codes 1 and (2,3) cannot be mixed within the same household</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB245</select>
+		<from>r</from>
+		<where>RB245  in (1,2,3)</where>
+		<group>RHID</group>
+		<having>min(RB245) = 1 and max(RB245) in (2,3)</having>
+	</check>
+	<check id="126">
+		<title>Structural - Error: RB245 - Only one person can be selected respondant in the same household</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB245</select>
+		<from>r</from>
+		<where>RB245 = 2</where>
+		<group>RHID,RB010</group>
+		<having>count(RB245)  GT  1</having>
+	</check>
+	<check id="134">
+		<title>Structural - Error: RB110 must be 1 for household  first time in survey</title>
+		<select>RB010,DB010,DB030,RB030,RB110</select>
+		<from>r</from>
+		<join>d</join>
+		<on>DB030 = RHID and DB010 = RB010</on>
+		<where>RB110 not in(1,7) and DB110 = 9</where>
+	</check>
+	<check id="136">
+		<title>Structural - Error: A sample person moved from another household must have RB110=5 and RB120 = 1 in the prevoius household</title>
+		<select>a.RHID,a.RB010,a.RB030,a.RB100,a.RB110,a.RB120,b.RHID as _RHID,b.RB010 as  _RB010,b.RB030 as _RB030,b.RB110 as _RB110</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB030 = b.RB030 and a.RHID ne b.RHID and a.RB010 = b.RB010</on>
+		<where>a.RB100 = 1 and (a.RB110 ne 5  or a.RB120 ne 1) and b.RB110 = 2</where>
+	</check>
+	<check id="236">
+		<title>Structural - Error: A sample person moved from another household must have RB110=5 and RB120 = 1 in the prevoius household (dual of 136)</title>
+		<select>a.RHID,a.RB010,a.RB030,a.RB100,a.RB110,a.RB120,b.RHID as _RHID,b.RB010 as  _RB010,b.RB030 as _RB030,b.RB110 as _RB110</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB030 = b.RB030 and a.RHID ne b.RHID and a.RB010 = b.RB010</on>
+		<where>a.RB100 = 1 and (a.RB110 eq 5  and a.RB120 eq 1) and b.RB110 ne 2</where>
+	</check>
+	<check id="139">
+		<title>Longitudinal - Error:  RB100 must be the same every year</title>
+		<select>RB010,RB030,RHID,RB100</select>
+		<from>r</from>
+		<group>RB030</group>
+		<having>count(distinct RB100)  GT  1 and RB110 ne 7</having>
+	</check>
+	<check id="157">
+		<title>Structural - Error: HB080 - Person 1 and person 2 responsible for the accomodation cannot be the same person</title>
+		<select>HB010,HB030,HB080,HB090</select>
+		<from>h</from>
+		<where>HB080_F ge 0  and HB080 = HB090</where>
+	</check>
+	<!-- WORKING STATUS vs INCOME (P) -->
+	<check id="570">
+		<title>Income - Warning: PY010 - 12 months active as employee, but no income as employee</title>
+		<select>PB010,PB030,PY010G,PL211_1,PL211_2</select>
+		<from>p</from>
+		<where>(sum(PL211_1,PL211_2,0) = 12) and PY010G_F  LT  1</where>
+	</check>
+	<check id="571">
+		<title>Income - Warning: PY050 - 12 months active as self-employee, but no income as self-employee</title>
+		<select>PB010,PB030,PY050G,PL211_3,PL211_4</select>
+		<from>p</from>
+		<where>(sum(PL211_3,PL211_4,0) = 12) and PY050G_F  LT  1</where>
+	</check>
+	<check id="572">
+		<title>Income - Warning: PY090 - 12 months unemployed, but no income from unemployments benefits</title>
+		<select>PB010,PB030,PY090G,PL211_5</select>
+		<from>p</from>
+		<where>PL211_5 = 12 and PY090G_F  LT  1</where>
+	</check>
+	<check id="573">
+		<title>Income - Warning: PY100 - 12 months retired, but no income from old-age benefits</title>
+		<select>PB010,PB030,PY100G,PL211_7</select>
+		<from>p</from>
+		<where>PL211_7 = 12 and PY100G_F  LT  1</where>
+	</check>
+	<check id="750">
+		<title>Labour - Warning: PL160 = 2 but different PL051 (ISCO)</title>
+		<select>a.PB010,a.PB030,a.PL031,a.PL051,b.PB010 as _PB010,b.PL031 as _PL031,b.PL051 as _PL051,b.PL160</select>
+		<from>p</from>
+		<join>p</join>
+		<on>a.PB030 = b.PB030</on>
+		<where>a.PB010 = b.PB010+1 and a.PL160 =2 and (a.PL051 ne b.PL051) and a.PL051 ne . and b.PL051 ne .</where>
+	</check>
+	<check id="758">
+		<title>Labour - Warning: PL031 PL060 PL100 Nr of hours usually worked is less than 20 hours per week while the self-declared status is full-time</title>
+		<select>PB010,PB030, PL031, PL060, PL100</select>
+		<from>p</from>
+		<where>(Sum(PL060, PL100) LT 20 and PL031 in (1,3) and PL060 not is missing and PL100 not is missing)</where>
+	</check>
+	<check id="759">
+		<title>Labour - Error: PL020: Actively looking for a job : The person is currently working (PL031 in (1,2,3,4))</title>
+		<select>PB010,PL020_F,PL031</select>
+		<from>p</from>
+		<where>PL031 in (1,2,3,4) and PL020_F ne -2</where>
+	</check>
+	<!--EDUCATION (PE) -->
+	<check id="702">
+		<title>Education - Warning: PE010 - PL120 - Not in education but undergoing education or training</title>
+		<select>PB010,PB030,PE010,PL120</select>
+		<from>p</from>
+		<where>PE010 = 2 and PL120 = 1</where>
+	</check>
+	<check id="703">
+		<title>Education - Error: PE030 - Highest level of education attained before born</title>
+		<select>PB010,PB030,PB140,PE030,PE040</select>
+		<from>p</from>
+		<where>PE030_F = 1 and PE030  LT  PB140</where>
+	</check>
+	<check id="705">
+		<title>Education - Warning: PE030 - Year highest level of education attained not plausible</title>
+		<select>PB010,PB030,PB140,PE030,PE040</select>
+		<from>p</from>
+		<where>(PE030_F = 1 and ((PE040  in (100,200) and PE030  LT  PB140+9) or (PE040  GT  299 and PE040  LT  400 and PE030  LT  PB140+15) or (PE040  GT  399 and PE030  LT  PB140+18)))</where>
+	</check>
+	<!-- REGISTER CHECKS (R or D or R vs D) -->
+	<check id="618">
+		<title>Child Care - Warning: RL030 not filled but RL010 or RL020 filled in</title>
+		<select>RB010,RB030,RL010,RL020,RL030</select>
+		<from>r</from>
+		<where>((RL010_F = 1 or RL020_F = 1) and RL030_F= -1)</where>
+	</check>
+	<check id="127">
+		<title>Structural - Error: RB250 - Data can be collected only from eligible persons</title>
+		<select>RB010,RB030,RB070,RB080,RB245,RB250</select>
+		<from>r</from>
+		<where>(RB250 in (11,12,13) and RB245 not in (1,2,3))</where>
+	</check>
+	<check id="128">
+		<title>Structural - Error: RB250 - Personal data record is missing in P-file or RB250 not filled correctly</title>
+		<select>RB010,RB030,RB070,RB080,a.RB110,RB250,PB010,PB030</select>
+		<from>r</from>
+		<join>p</join>
+		<on>RB030 = PB030 and RB010 = PB010 and a.RHID = b.PHID</on>
+		<where>(RB250 in (11,12,13,14) and PB030 = .) or ((RB250 not in (11,12,13,14)) and PB030 ne .)</where>
+	</check>
+	<check id="129">
+		<title>Structural - Error: RB270 - Proxy is not household member or does not exist</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB070,a.RB080,a.RB270</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB270 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB270_F ge 0 and  a.RHID ne b.RHID</where>
+	</check>
+	<check id="130">
+		<title>Structural - Error: RB270 - The person cannot be proxy for himself</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB270</select>
+		<from>r</from>
+		<where>RB270_F ge 0 and  RB030 = RB270</where>
+	</check>
+	<check id="173">
+		<title>Structural - Error: RB070 RB080 RB090 - Birth date or sex are missing</title>
+		<select>RB010,RB030,RB070,RB080,RB090</select>
+		<from>r</from>
+		<where>(RB080_F ne 1) or (RB090_F ne 1)</where>
+	</check>
+	<check id="181">
+		<title>Longitudinal - Error: RB030 - Household member should exist in same houshold in following year</title>
+		<select>a.DB010,a.DB030,a.DB075,a.DB135,b.RB010,b.RB030,b.RB110</select>
+		<from>d</from>
+		<join>r</join>
+		<on>DB030 = RHID</on>
+		<group>RHID,RB030</group>
+		<having>a.DB010 = $YEAR and a.DB110 ne 9 and a.DB135 = 1 and ((RB010 = DB010 and RB110 = 1) or RB010 = DB010-1) and count(RB030) = 1</having>
+	</check>
+	<check id="607">
+		<title>Child Care - Error: RL010,RL020 - Child cannot be at pre-school and compulsory school in the same week</title>
+		<select>RB010,RB030,RL010,RL020</select>
+		<from>r</from>
+		<where>RL010  GT  0 and RL020  GT  0</where>
+	</check>
+	<check id="616">
+		<title>Child Care - Error: Sum of weekly hours greater than 168</title>
+		<select>RB010,RB030,RL010,RL020,RL030,RL040,RL050,RL060</select>
+		<from>r</from>
+		<where>sum(RL010,RL020,RL030,RL040,RL050,RL060,0) gt 168</where>
+	</check>
+	<check id="617">
+		<title>Child Care - Warning: RL030 filled in but neither RL010 nor RL020 greater than 0</title>
+		<select>RB010,RB030,RL010,RL020,RL030</select>
+		<from>r</from>
+		<where>(RL030_F = 1 and ((RL010 = 0 or RL010 is missing) and (RL020 = 0 or RL020 is missing)))</where>
+	</check>
+	<check id="103">
+		<title>Structural - Error: DB135 - Records are missing in R- or P-file or DB135 not filled correctly</title>
+		<select>DB010,DB030,DB130,DB135,RB010,RB030,RB245,RB250</select>
+		<from>d</from>
+		<join>r</join>
+		<on>DB030 = RHID and DB010 = RB010</on>
+		<where>DB135 = 1</where>
+		<group>RB010,RHID</group>
+		<having>min(rb250) not in (11,12,13)</having>
+	</check>
+	<check id="104">
+		<title>Structural - Error: DB135 - In R- or P-file records to drop (or are missing) or DB135 not filled correctly</title>
+		<select>DB010,DB030,DB130,DB135,RB010,RB030,RB245,RB250</select>
+		<from>d</from>
+		<join>r</join>
+		<on>DB030 = RHID and DB010 = RB010</on>
+		<where>DB135 ne 1  and RB250 in (11,12,13)</where>
+	</check>
+	<!-- CROSS CONSISTENCY vs REGISTER (X vs R or X vs D) -->
+	<check id="121">
+		<title>Structural - Error: RB030 - Corresponding household does not exist in D-file</title>
+		<select>RB010,DB010,DB030,RB030,RHID,RB070,RB080,RB090</select>
+		<from>r</from>
+		<join>d</join>
+		<on>RHID = DB030 and RB010 = DB010</on>
+		<where>DB030 = .</where>
+	</check>
+	<check id="151">
+		<title>Structural - Error: HB070 - Person who filled in the questionnaire is not household member or does not exist</title>
+		<select>HB010,HB030,HB070,RB030</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB070 = RB030 and HB010 = RB010</on>
+		<where>HB070_F ge 0 and   RHID ne HB030  and RB110 ne 5</where>
+	</check>
+	<check id="153">
+		<title>Structural - Error: HB080 - Person 1 responsible for the accomodation is not household member or does not exist</title>
+		<select>HB010,HB030,HB080,RB030</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB080 = RB030 and HB010 = RB010</on>
+		<where>HB080_F ge 0 and   RHID ne HB030  and RB110 ne 5</where>
+	</check>
+	<check id="155">
+		<title>Structural - Error: HB090 - Person 2 responsible for the accomodation is not household member or does not exist</title>
+		<select>HB010,HB030,HB090,RB030</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB090 = RB030 and HB010 = RB010</on>
+		<where>HB090_F ge 0 and   RHID ne HB030  and RB110 ne 5</where>
+	</check>
+	<check id="553">
+		<title>Income - Error: HY110 - Income received by people aged under 16 but no member under 16 in household</title>
+		<select>HB010,HB030,HY110N,HY110G,RB030,RB070,RB080,AGE</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>sum(HY110N,HY110G,0)  GT  0</where>
+		<group>HB030,HB010</group>
+		<having>min(AGE) ge 16</having>
+	</check>
+	<check id="172">
+		<title>Structural - Error: PB130 PB140 PB150 - Birth date and sex must be equal in R- and P-file</title>
+		<select>RB010,RB030,RB070,RB080,RB090,PB010,PB030,PB130,PB140,PB150</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>((PB130 ne RB070) or (PB140 ne RB080) or (PB150 ne RB090)) and RB030 ne  .</where>
+	</check>
+	<check id="102">
+		<title>Structural - Error: DB130 - Household data record is missing in H-file (or to drop) or DB130 not filled correctly</title>
+		<select>DB010,DB030,DB130,HB010,HB030</select>
+		<from>d</from>
+		<join>h</join>
+		<on>DB030 = HB030 and DB010 = HB010</on>
+		<where>(DB130 = 11 and DB135 = 1 and HB030 = .) or (DB130 ne 11 and HB030 ne .)</where>
+	</check>
+	
+	<!-- CHECKS ADDED AS A RESULT OF THE XML-TO-CSV RECONCILIATION IN AUG 2021 -->
+	<check id="922">
+		<title>Module HI012 - Warning: Flag must be -2 if HI011 = 2 exception HI012 not collected</title>
+		<select>HB010, HB030, HI011, HI012, HI012_F</select>
+		<from>h</from>
+		<where>HI012_F ne -2 and HI011 = 2</where>
+	</check>
+	<check id="923">
+		<title>Module HI012 - Error: Flag cannot be -2 if HI011 in (1,3) or missing</title>
+		<select>HB010, HB030, HI011, HI012, HI012_F</select>
+		<from>h</from>
+		<where>HI012_F = -2 and HI011 ne 2</where>
+	</check>
+	<check id="924">
+		<title>Module HI020 - Warning: Flag must be -2 if HI011 in (2,3) 
+		exception HI020 not collected</title>
+		<select>HB010, HB030, HI011, HI020, HI020_F</select>
+		<from>h</from>
+		<where>HI020_F ne -2 and HI011 in (2,3)</where>
+	</check>
+	<check id="925">
+		<title>Module HI020 - Error: Flag cannot be -2 if HI011 = 1 or missing</title>
+		<select>HB010, HB030, HI011, HI020, HI020_F</select>
+		<from>h</from>
+		<where>HI020_F = -2 and HI011 not in (2,3)</where>
+	</check>
+	<check id="926">
+		<title>Module HI030 - Warning: Flag must be -2 if HI011 in (1,2) exception HI030 not collected</title>
+		<select>HB010, HB030, HI011, HI030, HI030_F</select>
+		<from>h</from>
+		<where>HI030_F ne -2 and HI011 in (1,2)</where>
+	</check>
+	<check id="927">
+		<title>Module HI030 - Error: Flag cannot be -2 if HI011 = 3 or missing</title>
+		<select>HB010, HB030, HI011, HI030, HI030_F</select>
+		<from>h</from>
+		<where>HI030_F = -2 and HI011 not in (1,2)</where>
+	</check>
+	<check id="928">
+		<title>Module HV070 - Warning: Flag value must be -2 if HH021  in (1,3,4,5) 
+		exception HV070 not 	collected</title>
+		<select>HB010, HB030, HV070_F, HH021</select>
+		<from>h</from>
+		<where>HV070_F ne -2 and HH021  in (1,3,4,5) and HB010 = 2020</where>
+	</check>
+	<!-- EUROMOD-RELATED CHECKS -->
+	<check id="1500">
+		<title>Structural - Warning: HY080G, HY081G - Regular inter-household cash transfer received vs alimonies (gross)</title>
+		<select>HB010,HB030,HY080G,HY080G_F,HY081G,HY081G_F</select>
+		<from>h</from>
+		<where>(HY080G is not null and HY081G is not null) AND (HY080G lt HY081G)</where>
+	</check>	
+	<check id="1501">
+		<title>Structural - Warning: HY080N, HY081N - Regular inter-household cash transfer received vs alimonies (net)</title>
+		<select>HB010,HB030,HY080N,HY080N_F,HY081N,HY081N_F</select>
+		<from>h</from>
+		<where>(HY080N is not null and HY081N is not null) AND (HY080N lt HY081N)</where>
+	</check>		
+</LVAL>

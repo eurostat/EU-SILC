@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2020 rel. 2 sp1 (x64) (http://www.altova.com) by  (European Commission - DG EUROSTAT) -->
+<!-- Revision:  December 9th 2022 -->
+<LVAL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../XSD/LVAL.xsd">
+	<preprocessing>
+		<step>HH_AGE_0_15</step>
+		<step>HH_PK010_F</step>
+		<step>HH_RL020</step>
+                <step>RL010_060_SUM</step>
+                <step>PAR_CHI_AGE_DIFF</step>
+	</preprocessing>
+  <!-- IDENTIFIERS -->
+  <check id="190">
+    <title>Structural - Error: DB030 - Household ID must be unique</title>
+    <select>DB020, DB010,DB030</select>
+    <from>d</from>
+    <group>DB010,DB030</group>
+    <having>count(*) gt 1 </having>
+  </check>
+  <check id="191">
+    <title>Structural - Error: HB030 - Household ID must be unique</title>
+    <select>HB020,HB010,HB030</select>
+    <from>h</from>
+    <group>HB010,HB030</group>
+    <having>count(*) gt 1 </having>
+  </check>
+  <check id="192">
+    <title>Structural - Error: RB030 - Personal ID must be unique when RB110 not equal to 5 </title>
+    <select>RB020,RB010,RB030,RB110</select>
+    <from>r</from>
+    <where>RB110 ne 5</where>
+    <group>RB010,RB030</group>
+    <having>count(*) gt 1 </having>
+  </check>
+  <check id="193">
+    <title>Structural - Error: PB030 - Personal ID must be unique</title>
+    <select>PB020,PB010,PB030</select>
+    <from>p</from>
+    <group>PB010,PB030</group>
+    <having>count(*) gt 1 </having>
+  </check>
+  <check id="194">
+    <title>Structural - Error: RB030 RB040 - R-file filled in but corresponding household does not exist in D-file</title>
+    <select>DB010,DB030,RB010,RB030,RB040</select>
+    <from>r</from>
+    <join>d</join>
+    <on>RB040 = DB030 and RB010 = DB010</on>
+    <where>DB030 = .</where>
+  </check>
+  <check id="195">
+    <title>Structural - Error: HB030 - H-file filled in but corresponding household does not exist in D-file</title>
+    <select>DB010,DB030,HB010,HB030</select>
+    <from>h</from>
+    <join>d</join>
+    <on>HB030 = DB030 and HB010 = DB010</on>
+    <where>DB030 = .</where>
+  </check>
+  <check id="196">
+    <title>Structural - Error: PB030 - P-file filled in but corresponding person does not exist in R-file</title>
+    <select>RB010,RB030,PB010,PB030</select>
+    <from>p</from>
+    <join>r</join>
+    <on>PB030 = RB030 and PB010 = RB010</on>
+    <where>RB030 = .</where>
+  </check>
+	<!-- WEIGHTS -->
+	<check id="001">
+		<title>Weights - Error: DB090 - Household (DB090) vs Personal (RB050) cross-sectional weight mismatch</title>
+		<select>a.DB010,a.DB030,a.DB090,b.RB050</select>
+		<from>d</from>
+		<join>r</join>
+		<on>DB030 = RHID and DB010 = RB010</on>
+		<where>(DB090 ge 0) AND (RB050 ge 0) AND (ABS(DB090 - RB050) gt 0.01*DB090)</where>
+	</check>
+	<!-- FIGURES: EQUALITIES, INEQUALITIES OR OUTLIERS  -->
+	<check id="551">
+		<title>Income - Error: HY020 - No disposable household income , but components with income</title>
+		<select>HB010,HB030,HY020,NET20</select>
+		<from>h</from>
+		<where>HY020 = 0 and sum(NET20,0) ne 0</where>
+	</check>
+	<check id="550">
+		<title>Income - Error: HY010 - No total household income , but components with income</title>
+		<select>HB010,HB030,HY010,HNETINC,HGROINC,PB030,PNETINC,PGROINC</select>
+		<from>h</from>
+		<join>p</join>
+		<on>HB030 = PHID and HB010 = PB010</on>
+		<group>HB030,HB010</group>
+		<having>HY010 = 0 and sum(HNETINC,HGROINC,PNETINC,PGROINC,0) ne 0 and HGROINC ne 0</having>
+	</check>
+	<check id="560">
+		<title>Income - Warning: HY010 - Great difference between total and components</title>
+		<select>HB010,HB030,HY010,gross</select>
+		<from>h</from>
+		<where>(HY010  GT  0) AND (HY010 lt gross * 0.9 OR HY010 gt gross * 1.1)</where>
+	</check>
+	<check id="565">
+		<title>Income - Warning: HY020 - Should be equal or greater than HY022 (except if pay-backs are taken into account)</title>
+		<select>HB010,HB030,HY020,HY022</select>
+		<from>h</from>
+		<where>HY020  GT  0 and  HY022  GT  HY020</where>
+	</check>
+	<check id="566">
+		<title>Income - Error: HY022- Must be equal or greater HY023</title>
+		<select>HB010,HB030,HY022,HY023</select>
+		<from>h</from>
+		<where>HY022  GT  0 and  HY023  GT  HY022</where>
+	</check>
+	<check id="567">
+		<title>Income - Warning: HY020 - Great difference between total and components</title>
+		<select>HB010,HB030,HY020,net20</select>
+		<from>h</from>
+		<where>HY020  GT  0 and  (HY020  LT  net20 * 0.9 or HY020  GT  net20 * 1.1)</where>
+	</check>
+	<check id="585">
+		<title>Income - Warning: HY020 HH070 - Total housing cost &gt; total net income</title>
+		<select>HB010,HB030,HY020,HH070</select>
+		<from>h</from>
+		<where>HH070  GT  0 and  (HH070 * 12)  GT  HY020</where>
+	</check>
+	<check id="586">
+		<title>Income - Error: PY020G should include company car (PY021G)</title>
+		<select>PB010,PB030,PY020G,PY021G</select>
+		<from>p</from>
+		<where>(PY020G  LT  PY021G)</where>
+	</check>
+	<check id="753">
+		<title>Labour - Error: PL073 - PL090 - Sum of months not equal to 12 or 0</title>
+		<select>PB010,PB030,PL073,PL074, PL075, PL076, PL080,PL085,PL086, PL087, PL088, PL089, PL090</select>
+		<from>p</from>
+		<where>sum(PL073,PL074, PL075, PL076, PL080,PL085, PL086, PL087, PL088, PL089, PL090,0) not in (12, 0)</where>
+	</check>
+	<check id="802">
+		<title>Housing Cost - Error: Rent is higher than total housing cost</title>
+		<select>HB010, HB030, HH060, HH070, HH070_F</select>
+		<from>h</from>
+		<where>(HH060  GT  HH070) and (HH070_F gt 0)</where>
+	</check>
+	<!-- SAMPLING -->
+	<check id="137">
+		<title>Structural - Error: RB100 - If 4 year rotational panel: Person should be sample person (applicable only for non-selected respondent countries)</title>
+		<select>RB010,DB010,DB030,RB030,RB100,RB110,RB245,AGE</select>
+		<from>r</from>
+		<join>d</join>
+		<on>DB030 = RHID and DB010 = RB010</on>
+		<where>RB110 = 1 and DB110 = 9 and (RB245 in (1,2) or (RB245 = 4 and AGE ge 16)) and RB100 ne 1</where>
+	</check>
+	<!-- AGE-->
+	<check id="168">
+		<title>Labour - Error: Duration of the most recent unemployment spell: routing condition (-2) based on age improperly applied</title>
+		<select>PB010,PB030, b.RB082, PL271, PL271_F</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>(PL271_F = -2) and (b.RB082 ge 16) and (b.RB082 le 74) and (PB010 ge 2021) and (RB110 NE 5)</where>
+	</check>
+	<check id="169">
+		<title>Labour - Error: Duration of the most recent unemployment spell: routing condition (-2) based on age was expected</title>
+		<select>PB010,PB030, b.RB082, PL271, PL271_F</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>((PL271_F ne -2) and ((b.RB082 lt 16) or (b.RB082 gt 75)) and (PB010 ge 2021)) and (RB110 NE 5)</where>
+	</check>
+	<check id="147">
+		<title>Structural - Warning: RB080 RB090 - Age at date of interview is -1</title>
+		<select>RHID,HB010,RB030,RB070,RB080,HB050,HB060</select>
+		<from>h</from>
+		<join>r</join>
+		<on>RB010 = HB010 and RHID = HB030</on>
+		<where>floor(((HB060*100+HB050) - (RB080*100+RB070))/100) = -1</where>
+	</check>
+	<check id="755">
+		<title>Labour - Warning: PL088 Nr of Months in compulsory military service &gt; 1 but younger than 18 or older than 55</title>
+		<select>PB010,PB030, b.AGE, PL088</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>(b.AGE  LT 18 or b.AGE  GT  55) and (PL088  GT 1) and (RB110 NE 5)</where>
+	</check>
+	<check id="813">
+		<title>Status - Warning: Self defined economic status as in compulsory military service but younger than 18 or older than 55</title>
+		<select>PB010,PB030, b.AGE, PL031</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>((b.AGE  LT 18 or b.AGE  GT  55) and PL031=9) and (RB110 NE 5)</where>
+	</check>
+	<check id="756">
+		<title>Labour - Warning: PL031 Self defined economic status as in compulsory military service but younger than 18 or older than 55</title>
+		<select>PB010,PB030, b.AGE, PL031</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>((b.AGE  LT 18 or b.AGE  GT  55) and PL031=9) and (RB110 NE 5)</where>
+	</check>
+	<check id="754">
+		<title>Labour - Warning:PL085  Nr of Months in Retirement &gt; 1 but younger than 27</title>
+		<select>PB010,PB030, b.AGE, PL085</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and PB010 = RB010</on>
+		<where>(b.AGE  LT  27) and (PL085  GT 1) and (RB110 NE 5)</where>
+	</check>
+        <check id="154">
+		<title>Structural - Warning: HB080 - Age of Person 1 responsible for the accomodation is below 16</title>
+		<select>HB010,HB030,HB080,RB030,AGE</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB080 = RB030 and HB010 = RB010</on>
+		<where>HB080_F ge 0 and   AGE  LT  16 and (RB110 NE 5)</where>
+	</check>
+	<check id="156">
+		<title>Structural - Warning: HB090 - Age of Person 2 responsible for the accomodation is below 16</title>
+		<select>HB010,HB030,HB090,RB030,AGE</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB090 = RB030 and HB010 = RB010</on>
+		<where>HB090_F ge 0 and   AGE  LT  16 and (RB110 NE 5)</where>
+	</check>
+	<check id="601">
+		<title>Child Care - Error: RL010 - Value of variable not possible because of age</title>
+		<select>RB010,RB030,RL010,RL010_F,AGE</select>
+		<from>r</from>
+		<where>(RL010_F ne -2 and age gt 12)</where>
+	</check>
+	<check id="602">
+		<title>Child Care - Error: RL020 - Value of variable not possible because of age</title>
+		<select>RB010,RB030,RL020,RL020_F,AGE</select>
+		<from>r</from>
+		<where>(RL020_F ne -2 and age gt 12)</where>
+	</check>
+	<check id="603">
+		<title>Child Care - Error: RL030 - Value of variable not possible because of age</title>
+		<select>RB010,RB030,RL030,RL030_F,AGE</select>
+		<from>r</from>
+		<where>(RL030_F ne -2 and age gt 12)</where>
+	</check>
+
+	<!-- RELATIVES -->
+	<check id="303">
+		<title>Relationship - Error: RB230 - Mother is not household member or does not exist</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB070,a.RB080,a.RB230</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB230 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB230_F ge 0 and b.RB030 = . and (b.RB110 NE 5)</where>
+	</check>
+	<check id="304">
+		<title>Relationship - Error: RB230 - The person cannot be his own mother</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB090,RB230</select>
+		<from>r</from>
+		<where>RB030 = RB230 and RB110 NE 5 </where>
+	</check>
+	<check id="305">
+		<title>Relationship - Error: RB240 - Spouse/partner is not household member or does not exist</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB070,a.RB080,a.RB240</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB240 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB240_F ge 0  and b.RB030 = . and (b.RB110 NE 5)</where>
+	</check>
+	<check id="306">
+		<title>Relationship - Error: RB240 - The person cannot be his own spouse/partner</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB090,RB240</select>
+		<from>r</from>
+		<where>RB030 = RB240 and RB110 NE 5</where>
+	</check>
+	<check id="307">
+		<title>Relationship - Error: PB160 PB170 PB180 - Parents and/or spouse/partner must be equal in R- and P-file</title>
+		<select>RB010,RHID,RB030,RB220,RB230,RB240,PHID,PB010,PB030,PB160,PB170,PB180</select>
+		<from>p</from>
+		<join>r</join>
+		<on>PB030 = RB030 and RB010 = PB010 and RHID = PHID</on>
+		<where>((PB160_F ge 0 and PB160 ne RB220) or (PB170_F ge 0 and PB170 ne RB230) or (PB180_F ge 0 and PB180 ne RB240)) and RB030 ne  . and (RB110 NE 5)</where>
+	</check>
+	<check id="301">
+		<title>Relationship - Error: RB220 - Father is not household member or does not exist</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB070,a.RB080,a.RB220</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB220 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB220_F ge 0  and b.RB030 = . and (b.RB110 NE 5)</where>
+	</check>
+	<check id="302">
+		<title>Relationship - Error: RB220 - The person cannot be his own father</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB090,RB220</select>
+		<from>r</from>
+		<where>RB030 = RB220 and RB110 NE 5</where>
+	</check>
+	<check id="308">
+		<title>Relationship - Error: RB240 - Father and spouse(partner) cannot be the same</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB090,RB220,RB220_F,RB240,RB240_F</select>
+		<from>r</from>
+		<where>RB220_F ge 0 and RB240_F ge 0 and RB220 = RB240</where>
+	</check>
+	<check id="309">
+		<title>Relationship - Error: RB240 - Father and spouse(partner) cannot be the same</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB090,RB230,RB230_F,RB240,RB240_F</select>
+		<from>r</from>
+		<where>RB230_F ge 0 and RB240_F ge 0 and RB230 = RB240</where>
+	</check>
+	<check id="310">
+		<title>Relationship - Error: RB240 - The spouse/partner is not the same for both</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB110, a.RB240,b.RB030 as s_RB030,b.RB240 as s_RB240, b.RB110 as s_RB110</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB240 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB240_F  GT  0 and b.RB110 in (1,2,3,4) and a.RB030 ne b.RB240 and (b.RB110 NE 5)</where>
+	</check>
+	<check id="311">
+		<title>Relationship - Error: RB240 - Parents of spouses/partners must be different</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB220,a.RB230,a.RB240,b.RB030 as s_RB030,b.RB220 as s_RB220,b.RB230 as s_RB230,b.RB240 as s_RB240</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB240 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>((a.RB220_F ge 0 and  a.RB220 = b.RB220) or (a.RB230_F ge 0 and  a.RB230 = b.RB230)) and (b.RB110 NE 5)</where>
+	</check>
+	<check id="312">
+		<title>Relationship - Warning: RB220 - Sex of father is female</title>
+		<select>a.RB010, a.RHID,a.RB030,a.RB220, b.RB090</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB220 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>b.RB090 = 2 and (b.RB110 NE 5)</where>
+	</check>
+	<check id="313">
+		<title>Relationship - Warning: RB230 - Sex of mother is male</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB230,b.RB090</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB230 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>b.RB090 = 1 and (b.RB110 NE 5)</where>
+	</check>
+	<check id="315">
+		<title>Relationship - Warning:  RB230 - Child should be at least 15 years younger than its mother</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB080,a.AGE,a.RB230,b.RB080 as m_RB080,b.AGE as m_AGE</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB230 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB230_F ge 0 and b.AGE - a.AGE  LT  15 and a.AGE ge 0 and b.AGE ge 0 and (b.RB110 NE 5)</where>
+	</check>
+	<check id="316">
+		<title>Relationship - Warning:  RB230 - Child should be at least 15 years younger than its father</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB080,a.AGE,a.RB220,b.RB080 as f_RB080,b.AGE as f_AGE</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB220 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB220_F ge 0 and b.AGE - a.AGE  LT  15 and a.AGE ge 0 and b.AGE ge 0 and (b.RB110 NE 5)</where>
+	</check>
+	<!-- LONGITUDINAL & MONOTONICITY -->
+	<check id="182">
+		<title>Longitudinal - Error: PL200 - number of years spent at work cannot be less than previous year</title>
+		<select>a.PB010,a.PB030,a.PL200,b.PL120,b.PL200 as _PL200</select>
+		<from>p</from>
+		<join>p</join>
+		<on>a.PB030 = b.PB030</on>
+		<where>(a.PB010+1 = b.PB010) and (b.PL120 not is missing) and (a.PL200  GT  b.PL200)</where>
+	</check>
+	<check id="115">
+		<title>Longitudinal - Error:  DB075 must be the same every year</title>
+		<select>DB010,DB030,DB075</select>
+		<from>d</from>
+		<group>DB030</group>
+		<having>count(distinct DB075)  GT  1</having>
+	</check>
+	<check id="116">
+		<title>Longitudinal - Error: DB040 must be the same every year if household is at the same adress</title>
+		<select>a.DB010,a.DB030,a.DB040,a.DB110,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110,b.DB040 as _DB040</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>b.DB110 = 1 and a.DB010+1 = b.DB010 and a.DB040 ne b.DB040</where>
+	</check>
+	<check id="117">
+		<title>Longitudinal - Error: DB100 must be the same every year if household is at the same adress</title>
+		<select>a.DB010,a.DB030,a.DB100,a.DB110,b.DB010 as  _DB010,b.DB030 as _DB030,b.DB110 as _DB110,b.DB100 as _DB100</select>
+		<from>d</from>
+		<join>d</join>
+		<on>a.DB030 = b.DB030</on>
+		<where>b.DB110 = 1 and a.DB010+1 = b.DB010 and a.DB100 ne b.DB100</where>
+	</check>
+	<check id="131">
+		<title>Structural - Error (follow-up): RB110 = 1,5 or 6 =&gt; must be 1,2,3 or 4 in previous year</title>
+		<select>a.RHID,a.RB010,a.RB030,a.RB110,b.RHID as _RHID,b.RB010 as  _RB010,b.RB030 as _RB030,b.RB110 as _RB110</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB030 = b.RB030 and a.RHID = b.RHID</on>
+		<where>a.RB010+1 = b.RB010 and b.RB110 in (1,5,6) and a.RB110 not in (1,2,3,4) and (a.RB110 NE 5) and (b.RB110 NE 5)</where>
+	</check>
+	<check id="132">
+		<title>Structural - Error (follow-up): RB110 = 2,3,4 or 7 =&gt; household member should not exist in previous year</title>
+		<select>a.RHID,a.RB010,a.RB030,a.RB110,b.RHID as _RHID,b.RB010 as  _RB010,b.RB030 as _RB030,b.RB110 as _RB110</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB030 = b.RB030 and a.RHID = b.RHID</on>
+		<where>a.RB010+1 = b.RB010 and b.RB110 in (2,3,4,7) and  a.RB110 not in (2,5,7) and (a.RB110 NE 5) and (b.RB110 NE 5)</where>
+	</check>
+	<check id="141">
+		<title>Longitudinal - Error:  RB080 - Year of birth must be the same every year</title>
+		<select>RB010,RB030,RHID,RB080</select>
+		<from>r</from>
+		<where>RB110 NE 5</where><group>RB030</group>
+		<having>count(distinct RB080)  GT  1</having>
+	</check>
+	<check id="142">
+		<title>Longitudinal - Error:  RB090 - Sex must be the same every year</title>
+		<select>RB010,RB030,RHID,RB090</select>
+		<from>r</from>
+		<where>RB110 NE 5</where><group>RB030</group>
+		<having>count(distinct RB090)  GT  1</having>
+	</check>
+	<check id="143">
+		<title>Longitudinal - Warning:  RB220 - Father should be the same every year</title>
+		<select>RB010,RB030,RHID,RB220</select>
+		<from>r</from>
+		<where>RB220 ne . and RB110 NE 5</where>
+		<group>RB030</group>
+		<having>count(distinct RB220)  GT  1</having>
+	</check>
+	<check id="144">
+		<title>Longitudinal - Warning:  RB230 - Mother should be the same every year</title>
+		<select>RB010,RB030,RHID,RB230</select>
+		<from>r</from>
+		<where>RB230 ne . and RB110 NE 5</where>
+		<group>RB030</group>
+		<having>count(distinct RB230)  GT  1</having>
+	</check>
+	<check id="145">
+		<title>Longitudinal - Error:  RB245 - Respondant status (16+) must be the same every year</title>
+		<select>RB010,RB030,RHID,RB245</select>
+		<from>r</from>
+		<where>RB245 in (1,2,3) and RB110 NE 5</where>
+		<group>RB030</group>
+		<having>count(distinct RB245)  GT  1</having>
+	</check>
+	<check id="146">
+		<title>Longitudinal - Error: RB040 must be the same every year if person was in this household in previous waves</title>
+		<select>a.RB010,a.RB030,a.RB040,a.RB110,b.RB010 as  _RB010,b.RB030 as _RB030,b.RB110 as _RB110,b.RB040 as _RB040</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB030 = b.RB030</on>
+		<where>b.RB110 = 1 and a.RB110 in (1,2,3,4) and a.RB010+1 = b.RB010 and a.RB040 ne b.RB040 and a.RB110 NE 5 and b.RB110 NE 5</where>
+	</check>
+
+	<!-- HH STATUS & INTRA-HH CONSISTENCY -->
+	<check id="113">
+		<title>Structural - Error: DB110 must be 9 for household first time in survey</title>
+		<select>DB010,DB030,DB110</select>
+		<from>d</from>
+		<where>mod(DB030,100) = 0</where>
+		<group>DB030</group>
+		<having>count(DB030) = 1 and min(DB110) ne 9</having>
+	</check>
+	<check id="114">
+		<title>Structural - Error: DB110 must be 8 for split-off household first time in survey</title>
+		<select>DB010,DB030,DB110</select>
+		<from>d</from>
+		<where>mod(DB030,100)  GT  0</where>
+		<group>DB030</group>
+		<having>count(DB030) = 1 and min(DB110) ne 8</having>
+	</check>
+	<check id="125">
+		<title>Structural - Error: RB245 - Codes 1 and (2,3) cannot be mixed within the same household</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB245</select>
+		<from>r</from>
+		<where>RB245  in (1,2,3)</where>
+		<group>RHID</group>
+		<having>min(RB245) = 1 and max(RB245) in (2,3)</having>
+	</check>
+	<check id="126">
+		<title>Structural - Error: RB245 - Only one person can be selected respondant in the same household</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB245</select>
+		<from>r</from>
+		<where>RB245 = 2</where>
+		<group>RHID,RB010</group>
+		<having>count(RB245)  GT  1</having>
+	</check>
+	<check id="134">
+		<title>Structural - Error: RB110 must be 1 for household  first time in survey</title>
+		<select>RB010,DB010,DB030,RB030,RB110</select>
+		<from>r</from>
+		<join>d</join>
+		<on>DB030 = RHID and DB010 = RB010</on>
+		<where>(RB110 NOT IN (1,7) and DB110 = 9 and RB010 LT 2021) or (RB110 NE 1 and RB010 GE 20201 and DB110 EQ 9)</where>
+	</check>
+	<check id="136">
+		<title>Structural - Error: A sample person moved from another household must have RB110=5 and RB120 = 1 in the prevoius household</title>
+		<select>a.RHID,a.RB010,a.RB030,a.RB100,a.RB110,a.RB120,b.RHID as _RHID,b.RB010 as  _RB010,b.RB030 as _RB030,b.RB110 as _RB110</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB030 = b.RB030 and a.RHID ne b.RHID and a.RB010 = b.RB010</on>
+		<where>a.RB100 = 1 and (a.RB110 ne 5  or a.RB120 ne 1) and b.RB110 = 2</where>
+	</check>
+	<check id="157">
+		<title>Structural - Error: HB080 - Person 1 and person 2 responsible for the accomodation cannot be the same person</title>
+		<select>HB010,HB030,HB080,HB090</select>
+		<from>h</from>
+		<where>HB080_F ge 0  and HB080 = HB090</where>
+	</check>
+	<!-- WORKING STATUS vs INCOME (P) -->
+	<check id="570">
+		<title>Income - Warning: PY010 - 12 months active as employee, but no income as employee</title>
+		<select>PB010,PB030,PY010G,PY010G_F,PL073,PL074</select>
+		<from>p</from>
+		<where>(sum(PL073, PL074)=12) and (PY010G=0)</where>
+	</check>
+	<check id="571">
+		<title>Income - Warning: PY050 - 12 months active as self-employee, but no income as self-employee</title>
+		<select>PB010,PB030,PY050G,PY050G_F,PL075,PL076</select>
+		<from>p</from>
+		<where>(sum(PL075,PL076)=12) and (PY050G=0)</where>
+	</check>
+	<check id="572">
+		<title>Income - Warning: PY090 - 12 months unemployed, but no income from unemployments benefits</title>
+		<select>PB010,PB030,PY090G,PY090G_F,PL080</select>
+		<from>p</from>
+		<where>(PL080=12) and (PY090G=0)</where>
+	</check>
+	<check id="573">
+		<title>Income - Warning: PY100 - 12 months retired, but no income from old-age benefits</title>
+		<select>PB010,PB030,PY100G,PY100G_F,PL085</select>
+		<from>p</from>
+		<where>(PL085=12) and (PY100G=0)</where>
+	</check>
+	<check id="758">
+		<title>Labour - Warning: PL031 PL060 PL100 Nr of hours usually worked is less than 20 hours per week while the self-declared status is full-time</title>
+		<select>PB010,PB030, PL031, PL060, PL100</select>
+		<from>p</from>
+		<where>(Sum(PL060, PL100) LT 20 and PL031 in (1,3) and PL060 not is missing and PL100 not is missing)</where>
+	</check>
+	<check id="759">
+		<title>Labour - Error: PL020: Actively looking for a job : The person is currently working (PL031 in (1,2,3,4))</title>
+		<select>PB010,PL020_F,PL031</select>
+		<from>p</from>
+		<where>PL031 in (1,2,3,4) and PL020_F ne -2</where>
+	</check>
+	<!--EDUCATION (PE) -->
+	<check id="703">
+		<title>Education - Error: PE030 - Highest level of education attained before born</title>
+		<select>PB010,PB030,PB140,PE030,PE040</select>
+		<from>p</from>
+		<where>PE030_F = 1 and PE030  LT  PB140</where>
+	</check>
+	<!-- REGISTER CHECKS (R or D or R vs D) -->
+        <check id="129">
+		<title>Structural - Error: RB270 - Proxy is not household member or does not exist</title>
+		<select>a.RB010,a.RHID,a.RB030,a.RB070,a.RB080,a.RB270</select>
+		<from>r</from>
+		<join>r</join>
+		<on>a.RB270 = b.RB030 and a.RB010 = b.RB010 and a.RHID = b.RHID</on>
+		<where>a.RB270_F ge 0 and  a.RHID ne b.RHID and b.RB110 NE 5</where>
+	</check>
+	<check id="130">
+		<title>Structural - Error: RB270 - The person cannot be proxy for himself</title>
+		<select>RB010,RHID,RB030,RB070,RB080,RB270</select>
+		<from>r</from>
+		<where>RB270_F ge 0 and  RB030 = RB270</where>
+	</check>
+
+    <check id="607">
+		<title>Child Care - Error: RL010,RL020 - Child cannot be at (the age of) pre-school and compulsory school in the same week</title>
+		<select>RB010,RB030,RL010,RL010_F,RL020,RL020_F</select>
+		<from>r</from>
+		<where>((RL010  GE  0 and RL020  GE  0) or (RL010 GE 0 and RL020_F =-1) or (RL010_F= -1 and RL020 GE 0))</where>
+	</check>
+    <check id="608">
+		<title>Child Care - Error: RL030 - Should be filled only if child is at pre-school or at compulsory school</title>
+		<select>RB010,RB030,RL010,RL010_F,RL020,RL020_F,RL030,RL030_F</select>
+		<from>r</from>
+		<where> RL010_F = -2 and RL020_F = -2 and RL030_F ne -2 </where>
+	</check>
+    <check id="614">
+		<title>Child Care - Warning: Value for RL070 not realistic</title>
+		<select>RB010,RB030,RL070,RL070_F </select>
+		<from>r</from>
+		<where>(RL070_F = 1) AND (RL070 le 1 or RL070 ge 20000) AND (RB110 in (1 2 3 4))</where>
+	</check>
+    <check id="615">
+		<title>Child Care - Warning: Sum of weekly hours greater than 84 (more than 12 hours daily on average)</title>
+		<select>RB010,RB030,RL010,RL020,RL030,RL040,RL050,RL060</select>
+		<from>r</from>
+		<where>sum(RL010,RL020,RL030,RL040,RL050,RL060,0) gt 84 and sum(RL010,RL020,RL030,RL040,RL050,RL060,0) le 168</where>
+	</check>
+	<check id="616">
+		<title>Child Care - Error: Sum of weekly hours greater than 168 (more than 24 hours daily on average)</title>
+		<select>RB010,RB030,RL010,RL020,RL030,RL040,RL050,RL060</select>
+		<from>r</from>
+		<where>sum(RL010,RL020,RL030,RL040,RL050,RL060,0) gt 168</where>
+	</check>
+    <check id="617">
+		<title>Child Care -Error: RL030 filled in but neither RL010 nor RL020 greater than 0</title>
+		<select>RB010,RB030,RL010,RL020,RL030, RL030_F</select>
+		<from>r</from>
+		<where>RL030_F ne -2 and (RL010 = 0 or RL020 = 0)</where>
+	</check>
+    <check id="618">
+		<title>Child Care -Error: RL030 cannot be not-applicable if RL010 or RL020 filled in (or missing)</title>
+		<select>RB010,RB030,RL010,RL010_F,RL020,RL020_F,RL030,RL030_F</select>
+		<from>r</from>
+		<where>( ((RL010 GT 0 or RL020 GT 0) or (RL010_F = -1 and RL020_F = -2) or (RL020_F = -1 and RL010_F = -2)) and RL030_F= -2)</where>
+  	</check>
+    <check id="103">
+		<title>Structural - Error: DB135 - Records are missing in R- or P-file or DB135 not filled correctly</title>
+		<select>DB010,DB030,DB130,DB135,RB010,RB030,RB245,RB250</select>
+		<from>d</from>
+		<join>r</join>
+		<on>DB030 = RHID and DB010 = RB010</on>
+		<where>DB135 = 1</where>
+		<group>RB010,RHID</group>
+		<having>min(rb250) not in (11,12,13)</having>
+	</check>
+	<check id="104">
+		<title>Structural - Error: DB135 - In R- or P-file records to drop (or are missing) or DB135 not filled correctly</title>
+		<select>DB010,DB030,DB130,DB135,RB010,RB030,RB245,RB250</select>
+		<from>d</from>
+		<join>r</join>
+		<on>DB030 = RHID and DB010 = RB010</on>
+		<where>DB135 ne 1  and RB250 in (11,12,13)</where>
+	</check>
+	<!-- CROSS CONSISTENCY vs REGISTER (X vs R or X vs D) -->
+	<check id="151">
+		<title>Structural - Error: HB070 - Person who filled in the questionnaire is not household member or does not exist</title>
+		<select>HB010,HB030,HB070,RB030</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB070 = RB030 and HB010 = RB010</on>
+		<where>HB070_F ge 0 and   RHID ne HB030  and RB110 ne 5</where>
+	</check>
+	<check id="153">
+		<title>Structural - Error: HB080 - Person 1 responsible for the accomodation is not household member or does not exist</title>
+		<select>HB010,HB030,HB080,RB030</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB080 = RB030 and HB010 = RB010</on>
+		<where>HB080_F ge 0 and   RHID ne HB030  and RB110 ne 5</where>
+	</check>
+	<check id="155">
+		<title>Structural - Error: HB090 - Person 2 responsible for the accomodation is not household member or does not exist</title>
+		<select>HB010,HB030,HB090,RB030</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB090 = RB030 and HB010 = RB010</on>
+		<where>HB090_F ge 0 and   RHID ne HB030  and RB110 ne 5</where>
+	</check>
+	<check id="102">
+		<title>Structural - Error: DB130 - Household data record is missing in H-file (or to drop) or DB130 not filled correctly</title>
+		<select>DB010,DB030,DB130,HB010,HB030</select>
+		<from>d</from>
+		<join>h</join>
+		<on>DB030 = HB030 and DB010 = HB010</on>
+		<where>(DB130 = 11 and DB135 = 1 and HB030 = .) or (DB130 ne 11 and HB030 ne .)</where>
+	</check>
+	<!--3Y MODULE ON CHILDREN-->
+	<check id="1001" start="2021" module="recur3">
+		<loop>
+			<x>HCH010</x>
+			<x>HCH020</x>
+			<x>HCH030</x>
+			<x>HCH040</x>
+			<x>HD100</x>
+			<x>HD110</x>
+			<x>HD120</x>
+			<x>HD140</x>
+			<x>HD150</x>
+			<x>HD160</x>
+			<x>HD170</x>
+			<x>HD180</x>
+			<x>HD190</x>
+			<x>HD200</x>
+			<x>HD210</x>
+			<x>HD220</x>
+			<x>HD240</x>
+		</loop>
+		<title>3-year rolling module on children: Error: routing condition (-4) not allowed on $x as there are children aged 0-15 in the household</title>
+		<select>HB010,HB030,$x,$x_F,__HH_AGE_0_15_</select>
+		<from>h</from>
+		<where>($x_F = -4 AND __HH_AGE_0_15_= 1) AND ($x_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1031" start="2021" module="recur3">
+		<title>3-year rolling module on children - Warning: routing condition (-2) not allowed on HD210 as there are children attending school</title>
+		<select>HB010,HB030,HD210_F,__HH_RL020_</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HD210_F = -2) AND (__HH_RL020_ gt 0) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1041" start="2021" module="recur3">
+		<title>3-year rolling module on children - Error: RCH010 and RCH020 expected missing (-1) as RB081 (age) missing (-1)</title>
+		<select>RB010,RB030,RB081_F,RCH010_F,RCH020_F</select>
+		<from>r</from>
+		<where>(RB081_F eq -1) AND ( (RCH010_F ne -1) OR (RCH020_F ne -1) )</where>
+	</check>
+
+	<check id="1101" start="2021" module="recur3">
+		<loop>
+			<x>HCH010</x>
+			<x>HCH020</x>
+			<x>HCH030</x>
+			<x>HCH040</x>
+			<x>HD100</x>
+			<x>HD110</x>
+			<x>HD120</x>
+			<x>HD140</x>
+			<x>HD150</x>
+			<x>HD160</x>
+			<x>HD170</x>
+			<x>HD180</x>
+			<x>HD190</x>
+			<x>HD200</x>
+			<x>HD210</x>
+			<x>HD220</x>
+			<x>HD240</x>
+		</loop>
+		<title>3-year rolling module on children - Error: routing condition (-4) expected on $x as there are no children aged 0-15 in the household</title>
+		<select>HB010,HB030,$x,$x_F,__HH_AGE_0_15_</select>
+		<from>h</from>
+		<where>(__HH_AGE_0_15_= 0 AND $x_F ne -4) AND ($x_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<!--
+	  ADHOC MODULE CHILDREN EXTERNAL TO THE HOUSEHOLD (R vs H)
+	-->
+	<check id="1200">
+		<title>Module on children in recomposed families - Error: routing condition (-2) expected on PK010 -  no children who are not household members</title>
+		<select>HB010,HB030,PB030,HK020,PK010,PK010_F</select>
+		<from>h</from>
+		<join>p</join>
+		<on>HB030 = PHID and HB010 = PB010</on>
+		<where>(HK020 = 0) AND (PK010_F ne -2) AND (PK010_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+
+	<check id="1201">
+		<title>Module on children in recomposed families - Error: routing condition (-2) not allowed on PK010 -  there are children who are not household members</title>
+		<select>HB010,HB030,PB030,HK020,PK010,PK010_F</select>
+		<from>h</from>
+		<join>p</join>
+		<on>HB030 = PHID and HB010 = PB010</on>
+		<where>(HK020 gt 0) AND (PK010_F eq -2) AND (PK010_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1202">
+		<title>Module on children in recomposed families - Error: routing condition (-2) expected on PK020 - no children aged 0-17 living in the household</title>
+		<select>PB010,PB030,HB030,HK010_F,PK020,PK020_F</select>
+		<from>p</from>
+		<join>h</join>
+		<on>PHID = HB030 and PB010 = HB010</on>
+		<where>(HK010_F=-2 AND PK020_F ne -2) AND (PK020_F ne -7) AND (PB010 ge 2021)</where>
+	</check>
+	<check id="1205">
+		<title>Module on children in recomposed families Error: routing condition (-1) expected on PK010_F and PK030_F as HK020_F eq -1</title>
+		<select>HB010,HB030,PK010_F,PK030_F,HK020_F</select>
+		<from>h</from>
+		<join>p</join>
+		<on>HB030 = PHID and HB010 = PB010</on>
+		<where>(HK020 = -1) AND (PK010_F ne -1 AND PK030_F ne -1) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1220">
+		<title>Module on children in recomposed families - Error: routing condition (-2) not allowed on HK010 – there are children aged 0-17 in the household</title>
+		<select>HB010,HB030,HK010,HK010_F,__HH_AGE_0_17_</select>
+		<from>h</from>
+		<where>(HK010_F = -2) AND (__HH_AGE_0_17_ = 1) AND (HK010_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1221">
+		<title>Module on children in recomposed families - Error: routing condition (-2) expected on HK010 – there are no children aged 0-17 in the household</title>
+		<select>HB010,HB030,HK010,HK010_F,__HH_AGE_0_17_</select>
+		<from>h</from>
+		<where>(HK010_F ne -2) AND (__HH_AGE_0_17_ = 0) AND (HK010_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1230">
+		<title>Module on children in recomposed families - Error: Number of children who are not household members should be equal to number of RB110 = 8</title>
+		<select>HB010,HB030,HK020,HK020_F</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(RB110 eq 8) AND (HK010_F ne -7) AND (HB010 ge 2021)</where>
+		<group>HB010,HB030</group>
+		<having>count(*) ne max(HK020)</having>
+	</check>
+	<check id="1300">
+		<title>Module on children in recomposed families – Error: routing condition (-2 or -4) expected on RK010_F (Parent ID and sequential number of the child who is not household member) as there are no children external to the household</title>
+		<select>HB010,HB030,RB110,RK010,RK010_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK020 eq 0) AND (RK010_F ne -2) AND (RB110 ge 1) AND (RB110 le 4) AND (RK010_F ne -4) AND (RK010_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1301">
+		<title>Module on children in recomposed families – Error: routing condition (-2 or -4) expected on RK020_F (Age of the child who is not household member) as there are no children external to the household</title>
+		<select>HB010,HB030,RB110,RK020,RK020_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK020 eq 0) AND (RK020_F ne -2) AND (RB110 ge 1) AND (RB110 le 4) AND (RK020_F ne -4) AND (RK020_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1302">
+		<title>Module on children in recomposed families – Error: routing condition (-2 or -4) expected on RK030_F  (Usual time the parent needs to get to the child who is not a household member) as there are no children external to the household</title>
+		<select>HB010,HB030,RB110,RK030,RK030_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK020 eq 0) AND (RK030_F ne -2) AND (RB110 ge 1) AND (RB110 le 4) AND (RK030_F ne -4) AND (RK030_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1303">
+		<title>Module on children in recomposed families – Error: routing condition (-2 or -4) expected on RK040_F (Frequency of contact (via phone, social media etc.) during the last 12 months with the child who is not a household member) as there are no children external to the household</title>
+		<select>HB010,HB030,RB110,RK040,RK040_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK020 eq 0) AND (RK040_F ne -2) AND (RB110 ge 1) AND (RB110 le 4) AND (RK040_F ne -4) AND (RK040_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1306">
+		<title>Module on children in recomposed families – Error: routing condition (-2 or -5) expected on RK070_F (Number of nights per month the child spends in the household as there are no children that have parents outside the household or no children external to the household</title>
+		<select>HB010,HB030,RB110,RK070,RK070_F,HK010,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK010 eq 0) AND (HK020 eq 0) AND (RB110 ge 1) AND (RB110 le 4) AND (RK070_F ne -2) AND (RK070_F ne -5) AND (RK070_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1304">
+		<title>Module on children in recomposed families – Error: routing condition (-5) expected on RK050_F (Child having a bedroom in which to sleep) but there are no children aged 0-17 (neither in the household nor outside the household)</title>
+		<select>HB010,HB030,RB110,RK050,RK050_F,HK010_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK010_F=-2 AND RK050_F ne -5) AND (RB110 ge 1) AND (RB110 le 4) AND (HK020 = 0) AND (RK050_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1305">
+		<title>Module on children in recomposed families – Error: routing condition (-5) expected on RK060_F (Frequency of spending actively time with the child) but there are no children aged 0-17 (neither in the household nor outside the household)</title>
+		<select>HB010,HB030,RB110,RK060,RK060_F,HK010_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK010_F=-2 AND RK060_F ne -5) AND (HK020 = 0) AND (RB110 ge 1) AND (RB110 le 4) AND (RK060_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1307">
+		<title>Module on children in recomposed families - Error: routing condition (-2 or -5) expected on RK080_F (Legal child custody situation) as there are no children that have parents outside the household or no children external to the household</title>
+		<select>HB010,HB030,RB110,HK010,HK020,RK080_F</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK010 eq 0) AND (HK020 eq 0) AND (RB110 ge 1) AND (RB110 le 4) AND (RK080_F ne -2) AND (RK080_F ne -5) AND (RK080_F ne -7) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1310">
+		<title>Module on children in recomposed families - Error: Parent ID (RK010) not equal to RB030</title>
+		<select>HB010,HB030,HK020,RHID,RK010,RK010_F,RB030,RB110</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK020 gt 0) AND (RK010_F gt 0) AND (HB010 eq 2021) AND (RB110 eq 8) AND (RK010 ne RB030)</where>
+	</check>
+	<!--
+	ADHOC MODULE CHILDREN EXTERNAL TO THE HOUSEHOLD (R vs H) / COMPLEMENTARY CHECKS
+	-->
+	<check id="1400">
+		<title>Module on children in recomposed families - Error: routing condition (-2) not allowed on RK010_F (ID of a child who is not a household member) as there are children external to the household</title>
+		<select>HB010,HB030,RK010,RK010_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK020 gt 0) AND (RK010_F eq -2) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1401">
+		<title>Module on children in recomposed families - Error: routing condition (-2) not allowed on RK020_F (Age of the child who is not household member) as there are children external to the household</title>
+		<select>HB010,HB030,RK020,RK020_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK020 gt 0) AND (RK020_F eq -2) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1402">
+		<title>Module on children in recomposed families - Error: routing condition (-2) not allowed on RK030_F (Usual time the parent needs to get to the child who is not a household member) as there are children external to the household</title>
+		<select>HB010,HB030,RK030,RK030_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK020 gt 0) AND (RK030_F eq -2) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1403">
+		<title>Module on children in recomposed families - Error: routing condition (-2) not allowed on RK040_F (Frequency of contact with the child who is not a household member) as  there are children external to the household</title>
+		<select>HB010,HB030,RK040,RK040_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK020 gt 0) AND (RK040_F eq -2) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1406">
+		<title>Module on children in recomposed families - Error: routing condition (-2) not allowed on RK070_F (Number of nights per month the child spends in the household) as person is an adult</title>
+		<select>HB010,HB030,RB082,RK070,RK070_F,HK010,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>((HK010 gt 0) OR (HK020 gt 0)) AND (RB082 ge 18) AND (RK070_F eq -2) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1404">
+		<title>Module on children in recomposed families - Error: routing condition (-5) not allowed on RK050_F (Child having a bedroom in which to sleep) as there are children in the household or children external to the household</title>
+		<select>HB010,HB030,RK050,RK050_F,RB082,HK010_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK010_F ne -2 OR HK020 gt 0) AND (RB082 lt 18) AND (RB082 ne .) AND (RK050_F eq -5) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1405">
+		<title>Module on children in recomposed families - Error: routing condition (-5) not allowed on RK060_F (Frequency of spending actively time with the child) as  there are children in the household or children external to the household</title>
+		<select>HB010,HB030,RK060,RK060_F,RB082,HK010_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK010_F ne -2 OR HK020 gt 0) AND (RB082 lt 18) AND (RB082 ne .) AND (RK060_F eq -5) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1407">
+		<title>Module on children in recomposed families - Error: routing condition (-2) not allowed on RK080_F (Legal child custody situation) - as person is an adult</title>
+		<select>HB010,HB030,RK080,RK080_F,RB082,HK010,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>((HK010 gt 0) OR (HK020 gt 0)) AND (RB082 ge 18) AND (RK080_F eq -2) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1408">
+		<title>Module on children in recomposed families - Error: routing condition (-5) not allowed on RK070_F (Number of nights per month the child spends in the household) as  there are children in the household or children external to the household</title>
+		<select>HB010,HB030,RK070,RK070_F,RB082,HK010_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK010_F ne -2 OR HK020 gt 0) AND (RB082 lt 18) AND (RB082 ne .) AND (RK070_F eq -5) AND (HB010 ge 2021)</where>
+	</check>
+	<check id="1409">
+		<title>Module on children in recomposed families - Error: routing condition (-5) not allowed on RK080_F (Legal child custody situation) as  there are children in the household or children external to the household</title>
+		<select>HB010,HB030,RK080,RK080_F,RB082,HK010_F,HK020</select>
+		<from>h</from>
+		<join>r</join>
+		<on>HB030 = RHID and HB010 = RB010</on>
+		<where>(HK010_F ne -2 OR HK020 gt 0) AND (RB082 lt 18) AND (RB082 ne .) AND (RK080_F eq -5) AND (HB010 ge 2021)</where>
+	</check>
+
+	<!-- EUROMOD-RELATED CHECKS -->
+	<check id="1500">
+		<title>Structural - Warning: HY080G, HY081G - Regular inter-household cash transfer received vs alimonies (gross)</title>
+		<select>HB010,HB030,HY080G,HY080G_F,HY081G,HY081G_F</select>
+		<from>h</from>
+		<where>(HY080G is not null and HY081G is not null) AND (HY080G lt HY081G)</where>
+	</check>
+	<check id="1501">
+		<title>Structural - Warning: HY080N, HY081N - Regular inter-household cash transfer received vs alimonies (net)</title>
+		<select>HB010,HB030,HY080N,HY080N_F,HY081N,HY081N_F</select>
+		<from>h</from>
+		<where>(HY080N is not null and HY081N is not null) AND (HY080N lt HY081N)</where>
+	</check>
+</LVAL>
+
+
