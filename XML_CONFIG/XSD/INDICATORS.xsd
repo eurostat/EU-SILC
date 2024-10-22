@@ -1,0 +1,453 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="IDX">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="desc" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="type" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="granul" type="granul_type" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="stat" type="stat_type" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="unit" type="unit_type" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="subset" type="subset_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="ratio" type="ratio_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="qratio" type="qratio_type" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="rratio" type="rratio_type" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="class" type="class_type" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element name="fmt" type="fmt_type" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="eu" type="eu_type" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="NUTS_con" type="NUTS_con" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="granul_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="H"/>
+			<xs:enumeration value="P"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="type">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_type">
+					<xs:attribute name="lib" use="optional">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="RDB2"/>
+								<xs:enumeration value="RDB"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ST_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="C"/>
+			<xs:enumeration value="R"/>
+			<xs:enumeration value="E"/>
+			<xs:enumeration value="L"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="stat_type">
+		<xs:sequence>
+			<xs:element name="var" type="var_type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="fmtvar" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="case" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string"/>
+								</xs:simpleType>
+							</xs:attribute>
+							<xs:attribute name="fmtype" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="N"/>
+										<xs:enumeration value="C"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="rdb" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="weight" type="weight_type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="statistic" type="statistic_type" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="wrk" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="QTILES"/>
+					<xs:enumeration value="GINI"/>
+					<xs:enumeration value="RATIO"/>
+					<xs:enumeration value="REPLACE"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="src" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string"/>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="ST_fmtvar">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="rratio_type">
+		<xs:sequence>
+			<xs:element name="rnum" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="rden" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="rlab" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="qratio_type">
+		<xs:sequence>
+			<xs:element name="qnum" type="q_type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="qden" type="q_type" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="q_type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[Q,P][0-9]{1,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ratio_type">
+		<xs:sequence>
+			<xs:element name="varD" type="var_type" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="subsetD" type="subset_type" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="weight_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RB050A"/>
+			<xs:enumeration value="RB050"/>
+			<xs:enumeration value="FOO"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="statistic_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CASE"/>
+			<xs:enumeration value="RAW"/>
+			<xs:enumeration value="MEAN"/>
+			<xs:enumeration value="MEDIAN"/>
+			<xs:enumeration value="GINI"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="subset_type">
+		<xs:sequence>
+			<xs:element name="sas" type="sas_type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="svar" type="cvar_type" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="custom">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="N"/>
+					<xs:enumeration value="Y"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="cond">
+			<xs:simpleType>
+				<xs:restriction base="xs:string"/>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="sas_type">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-Z]{1,32}.sas"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="um_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PC"/>
+			<xs:enumeration value="THS_PER"/>
+			<xs:enumeration value="THS_CD08"/>
+			<xs:enumeration value="EUR"/>
+			<xs:enumeration value="NAC"/>
+			<xs:enumeration value="PPP"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="unit_type">
+		<xs:sequence>
+			<xs:element name="um" type="um_type" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="class_type">
+		<xs:sequence>
+			<xs:element name="cvar">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="cvar_type">
+							<xs:attribute name="clone" use="optional">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Y"/>
+										<xs:enumeration value="N"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="brk" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="rdb" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="order" type="xs:integer"/>
+		<xs:attribute name="case">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Y"/>
+					<xs:enumeration value="N"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>	
+	</xs:complexType>
+	<xs:complexType name="eu_type">
+		<xs:sequence>
+			<xs:element name="infl" type="infl_type" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="aggr" type="xs:string"/>
+		<xs:attribute name="force60" use="optional">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="N"/>
+					<xs:enumeration value="Y"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="aggr_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Y"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="infl_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="PROPSIZE"/>
+			<xs:enumeration value="PASTPER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="var_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AROPE"/>
+			<xs:enumeration value="ARPT60I"/>
+			<xs:enumeration value="EQ_INC20"/>
+			<xs:enumeration value="INCPEN"/>
+			<xs:enumeration value="INCWRK"/>
+			<xs:enumeration value="LWI"/>
+			<xs:enumeration value="SEV_DEP"/>
+			<xs:enumeration value="FOO"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="cvar_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ARPT60I"/>
+			<xs:enumeration value="LWI"/>
+			<xs:enumeration value="SEV_DEP"/>
+			<xs:enumeration value="DB040"/>
+			<xs:enumeration value="DB090"/>
+			<xs:enumeration value="RB090"/>
+			<xs:enumeration value="AGE"/>
+			<xs:enumeration value="DB100"/>
+			<xs:enumeration value="HH010"/>
+			<xs:enumeration value="HT1"/>
+			<xs:enumeration value="HHTYP"/>
+			<xs:enumeration value="HHISCED"/>
+			<xs:enumeration value="ACTSTA"/>
+			<xs:enumeration value="HH021"/>
+			<xs:enumeration value="WI"/>
+			<xs:enumeration value="QITILE"/>
+			<xs:enumeration value="PE020"/>
+			<xs:enumeration value="PE40"/>
+			<xs:enumeration value="CIT_SHIP"/>
+			<xs:enumeration value="C_BIRTH"/>
+			<xs:enumeration value="PL0701"/>
+			<xs:enumeration value="PL085"/>
+			<xs:enumeration value="TENSTA"/>
+			<xs:enumeration value="TENSTA_2"/>
+			<xs:enumeration value="FOO"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- FMT -->
+	<xs:complexType name="fmt_type">
+		<xs:sequence>
+			<xs:element ref="value" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="custom" type="xs:ID" use="required"/>
+	</xs:complexType>
+	<xs:element name="value">
+		<xs:complexType>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element ref="item" minOccurs="0"/>
+					<xs:element ref="from" minOccurs="0"/>
+					<xs:element ref="to" minOccurs="0"/>
+					<xs:element name="label" type="xs:string" minOccurs="1"/>
+				</xs:sequence>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ST_item">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ST_to">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="ST_from">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="item">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_item">
+					<xs:attribute name="excl" use="optional">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Y"/>
+								<xs:enumeration value="N"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="to">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_to">
+					<xs:attribute name="excl" use="optional">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Y"/>
+								<xs:enumeration value="N"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="from">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_from">
+					<xs:attribute name="excl" use="optional">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Y"/>
+								<xs:enumeration value="N"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<!-- NUTS -->
+	<xs:complexType name="NUTS_con">
+		<xs:sequence>
+			<xs:element name="NUTS_trans" type="NUTS_trans" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NUTS_level" type="NUTS_level" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NUTS_purge" type="NUTS_purge" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NUTS_trans">
+		<xs:sequence>
+			<xs:element name="trans" type="trans_type" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NUTS_level">
+		<xs:sequence>
+			<xs:element name="level" type="level_type" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="default_lev" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="NUTS_purge">
+		<xs:sequence>
+			<xs:element name="purge" type="purge_type" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="trans_type">
+		<xs:sequence>
+			<xs:element name="country" type="country_type"/>
+			<xs:element name="fr">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-Z]{2,3}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="to">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-Z]{2,3}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="level_type">
+		<xs:sequence>
+			<xs:element name="country" type="country_type"/>
+			<xs:element name="maxlev">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="purge_type">
+		<xs:sequence>
+			<xs:element name="country" type="country_type"/>
+			<xs:element name="lev">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="node">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-Z]{2,3}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="country_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AL"/>
+			<xs:enumeration value="AT"/>
+			<xs:enumeration value="BE"/>
+			<xs:enumeration value="FR"/>
+			<xs:enumeration value="IT"/>
+			<xs:enumeration value="DE"/>
+			<xs:enumeration value="NL"/>
+			<xs:enumeration value="BE"/>
+			<xs:enumeration value="PL"/>
+			<xs:enumeration value="CZ"/>
+			<xs:enumeration value="EL"/>
+			<xs:enumeration value="SI"/>
+			<xs:enumeration value="BG"/>
+			<xs:enumeration value="ES"/>
+			<xs:enumeration value="RO"/>
+			<xs:enumeration value="DK"/>
+			<xs:enumeration value="NO"/>
+			<xs:enumeration value="FI"/>
+			<xs:enumeration value="SE"/>
+			<xs:enumeration value="PT"/>
+			<xs:enumeration value="LU"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
