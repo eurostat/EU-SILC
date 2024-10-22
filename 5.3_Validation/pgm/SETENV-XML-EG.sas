@@ -1,6 +1,6 @@
 /*specify the path to the folder where the software has been dezipped : */
-*%LET eusilc=___PATH___ ;
-%LET eusilc= /ec/prod/0eusilc/5.3_Validation/NSI releases/eusilc-V4.0 ;
+%LET eusilc=___PATH___ ;
+
 
 
 %LET _dirsp_=/;

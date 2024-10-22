@@ -8,7 +8,6 @@
 options compress=no;
 
 
-
 %MACRO VALID_INCLUDE;
 /*only executed with sas foundation, not with sas EG*/
 %IF %SYMEXIST(SRC) %THEN %DO;
