@@ -336,7 +336,7 @@
 <on>a.DB030 = b.DB030 and a.DB010 = b.DB010-1</on>
 <join2>d</join2>
 <on2>a.DB030=c.DB030 and a.DB010=c.DB010+1</on2>
-<where>b.DB010 = . and (a.DB110 = 7 or a.DB120 = 22 or a.DB130 in (22,23,24)) and (c.DB110 in (1,2,8,9,10) and c.DB130 = 11)</where>
+<where>b.DB010 = . and a.DB010 ne $YEAR and (a.DB110 = 7 or a.DB120 = 22 or a.DB130 in (22,23,24)) and (c.DB110 in (1,2,8,9,10) and c.DB130 = 11)</where>
 </check>
  <check id="109" start="2023">
 <title>Sample - Error follow-up: Household must be dropped from the sample if no longer in scope</title>
