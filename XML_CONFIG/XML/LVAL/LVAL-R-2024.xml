@@ -264,7 +264,7 @@
     <from>p</from>
     <join>r</join>
     <on>PB030 = RB030 and PB010 = RB010</on>
-    <where>(PB260_F = -2 OR PB270_F = -2) AND (RB250 ne 12 or RB250 ne 14) AND (PB010 eq $YEAR)</where>
+    <where>(PB260_F = -2 OR PB270_F = -2) AND (RB250 ne 12 AND RB250 ne 14) AND (PB010 eq $YEAR)</where>
   </check>
   <check id="101" start="2024">
     <title>Error: PB260 PB270 RB250 - Participation in survey and interviewing mode - flag (-2) based on data status expected </title>
