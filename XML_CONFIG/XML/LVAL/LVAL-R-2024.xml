@@ -302,7 +302,7 @@
   </check>
 
 <!--Sampling-->
-<check id="105" start="2023">
+<check id="105" start="2024">
 <title>Sample - Error: Household must be dropped from the sample if it was not contacted the previous year</title>
 <select>a.DB010, a.DB030, b.DB110 as __DB110_prev, b.DB120 as __DB120_prev, b.DB130 as __DB130_prev</select>
 <from>d</from>
@@ -310,7 +310,7 @@
 <on>a.DB030 = b.DB030 and a.DB010 = b.DB010+1</on>
 <where>b.DB110 = 11 or b.DB120 in (21,23) or b.DB130 = 21</where>
 </check> 
-<check id="106" start="2023">
+<check id="106" start="2024">
 <title>Sample - Error: Household must be dropped from the sample if it was not contacted in its first wave</title>
 <select>a.DB010, a.DB030, b.DB110 as __DB110_prev, b.DB120 as __DB120_prev, b.DB130 as __DB130_prev, b.DB076 as __DB076_prev</select>
 <from>d</from>
@@ -318,7 +318,7 @@
 <on>a.DB030 = b.DB030 and a.DB010 = b.DB010+1</on>
 <where>b.DB076 = 1 and (b.DB110 = 7 or b.DB120 = 22 or b.DB130 in (22,23,24))</where>
 </check>
-<check id="107" start="2023">
+<check id="107" start="2024">
 <title>Sample - Error: Household must be dropped from the sample if it was not contacted two years in a row</title>
 <select>a.DB010, a.DB030, b.DB110 as __DB110_prev, b.DB120 as __DB120_prev, b.DB130 as __DB130_prev, c.DB110 as __DB110_prev2, c.DB120 as __DB120_prev2, c.DB130 as __DB130_prev2</select>
 <from>d</from>
@@ -328,7 +328,7 @@
 <on2>a.DB030=c.DB030 and a.DB010=c.DB010+2</on2>
 <where>(b.DB110 = 7 or b.DB120 = 22 or b.DB130 in (22,23,24)) and (c.DB110 = 7 or c.DB120 = 22 or c.DB130 in (22,23,24))</where>
 </check>
-<check id="108" start="2023">
+<check id="108" start="2024">
 <title>Sample - Error: Household must be kept in the sample if it was not contacted last year but was two years ago</title>
 <select>b.DB010, a.DB010, b.DB030 as __DB030_current , a.DB030 as __DB030_prev, a.DB110 as __DB110_prev, a.DB120 as __DB120_prev, a.DB130 as __DB130_prev, c.DB110 as __DB110_prev2, c.DB120 as __DB120_prev2, c.DB130 as __DB130_prev2</select>
 <from>d</from>
@@ -336,9 +336,9 @@
 <on>a.DB030 = b.DB030 and a.DB010 = b.DB010-1</on>
 <join2>d</join2>
 <on2>a.DB030=c.DB030 and a.DB010=c.DB010+1</on2>
-<where>b.DB010 = . and a.DB010 ne $YEAR and (a.DB110 = 7 or a.DB120 = 22 or a.DB130 in (22,23,24)) and (c.DB110 in (1,2,8,9,10) and c.DB130 = 11)</where>
+<where>b.DB010 = . and a.DB010 lt $YEAR and (a.DB110 = 7 or a.DB120 = 22 or a.DB130 in (22,23,24)) and (c.DB110 in (1,2,8,9,10) and c.DB130 = 11)</where>
 </check>
- <check id="109" start="2023">
+ <check id="109" start="2024">
 <title>Sample - Error follow-up: Household must be dropped from the sample if no longer in scope</title>
 <select>a.DB010, a.DB030, b.DB110 as __DB110_prev</select>
 <from>d</from>
