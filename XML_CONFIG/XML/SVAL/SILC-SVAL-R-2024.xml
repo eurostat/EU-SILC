@@ -3597,7 +3597,6 @@
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
 			<flag>(-8,-7,-1,1)</flag>
-			<na flag="-7"/>
 			<label>Imputed rent (OPTIONAL)</label>
 		</variable>
 	</recur3>
@@ -3609,7 +3608,6 @@
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
 			<flag>(-8,-7,-1,1)</flag>
-			<na flag="-7"/>
 			<label>Imputed rent (OPTIONAL)</label>
 		</variable>
 	</recur3>
