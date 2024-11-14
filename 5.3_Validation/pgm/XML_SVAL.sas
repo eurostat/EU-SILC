@@ -251,13 +251,13 @@ RUN;
 
 DATA SVAL&MODE;
 MERGE SVAL&MODE (in=A) NAS_PRIMARY (in=B);
-  BY VARIABLE;
+  BY VARIABLE MOD_ID;
   IF A;
 RUN;
 
-DATA SVAL_NAS&MODE;
-MERGE SVAL_NAS&MODE (in=A) SVAL&MODE (in=B KEEP=VARIABLE FORMAT);
-  BY VARIABLE;
+DATA SVAL_NAS&MODE ;
+MERGE SVAL_NAS&MODE (in=A) SVAL&MODE (in=B KEEP=VARIABLE FORMAT MOD_ID);
+  BY VARIABLE MOD_ID;
   IF B;
 RUN;
 
@@ -1133,13 +1133,18 @@ QUIT;
                                            RES = 0;
                                         END;
                                 %END;
+/*                                %ELSE %IF &MOD EQ RECUR3 %THEN %DO;*/
+/*                                        IF &VARX._F EQ -7 AND &F.B010 GE &START AND &F.B010 LE &END AND MOD( ( &F.B010 - &START ), 3 ) EQ 0 THEN DO;*/
+/*                                           RES = 0;*/
+/*                                        END;*/
+/*                                %END;*/
                                 %ELSE %IF &MOD EQ RECUR3 %THEN %DO;
-                                        IF &VARX._F EQ -7 AND &F.B010 GE &START AND &F.B010 LE &END AND MOD( ( &F.B010 - &START ), 3 ) EQ 0 THEN DO;
+                                        IF &VARX._F EQ -7 AND &F.B010 = &YYYY THEN DO;
                                            RES = 0;
                                         END;
                                 %END;
                                 %ELSE %IF &MOD EQ RECUR6 %THEN %DO;
-                                        IF &VARX._F EQ -7 AND &F.B010 GE &START AND &F.B010 LE &END AND MOD( ( &F.B010 - &START ), 6 ) EQ 0 THEN DO;
+                                        IF &VARX._F EQ -7 AND &F.B010 = &YYYY THEN DO;
                                            RES = 0;
                                         END;
                                 %END;
@@ -1183,8 +1188,13 @@ QUIT;
                                            RES = 0;
                                         END;
                                 %END;
+/*								%ELSE %IF &MOD EQ RECUR3 %THEN %DO;*/
+/*                                        IF &VARX._F NE -7 AND &F.B010 LT &YYYY THEN DO;*/
+/*                                           RES = 0;*/
+/*                                        END;*/
+/*                                %END;*/
                                 %ELSE %IF &MOD EQ RECUR6 %THEN %DO;
-                                        IF &VARX._F NE -7 AND MOD( ( &F.B010 - &START ), 6 ) NE 0 THEN DO;
+                                        IF &VARX._F NE -7 AND &F.B010 LT &YYYY THEN DO;
                                            RES = 0;
                                         END;
                                 %END;
