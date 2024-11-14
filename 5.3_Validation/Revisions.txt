@@ -1,0 +1,315 @@
+########################
+### Revision History ###
+########################
+
+Ver 4.1 [Internal]+[CIRCABC]+[Github]
+14 November 2024 16:29
+-412 : HY030G (optionnal) – inclusion/non-inclusion rules implemented
+-411 : 3-yearly modules and non-inclusion of past data rules implemented
+-410 : Routing condition for module variable HC221 modified : HC221_F=-2 when HC200=2 or HC190=2
+-409 : HY090G/N variables negative values allowed 
+-408 : Wrong conditions on logical checks 100 and 108 corrected
+
+Ver 4.0 [Internal]+[CIRCABC]+[Github]
+14 October 2024 10:34
+-407 : Routing conditions of PB260 and PB270 moved to logical checks because involve RB250 (not in P file) : checks 100 and 101
+-405 : Checks 138 and 139 corrected to avoid errors related to 14+ selected in 2020 as sample persons
+-404 : HY030G added as optional var in 2024
+-403 : Historicity to nomenclatures with START= and END= options added
+-402 : Logical checks on weights and follow-up rules added
+-401 : Max value changed to 999 for HB100 and PB120 (warning with 90 threshold in logical checks to be added)
+-400 : Income logical checks added
+-398 : 2024 module logical checks added
+-399 : Flag vs imputation structural checks added
+-397 : 2019 and 2020 excluded from some 2024 sval checks for 6y panel countries 
+-396 : 2024 added in prompt 
+-395 : 2024 XML config files added
+-379 : Logical check 753 – Error replaced by warning in title
+-358 : Logical checks 105-109 revised. Checks 180 and 181 removed
+
+Ver 4.0.0 [Internal]
+25 July 2024 16:00
+-404 : HY030G added as optional var in 2024
+-403 : Historicity added to nomenclatures with START= and END= options
+-401 : Changeed max to 999 for HB100 and PB120
+-399 : Flag vs imputation structural checks added
+-397 : Exclude 2019 and 2020 from 2024 sval checks on flags and imputation factors for 6y panel countries. Other SVAL checks remain.
+-396 : Added 2024 in prompt	
+-395 : Added 2024 XML config files
+-380 : Variables PB260, PB270 with -3 flag until 2023 included, -2 flag after.
+
+
+Ver 3.1.4 [Internal]
+03 April 2024 10:33
+-395 : Demography and LFS data when available used as target in weight report
+-394 : Population 16+ from demography added in P table of weight report
+-393 : Logical checks sorted by ID in LVAL 2023 XML file
+-392 : New table CSVFILES0 added with the content of the csv folder to debug files import for NSIs
+-391 : Controls on variables selected in LVAL checks (PURGE_SQL macro) changed so derived var can be directly added in select statement
+
+
+Ver 3.1.3 [Internal]
+12 March 2024 14:33
+-369 : RB110=5 added to NON HOUSEHOLD MEMBER CHECKS
+-378 : New thresholds for logical checks 580 and 581 
+-383 : Logical check no.1209 was computed only for flag 1, flags 2,3,4 added in computation.
+-384 : MK21-Samp-size thresholds updated
+-385 : Duplicated variables in CSV files added as error in the summary with a _DUPL suffix
+-386 : typo "ans" replaced by "and" for HY022 and HY023
+-387 : logical checks 118,121,122 and 129 added
+
+
+Ver 3.1.2 [Internal]
+23 January 2024 08:07
+- 311 : comments and correct indentations added to XML_COLLECT, XML_CHECK
+- 359 : comp_cont_value, comp_disc_value, comp_cont_flag, comp_disc_flag reorganized into two new reports: comparison and counting
+- 360 : XML COMP file structure modified to add information on required flags and negative values
+- 361 : non-household members checks reviewed 
+- 362 : Sample size report enhancements: nuts size target deleted if only 1 nuts in the country (LU, EE, …), check on duration deleted, threshold and formulas (PB060 replace RB060, new modalities for RB245 and RB250) reviewed for response rates 
+- 363 : Cross weights report enhancements : figures from demography and lfs on pop and nb of hh added in 1st table with desc stats, for DB080 select obs of last rotation group, outliers table deleted and replaced it by negative weights and very big weights, 3rd table (summary), only missing values, nb of outliers and adjustements kept.
+- 364 : SVAL2023 XML corrected to delete module var from translist to not have them as wrong -7 flags
+- 365 : SVAL2020 XML corrected to add (OPTIONAL) in labels of optional variables
+- 366 : 100% 0 value check disabled from _ANTE_ report, 100% 0 value is now enabled only from 2021 onwards
+- 367 : comparison report, CNT replaced by COUNT to be clearer
+- 368 : label added to explain what is SELRES in lval checks
+- 370 : value 8 added as allowed value for PT150, PT180 
+- 371 : label added to describe PL211_1 to PL211_11  :  "PL211_n  - Main activity (Nb of months)  :  xxxx". For n=5, xxxx=unemployed.
+- 373 : PE030 routing error – check value corrected to correspond to check rule
+- 374 : logical check csv, id length extended, lval ids can now have as many as 5 digits
+- 375 : HH081 and HH091 2020 labels changed to add (OPTIONNAL), labels extended to 200 characters to be fully displayed
+- 376 : Counting report : flag -3 allowed for PB260_F and PB270_F  
+- 377 : same as 373 – check value corrected to correspond to check rule – PL130, PL141, PL230
+- 380 : C-WGHT and L-WGHT reports merged into one WEIGHT report
+- 381 : Error messages added to the flags table in the COUNTING report
+
+
+Ver 3.1.1 [Internal]
+11 December 2023 17:43
+- 359	comp_cont_value, comp_disc_value, comp_cont_flag, comp_disc_flag reorganized into two new reports : comparison and counting
+- 360	XML COMP file structure modified to add information on required flags and negative values 
+- 361	non-household members checks reviewed to take missing status into account
+
+Ver 3.1 [Internal]+[CIRCABC]
+28 November 2023 14:59
+- 289 : longitudinal logical checks tadded (with spec provided by methodo)
+- 294 : routing condition deleted for PL111B in SVAL and replaced by a logical check involving age
+- 352 : see 249
+- 357 : logical checks to test ID unicity in each file and Id consistency between files added
+
+Ver 3.0 [Internal]+[CIRCABC]
+13 October 2023 07:59
+- 267 : logical checks updated
+- 288 : logical checks updated
+- 302 : logical checks updated
+- 303 : logical checks updated
+- 305 : logical checks updated
+- 306 : logical checks updated
+- 331 : explanations on computed variables GROSS, NET20, NET22 and NET23
+- 338 : logical checks updated
+- 350 : Sample size report : “sample size achieved” replaced by “theoretical sample size achieved” and “feasible” by “in target” or “out of target”.
+
+
+Ver 2.4.7 [Internal]
+11 September 2023 18:00
+- 349 : computed var rounded to next integer and displayed variables in LVAl report rounded to next integer
+- 348 : calculation of age difference between parents and children added for lval check #315 and #316
+- 341 : table with list of income variables whose values are all equal to 0 added in the summary report.
+
+Ver 2.4.6 [Internal]
+29 August 2023 08:40
+- 322 : parameters of Sample size report updated
+- 324 : messages Replaced by tables in Cross-sectional weights report
+- 342 : PY031G, HY030G/N, PY200G deleted from Comparison reports
+- 345 : Euromod specificity deleted from COMP XML config file
+- 346 : wrong labels PL141 PL145 corrected in the structural validation
+- 347 : simplified Longitudinal weights report
+
+Ver 2.4.5 [Internal]
+09 June 2023 12:20
+- 309 : initialize SVAL 2023
+- 337 : must flags -7 checks added
+- 339 : add 2023 in the prompt
+- 340 : unexpected var checks extended to modules, not only nucleus
+
+Ver 2.4.4 [Internal]
+22 May 2023 17:10
+- 334,335,336: small bugs on -7 flags errors corrected
+
+Ver 2.4.3 [Internal]
+17 May 2023 11:01
+- 308 : reorganize workflow.sas to have the full process in %valid_main
+- 325 : add "unweighted" to summary missing pct title 
+- 326 : group MAP, XSD, XML in same subfolder
+- 328 : gross formula added in LVAL
+- 329 : lval checks 560-567-568-569 chnaged fro warning to errors
+- 330 : lval chck 102 wrongly displayed for HH present in rb040 and not hb030
+- 332 : bug to display flag -7 errors in sval and summary corrected
+- 333 : col1 column deleted from missing rates table
+
+Ver 2.4.2 [Internal]
+19 April 2023 16:58
+- 290 : wrong page-break in word report deleted
+- 298 : break-in series for hgrid var added
+- 299 : sample size config file (xml, xsd, map) added and sas pgm modified to take it into account, sample size data pgm deleted
+- 300 : non-normalized csv files excluded from version computation
+- 301 : check of missing values for compulsory non-hh-members variables added
+- 304 : table for -8 flags variables added in summary
+- 307 : sval config file (xml, xsd, map) modified to add missing rates thresholds as parameters and sas pgm modified to take it into account
+- 310 : setenv pgms fully commented
+- 320 : non applicable obs excluded from miss pct computations in comp_cont_values and comp_disc_values reports
+- 321 : sample size report enhanced by replacing msg by tables
+- 323 : net20, net22 and net23 formulas displayed in lval report
+
+Ver 2.4.1 [Internal]
+14 March 2023 13:25 : bugs fixed and evolutions
+- 295 : "end" tag added in lval & sval (xsd and map files), "category" tag added in lval (xsd and map files)
+- 297 : derived variables corrected according methodolgy specifications
+- 298 : maximum year allowed for PB140 corrected from $year-16 to $year-17 
+
+Ver 2.4 [Internal]+[CIRCABC]
+2 March 2023 08:30 : bugs fixed and evolutions
+- 286 : logical and structural checks for child care updated
+- 289 : summary report with required or recommended actions (in color)
+- 291 : routing errors in 2020 corrected for RL010-RL020-RL030 (to be completed with other var)
+- 292 : logical checks 140 & 174 disabled (before updating them with new var)
+- 293 : HI012 – routing check related to HI011 removed in 2020
+
+Ver 2.4 [Internal]
+8 February 2023 11:57 : bugs fixed and evolutions
+- 273 : optimization of imports in %fetch (proc import replaced by infile/input)
+- 274 : var labels not shown for previous years fixed
+- 279 : displayed errors in detailed tables reduced from 7 to 3
+- 280 : 1st part of detailed errors tables (list of var) deleted
+- 282 : warning counts table in summary sorted by file
+- 283 : csv outputs from sval renamed to be compliant with pdf/docx names
+- 284 : logical checks ordered by number in summary
+- 285 : corrections made on lval 2022 (issues 260 & 261) applied to lval 2021
+- 286 : logical checks involving old variables temporarily disabled before correction
+
+Ver 2.3.4 [Internal]
+2 February 2023 15:38 : bugs fixed and evolutions
+- 253 : new table headers to better explain flag value errors (new change from v2.3.3)
+- 260 : "and RB110 NE 5" added in "where" clause of logical checks in which RB030 is involved (avoid duplicates) 
+- 263 : all 3y child module and adhoc child module logical checks desactivated (put in comments)
+- 268 : 2022 (=$year) onwards replaced by 2021 (=splityear$+1) onwards in sval post titles
+- 271 : hhgrid checks deeply revised
+	- Fix some bugs in error calculations
+	- New msg in order to be clearer
+	- One table for each check
+	- Tables sorted properly : RG_10 after RG_9 and not between RG_1 and RG_2.
+	- Expected value added in report if it is relevant.
+- 275 : all csv variables kept in final sas datasets, as well as derived variables
+- 276 : rolled back to V2.3.2 because relevant info is not in the summary table. Only nb of flag issues in the summary report, detailed issues to be read in sval report
+- 277 : counts errors in version comparison fixed 
+- 278 : sval reports named from CCYY-Struct1920-Ffile.pdf to CCYY-Struct_ante_1720-Ffile.pdf toof. 5 and 6 year countries have the right years.
+- 281 : value checks added for HH-GRID
+
+
+Ver 2.3.3 [Internal]
+25 January 2023 13:23: bugs fixed and evolutions
+- 253 : new table headers to better explain flag value errors  
+- 264 : max value of PB140 (year of birth) recoded from 2004 to $year-16 to be valid every year without any more update in SVAL-R-2021.XML and SVAL-R-2022.XML
+- 266 : formula for logical check 131 modified to be in accordance with its title in LVAL-R-2022.XML
+- 269 : idem 264
+- 270 : max value of HB030 modified to allow 9 digits in SVAL-R-2022.XML (already done for 2021)
+- 272 : management of .csv or .CSV to import the files without beeing case-sensitive.
+- 275 : replacing flag value by routing condition in the routing warning counts of the summary report 
+
+
+Ver 2.3.2 [Internal]
+19 January 2023 10:24:
+- prompt : 
+	Bosnia-Herzegovina (BA) added in the list of countries
+	subdom, overwrite (pgms will always overwrite sas datasets) and fver (version will be calculted in new pgm see below) deleted
+	year 2020 deleted, 
+- version comp : NEW PROGRAM
+	%get_VERSION : calculation of the latest version and previous version of csv files (by getting the content of the "csv" folder) and assign the value to &fver and &pver
+	%build_VERSION : import csv files from previous version	
+	%rep_VERSION : generates a report comparing old and new versions : new and old var, nb of modified values
+- sval, lval, samp_size, cwght, lwght, outl, comp_cont, comp_disc : &subdomain macro var deletion taken into account
+- sval, lval, outl, comp_cont, comp_disc : 
+	csv files renamed to be consistent with pdf/docx names
+- summary : NEW PROGRAM that generates a summary report. Corresponding tables were deleted from detailed SVAL and LVA reports
+- SCL_NUTS : Bosnia-Herzegovina (BA) added in XML files
+
+Ver 2.3.1 [Internal]
+11 January 2023 11:55:
+- prompt : 
+	title (with version number), results format and csv option added
+	mode, split_mode and split_cut deleted, 
+	years before 2020 deleted, 
+	subdom hidden (to be deleted ?)
+- sval, lval, samp_size, cwght, lwght, outl, comp_cont, comp_disc : 
+	replacing ods pdf by docs or pdf depending of user's choice in the prompt
+	renaming output files : ccyy-type_of_result-<file>.docx/.pdf 
+- sval, lval, outl, comp_cont, comp_disc : 
+	csv option added : csv export only if user's choice=YES in the prompt
+- sval : struct output files names with years concerned instead of _ante_/_post_ (ex : MT21-Struct1820-Rfile.docx instead of MT21-Struct_ANTE_-Rfile.docx)
+- workflow : s_ante, s_post and logical steps run in one iteration
+
+Ver 2.3 [CIRCABC]
+December 14th 2022 14:36:
+- SW bundle issue:
+  () OUTL and COMP XML descriptors were missing in the SW bundle
+- NUTS config file encoding issue workaround through a minimal NUTS XML descriptor 
+
+Ver 2.2 [CIRCABC]
+December 2nd 2022 16:40:
+- Change Request:
+  () handling of the 2022 optional variables featured in either the recurring
+     or the ad-hoc (COVID) modules
+  () SILC-2022 logical validation configuration file
+  
+Ver 2.1
+November 25th 2022 08:45:
+- Bug Fixing:
+  () PL220 routing condition handling
+     (truncated routing condition exceeding 256-char length)
+
+Ver 2.0
+November 23rd 2022 09:47:
+- New Features:
+  () "recur6" XML Element handling (context: mapper, XML_VAL.sas);
+      these XML Element had just been handled at XML and XSD level
+      given the uncertainity about the fact that they would be 
+      actually used (they were not in SILC 2021)
+- Change Requests:
+  () 2022 SVAL XML refined as follows:
+     [] 2021 ad-hoc modules purged
+     [] hh-membership-status elements neat definition
+        with no reference to either non-existing status
+        or past-year ad-hoc module variables 
+   
+Ver 1.9
+November 17th 2022 17:00:
+- non-HH member checks layout improvement
+- transmission guidelines check layout improvement
+- imputation/flag defect regarding _ANTE_ validation
+- 2021 optional variables revision
+  [Nov 8th 2022 17h22] [AR]
+
+Ver 1.8
+October 25th 2022 15:34:
+- HHGrid size check & Non-HH members handling (complementary check)
+  [Oct 14th 2022 14h37] [AR]
+ 
+Ver 1.7
+October 6th 2022:
+- unrecognized variables handling according to the transmission guidelines
+  ("VAL weekly meeting") / attachment: "List of SILC variables that existed before 2021"
+  [Sep 19th 2022 14h20] [AR]
+- flag length checks dealing with 3-digit flags' specificities
+  ("VAL weekly meeting")
+  [Sep 20th 2022 15h11] [DC]
+
+Ver 1.6
+Sep 20th 2022: 
+- logical validation checks upgraded following AR's specifications
+  ("AD-HOC MODULE LOGICAL REVISION CHECK")
+  [Sep 19th 2022 13h17]
+- structural validation checks upgraded following AA's indications
+  regarding the restore of the 2nd flag digit check even on gross
+  income variables
+  ("VAL weekly meeting")
+  [Sep 15th 2022 16h35]
+
