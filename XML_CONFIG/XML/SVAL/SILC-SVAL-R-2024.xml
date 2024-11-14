@@ -4123,9 +4123,9 @@
 			<format>2.</format>
                         <list>(1,2,3,4)</list>
 			<flag>(-7,-2,-1,1,2,3,4)</flag>
-			<na>HC200=2</na>
-			<disp>HC200</disp>
-                        <na flag="-7"/>
+			<na>HC190=2 or HC200=2</na>
+			<disp>HC190, HC200</disp>
+            <na flag="-7"/>
 			<label>Payment for professional home care services</label>
 </variable>
 <variable id="HC230">
