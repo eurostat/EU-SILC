@@ -264,7 +264,7 @@
     <from>p</from>
     <join>r</join>
     <on>PB030 = RB030 and PB010 = RB010</on>
-    <where>(PB260_F = -2 OR PB270_F = -2) AND (RB250 ne 12 AND RB250 ne 14) AND (PB010 eq $YEAR)</where>
+    <where>(PB260_F = -2 OR PB270_F = -2) AND (RB250 ne 12 AND RB250 ne 14) AND (PB010 eq $YEAR) and RB110 in (1,2,3,4) </where>
   </check>
   <check id="101" start="2024">
     <title>Error: PB260 PB270 RB250 - Participation in survey and interviewing mode - flag (-2) based on data status expected </title>
@@ -330,7 +330,7 @@
 </check>
 <check id="108" start="2024">
 <title>Sample - Error: Household must be kept in the sample if it was not contacted last year but was two years ago</title>
-<select>b.DB010, a.DB010, b.DB030 as __DB030_current , a.DB030 as __DB030_prev, a.DB110 as __DB110_prev, a.DB120 as __DB120_prev, a.DB130 as __DB130_prev, c.DB110 as __DB110_prev2, c.DB120 as __DB120_prev2, c.DB130 as __DB130_prev2</select>
+<select>b.DB010, a.DB010, b.DB030 as __DB030_current , a.DB010 as __DB010_prev, a.DB030 as __DB030_prev, a.DB110 as __DB110_prev, a.DB120 as __DB120_prev, a.DB130 as __DB130_prev, c.DB010 as __DB010_prev2, c.DB110 as __DB110_prev2, c.DB120 as __DB120_prev2, c.DB130 as __DB130_prev2</select>
 <from>d</from>
 <join>d</join>
 <on>a.DB030 = b.DB030 and a.DB010 = b.DB010-1</on>
@@ -429,7 +429,7 @@
     <on2>a.HB030 = c.HB030</on2>
     <join3>d</join3>
     <on3>b.DB030 = d.DB030 </on3>
-    <where>d.DB110 = 1 and a.HB010+1 = c.HB010 and b.DB010+1 = d.DB010 and a.HH021 ne c.HH021  and (a.HH021_F ne -1 and c.HH021_F ne -1)</where>
+    <where>d.DB110 = 1 and a.HB010 = c.HB010+1 and b.DB010 = d.DB010+1 and a.HH021 ne c.HH021  and (a.HH021_F ne -1 and c.HH021_F ne -1)</where>
   </check>
   <check id="122">
     <title>Longitudinal - Error: DB060 - Primary sampling unit must be the same every year</title>
@@ -1487,6 +1487,8 @@
   </check>
 <!--  6Y module checks END  -->
 </LVAL>
+
+
 
 
 
