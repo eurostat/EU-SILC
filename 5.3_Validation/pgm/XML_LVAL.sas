@@ -458,9 +458,11 @@ RUN;
             /**
              * UPDATE WARNING STATISTICS (COUNTS by YEAR)
              */
-            DATA ID_&ID (RENAME=(&XB010=XB010));
+            DATA ID_&ID ;
             SET  ID_&ID;
                  ID = "&ID";
+				 XB010=&XB010;
+				 IF ID="108" THEN XB010=__DB010_prev+1;*XB010 filled for check 108 to have counting on next step;
             RUN;
 
             PROC MEANS DATA=ID_&ID NWAY NOPRINT;
@@ -485,7 +487,7 @@ RUN;
             %IF %LENGTH("&TITLE_10") ne 2 %THEN  TITLE10 BOX=1 C=MEGR ITALIC H=2 JUSTIFY=LEFT %QUOTE(%sysfunc(translate("&TITLE_10","()","[]")));;
             %IF %LENGTH("&TITLE_11") ne 2 %THEN  TITLE11 BOX=1 C=MEGR ITALIC H=2 JUSTIFY=LEFT %QUOTE(%sysfunc(translate("&TITLE_11","()","[]")));;
 
-            PROC PRINT DATA=ID_&ID (RENAME=(XB010=&XB010)) NOOBS;FORMAT _NUMERIC_ 12.0;
+            PROC PRINT DATA=ID_&ID (DROP=XB010) NOOBS;FORMAT _NUMERIC_ 12.0;
             RUN;
             TITLE1;
             TITLE2;
