@@ -1294,20 +1294,28 @@
       <hh_c>1173</hh_c>
       <hh_l>0</hh_l>
     </nuts>
-    <nuts id="NL31">
+<!--    <nuts id="NL31">
       <hh_c>467</hh_c>
       <hh_l>0</hh_l>
-    </nuts>
+    </nuts>-->
     <nuts id="NL32">
       <hh_c>700</hh_c>
       <hh_l>0</hh_l>
     </nuts>
-    <nuts id="NL33">
+<!--    <nuts id="NL33">
       <hh_c>783</hh_c>
       <hh_l>0</hh_l>
-    </nuts>
+    </nuts>-->
     <nuts id="NL34">
       <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL35">
+      <hh_c>467</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="NL36">
+      <hh_c>783</hh_c>
       <hh_l>0</hh_l>
     </nuts>
     <nuts id="NL4">
@@ -1492,7 +1500,7 @@
       <hh_c>0</hh_c>
       <hh_l>0</hh_l>
     </nuts>
-    <nuts id="PT16">
+<!--    <nuts id="PT16">
       <hh_c>559</hh_c>
       <hh_l>0</hh_l>
     </nuts>
@@ -1502,6 +1510,26 @@
     </nuts>
     <nuts id="PT18">
       <hh_c>317</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>-->
+    <nuts id="PT19">
+      <hh_c>491</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT1A">
+      <hh_c>465</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT1B">
+      <hh_c>183</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT1C">
+      <hh_c>0</hh_c>
+      <hh_l>0</hh_l>
+    </nuts>
+    <nuts id="PT1D">
+      <hh_c>247</hh_c>
       <hh_l>0</hh_l>
     </nuts>
     <nuts id="PT2">
@@ -1858,5 +1886,6 @@
     </nuts>
   </cntry>
 </SIZE_TARGET>
+
 
 
