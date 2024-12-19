@@ -2,6 +2,14 @@
 ### Revision History ###
 ########################
 
+Ver 4.1 [Internal]+[Github]
+19 December 2024 11:00
+-416 : Logical error 108 counting added to Summary, previous years added in the lval reprot to be clearer
+-415 : Logical error 100: condition on RB110 in (1,2,3,4) added to be applied only on household members
+-414 : Logical error 121: we should re-write (following the logic from the error 120) that latest year appears in the last column. Currently we do not errors reported in the summary report for 2024.	AR	Fixed in 4.1.1
+-413 : Sample size XML file updated : (PT16, PT17, PT18, NL31, NL33) deleted, (PT19, PT1A, PT1B, PT1C, PT1D, NL35, NL36) added 
+
+
 Ver 4.1 [Internal]+[CIRCABC]+[Github]
 14 November 2024 16:29
 -412 : HY030G (optionnal) – inclusion/non-inclusion rules implemented
