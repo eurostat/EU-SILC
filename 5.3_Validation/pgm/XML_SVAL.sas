@@ -1923,13 +1923,20 @@ QUIT;
 
 %MACRO purge_FALSE_ANTE_ERRORS_24_25(F=);*purging errors in 2024 and 2025 due to ANTE (i.e.2019 and 2020) for 6 year-panel countries ;
 %IF (&YYYY = 2024 or &YYYY = 2025) AND &ROTATION = 6 %THEN %DO;
-	/*we delete errors on flags, flags length and imputation factors for income variables which were already existing before 2021*/
+	/*we delete errors on routing conditions, non HH members, 
+	flags, flags length and imputation factors for income variables which were already existing before 2021*/
+	DATA SVAL_MISM_NA;SET SVAL_MISM_NA;IF &F.B010 <= 2020 THEN DELETE;RUN;
+	DATA SVAL_NON_MEMB;SET SVAL_NON_MEMB;IF &F.B010 <= 2020 THEN DELETE;RUN;
+	DATA SVAL_NON_MEMB_MISS;SET SVAL_NON_MEMB_MISS;IF &F.B010 <= 2020 THEN DELETE;RUN;
+
 	/*proxy for income variable : 2nd letter in name is Y*/
 	DATA SVAL_MISM_F;SET SVAL_MISM_F;IF &F.B010 <= 2020 AND SUBSTR(VARIABLE,2,1)="Y" THEN DELETE;RUN;
 
 	DATA SVAL_MISM_FLEN;SET SVAL_MISM_FLEN;IF &F.B010 <= 2020 AND SUBSTR(VARIABLE,2,1)="Y" THEN DELETE;RUN; 
 
 	DATA SVAL_MISM_IF_MISSING;SET SVAL_MISM_IF_MISSING;IF &F.B010 <= 2020 AND SUBSTR(VARIABLE,2,1)="Y" THEN DELETE;RUN;
+
+
 %END;
 
 %MEND;
