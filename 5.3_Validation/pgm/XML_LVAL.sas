@@ -487,7 +487,7 @@ RUN;
             %IF %LENGTH("&TITLE_10") ne 2 %THEN  TITLE10 BOX=1 C=MEGR ITALIC H=2 JUSTIFY=LEFT %QUOTE(%sysfunc(translate("&TITLE_10","()","[]")));;
             %IF %LENGTH("&TITLE_11") ne 2 %THEN  TITLE11 BOX=1 C=MEGR ITALIC H=2 JUSTIFY=LEFT %QUOTE(%sysfunc(translate("&TITLE_11","()","[]")));;
 
-            PROC PRINT DATA=ID_&ID (DROP=XB010) NOOBS;FORMAT _NUMERIC_ 12.0;
+            PROC PRINT DATA=ID_&ID (DROP=XB010 %IF &ID NE 108 %THEN %DO; __DB010_prev %END;) NOOBS;FORMAT _NUMERIC_ 12.0;
             RUN;
             TITLE1;
             TITLE2;
