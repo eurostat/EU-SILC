@@ -2,7 +2,7 @@
 #SPECIFY THE YEAR, YOUR COUNTRY, the version of the csv files and the PATH where the project is stored
 ####################################################################################################
 YYYY <- 2024
-CC <- "SE"
+CC <- "NL"
 VERSION <- 1
 EUSILC <- "V:/"
 ####################################################################################################
@@ -13,6 +13,7 @@ EUSILC <- "V:/"
 #libraries needed
 library(sqldf)
 library(DBI)
+library(dplyr)
 
 #folder where R files are stored
 setwd(gsub(" ", "",paste(EUSILC,"5.3_Validation/R/",YYYY)))
@@ -52,24 +53,47 @@ source(gsub(" ", "",paste("sql_prevalid_lval_",YYYY,".R")))
 source(gsub(" ", "",paste("sql_prevalid_summary_",YYYY,".R")))
 
 #putting results in R datasets
-#values vs flags errors
-SVAL_D_VALvsFL <- dbReadTable(con, "SVAL_D_VALvsFL")
-SVAL_H_VALvsFL <- dbReadTable(con, "SVAL_H_VALvsFL")
-SVAL_R_VALvsFL <- dbReadTable(con, "SVAL_R_VALvsFL")
-SVAL_P_VALvsFL <- dbReadTable(con, "SVAL_P_VALvsFL")
-
-#routing condition errors, examples
-SVAL_PC310_NA2_M<- dbReadTable(con, "SVAL_PC310_NA2_M")
-SVAL_PC310_NA2_W<- dbReadTable(con, "SVAL_PC310_NA2_W")
-
-#non selected respondents errors
-SVAL_P_NA3_M <- dbReadTable(con, "SVAL_P_NA3_M")
-SVAL_P_NA3_W <- dbReadTable(con, "SVAL_P_NA3_W")
-
-#logical check errors, example
-LVAL_602 <- dbReadTable(con, "LVAL_602")
 
 #summary
 SUMMARY_SQL_PREVALID <- dbReadTable(con, gsub(" ", "",paste("SUMMARY_SQL_PREVALID_",YYYY)))
 
+#values vs flags errors
+if (nrow(dbReadTable(con, "SVAL_D_VALvsFL")) > 0) {SVAL_D_VALvsFL <- dbReadTable(con, "SVAL_D_VALvsFL")}
+if (nrow(dbReadTable(con, "SVAL_H_VALvsFL")) > 0) {SVAL_H_VALvsFL <- dbReadTable(con, "SVAL_H_VALvsFL")}
+if (nrow(dbReadTable(con, "SVAL_R_VALvsFL")) > 0) {SVAL_R_VALvsFL <- dbReadTable(con, "SVAL_R_VALvsFL")}
+if (nrow(dbReadTable(con, "SVAL_P_VALvsFL")) > 0) {SVAL_P_VALvsFL <- dbReadTable(con, "SVAL_P_VALvsFL")}
 
+#non selected respondents errors
+if (nrow(dbReadTable(con, "SVAL_P_NA3_M")) > 0) {SVAL_P_NA3_M <- dbReadTable(con, "SVAL_P_NA3_M")}
+if (nrow(dbReadTable(con, "SVAL_P_NA3_W")) > 0) {SVAL_P_NA3_W <- dbReadTable(con, "SVAL_P_NA3_W")}
+
+
+# loop to generate routing conditions and logical checks datasets
+#select distinct ID
+ID_FOR_LOOP_NA2_M <- SUMMARY_SQL_PREVALID %>% filter(grepl("NA2_M$", trimws(ID))) %>%  distinct(ID) %>% select(ID)
+ID_FOR_LOOP_NA2_W <- SUMMARY_SQL_PREVALID %>% filter(grepl("NA2_W$", trimws(ID))) %>%  distinct(ID) %>% select(ID)
+ID_FOR_LOOP_LVAL  <- SUMMARY_SQL_PREVALID %>% filter(grepl("^LVAL" , trimws(ID))) %>%  distinct(ID) %>% select(ID)
+#loops
+if (nrow(ID_FOR_LOOP_NA2_M) > 0) {
+  for (i in 1:nrow(ID_FOR_LOOP_NA2_M)) {
+  valeur <- ID_FOR_LOOP_NA2_M$ID[i]
+  assign(ID_FOR_LOOP_NA2_M$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_NA2_M$ID[i])))
+  }
+}
+if (nrow(ID_FOR_LOOP_NA2_W) > 0) {
+  for (i in 1:nrow(ID_FOR_LOOP_NA2_W)) {
+  valeur <- ID_FOR_LOOP_NA2_W$ID[i]
+  assign(ID_FOR_LOOP_NA2_W$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_NA2_W$ID[i])))
+  }
+}
+if (nrow(ID_FOR_LOOP_LVAL) > 0) {
+  for (i in 1:nrow(ID_FOR_LOOP_LVAL)) {
+  valeur <- ID_FOR_LOOP_LVAL$ID[i]
+  assign(ID_FOR_LOOP_LVAL$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_LVAL$ID[i])))
+  }
+}
+rm(valeur)
+rm(i)
+rm(ID_FOR_LOOP_NA2_M)
+rm(ID_FOR_LOOP_NA2_W)
+rm(ID_FOR_LOOP_LVAL)
