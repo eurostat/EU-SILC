@@ -429,7 +429,7 @@
     <on2>a.HB030 = c.HB030</on2>
     <join3>d</join3>
     <on3>b.DB030 = d.DB030 </on3>
-    <where>d.DB110 = 1 and a.HB010 = c.HB010+1 and b.DB010 = d.DB010+1 and a.HH021 ne c.HH021  and (a.HH021_F ne -1 and c.HH021_F ne -1)</where>
+    <where>b.DB110 = 1 and a.HB010 = c.HB010+1 and b.DB010 = d.DB010+1 and a.HH021 ne c.HH021  and (a.HH021_F ne -1 and c.HH021_F ne -1)</where>
   </check>
   <check id="122">
     <title>Longitudinal - Error: DB060 - Primary sampling unit must be the same every year</title>
