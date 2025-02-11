@@ -1,7 +1,5 @@
 /*specify the path to the folder where the software has been dezipped : */
-%LET eusilc=___PATH___ ;
-
-
+*%LET eusilc=___PATH___ ;
 
 %LET _dirsp_=/;
 OPTIONS NOSOURCE MCOMPILENOTE=ALL;
@@ -45,6 +43,7 @@ LIBNAME BACK "&eusilc&_dirsp_.main&_dirsp_%LOWCASE(&cc)&_dirsp_.tmp";
 
 /** LIBRARY LIST (2/2)*/
 LIBNAME CSV "&eusilc&_dirsp_.main&_dirsp_%LOWCASE(&cc)&_dirsp_.csv";
+LIBNAME RAW_DB "&eusilc&_dirsp_%quote(main)&_dirsp_%LOWCASE(&CC)&_dirsp_%LOWCASE(&SS&YY)"  compress=yes;
 LIBNAME XMLCFG "&eusilc&_dirsp_.XML_CONFIG&_dirsp_.XML";
 LIBNAME MAPDIR "&eusilc&_dirsp_.XML_CONFIG&_dirsp_.MAP";
 

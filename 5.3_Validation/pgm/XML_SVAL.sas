@@ -1746,10 +1746,8 @@ QUIT;
           ;
           LENGTH VARS $32767;
           RETAIN VARS '';
-          IF TYPE NOT IN ( 'HGRID' ) THEN DO;
-             VARS = TRIM(VARS) || TRIM(VARIABLE) || ':' || SUBSTR(FORMAT,1,1);
-             IF NOT EOF THEN VARS = TRIM(VARS) || '|';
-          END;
+          VARS = TRIM(VARS) || TRIM(VARIABLE) || ':' || SUBSTR(FORMAT,1,1);
+          IF NOT EOF THEN VARS = TRIM(VARS) || '|';
           IF EOF THEN CALL SYMPUT('VARS',TRIM(VARS));
         RUN;
 

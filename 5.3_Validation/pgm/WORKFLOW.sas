@@ -261,12 +261,22 @@ OPTIONS FmtErr;*NOSOURCE NOMPRINT NOMLOGIC;
 
 
     %PUT *I* WRITING SILC RAW DATASETS ... ;
-    LIBNAME RAW_DB "&eusilc&_dirsp_%quote(main)&_dirsp_%LOWCASE(&CC)&_dirsp_%LOWCASE(&SS&YY)"  compress=yes;
     DATA RAW_DB.&ss&cc&YY.D;SET RAW.&ss&cc&YY.D;RUN;
 	DATA RAW_DB.&ss&cc&YY.R;SET RAW.&ss&cc&YY.R;RUN;
 	DATA RAW_DB.&ss&cc&YY.H;SET RAW.&ss&cc&YY.H;RUN;
 	DATA RAW_DB.&ss&cc&YY.P;SET RAW.&ss&cc&YY.P;RUN;
 
+%END;
+
+/*test if we are in Viya context*/;
+%IF "%SUBSTR(&EUSILC,1,14)"="/opt/sas/viya/" %THEN %DO;
+	/*export results to S3*/
+	proc s3 REGION="lux" AUTHDOMAIN="SILC_S3_Auth" CREDENTIALSPROFILE="P01";
+		/*datasets*/
+		putdir "&eusilc&_dirsp_.main&_dirsp_%LOWCASE(&CC)&_dirsp_%LOWCASE(&SS&YY)" "&gRootPathS3&_dirsp_.main&_dirsp_%LOWCASE(&CC)&_dirsp_%LOWCASE(&SS&YY)";
+		/*pdf/docx and csv results*/
+		putdir "&eusilc&_dirsp_.main&_dirsp_%lowcase(&cc)&_dirsp_.out" "&gRootPathS3&_dirsp_.main&_dirsp_%lowcase(&cc)&_dirsp_.out";
+	run;
 %END;
 
 %MEND VALID_MAIN;
@@ -297,3 +307,5 @@ QUIT;
 
 %VALID_INCLUDE;
 %VALID_MAIN;
+
+

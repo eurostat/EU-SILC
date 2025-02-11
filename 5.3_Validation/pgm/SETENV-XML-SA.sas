@@ -1,15 +1,13 @@
 /*specify the the path to the folder where the software has been dezipped : */
 %LET eusilc=___PATH___ ;
 
-
-
 /* / for UNIX environments, \ for windows environments */
 %LET _dirsp_=/; 
 OPTIONS NOSOURCE MCOMPILENOTE=ALL;
 
 /*** Parameters to specify */
 %LET CC= ;  /*Country bigram in uppercase letters*/
-%LET YYYY=2024;  /*Year (4 digits)*/
+%LET YYYY=2023;  /*Year (4 digits)*/
 %LET EXTENSION=pdf;  /*pdf by default, could be changed to docx (only if sas>=9.4, keep pdf otherwise) */
 %LET CSV=NO;  /*NO by default, could be changed to YES to obtain detailed list of errors in csv files */
 
@@ -50,6 +48,7 @@ LIBNAME BACK "&eusilc&_dirsp_.main&_dirsp_%LOWCASE(&cc)&_dirsp_.tmp";
 
 /** LIBRARY LIST (2/2) */
 LIBNAME CSV "&eusilc&_dirsp_.main&_dirsp_%LOWCASE(&cc)&_dirsp_.csv";
+LIBNAME RAW_DB "&eusilc&_dirsp_%quote(main)&_dirsp_%LOWCASE(&CC)&_dirsp_%LOWCASE(&SS&YY)"  compress=yes;
 LIBNAME XMLCFG "&eusilc&_dirsp_.XML_CONFIG&_dirsp_.XML";
 LIBNAME MAPDIR "&eusilc&_dirsp_.XML_CONFIG&_dirsp_.MAP";
 
