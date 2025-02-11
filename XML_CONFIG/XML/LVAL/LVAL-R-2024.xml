@@ -85,7 +85,7 @@
 </check>
 <check id="012">
 <title>Weight - Error: RB062 - Longitudinal weight (2 years duration) must be filled and positive for current year and waves greater than 1</title>
-<select>RB010, RB030, RB110, DB076, RB062 </select>
+<select>RB010, RB030, RB110, DB076, RB062, RB062_F </select>
 <from>r</from>
 <join>d</join>
 <on>RB010=DB010 and RB020=DB020 and RB040=DB030</on>
@@ -101,7 +101,7 @@
 </check>
 <check id="014">
 <title>Weight - Error: RB063 - Longitudinal weight (3 years duration) must be filled and positive for current year and waves greater than 2</title>
-<select>RB010, RB030, RB110, DB076, RB063 </select>
+<select>RB010, RB030, RB110, DB076, RB063, RB063_F  </select>
 <from>r</from>
 <join>d</join>
 <on>RB010=DB010 and RB020=DB020 and RB040=DB030</on>
@@ -117,7 +117,7 @@
 </check>
 <check id="016">
 <title>Weight - Error: RB064 - Longitudinal weight (4 years duration) must be filled and positive for current year and waves greater than 3</title>
-<select>RB010, DB076, RB030, RB110, DB076, RB064 </select>
+<select>RB010, RB030, RB110, DB076, RB064, RB064_F </select>
 <from>r</from>
 <join>d</join>
 <on>RB010=DB010 and RB020=DB020 and RB040=DB030</on>
@@ -133,7 +133,7 @@
 </check>
 <check id="018">
 <title>Weight - Error: RB065 - Longitudinal weight (5 years duration) must be filled and positive for current year and waves greater than 4</title>
-<select>RB010, DB076, RB030, RB110, RB065 </select>
+<select>RB010, RB030, RB110, DB076, RB065, RB065_F </select>
 <from>r</from>
 <join>d</join>
 <on>RB010=DB010 and RB020=DB020 and RB040=DB030</on>
@@ -149,7 +149,7 @@
 </check>
 <check id="020">
 <title>Weight - Error -RB066 - Longitudinal weight (6 years duration) must be filled and positive for current year and waves greater than 5</title>
-<select>RB010, DB076, RB030, RB110, DB076, RB066 </select>
+<select>RB010, RB030, RB110, DB076, RB066, RB066_F </select>
 <from>r</from>
 <join>d</join>
 <on>RB010=DB010 and RB020=DB020 and RB040=DB030</on>
@@ -1487,6 +1487,7 @@
   </check>
 <!--  6Y module checks END  -->
 </LVAL>
+
 
 
 
