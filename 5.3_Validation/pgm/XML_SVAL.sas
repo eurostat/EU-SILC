@@ -1650,8 +1650,9 @@ QUIT;
                          %ELSE %IF &NA_FLAG EQ -3 %THEN %DO;
 							/* SELRESP COUNTRY */
 							IF &F.B020 IN ( &SELRESP_CNTRY_LST ) THEN DO;
-								IF ( %QUOTE(&&&NA_&K) ) AND ( &VARX._F NE &NA_FLAG ) THEN OUTPUT; 
+								IF ( %QUOTE(&&&NA_&K) ) AND ( &VARX._F NE &NA_FLAG ) THEN OUTPUT; /*Non-selected respondent with flag other than -3*/ 
 								ELSE IF %QUOTE(&&&NA_&K)  AND &VARX._F NE &NA_FLAG AND NOT (VARIABLE IN ("PB260","PB270") AND PB010<=2023) THEN OUTPUT;
+								ELSE IF NOT(%QUOTE(&&&NA_&K)) AND ( &VARX._F = &NA_FLAG ) THEN OUTPUT; /*[LV 20250316]Line added: Selected respondent with flag = -3*/
 							END;
 							/* REGULAR COUNTRY (-3 NOT ALLOWED) */
 							ELSE DO;
