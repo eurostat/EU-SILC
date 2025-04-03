@@ -225,6 +225,12 @@
       <DATATYPE>STRING</DATATYPE>
       <LENGTH>12</LENGTH>        
     </COLUMN>
+    <COLUMN name="MOD_ID" retain="YES">
+      <PATH>/SVAL/adhoc@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>16</LENGTH>        
+    </COLUMN> 
     <COLUMN name="NA">
       <PATH>/SVAL/adhoc/variable/na</PATH>
       <TYPE>character</TYPE>
@@ -1169,6 +1175,12 @@
       <DATATYPE>STRING</DATATYPE>
       <LENGTH>12</LENGTH>        
     </COLUMN>
+    <COLUMN name="MOD_ID" retain="YES">
+      <PATH>/SVAL/recur6@id</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>16</LENGTH>        
+    </COLUMN> 
     <COLUMN name="NA">
       <PATH>/SVAL/recur6/variable/na</PATH>
       <TYPE>character</TYPE>
