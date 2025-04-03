@@ -2,7 +2,13 @@
 ### Revision History ###
 ########################
 
-Ver 4.1 [Internal]+[Github]
+Ver 4.1.2 [Internal]
+27 March 2025 17:00
+-424 : Routing errors for countries with selected respondents – validation was only contemplating cases when a non-selected respondent has a flag other than -3 ( RB245 EQ 3  AND Flag NE -3 ). Added condition for when the selected respondent has flag -3 (NOT(RB245 EQ 3) AND ( Flag = -3 ))
+-423 : Routing errors were not reported correctly for module variables (ad hoc modules and 6 year modules specifically). Added column MOD_ID to tables ADHOC_NAS, RECUR6_NAS in the SVAL.map file - this allows merging of values from SVAL_NAS and SVAL tables for these modules.
+
+
+Ver 4.1.1 [Internal]+[Github]
 19 December 2024 11:00
 -416 : Logical error 108 counting added to Summary, previous years added in the lval reprot to be clearer
 -415 : Logical error 100: condition on RB110 in (1,2,3,4) added to be applied only on household members
