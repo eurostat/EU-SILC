@@ -938,7 +938,7 @@
       <LENGTH>1</LENGTH>        
     </COLUMN>
     <COLUMN name="INCOME">
-      <PATH>/SVAL/recur3/income</PATH>
+      <PATH>/SVAL/recur3/variable/income</PATH>
       <TYPE>character</TYPE>
       <DATATYPE>STRING</DATATYPE>
       <LENGTH>1</LENGTH>        
@@ -1079,7 +1079,7 @@
       <LENGTH>1</LENGTH>        
     </COLUMN>
     <COLUMN name="INCOME">
-      <PATH>/SVAL/recur6/income</PATH>
+      <PATH>/SVAL/recur6/variable/income</PATH>
       <TYPE>character</TYPE>
       <DATATYPE>STRING</DATATYPE>
       <LENGTH>1</LENGTH>        
