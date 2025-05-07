@@ -1,0 +1,301 @@
+---
+title: "EU-SILC Validation with R"
+output: html_document
+params:
+  Year: 2024 # Specify the operation year you want to run
+  Country: "NL" # Specify the country bigram between quotation marks
+  File_version: 1 # Specify the version of the CSV files
+  WorkingDrive: "V:/" # Specify the folder, between quotation marks, where the whole validation project is stored
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE,error = TRUE)
+knitr::opts_knit$set(root.dir = "V:/5.3_Validation/R")
+
+```
+
+```{r, echo=FALSE}
+####################################################################################################
+YYYY <- params$Year
+CC <- params$Country
+VERSION <- params$File_version
+EUSILC <- params$WorkingDrive
+####################################################################################################
+#END OF PARAMETERS
+
+
+
+#libraries needed
+library(sqldf)
+library(DBI)
+library(dplyr)
+library(DT)
+library(htmltools)
+library(tinytex)
+library(knitr)
+
+#folder where R files are stored
+setwd(gsub(" ", "",paste(EUSILC,"5.3_Validation/R/",YYYY)))
+wd<-getwd()
+
+#folder where csv files are stored
+PATH <- paste(EUSILC,"main/",tolower(CC),"/csv/")
+
+#import csv files
+D<-read.csv(gsub(" ", "",paste(PATH,"/SILC_RD_A_",toupper(CC),"_",YYYY,"_0000_V000",VERSION,".CSV")), header=TRUE)
+H<-read.csv(gsub(" ", "",paste(PATH,"/SILC_RH_A_",toupper(CC),"_",YYYY,"_0000_V000",VERSION,".CSV")), header=TRUE)
+R<-read.csv(gsub(" ", "",paste(PATH,"/SILC_RR_A_",toupper(CC),"_",YYYY,"_0000_V000",VERSION,".CSV")), header=TRUE)
+P<-read.csv(gsub(" ", "",paste(PATH,"/SILC_RP_A_",toupper(CC),"_",YYYY,"_0000_V000",VERSION,".CSV")), header=TRUE)
+
+
+#create a SQLlite database and importing 4 files as tables
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
+dbWriteTable(con, "D", D)
+dbWriteTable(con, "H", H)
+dbWriteTable(con, "R", R)
+dbWriteTable(con, "P", P)
+
+
+
+#importing all the R files with SQl queries
+source(gsub(" ", "",paste("sql_prevalid_sval_D_valvsflag_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_sval_H_valvsflag_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_sval_R_valvsflag_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_sval_P_valvsflag_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_sval_missing_NA2_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_sval_wrong_NA2_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_sval_missing_NA3_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_sval_wrong_NA3_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_sval_missing_NA4_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_sval_wrong_NA4_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_lval_",YYYY,".R")))
+source(gsub(" ", "",paste("sql_prevalid_summary_",YYYY,".R")))
+
+
+#putting results in R datasets
+
+#summary
+SUMMARY_SQL_PREVALID <- dbReadTable(con, gsub(" ", "",paste("SUMMARY_SQL_PREVALID_",YYYY)))
+
+#values vs flags errors
+if (nrow(dbReadTable(con, "SVAL_D_VALvsFL")) > 0) {SVAL_D_VALvsFL <- dbReadTable(con, "SVAL_D_VALvsFL")}
+if (nrow(dbReadTable(con, "SVAL_H_VALvsFL")) > 0) {SVAL_H_VALvsFL <- dbReadTable(con, "SVAL_H_VALvsFL")}
+if (nrow(dbReadTable(con, "SVAL_R_VALvsFL")) > 0) {SVAL_R_VALvsFL <- dbReadTable(con, "SVAL_R_VALvsFL")}
+if (nrow(dbReadTable(con, "SVAL_P_VALvsFL")) > 0) {SVAL_P_VALvsFL <- dbReadTable(con, "SVAL_P_VALvsFL")}
+
+#non selected respondents errors
+if (nrow(dbReadTable(con, "SVAL_P_NA3_M")) > 0) {SVAL_P_NA3_M <- dbReadTable(con, "SVAL_P_NA3_M")}
+if (nrow(dbReadTable(con, "SVAL_P_NA3_W")) > 0) {SVAL_P_NA3_W <- dbReadTable(con, "SVAL_P_NA3_W")}
+
+
+# loop to generate routing conditions and logical checks datasets
+#select distinct ID
+ID_FOR_LOOP_NA2_M <- SUMMARY_SQL_PREVALID %>% filter(grepl("NA2_M$", trimws(ID))) %>%  distinct(ID) %>% select(ID)
+ID_FOR_LOOP_NA2_M$ID <- sub("\\s+$", "", ID_FOR_LOOP_NA2_M$ID)
+ID_FOR_LOOP_NA2_W <- SUMMARY_SQL_PREVALID %>% filter(grepl("NA2_W$", trimws(ID))) %>%  distinct(ID) %>% select(ID)
+ID_FOR_LOOP_NA2_W$ID <- sub("\\s+$", "", ID_FOR_LOOP_NA2_W$ID)
+ID_FOR_LOOP_NA4_M <- SUMMARY_SQL_PREVALID %>% filter(grepl("NA4_M$", trimws(ID))) %>%  distinct(ID) %>% select(ID)
+ID_FOR_LOOP_NA4_M$ID <- sub("\\s+$", "", ID_FOR_LOOP_NA4_M$ID)
+ID_FOR_LOOP_NA4_W <- SUMMARY_SQL_PREVALID %>% filter(grepl("NA4_W$", trimws(ID))) %>%  distinct(ID) %>% select(ID)
+ID_FOR_LOOP_NA4_W$ID <- sub("\\s+$", "", ID_FOR_LOOP_NA4_W$ID)
+ID_FOR_LOOP_LVAL  <- SUMMARY_SQL_PREVALID %>% filter(grepl("^LVAL" , trimws(ID))) %>%  distinct(ID, TITLE) %>% select(ID, TITLE)
+ID_FOR_LOOP_LVAL$ID <- sub("\\s+$", "", ID_FOR_LOOP_LVAL$ID)
+#loops
+if (nrow(ID_FOR_LOOP_NA2_M) > 0) {
+  for (i in 1:nrow(ID_FOR_LOOP_NA2_M)) {
+  assign(ID_FOR_LOOP_NA2_M$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_NA2_M$ID[i])))
+  }
+}
+if (nrow(ID_FOR_LOOP_NA2_W) > 0) {
+  for (i in 1:nrow(ID_FOR_LOOP_NA2_W)) {
+  assign(ID_FOR_LOOP_NA2_W$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_NA2_W$ID[i])))
+  }
+}
+if (nrow(ID_FOR_LOOP_NA4_M) > 0) {
+  for (i in 1:nrow(ID_FOR_LOOP_NA4_M)) {
+  valeur <- ID_FOR_LOOP_NA4_M$ID[i]
+  assign(ID_FOR_LOOP_NA4_M$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_NA4_M$ID[i])))
+  }
+}
+if (nrow(ID_FOR_LOOP_NA4_W) > 0) {
+  for (i in 1:nrow(ID_FOR_LOOP_NA4_W)) {
+  assign(ID_FOR_LOOP_NA4_W$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_NA4_W$ID[i])))
+  }
+}
+if (nrow(ID_FOR_LOOP_LVAL) > 0) {
+  for (i in 1:nrow(ID_FOR_LOOP_LVAL)) {
+  assign(ID_FOR_LOOP_LVAL$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_LVAL$ID[i])))
+  }
+}
+
+setwd(gsub(" ", "",paste(EUSILC,"5.3_Validation/R")))
+
+```
+
+```{r, echo= FALSE }
+#Title for the report
+dynamic_title <- paste("Validation - ", params$Country, params$Year, "- version", params$File_version)
+
+# Display title
+    title_html <- tags$div(tags$strong(dynamic_title), style = "font-size: 32px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+    tagList(title_html)
+
+```
+
+<details>
+
+<summary><B><font SIZE="5">Summary</font><font SIZE="3"> (click to expand)</font></B></summary>
+
+```{r, echo= FALSE }
+  datatable(SUMMARY_SQL_PREVALID, options = list(pageLength = 10, autoWidth = TRUE))
+```
+
+</details>
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+if (max(nrow(dbReadTable(con, "SVAL_D_VALvsFL")),nrow(dbReadTable(con, "SVAL_H_VALvsFL")),nrow(dbReadTable(con, "SVAL_R_VALvsFL")),nrow(dbReadTable(con, "SVAL_P_VALvsFL"))) > 0) {cat('<details>
+  <summary><B><font SIZE="5">Values vs flags errors - 5 first obs </font><font SIZE="3">(click to expand)</font></B><br></summary>')}
+
+
+```
+
+```{r, echo=FALSE}
+if (nrow(dbReadTable(con, "SVAL_D_VALvsFL")) > 0) {    
+  title_html <- tags$div(tags$strong("D file"), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+  table<-datatable(head(SVAL_D_VALvsFL, 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+  tagList(title_html, table)
+}
+if (nrow(dbReadTable(con, "SVAL_H_VALvsFL")) > 0) {
+  title_html <- tags$div(tags$strong("H file"), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+  table<-datatable(head(SVAL_H_VALvsFL, 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+  tagList(title_html, table)
+}
+if (nrow(dbReadTable(con, "SVAL_R_VALvsFL")) > 0) {
+  title_html <- tags$div(tags$strong("r file"), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+  table<-datatable(head(SVAL_R_VALvsFL, 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+  tagList(title_html, table)
+}
+if (nrow(dbReadTable(con, "SVAL_P_VALvsFL")) > 0) {
+  title_html <- tags$div(tags$strong("P file"), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+  table<-datatable(head(SVAL_P_VALvsFL, 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+  tagList(title_html, table)
+}
+
+```
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+if (max(nrow(dbReadTable(con, "SVAL_D_VALvsFL")),nrow(dbReadTable(con, "SVAL_H_VALvsFL")),nrow(dbReadTable(con, "SVAL_R_VALvsFL")),nrow(dbReadTable(con, "SVAL_P_VALvsFL"))) > 0) 
+{cat(htmltools::HTML('</details>'))}
+```
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+if (max(nrow(dbReadTable(con, "SVAL_P_NA3_M")),nrow(dbReadTable(con, "SVAL_P_NA3_W"))) > 0) 
+{cat('<details>
+  <summary><B><font SIZE="5">Non-selected respondents errors - 5 first obs </font><font SIZE="3">(click to expand)</font></B><br></summary>')}
+
+```
+
+```{r, echo=FALSE}
+if (nrow(dbReadTable(con, "SVAL_P_NA3_M")) > 0) {
+    title_html <- tags$div(tags$strong("Flag should be -3"), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+    table<-datatable(head(SVAL_P_NA3_M, 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+    tagList(title_html, table)
+}
+if (nrow(dbReadTable(con, "SVAL_P_NA3_W")) > 0) {
+    title_html <- tags$div(tags$strong("Flag cannot be -3"), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+    table<-datatable(head(SVAL_P_NA3_W, 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+    tagList(title_html, table)
+}
+```
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+if (max(nrow(dbReadTable(con, "SVAL_P_NA3_M")),nrow(dbReadTable(con, "SVAL_P_NA3_W"))) > 0) 
+{cat(htmltools::HTML('</details>'))}
+```
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+if (max(nrow(ID_FOR_LOOP_NA2_M),nrow(ID_FOR_LOOP_NA4_M) > 0)) {cat('<details>
+  <summary><B><font SIZE="5">Routing errors, non-applicable flag should be used - 5 first obs </font><font SIZE="3">(click to expand)</font></B><br></summary>')}
+```
+
+```{r, echo=FALSE, eval=TRUE}
+# loop to generate routing conditions and logical checks datasets
+if (nrow(ID_FOR_LOOP_NA2_M) > 0) {
+  tables1 <- lapply(ID_FOR_LOOP_NA2_M$ID, function(val) {
+    title_html <- tags$div(tags$strong("Flag should be -2"), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+    table<-datatable(head(dbReadTable(con, val), 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+    tagList(title_html, table)
+  })
+  tagList(tables1)
+  }
+if (nrow(ID_FOR_LOOP_NA4_M) > 0) {
+  tables2 <- lapply(ID_FOR_LOOP_NA4_M$ID, function(val) {
+    title_html <- tags$div(tags$strong("Flag should be -4"), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+    table<-datatable(head(dbReadTable(con, val), 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+    tagList(title_html, table)
+})
+  tagList(tables2)
+}
+```
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+if (max(nrow(ID_FOR_LOOP_NA2_M),nrow(ID_FOR_LOOP_NA4_M) > 0))
+{cat(htmltools::HTML('</details>'))}
+```
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+if (max(nrow(ID_FOR_LOOP_NA2_W),nrow(ID_FOR_LOOP_NA4_W) > 0)) {cat('<details>
+  <summary><B><font SIZE="5">Routing errors, non-applicable wrongly used - 5 first obs </font><font SIZE="3">(click to expand)</font></B><br></summary>')}
+```
+
+```{r, echo=FALSE, EVAL=TRUE}
+if (nrow(ID_FOR_LOOP_NA2_W) > 0) {
+  tables3 <- lapply(ID_FOR_LOOP_NA2_W$ID, function(val) {
+    title_html <- tags$div(tags$strong("Flag cannot be -2"), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+    table<-datatable(head(dbReadTable(con, gsub(" ", "",val)), 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+    tagList(title_html, table)
+  })
+  tagList(tables3)
+}
+if (nrow(ID_FOR_LOOP_NA4_W) > 0) {
+  tables4 <- lapply(ID_FOR_LOOP_NA4_W$ID, function(val) {
+    title_html <- tags$div(tags$strong("Flag cannot be -4"), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+    table<-datatable(head(dbReadTable(con, gsub(" ", "",val)), 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+    tagList(title_html, table)
+ })
+  tagList(tables4)
+}
+```
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+if (max(nrow(ID_FOR_LOOP_NA2_W),nrow(ID_FOR_LOOP_NA4_W) > 0)) 
+{cat(htmltools::HTML('</details>'))}
+```
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+if (nrow(ID_FOR_LOOP_LVAL) > 0) {cat('<details>
+  <summary><B><font SIZE="5">Logical checks - 5 first obs </font><font SIZE="3">(click to expand)</font></B><br></summary>')}
+```
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+
+if (nrow(ID_FOR_LOOP_LVAL) > 0) {
+  tables5 <- lapply(ID_FOR_LOOP_LVAL$ID, function(val) {
+    title <- ID_FOR_LOOP_LVAL$TITLE[ID_FOR_LOOP_LVAL$ID == val]
+    title_html <- tags$div(tags$strong(title), style = "font-size: 18px; font-weight: bold; text-align: left; margin-bottom: 10px;")
+    table<-datatable(head(dbReadTable(con, val), 5), options = list(pageLength = 10, autoWidth = TRUE, paging = FALSE,searching = FALSE,info = FALSE))
+    tagList(title_html, table)
+  })
+  tagList(tables5)
+} 
+
+```
+
+```{r, echo=FALSE, EVAL=TRUE, results='asis'}
+if (nrow(ID_FOR_LOOP_LVAL) > 0) 
+{cat(htmltools::HTML('</details>'))}
+```
+
+```{r, echo=FALSE}
+rm(i)
+```

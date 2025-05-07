@@ -72,28 +72,40 @@ if (nrow(dbReadTable(con, "SVAL_P_NA3_W")) > 0) {SVAL_P_NA3_W <- dbReadTable(con
 #select distinct ID
 ID_FOR_LOOP_NA2_M <- SUMMARY_SQL_PREVALID %>% filter(grepl("NA2_M$", trimws(ID))) %>%  distinct(ID) %>% select(ID)
 ID_FOR_LOOP_NA2_W <- SUMMARY_SQL_PREVALID %>% filter(grepl("NA2_W$", trimws(ID))) %>%  distinct(ID) %>% select(ID)
+ID_FOR_LOOP_NA4_M <- SUMMARY_SQL_PREVALID %>% filter(grepl("NA4_M$", trimws(ID))) %>%  distinct(ID) %>% select(ID)
+ID_FOR_LOOP_NA4_W <- SUMMARY_SQL_PREVALID %>% filter(grepl("NA4_W$", trimws(ID))) %>%  distinct(ID) %>% select(ID)
 ID_FOR_LOOP_LVAL  <- SUMMARY_SQL_PREVALID %>% filter(grepl("^LVAL" , trimws(ID))) %>%  distinct(ID) %>% select(ID)
 #loops
 if (nrow(ID_FOR_LOOP_NA2_M) > 0) {
   for (i in 1:nrow(ID_FOR_LOOP_NA2_M)) {
-  valeur <- ID_FOR_LOOP_NA2_M$ID[i]
   assign(ID_FOR_LOOP_NA2_M$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_NA2_M$ID[i])))
   }
 }
 if (nrow(ID_FOR_LOOP_NA2_W) > 0) {
   for (i in 1:nrow(ID_FOR_LOOP_NA2_W)) {
-  valeur <- ID_FOR_LOOP_NA2_W$ID[i]
   assign(ID_FOR_LOOP_NA2_W$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_NA2_W$ID[i])))
+  }
+}
+if (nrow(ID_FOR_LOOP_NA4_M) > 0) {
+  for (i in 1:nrow(ID_FOR_LOOP_NA4_M)) {
+    assign(ID_FOR_LOOP_NA4_M$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_NA4_M$ID[i])))
+  }
+}
+if (nrow(ID_FOR_LOOP_NA4_W) > 0) {
+  for (i in 1:nrow(ID_FOR_LOOP_NA4_W)) {
+    assign(ID_FOR_LOOP_NA4_W$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_NA4_W$ID[i])))
   }
 }
 if (nrow(ID_FOR_LOOP_LVAL) > 0) {
   for (i in 1:nrow(ID_FOR_LOOP_LVAL)) {
-  valeur <- ID_FOR_LOOP_LVAL$ID[i]
   assign(ID_FOR_LOOP_LVAL$ID[i], dbReadTable(con, gsub(" ", "",ID_FOR_LOOP_LVAL$ID[i])))
   }
 }
-rm(valeur)
 rm(i)
 rm(ID_FOR_LOOP_NA2_M)
 rm(ID_FOR_LOOP_NA2_W)
+rm(ID_FOR_LOOP_NA4_M)
+rm(ID_FOR_LOOP_NA4_W)
 rm(ID_FOR_LOOP_LVAL)
+
+
