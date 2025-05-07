@@ -1047,7 +1047,7 @@ QUIT;
             %DO %WHILE(&VAR NE);
                 RES = 1;
                 IF &VAR._IF ^= . AND &VAR._F LT 0 THEN DO;RES = 0;END;*Imput Factor wrongly filled;
-                ELSE IF &VAR._IF not in (.,100) AND &VAR._F GT 0 AND &VAR = 0 THEN DO;RES = 0;END;*Imput Factor wrongly filled;
+                ELSE IF &VAR._IF not in (.,100) AND &VAR._F GT 0 AND SUBSTR(COMPRESS(PUT(&VAR._F,10.)),1,1) not in ('3','4','5','6') AND &VAR = 0 THEN DO;RES = 0;END;*Imput Factor wrongly filled;
                 IF RES = 0 THEN DO;
                    VARIABLE = "&VAR";
                    VALUE = COMPRESS(PUT(&VAR,10.)); 

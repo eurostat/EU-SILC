@@ -7,6 +7,7 @@
  * chkCOMPL
  * chkFLAG
  * chkFMT
+ * chkUNRECOGNIZED_FLAG_IF
  */
 
 /**
@@ -17,7 +18,7 @@
 %MACRO getSVAL_F(F=D);
     DATA SVAL_&F;
     SET  SVAL (WHERE=(SUBSTR(VARIABLE,1,1) = "&F"));
-      IF TYPE IN ( '' 'NUTS' 'HGRID' ) THEN DO;
+      IF KEY NE 'Y' THEN DO;
              FLAG_NAME = TRIM(VARIABLE) || '_F';
       END;
       ELSE FLAG_NAME = '';
@@ -541,3 +542,130 @@
 	    %END;
     %END;
 %MEND chkFMT;
+
+
+
+/**
+ * UNRECOGNIZED FLAGS AND IMPUTATION FACTORS
+ * @F  = SILC FILE { D, R, H, P }
+ * @DS = RAW DATASET TO CHECK
+ * @CC = COUNTRY TO CHECK
+ */
+%MACRO chkUNRECOGNIZED_FLAG_IF(F=D);
+
+    %LET DS=RAW.&_SPLIT_MODE_&ss&cc&YY&F;
+    OPTIONS VALIDVARNAME=UPCASE;
+    PROC CONTENTS DATA=&DS OUT=RAWVARS NOPRINT;
+    RUN;
+
+    DATA RAWVARS_FLAGS RAWVARS_IFS;
+	KEEP NAME;
+    SET  RAWVARS;
+		SFX = UPCASE( SCAN(NAME, -1, '_' ) );
+		IF SFX IN ( 'F' ) THEN DO;
+			 OUTPUT RAWVARS_FLAGS;
+		END;
+		ELSE IF SFX IN ( 'IF' ) THEN DO;
+			 OUTPUT RAWVARS_IFS;
+		END;
+    RUN;
+
+    PROC SORT DATA=RAWVARS_FLAGS NODUPKEY;
+      BY NAME;
+    RUN;
+    PROC SORT DATA=RAWVARS_IFS NODUPKEY;
+      BY NAME;
+    RUN;
+
+	DATA SVAL_FLAG_NAMES_&F;
+	SET SVAL_&F (WHERE=(FLAG_NAME IS NOT NULL));
+	VARIABLE = FLAG_NAME;
+	RUN;
+
+	DATA SVAL_IFS_&F;
+	SET SVAL_&F (WHERE=(INCOME = 'Y' AND IMPUTE = 'Y'));
+	VARIABLE = TRIM(VARIABLE) || '_IF';
+	RUN;
+
+	/*Check Flags*/
+    DATA DIRTYFLAGS_&F;
+      LENGTH VARIABLE $30;
+      STOP;
+    RUN;
+
+	%LET NOBS=0;
+	DATA _null_;
+	SET  RAWVARS_FLAGS NOBS=NOBS;
+        CALL SYMPUTX('NOBS',NOBS);
+	RUN;
+    %IF &NOBS GT 0 %THEN %DO;
+
+	    PROC SQL NOPRINT;
+	      SELECT UPCASE(NAME) INTO :VARS SEPARATED BY ' '
+	      FROM   RAWVARS_FLAGS;
+	    QUIT;
+
+	    %LET K=1;
+	    %LET VAR=%SCAN(&VARS,&K);
+	    %DO %WHILE(&VAR NE);
+		    %LET CHECK=0;
+		    PROC SQL NOPRINT;
+		      SELECT COUNT(*) INTO :CHECK
+		      FROM   SVAL_FLAG_NAMES_&F
+		      WHERE  VARIABLE = "&VAR"
+		      ;
+		    QUIT;
+		    %IF &CHECK EQ 0 %THEN %DO;
+		        PROC SQL;
+		          INSERT INTO DIRTYFLAGS_&F
+		          VALUES ("&VAR")
+		          ;
+		        QUIT;
+		    %END;
+		    %LET K=%EVAL(&K+1);
+		    %LET VAR=%SCAN(&VARS,&K);
+	    %END;
+	%END;
+
+	/*Check Imputation Factors*/
+    DATA DIRTYIFS_&F;
+      LENGTH VARIABLE $30;
+      STOP;
+    RUN;
+
+	%LET NOBS=0;
+	DATA _null_;
+	SET  RAWVARS_IFS NOBS=NOBS;
+        CALL SYMPUTX('NOBS',NOBS);
+	RUN;
+
+    %IF &NOBS GT 0 %THEN %DO;
+
+	    PROC SQL NOPRINT;
+	      SELECT UPCASE(NAME) INTO :VARS SEPARATED BY ' '
+	      FROM   RAWVARS_IFS;
+	    QUIT;
+
+	    %LET K=1;
+	    %LET VAR=%SCAN(&VARS,&K);
+	    %DO %WHILE(&VAR NE);
+		    %LET CHECK=0;
+		    PROC SQL NOPRINT;
+		      SELECT COUNT(*) INTO :CHECK
+		      FROM   SVAL_IFS_&F
+		      WHERE  VARIABLE = "&VAR"
+		      ;
+		    QUIT;
+		    %IF &CHECK EQ 0 %THEN %DO;
+		        PROC SQL;
+		          INSERT INTO DIRTYIFS_&F
+		          VALUES ("&VAR")
+		          ;
+		        QUIT;
+		    %END;
+		    %LET K=%EVAL(&K+1);
+		    %LET VAR=%SCAN(&VARS,&K);
+	    %END;
+	%END;
+
+%MEND chkUNRECOGNIZED_FLAG_IF;

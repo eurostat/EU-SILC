@@ -95,8 +95,37 @@ PROC SQL;
   ;
 QUIT;
 
+	DATA DIRTYFLAGS;
+	set 
+		DIRTYFLAGS_D (in=a)
+		DIRTYFLAGS_H (in=b)
+		DIRTYFLAGS_R (in=c)
+		DIRTYFLAGS_P (in=d)
+	;
+	order=a+b*2+c*3+d*4;
+	if a then file="D-file";
+	if b then file="H-file";
+	if c then file="R-file";
+	if d then file="P-file";
+	RUN;
+	PROC SORT NODUPKEY;BY VARIABLE;RUN;
+	PROC SORT;BY order VARIABLE;RUN;
 
-
+	DATA DIRTYIFS;
+	set 
+		DIRTYIFS_D (in=a)
+		DIRTYIFS_H (in=b)
+		DIRTYIFS_R (in=c)
+		DIRTYIFS_P (in=d)
+	;
+	order=a+b*2+c*3+d*4;
+	if a then file="D-file";
+	if b then file="H-file";
+	if c then file="R-file";
+	if d then file="P-file";
+	RUN;
+	PROC SORT NODUPKEY;BY VARIABLE;RUN;
+	PROC SORT;BY order VARIABLE;RUN;
 %IF %sysfunc(exist(SVAL_MISS_FULL_CSV_D_ANTE_)) %THEN %DO;
 	DATA SVAL_MISS_FULL_CSV;
 	set 
@@ -230,11 +259,12 @@ PROC SQL;
   ;
 QUIT;
 DATA DIRTYVARS;
-SET  DIRTYVARS NOBS=NOBS;
+SET  DIRTYVARS DIRTYFLAGS DIRTYIFS NOBS=NOBS;
   CALL SYMPUTX('NOBS',NOBS);
   ARRAY X _CHARACTER_;DO OVER X;IF X="" THEN X="X";END;
 RUN;
-
+	PROC SORT NODUPKEY;BY VARIABLE;RUN;
+	PROC SORT;BY order VARIABLE;RUN;
 
 TITLE1;
 TITLE2;

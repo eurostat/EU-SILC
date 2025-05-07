@@ -91,6 +91,7 @@ OPTIONS FmtErr;*NOSOURCE NOMPRINT NOMLOGIC;
         %chkFLAG(F=&F);
         %chkFMT(F=&F);
         %purgeVAR(F=&F,STEP=2);
+		%chkUNRECOGNIZED_FLAG_IF(F=&F);
         /*** XML_INCOME*/
         %SPLIT_INCOME_XML(F=&F,IMPUTE=N);
         %SPLIT_INCOME_XML(F=&F,IMPUTE=Y); /* new-style vars */
