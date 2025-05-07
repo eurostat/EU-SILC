@@ -2,7 +2,13 @@
 ### Revision History ###
 ########################
 
-Ver 4.1.2 [Internal]
+Ver 4.1.3 [Internal]+[Github]
+07 May 2025 16:00
+-427 : Imputation factor wrongly filled errors were being reported for records where income value = 0 and the amount is imputed. Condition of validation for imputation factor mismatches changed to exclude these cases, as they are correct per DOC065 rules for imputation factors.
+-426 : Flags for variables with type = ‘YEAR’ in xml file (that were not key variables) were being considered unexpected variables. Condition to extract variables that should have corresponding flag changed to include all except key variables.
+-425 : New validation macro created to check for unexpected flags and imputation factors (not found in the SVAL configuration file). Output added to Summary report.
+
+Ver 4.1.2 [Internal]+[Github]
 27 March 2025 17:00
 -424 : Routing errors for countries with selected respondents – validation was only contemplating cases when a non-selected respondent has a flag other than -3 ( RB245 EQ 3  AND Flag NE -3 ). Added condition for when the selected respondent has flag -3 (NOT(RB245 EQ 3) AND ( Flag = -3 ))
 -423 : Routing errors were not reported correctly for module variables (ad hoc modules and 6 year modules specifically). Added column MOD_ID to tables ADHOC_NAS, RECUR6_NAS in the SVAL.map file - this allows merging of values from SVAL_NAS and SVAL tables for these modules.
