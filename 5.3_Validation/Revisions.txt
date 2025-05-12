@@ -4,6 +4,7 @@
 
 Ver 4.1.3 [Internal]+[Github]
 07 May 2025 16:00
+-428 : Missing flag errors were being incorrectly reported for variables DB020, HB020, PB020 and RB020 which have no flags. These variables were not classified as key variables in the SVAL XML configuration files for 2019 to 2022. Added the key = “Y” attribute to the variables in the listed files.
 -427 : Imputation factor wrongly filled errors were being reported for records where income value = 0 and the amount is imputed. Condition of validation for imputation factor mismatches changed to exclude these cases, as they are correct per DOC065 rules for imputation factors.
 -426 : Flags for variables with type = ‘YEAR’ in xml file (that were not key variables) were being considered unexpected variables. Condition to extract variables that should have corresponding flag changed to include all except key variables.
 -425 : New validation macro created to check for unexpected flags and imputation factors (not found in the SVAL configuration file). Output added to Summary report.
