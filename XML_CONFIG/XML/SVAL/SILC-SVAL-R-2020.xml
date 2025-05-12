@@ -11,7 +11,7 @@
 			<flag> </flag>
 			<label>Year of the survey</label>
 		</variable>
-		<variable id="DB020">
+		<variable id="DB020" key="Y">
 			<type>COUNTRY</type>
 			<req>Y</req>
 			<format>$2.</format>
@@ -193,7 +193,7 @@
 			<flag> </flag>
 			<label>Year of the survey</label>
 		</variable>
-		<variable id="HB020">
+		<variable id="HB020" key="Y">
 			<type>COUNTRY</type>
 			<req>Y</req>
 			<format>$2.</format>
@@ -1024,7 +1024,7 @@
 			<flag> </flag>
 			<label>Year of the survey</label>
 		</variable>
-		<variable id="PB020">
+		<variable id="PB020" key="Y">
 			<type>COUNTRY</type>
 			<req>Y</req>
 			<format>$2.</format>
@@ -2242,7 +2242,7 @@
 			<flag> </flag>
 			<label>Year of the survey</label>
 		</variable>
-		<variable id="RB020">
+		<variable id="RB020" key="Y">
 			<type>COUNTRY</type>
 			<req>Y</req>
 			<format>$2.</format>
@@ -2922,6 +2922,7 @@
 		<cntry>SI</cntry>
 	</selresp>
 </SVAL>
+
 
 
 
