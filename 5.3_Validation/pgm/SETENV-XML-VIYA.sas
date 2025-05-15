@@ -4,7 +4,7 @@ The parameters are defined at the level of SILC Context.*/
 %let parm_s3_region=lux;
 %let parm_s3_authd=SILC_S3_Auth;
 %let parm_s3_credentials=P01;
-%let gRootPathS3=/silc-dev-01;
+%let gRootPathS3=/silc-%sysfunc(substr(&_BASEURL,19,3))-01;
 
 
 /*specify the path to the folder where the software has been dezipped : */

@@ -26,7 +26,8 @@ RUN;
         %PUT *I* XML_COLLECT: HANDLING SILC DATAFILE &DIR&_dirsp_.&FNAME;
 		/*1st import to get the list of variables*/
 		OPTIONS OBS=1;
-		proc import dbms=csv datafile="&DIR&_dirsp_.&FNAME" OUT=FILE_&F.TEMP REPLACE;
+		filename csvfile "&DIR&_dirsp_.&FNAME";
+		proc import dbms=csv datafile=csvfile OUT=FILE_&F.TEMP REPLACE;
 		getnames=no ;
 		run;
 		OPTIONS OBS=MAX;

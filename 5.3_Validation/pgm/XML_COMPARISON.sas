@@ -688,9 +688,16 @@ RUN;
 ODS &OUTPUTFORMAT CLOSE;
 
 %IF &CSV=YES %THEN %DO;
-	PROC EXPORT DATA=disc_diff FILE="&OUT&_dirsp_%quote(&CC&YY.-Comp_discrete_values.csv)" REPLACE;	RUN;
-	PROC EXPORT DATA=cont_diff FILE="&OUT&_dirsp_%quote(&CC&YY.-Comp_cont_values.csv)" REPLACE;RUN;
-	PROC EXPORT DATA=flag_diff FILE="&OUT&_dirsp_%quote(&CC&YY.-Comp_flags.csv)" REPLACE;RUN;
+	filename compcsv "&OUT&_dirsp_%quote(&CC&YY.-Comp_discrete_values.csv)";
+	PROC EXPORT DATA=disc_diff FILE=compcsv REPLACE DBMS=csv;	RUN;
+	filename compcsv clear;
+	filename compcsv "&OUT&_dirsp_%quote(&CC&YY.-Comp_cont_values.csv)";
+	PROC EXPORT DATA=cont_diff FILE=compcsv REPLACE DBMS=csv;RUN;
+	filename compcsv clear;
+	filename compcsv "&OUT&_dirsp_%quote(&CC&YY.-Comp_flags.csv)";
+	PROC EXPORT DATA=flag_diff FILE=compcsv REPLACE DBMS=csv;RUN;
+	filename compcsv clear;
+
 %END;
 
 %mend rep_comparison;
