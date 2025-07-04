@@ -2558,7 +2558,7 @@
 			<flag>(-1,1)</flag>
 			<label>Sample person or co-resident</label>
 		</variable>
-		<variable id="RB110" key="Y">
+		<variable id="RB110">
 			<req>Y</req>
 			<format>2.</format>
 			<list>(1,2,3,4,5,6)</list>
@@ -3562,7 +3562,6 @@
 		</variable>
  		<variable id="HY030G">
 			<req>Y</req>
-			<income>Y</income>
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
@@ -4451,5 +4450,7 @@
 	</hh_membership_status>
 
 </SVAL>
+
+
 
 

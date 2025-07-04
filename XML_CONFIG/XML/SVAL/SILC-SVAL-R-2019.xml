@@ -1761,7 +1761,6 @@
 			<req>Y</req>
 			<format>$3.</format>
 			<list>("BE","BG","CZ","DK","DE","EE","IE","EL","ES","FR","IT","CY","LV","LT","LU","HU","MT","NL","AT","PL","PT","RO","SI","SK","FI","SE","UK","IS","LI","NO","CH","HR","ME","MK","TR","AD","AL","BA","BY","GG","IM","JE","MC","MD","RS","RU","SM","UA","VA","XK","DZ","EG","LY","MA","TN","AO","BF","BI","BJ","BW","CD","CF","CG","CI","CM","CV","DJ","ER","ET","GA","GH","GM","GN","GQ","GW","KE","KM","LR","LS","MG","ML","MR","MU","MW","MZ","NA","NE","NG","RW","SC","SD","SH","SL","SN","SO","SS","ST","SZ","TD","TG","TZ","UG","YT","ZA","ZM","ZW","BM","CA","PM","US","AG","AI","AN","AW","BB","BL","BS","BZ","CR","CU","DM","DO","GD","GT","HN","HT","JM","KN","KY","LC","MF","MS","MX","NI","PA","PR","SV","TC","TT","VC","VG","AR","BO","BR","CL","CO","EC","FK","GY","PE","PY","SR","TF","UY","VE","CN","JP","KP","KR","MN","TW","AE","AM","AZ","BH","GE","IL","IQ","IR","JO","KG","KW","KZ","LB","OM","PS","QA","SA","SY","TJ","TM","UZ","YE","AF","BD","BN","BT","ID","IN","KH","LA","LK","MM","MV","MY","NP","PH","PK","SG","TH","TL","VN","AU","FJ","FM","KI","MH","NC","NR","NZ","PF","PG","PN","PW","SB","TO","TV","VU","WF","WS","UNK")</list>
-
 			<flag>(-7,-6,-5,-3,-2,-1,1)</flag>
 			<na>PT220 = 2</na>
 			<disp>PT220</disp>
@@ -1771,7 +1770,6 @@
 			<req>Y</req>
 			<format>$4.</format>
 			<list>("BE","BG","CZ","DK","DE","EE","IE","EL","ES","FR","IT","CY","LV","LT","LU","HU","MT","NL","AT","PL","PT","RO","SI","SK","FI","SE","UK","IS","LI","NO","CH","HR","ME","MK","TR","AD","AL","BA","BY","GG","IM","JE","MC","MD","RS","RU","SM","UA","VA","XK","DZ","EG","LY","MA","TN","AO","BF","BI","BJ","BW","CD","CF","CG","CI","CM","CV","DJ","ER","ET","GA","GH","GM","GN","GQ","GW","KE","KM","LR","LS","MG","ML","MR","MU","MW","MZ","NA","NE","NG","RW","SC","SD","SH","SL","SN","SO","SS","ST","SZ","TD","TG","TZ","UG","YT","ZA","ZM","ZW","BM","CA","PM","US","AG","AI","AN","AW","BB","BL","BS","BZ","CR","CU","DM","DO","GD","GT","HN","HT","JM","KN","KY","LC","MF","MS","MX","NI","PA","PR","SV","TC","TT","VC","VG","AR","BO","BR","CL","CO","EC","FK","GY","PE","PY","SR","TF","UY","VE","CN","JP","KP","KR","MN","TW","AE","AM","AZ","BH","GE","IL","IQ","IR","JO","KG","KW","KZ","LB","OM","PS","QA","SA","SY","TJ","TM","UZ","YE","AF","BD","BN","BT","ID","IN","KH","LA","LK","MM","MV","MY","NP","PH","PK","SG","TH","TL","VN","AU","FJ","FM","KI","MH","NC","NR","NZ","PF","PG","PN","PW","SB","TO","TV","VU","WF","WS","UNK","RNC","STLS")</list>
-
 			<flag>(-7,-6,-5,-3,-2,-1,1)</flag>
 			<na>PT220 = 2</na>
 			<disp>PT220</disp>
@@ -1781,7 +1779,6 @@
 			<req>Y</req>
 			<format>$3.</format>
 			<list>("BE","BG","CZ","DK","DE","EE","IE","EL","ES","FR","IT","CY","LV","LT","LU","HU","MT","NL","AT","PL","PT","RO","SI","SK","FI","SE","UK","IS","LI","NO","CH","HR","ME","MK","TR","AD","AL","BA","BY","GG","IM","JE","MC","MD","RS","RU","SM","UA","VA","XK","DZ","EG","LY","MA","TN","AO","BF","BI","BJ","BW","CD","CF","CG","CI","CM","CV","DJ","ER","ET","GA","GH","GM","GN","GQ","GW","KE","KM","LR","LS","MG","ML","MR","MU","MW","MZ","NA","NE","NG","RW","SC","SD","SH","SL","SN","SO","SS","ST","SZ","TD","TG","TZ","UG","YT","ZA","ZM","ZW","BM","CA","PM","US","AG","AI","AN","AW","BB","BL","BS","BZ","CR","CU","DM","DO","GD","GT","HN","HT","JM","KN","KY","LC","MF","MS","MX","NI","PA","PR","SV","TC","TT","VC","VG","AR","BO","BR","CL","CO","EC","FK","GY","PE","PY","SR","TF","UY","VE","CN","JP","KP","KR","MN","TW","AE","AM","AZ","BH","GE","IL","IQ","IR","JO","KG","KW","KZ","LB","OM","PS","QA","SA","SY","TJ","TM","UZ","YE","AF","BD","BN","BT","ID","IN","KH","LA","LK","MM","MV","MY","NP","PH","PK","SG","TH","TL","VN","AU","FJ","FM","KI","MH","NC","NR","NZ","PF","PG","PN","PW","SB","TO","TV","VU","WF","WS","UNK")</list>
-
 			<flag>(-7,-6,-5,-3,-2,-1,1)</flag>
 			<na>PT220 = 2</na>
 			<disp>PT220</disp>
@@ -1791,7 +1788,6 @@
 			<req>Y</req>
 			<format>$4.</format>
 			<list>("BE","BG","CZ","DK","DE","EE","IE","EL","ES","FR","IT","CY","LV","LT","LU","HU","MT","NL","AT","PL","PT","RO","SI","SK","FI","SE","UK","IS","LI","NO","CH","HR","ME","MK","TR","AD","AL","BA","BY","GG","IM","JE","MC","MD","RS","RU","SM","UA","VA","XK","DZ","EG","LY","MA","TN","AO","BF","BI","BJ","BW","CD","CF","CG","CI","CM","CV","DJ","ER","ET","GA","GH","GM","GN","GQ","GW","KE","KM","LR","LS","MG","ML","MR","MU","MW","MZ","NA","NE","NG","RW","SC","SD","SH","SL","SN","SO","SS","ST","SZ","TD","TG","TZ","UG","YT","ZA","ZM","ZW","BM","CA","PM","US","AG","AI","AN","AW","BB","BL","BS","BZ","CR","CU","DM","DO","GD","GT","HN","HT","JM","KN","KY","LC","MF","MS","MX","NI","PA","PR","SV","TC","TT","VC","VG","AR","BO","BR","CL","CO","EC","FK","GY","PE","PY","SR","TF","UY","VE","CN","JP","KP","KR","MN","TW","AE","AM","AZ","BH","GE","IL","IQ","IR","JO","KG","KW","KZ","LB","OM","PS","QA","SA","SY","TJ","TM","UZ","YE","AF","BD","BN","BT","ID","IN","KH","LA","LK","MM","MV","MY","NP","PH","PK","SG","TH","TL","VN","AU","FJ","FM","KI","MH","NC","NR","NZ","PF","PG","PN","PW","SB","TO","TV","VU","WF","WS","UNK","RNC","STLS")</list>
-
 			<flag>(-7,-6,-5,-3,-2,-1,1)</flag>
 			<na>PT220 = 2</na>
 			<na flag="-3"/>
@@ -3020,4 +3016,3 @@ the household</label>
 		<list>(1,2,3,4,5,6)</list>
 	</hh_membership_status>
 </SVAL>
-

@@ -1036,7 +1036,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="2" digit="1">(-8,-5,1,2,3,4,5,6,7)</flag>
+			<flag len="2" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<impute>Y</impute>
 			<label>Value of goods produced for own consumption</label>
@@ -1047,7 +1047,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="2" digit="1">(-8,-5,1,2,3,4,5,6,7)</flag>
+			<flag len="2" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<impute>Y</impute>
 			<label>Value of goods produced for own consumption</label>
@@ -3582,7 +3582,6 @@
 		</variable>
  		<variable id="HY030G">
 			<req>Y</req>
-			<income>Y</income>
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
@@ -3594,7 +3593,6 @@
 	<recur3 title="Imputed rent optional 24" id="IR24" start="2024" switch="ON">
          		<variable id="HY030G">
 			<req>Y</req>
-			<income>Y</income>
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
@@ -3605,7 +3603,6 @@
 	<recur3 title="Imputed rent optional 25" id="IR25" start="2025" switch="ON">
          		<variable id="HY030G">
 			<req>Y</req>
-			<income>Y</income>
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
@@ -4253,8 +4250,8 @@
 			<flag>(-7,-4,-2,-1,1,2,3,4)</flag>
 			<na>RB082 GT 12 </na>
 			<disp>RB082</disp>
-			<na flag="-4">RL030=0 and RL040=0</na>
-			<disp flag="-4">RL030,RL040</disp>
+			<na flag="-4">(RL030=0 and RL040=0) or (RL030_F=-2 and RL040=0)</na>
+			<disp flag="-4">RL030,RL030_F,RL040</disp>
                         <na flag="-7"/>
 			<label>Payment for formal childcare services</label>
 </variable>
@@ -4488,8 +4485,6 @@
 	    <format>2.</format>
 	    <list>(1,2,3,4,5,99)</list>
 	    <flag>(-7,-2,-1,1)</flag>
-	    <na flag="-2">HH010 = 5</na>
-	    <disp flag="-2">HH010</disp>
 	     <na flag="-7"/>
 	    <label>Energy efficiency renovation (thermal insulation, windows or heating system)</label>
 	  </variable>
@@ -4514,8 +4509,6 @@
 	    <format>2.</format>
 	    <list>(1,2,3,4,5)</list>
 	    <flag>(-7,-2,-1,1)</flag>
-	    <na flag="-2">HC003A in (1,2,3,5,99) or HH021 in (3,4,5) or HH010=5</na>
-	    <disp flag="-2">HC003A,HH021,HH010</disp>
 	    <na flag="-7"/>
 	    <label>Obstacles in improving energy efficiency</label>
 	  </variable>
@@ -4602,7 +4595,7 @@
 	    <flag>(-7,-3,-1,1)</flag>
             <na flag="-7"/>
 	    <na flag="-3"/>
-	    <label>Damage to house/apartment due to environmental/weather causes</label>
+	    <label>Damage to main house/apartment due to environmental/weather causes</label>
 	  </variable>
      	  <variable id="PEE10">
 	    <req>Y</req>
@@ -4712,6 +4705,9 @@
 	</hh_membership_status>
 
 </SVAL>
+
+
+
 
 
 
