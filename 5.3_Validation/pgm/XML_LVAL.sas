@@ -21,6 +21,7 @@ SET  IN_XML.LVAL (in=A);
   SELECT = UPCASE(SELECT);
   FROM = UPCASE(FROM);
   JOIN = UPCASE(JOIN);
+  ON = UPCASE(ON);
   WHERE = UPCASE(WHERE);
   GROUP = UPCASE(GROUP);
   HAVING = UPCASE(HAVING);
@@ -82,6 +83,7 @@ RUN;
           IF X ^= '' THEN DO;
                  PUT 'HANDLING LOOPED CHECK=' ID ' ON X=' X;
              SELECT = TRANWRD(SELECT,'$X',TRIM(X));
+			 JOIN = TRANWRD(JOIN,'$X',TRIM(X));
              ON     = TRANWRD(ON,'$X',TRIM(X));
              WHERE  = TRANWRD(WHERE,'$X',TRIM(X));
              GROUP  = TRANWRD(GROUP,'$X',TRIM(X));
@@ -207,8 +209,6 @@ SET  LVAL;
 	select_clean=tranwrd(select_clean,'mean,','') ;
 	select_clean=tranwrd(select_clean,'min,','') ;
 	select_clean=tranwrd(select_clean,'max,','') ;
-	select_clean=tranwrd(select_clean,'floor,','') ;
-	select_clean=tranwrd(select_clean,'ceil,','') ;
 	select_clean=compress(select_clean," "); 
 
   /*scan the words (separated by ,) in the cleaned select clause of each lval check*/
@@ -240,7 +240,7 @@ SET  LVAL;
          IF (LENGTH(TOK)>6) 
 			or (SUBSTR(TOK,1,1) eq '_') 
 			or (SUBSTR(TOK,1,1) in ('0','1','2','3','4','5','6','7','8','9'))
-			or TOK in ("SUM","MEAN","MAX","MIN","COUNT","CEIL","FLOOR","SUBSTR") 
+			or TOK in ("SUM","MEAN","MAX","MIN","COUNT","SUBSTR","INT") 
 		 THEN RES = 1;
          ELSE DO;
              IF F EQ 'D'      THEN RES = (TOK IN (&VARS_D));

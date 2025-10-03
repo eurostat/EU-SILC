@@ -141,11 +141,14 @@ OPTIONS FmtErr;*NOSOURCE NOMPRINT NOMLOGIC;
         %check_PARENT(F=&F);
         %check_UNIQUE(F=&F);
 
+		/*For 2025 onwards: grid variable validations moved to LVAL, %check_GRID discontinued*/
+		%if &YYYY <= 2024 %then %do;
         PROC SQL NOPRINT;
           SELECT MIN(COUNT(*),1) INTO :_doGRID_
           FROM   SVAL_&F
           WHERE  TYPE = 'HGRID';
         QUIT;
+		%end;
 
         %PUT *I* doGRID: &_doGRID_ ;
         %IF &_doGRID_ EQ 1 AND &F EQ R %THEN %DO;%check_GRID(F=&F);%END;
