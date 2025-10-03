@@ -2,6 +2,20 @@
 ### Revision History ###
 ########################
 
+Ver 5.0 [Internal]+[Github]
+01 October 2025 16:00
+-435: Added INT as allowed keyword in LVAL.
+-434: Add BA Nuts2 to XML nomenclature.
+-431: Disabled SVAL grid checks from 2025 onwards.
+-430: Added grid logical checks to 2025 LVAL xml file.
+-429: Added logical checks for 2025 module variables to LVAL xml file.
+
+Ver 4.1.3 [Internal]
+09 July 2025 16:00
+-436: LVAL checks 1405 and 1406 disabled to preserve information in the following cases:
+In the first case people may not give us the answer if they paid or not for childcare service but they may want to reply how affordable childcare is for them.
+In the second case we may not know the hours of childcare but people may be willing to reply if they paid for the childcare or not.
+
 Ver 4.1.3 [Internal]+[Github]
 07 May 2025 16:00
 -428 : Missing flag errors were being incorrectly reported for variables DB020, HB020, PB020 and RB020 which have no flags. These variables were not classified as key variables in the SVAL XML configuration files for 2019 to 2022. Added the key = “Y” attribute to the variables in the listed files.
