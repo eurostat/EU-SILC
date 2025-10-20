@@ -1230,6 +1230,33 @@
     <from>h</from>
     <where>HH070  GT  0 and  (HH070 * 12)  GT  HY020</where>
   </check>
+<!-- NET vs GROSS INCOME -->
+  <check id="850">
+    <loop>
+      <x>PY010</x>
+      <x>PY050</x>
+      <x>PY080</x>
+      <x>PY090</x>
+      <x>PY100</x>
+      <x>PY110</x>
+      <x>PY120</x>
+      <x>PY130</x>
+    </loop>
+    <title>Income - Warning: $x - Gross and net values are the same</title>
+    <select>PB010, PB030, $xG, $xG_F, $xN, $xN_F</select>
+    <from>p</from>
+    <where>$xG = $xN and $xN NE . and $xN NE 0</where>
+  </check>
+  <check id="860">
+    <loop>
+      <x>HY040</x>
+      <x>HY090</x>
+    </loop>
+    <title>Income - Warning: $x - Gross and net values are the same</title>
+    <select>HB010, HB030, $xG, $xG_F, $xN, $xN_F</select>
+    <from>h</from>
+    <where>$xG = $xN and $xN NE . and $xN NE 0</where>
+  </check>
 
   <!--3Y MODULE ON CHILDREN-->
   <check id="1001" start="2021" module="recur3">
