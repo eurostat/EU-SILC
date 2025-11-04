@@ -2,8 +2,13 @@
 ### Revision History ###
 ########################
 
-Ver 5.0 [Internal]+[Github]
-01 October 2025 16:00
+Ver 5.0.1 [Internal]+[Github]
+04 November 2025 14:30
+-438: Checks 1505 and 1506 modified so that HEE07_F = -2 is expected when HH021 or HC003A have missing values.
+
+Ver 5.0 [Internal]+[Github]+[CIRCABC]
+27 October 2025
+-437: Add warnings to logical checks for income variables with gross=net values (check IDs: 850-861). Variables: HY040, HY090, PY010, PY050, PY080, PY090, PY100, PY110, PY120, PY130.
 -435: Added INT as allowed keyword in LVAL.
 -434: Add BA Nuts2 to XML nomenclature.
 -431: Disabled SVAL grid checks from 2025 onwards.
