@@ -2,6 +2,10 @@
 ### Revision History ###
 ########################
 
+Ver 5.0.2 [Internal]+[Github]
+01 December 2025 16:00
+-439: R-file structural validations: errors for individuals in split-off households were not reported, due to the merge to purge errors for non-household members being done only by individual ID and not household ID. RB040 was added to the merge step to fix this.
+
 Ver 5.0.1 [Internal]+[Github]
 04 November 2025 14:30
 -438: Checks 1505 and 1506 modified so that HEE07_F = -2 is expected when HH021 or HC003A have missing values.
