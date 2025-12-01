@@ -6,12 +6,27 @@
 /**
  * --------------------- STRUCTURAL VALIDATION ---------------
  * getSVAL
+ * check_BRK_LOV
+ * check_BRK_FLAG
  * check_VARIABLES
  * check_FLAGS
+ * check_FLAG_LENGTHS
  * check_V_FLAGS
+ * check_IMPUT_FACTORS
+ * check_MINUS7
+ * check_CHKSUM
+ * check_CHILDNULL
+ * check_PARENT
+ * check_UNIQUE
+ * check_OPTIONAL
  * check_NA
  * check_MISS
+ * count_MISS
  * FMT_LIST
+ * purge_FALSE_ANTE_ERRORS_24_25
+ * sub_purge_NON_HH_MEMBER
+ * sub_compl_NON_HH_MEMBER
+ * purge_NON_HH_MEMBER
  * REP_SVAL
  * > REDUCE_TBL
  */
@@ -374,7 +389,7 @@ QUIT;
     RUN;
 
 
-    DATA BRK_ANTE_&k (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE);
+    DATA BRK_ANTE_&k (KEEP=&ID_VARS. VARIABLE VALUE);
     SET  &DS (WHERE=(&F.B010 lt &ANTE));
          LENGTH VARIABLE $8;
          LENGTH VALUE $12;
@@ -451,8 +466,8 @@ QUIT;
     RUN;
 
     DATA
-         BRK_FLG_ANTE_&k (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE DIGIT LOV)
-         BRK_FLG_ANTE_FNEG_&k (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE)
+         BRK_FLG_ANTE_&k (KEEP=&ID_VARS. VARIABLE VALUE DIGIT LOV)
+         BRK_FLG_ANTE_FNEG_&k (KEEP=&ID_VARS. VARIABLE VALUE)
          ;
     SET  &DS (WHERE=(&F.B010 lt &ANTE));
          LENGTH VARIABLE $8;
@@ -555,6 +570,9 @@ QUIT;
 %IF &MODE EQ RANGE %THEN %DO;
         DATA SVAL_MISM_V;
           LENGTH &F.B010 &F.B030 8;
+			%IF &F EQ R %THEN %DO;
+				LENGTH RB040 8;
+			%END;
           LENGTH &F.B020 $2;
           LENGTH VARIABLE $8;
           LENGTH VALUE $32;
@@ -584,7 +602,7 @@ QUIT;
         RUN;
 
         DATA
-         SVAL_MISM_V_1 (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE);
+         SVAL_MISM_V_1 (KEEP=&ID_VARS. VARIABLE VALUE);
         SET  &DS;
                 LENGTH VARIABLE $8;
                 LENGTH VALUE $12;
@@ -637,7 +655,7 @@ QUIT;
         RUN;
 
         DATA
-         SVAL_MISM_V_2 (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE);
+         SVAL_MISM_V_2 (KEEP=&ID_VARS. VARIABLE VALUE);
         SET  &DS;
                 LENGTH VARIABLE $8;
                 LENGTH VALUE $12;
@@ -713,8 +731,8 @@ QUIT;
         RUN;
 
         DATA
-         SVAL_MISM_F (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE DIGIT LOV)
-         SVAL_MISM_FNEG (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE)
+         SVAL_MISM_F (KEEP=&ID_VARS. VARIABLE VALUE DIGIT LOV)
+         SVAL_MISM_FNEG (KEEP=&ID_VARS. VARIABLE VALUE)
         ;
         SET  &DS;
          LENGTH VARIABLE $8;
@@ -826,7 +844,7 @@ QUIT;
 
 
         DATA
-         SVAL_MISM_FLEN (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE LEN);
+         SVAL_MISM_FLEN (KEEP=&ID_VARS. VARIABLE VALUE LEN);
         SET  &DS;
                 LENGTH VARIABLE $8;
                 LENGTH VALUE 8;
@@ -921,7 +939,7 @@ QUIT;
         RUN;
 
         DATA
-         SVAL_MISM_VF (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE FLAG);
+         SVAL_MISM_VF (KEEP=&ID_VARS. VARIABLE VALUE FLAG);
         SET  &DS;
             LENGTH VARIABLE $8;
                 LENGTH VALUE $12;
@@ -1016,7 +1034,7 @@ QUIT;
 		%put vars : &vars;
 	%END;
 
-    DATA SVAL_MISM_IF_MISSING (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE FLAG IMPUT_FACTOR);
+    DATA SVAL_MISM_IF_MISSING (KEEP=&ID_VARS. VARIABLE VALUE FLAG IMPUT_FACTOR);
     SET  &DS;
         LENGTH VARIABLE $8;
             LENGTH VALUE $12;
@@ -1038,7 +1056,7 @@ QUIT;
              IF VARIABLE ^= '';
     RUN;
 
-	DATA SVAL_MISM_IF_WRONG (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE FLAG IMPUT_FACTOR);
+	DATA SVAL_MISM_IF_WRONG (KEEP=&ID_VARS. VARIABLE VALUE FLAG IMPUT_FACTOR);
     SET  &DS;
         LENGTH VARIABLE $8;
             LENGTH VALUE $12;
@@ -1118,7 +1136,7 @@ QUIT;
         %IF %QUOTE(&VARS) NE %THEN %DO;
 				/*WRONG USE OF -7 FLAGS*/
                 DATA
-                 SVAL_MISM_MINUS7&MOD (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE FLAG);
+                 SVAL_MISM_MINUS7&MOD (KEEP=&ID_VARS. VARIABLE FLAG);
                 SET  &DS;
                      LENGTH VARIABLE $8;
                         %LET K=1;
@@ -1168,7 +1186,7 @@ QUIT;
                 RUN;
 				/*-7 FLAGS SHOULD BE USED AND IS NOT*/
                  DATA
-                 SVAL_MUST_MINUS7&MOD (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE FLAG);
+                 SVAL_MUST_MINUS7&MOD (KEEP=&ID_VARS. VARIABLE FLAG);
                 SET  &DS;
                      LENGTH VARIABLE $8;
                         %LET K=1;
@@ -1267,7 +1285,7 @@ QUIT;
           END;
         RUN;
 
-        DATA SVAL_MISM_CHKSUM (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE DISP VALUE SUM);
+        DATA SVAL_MISM_CHKSUM (KEEP=&ID_VARS. VARIABLE DISP VALUE SUM);
         SET  &DS;
           LENGTH VARIABLE $8;
           LENGTH VALUE $8;
@@ -1363,7 +1381,7 @@ QUIT;
           END;
         RUN;
 
-        DATA SVAL_MISM_CHILDNULL (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE DISP VALUE SUM);
+        DATA SVAL_MISM_CHILDNULL (KEEP=&ID_VARS. VARIABLE DISP VALUE SUM);
         SET  &DS;
           LENGTH VARIABLE $8;
           LENGTH DISP $256;
@@ -1424,7 +1442,7 @@ QUIT;
           ELSE CALL SYMPUT('VARS',TRIM(VARS));
         RUN;
 
-        DATA SVAL_MISM_PARENT (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE DISP VALUE GROSS);
+        DATA SVAL_MISM_PARENT (KEEP=&ID_VARS. VARIABLE DISP VALUE GROSS);
         SET  &DS;
           LENGTH VARIABLE $8;
           LENGTH DISP $256;
@@ -1454,7 +1472,7 @@ QUIT;
 
 %MEND check_PARENT;
 
-%MACRO check_UNIQUE(F=);
+%MACRO check_UNIQUE(F=); *Check for duplicate records;
 
         %IF %SYSFUNC(EXIST(SVAL_UNIQUE)) %THEN %DO;
                 PROC SQL;
@@ -1489,7 +1507,7 @@ QUIT;
 
 %MEND check_UNIQUE;
 
-%MACRO check_OPTIONAL(F=);
+%MACRO check_OPTIONAL(F=); *Check for required variables with flag -8. Macro is not executed;
 
         %IF %SYSFUNC(EXIST(SVAL_MISM_NA)) %THEN %DO;
                 PROC SQL;
@@ -1508,7 +1526,7 @@ QUIT;
         QUIT;
 
         DATA SVAL_MISM_OPTIONAL
-                (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE VALUE FLAG)
+                (KEEP=&ID_VARS. VARIABLE VALUE FLAG)
         ;
         SET  &DS;
           LENGTH VARIABLE $8;
@@ -1542,7 +1560,7 @@ QUIT;
  * PRECONDITION
  * <NA flag="-3"> -> ALREADY PREPROCESSED
  */
-%MACRO check_NA(F=);
+%MACRO check_NA(F=); *Check for routing errors;
 
         %IF %SYSFUNC(EXIST(SVAL_MISM_NA)) %THEN %DO;
                 PROC SQL;
@@ -1723,13 +1741,13 @@ QUIT;
                 %LET FLAGX=%SCAN(&VAR,2,:);
          %END;
 
-         DATA SVAL_MISM_NA (KEEP=&F.B010 &F.B020 &F.B030 NA_FLAG VARIABLE VALUE FLAG DISP CHECK);
+         DATA SVAL_MISM_NA (KEEP=&ID_VARS. NA_FLAG VARIABLE VALUE FLAG DISP CHECK);
          SET  SVAL_MISM_NA;
          RUN;
 
 %MEND check_NA;
 
-%MACRO check_MISS(F=);
+%MACRO check_MISS(F=); *Extract missing values with flag -1 or -8;
 
         %IF %SYSFUNC(EXIST(SVAL_MISS)) %THEN %DO;
                 PROC SQL;
@@ -1752,7 +1770,7 @@ QUIT;
           IF EOF THEN CALL SYMPUT('VARS',TRIM(VARS));
         RUN;
 
-        DATA SVAL_MISS (KEEP=&F.B010 &F.B020 &F.B030 VARIABLE FLAG);
+        DATA SVAL_MISS (KEEP=&ID_VARS. VARIABLE FLAG);
         SET  &DS NOBS=NOBS END=EOF;
           LENGTH VARIABLE $8;
                 %LET K=1;
@@ -1788,7 +1806,7 @@ QUIT;
 %MEND check_MISS;
 
 
-%MACRO count_MISS (F=,METHOD=OLD);
+%MACRO count_MISS (F=,METHOD=OLD); *Percentage of missing values with flag -1 or -8;
 
   %LOCAL VAR VARS;
 
@@ -1907,7 +1925,7 @@ QUIT;
 
 %MEND count_MISS;
 
-%MACRO FMT_LIST(SLIST);
+%MACRO FMT_LIST(SLIST); *Macro is not executed;
 
 %LET LIST_STR=;
 %LET K=1;
@@ -1939,6 +1957,343 @@ QUIT;
 %END;
 
 %MEND;
+
+
+%MACRO reduce_TBL(TBL=,F=,MAXREC=3, COND=);
+
+PROC SORT DATA=&TBL &COND OUT=&TBL._2REP;
+  BY VARIABLE DESCENDING &F.B010;
+DATA _LAST_ (DROP=C);
+SET;
+  BY VARIABLE;
+  RETAIN C 1;
+  YR = &F.B010;
+  LGYR = LAG(&F.B010);
+  IF FIRST.VARIABLE THEN DO;
+         C = 1;
+         LGYR = 0;
+  END;
+  ELSE DO;
+          IF YR = LGYR AND LGYR ^= . THEN DO;
+                 C + 1;
+          END;
+          ELSE C = 1;
+  END;
+  IF C <= &MAXREC;
+RUN;
+
+DATA _LAST_;
+SET  _LAST_;
+     LENGTH LABEL $150;
+     LENGTH SHLABEL_1 SHLABEL_2 SHLABEL $150;
+     LABEL SHLABEL = 'LABEL';
+     LABEL = PUT(VARIABLE,$VARLABEL.);
+     _I_ = INDEX(LABEL,'-');
+     SHLABEL_1 = UPCASE(SUBSTR(LABEL,_I_+2,1));
+     SHLABEL_2 = LOWCASE(SUBSTR(LABEL,_I_+3));
+     SHLABEL = STRIP(SHLABEL_1)||SHLABEL_2;
+     LABEL = STRIP(VARIABLE) || ' - ' || SHLABEL;
+     DROP SHLABEL_: _I_;
+RUN;
+
+%MEND reduce_TBL;
+
+
+%MACRO sub_purge_NON_HH_MEMBER (TBL); *Delete non-household members from mismatch tables;
+
+%LOCAL K LX_ITEM ID_LST;
+
+%IF %SYSFUNC(EXIST(&TBL)) %THEN %DO;
+    PROC SORT DATA=&TBL;
+      BY &LX_PFX.B010 &LX_PFX.B030 &LX_PFX.B040;
+    RUN;
+        DATA
+          &TBL (DROP=&LX)
+          &TBL._NON_MEMB
+        ;
+		/*Delete non-household members from mismatch table and add them to separate table*/
+		/*LV 25.11.2025: Added to RB040 to merge so that individuals in split-off households are deleted only for the old household*/
+        MERGE &TBL (in=A) NON_MEMB_LST (in=B);
+          BY &LX_PFX.B010 &LX_PFX.B030  &LX_PFX.B040;
+          IF A AND B THEN OUTPUT &TBL._NON_MEMB;
+          ELSE IF A THEN OUTPUT &TBL;
+        RUN;
+
+		/*Create a list of possible values of RB110 for non-household members*/
+        PROC SQL NOPRINT;
+          SELECT DISTINCT &LX INTO :LX_LST SEPARATED BY ' '
+          FROM   SVAL_HH_MEMBER_MANDATORY
+          ;
+        QUIT;
+
+		/*Loop through all possible RB110 values for non-household members*/
+        %LET K=1;
+        %LET LX_ITEM=%SCAN(&LX_LST,&K);
+        %DO %WHILE(&LX_ITEM ne);
+                PROC SQL NOPRINT;
+                  SELECT DISTINCT "'"||TRIM(ID)||"'" INTO :ID_LST SEPARATED BY ' '
+                  FROM   SVAL_HH_MEMBER_MANDATORY
+                  WHERE  &LX = &LX_ITEM
+                  ;
+                QUIT;
+
+                %PUT *I* XML_SVAL:HH_NON_MEMBER STATUS[&LX]:&LX_ITEM;
+                %PUT *I* &ID_LST;
+
+				/*Retrieve from deleted errors variables that should be filled for non-household members*/
+                DATA ADD_&LX_ITEM;
+                SET  &TBL._NON_MEMB;
+                        IF &LX eq &LX_ITEM AND VARIABLE IN ( &ID_LST );
+                RUN;
+				
+				/*Add the errors back into the mismatch table*/
+                PROC APPEND FORCE BASE=&TBL DATA=ADD_&LX_ITEM;
+                RUN;
+                %LET K=%EVAL(&K+1);
+                %LET LX_ITEM=%SCAN(&LX_LST,&K);
+        %END;
+%END;
+
+%MEND sub_purge_NON_HH_MEMBER;
+
+
+%MACRO sub_compl_NON_HH_MEMBER; *Check mandatory variables for non-household members;
+
+/*%LOCAL;*/%GLOBAL K LX_ITEM ID ID_LST ID_LST2 VAR VARS;
+
+		/*Create a list of non-household members*/
+        DATA NON_MEMB_LST (KEEP=&LX_PFX.B010 &LX_PFX.B030 &LX);
+        SET  &DS;
+          IF NOT( &HH_MEMBERSHIP_STATUS_FILTER );
+        PROC SORT NODUPKEY;
+            BY &LX_PFX.B010 &LX_PFX.B030 &LX;
+        RUN;
+
+        PROC SORT DATA=&DS OUT=R;
+          BY &LX_PFX.B010 &LX_PFX.B030 &LX;
+        RUN;
+
+        DATA
+            R_NON_MEMB
+            DUMP
+        ;
+
+		/*R-file with non-household members only*/
+        MERGE R (in=A) NON_MEMB_LST (in=B);
+          BY &LX_PFX.B010 &LX_PFX.B030 &LX;
+          IF A AND B THEN OUTPUT R_NON_MEMB;
+          ELSE IF B THEN OUTPUT DUMP;
+        RUN;
+
+		/*Create a list of possible values of RB110 for non-household members*/
+        PROC SQL NOPRINT;
+          SELECT DISTINCT &LX INTO :LX_LST SEPARATED BY ' '
+          FROM   SVAL_HH_MEMBER_MANDATORY
+          WHERE  CHECKNULL = 'Y'
+          ;
+        QUIT;
+		RUN;
+		%PUT *I* LX_LST:  &LX_LST;
+
+        %LET K=1;
+        %LET LX_ITEM=%SCAN(&LX_LST,&K," ");
+        %DO %WHILE(&LX_ITEM ne);
+                PROC SQL NOPRINT;
+                  SELECT DISTINCT "'"||TRIM(ID)||"'" INTO :ID_LST SEPARATED BY ' '
+                  FROM   SVAL_HH_MEMBER_MANDATORY
+                  WHERE  &LX = &LX_ITEM
+                  ;
+                QUIT;
+				/*Mandatory variables for non-household members*/
+                PROC SQL NOPRINT;
+                  SELECT DISTINCT TRIM(ID) INTO :ID_LST2 SEPARATED BY ' '
+                  FROM   SVAL_HH_MEMBER_MANDATORY
+                  WHERE  &LX = &LX_ITEM and ID NOT IN ("RB010","RB020","RB030")
+                  ;
+                QUIT;
+
+                %LET ID_LST=&ID_LST "&LX._F";
+
+				/*R file structure*/
+                PROC CONTENTS DATA=R_NON_MEMB OUT=MEMBERS NOPRINT;
+                RUN;
+
+				/*Delete variables without flags*/
+                PROC SQL;
+                  DELETE FROM MEMBERS T
+                  WHERE  NAME NOT IN
+                  ( SELECT VARIABLE FROM SVAL_&F WHERE FLAG_NAME IS NOT NULL )
+                  ;
+                QUIT;
+
+				/*Delete variables that are mandatory for non-household members*/
+                PROC SQL;
+                  DELETE FROM MEMBERS T
+                  WHERE  NAME IN ( &ID_LST )
+                  ;
+                QUIT;
+
+				/*Create list of R file variables*/
+				/*Variables that should be empty for non-household members*/
+                PROC SQL NOPRINT;
+                     SELECT strip(NAME) || ':' || put(TYPE,Z1.) INTO :VARS SEPARATED BY ' '
+                     FROM   MEMBERS
+                     ;
+                QUIT;
+
+				/*Check variables/flags that should be missing for non-household members*/
+                DATA SVAL_NON_MEMB_&K (KEEP=&F.B010 &F.B030 &LX VARIABLE VALUE FLAG WHERE=(FLAG ne -7));
+                SET  R_NON_MEMB (WHERE=(&LX=&LX_ITEM));
+                     LENGTH VARIABLE $12;
+                     LENGTH VALUE $32;
+                     LENGTH FLAG 8;
+                     %LET J=1;
+                     %LET VAR=%SCAN(&VARS,&J);
+                     %DO  %WHILE(&VAR ne);
+                          %LET VARX=%SCAN(&VAR,1,:);
+                          %LET TYP=%SCAN(&VAR,2,:);
+                          IF NOT ( ( &VARX = . ) AND ( &VARX._F = . ) ) THEN DO;
+                             VARIABLE = "&VARX";
+                             %IF &TYP EQ 1 %THEN %DO;
+                             VALUE = STRIP(put(&VARX,$10.));
+                             %END;
+                             %ELSE %IF &TYP EQ 2 %THEN %DO;
+                             VALUE = &VARX;
+                             %END;
+                             FLAG  = &VARX._F;
+                             OUTPUT;
+                          END;
+                          %LET J=%EVAL(&J+1);
+                          %LET VAR=%SCAN(&VARS,&J);
+                     %END;
+                RUN;
+				/*Check variables/flags that should be filled for non-household members*/
+                DATA SVAL_NON_MEMB_MISS_&K (KEEP=&F.B010 &F.B030 &LX VARIABLE VALUE FLAG WHERE=(FLAG ne -7));
+                SET  R_NON_MEMB (WHERE=(&LX=&LX_ITEM));
+                     LENGTH VARIABLE $12;
+                     LENGTH VALUE $32;
+                     LENGTH FLAG 8;
+                     %LET J=1;
+                     %LET ID=%SCAN(&ID_LST2,&J);
+                     %DO  %WHILE(&ID ne);
+                          IF ( &ID = . and &ID._F=. ) THEN DO;
+                             VARIABLE = "&ID";
+                             VALUE = &ID;
+                             FLAG  = &ID._F;
+                             OUTPUT;
+                          END;
+                          %LET J=%EVAL(&J+1);
+                          %LET ID=%SCAN(&ID_LST2,&J);
+                     %END;
+                RUN;
+
+
+                %IF &K eq 1 %THEN %DO;
+                    DATA SVAL_NON_MEMB;
+                    SET  SVAL_NON_MEMB_&K;
+                    RUN;
+                    DATA SVAL_NON_MEMB_MISS;
+                    SET  SVAL_NON_MEMB_MISS_&K;
+                    RUN;
+                %END;
+                %ELSE %DO;
+                    PROC APPEND BASE=SVAL_NON_MEMB
+                         DATA=SVAL_NON_MEMB_&K;
+                    RUN;
+                    PROC APPEND BASE=SVAL_NON_MEMB_MISS
+                         DATA=SVAL_NON_MEMB_MISS_&K;
+                    RUN;
+                %END;
+
+                %LET K=%EVAL(&K+1);
+                %LET LX_ITEM=%SCAN(&LX_LST,&K," ");
+
+       %END;
+
+%MEND sub_compl_NON_HH_MEMBER;
+
+
+
+
+/**
+ * RK MODULE SPECIFICITIES (NON-HOUSEHOLD MEMBERS)
+ * Delete non-household members from mismatch tables
+ * Structural validations for non-household members
+ * Only executed for the R file
+*/
+%MACRO purge_NON_HH_MEMBER (F=);
+
+%LOCAL LX LX_PFX;
+
+%LET DS=RAW.&_SPLIT_MODE_&ss&cc&YY&F;
+
+%IF %SYSFUNC(EXIST(SVAL_NON_MEMB)) %THEN %DO;
+
+    PROC SQL;
+      DROP TABLE SVAL_NON_MEMB;
+    QUIT;
+
+%END;
+
+/*Variable and condition to select household members: SVAL_HH_MBR_STAT_LST*/
+%LET HH_MEMBERSHIP_STATUS_FILTER=;
+%LET LX=;
+%LET LX_PFX=;
+DATA _NULL_;
+SET  SVAL_HH_MBR_STAT_LST;
+     CALL SYMPUT('HH_MEMBERSHIP_STATUS_FILTER',TRIM(LX)||' IN '||TRIM(RX));
+     CALL SYMPUTX('LX',UPCASE(LX));
+     CALL SYMPUTX('LX_PFX',UPCASE(SUBSTR(LX,1,1)));
+RUN;
+
+%PUT &LX &HH_MEMBERSHIP_STATUS_FILTER;
+
+
+%IF &LX_PFX ne %THEN %DO;
+
+        %PUT *I* LX: &LX | LX(1,1): &LX_PFX;
+
+        %IF &F EQ &LX_PFX %THEN %DO;
+
+		/*Extract IDs of non-household members*/
+          DATA NON_MEMB_LST (KEEP=&LX_PFX.B010 &LX_PFX.B030 &LX_PFX.B040 &LX);
+          SET  &DS;
+            IF NOT( &HH_MEMBERSHIP_STATUS_FILTER );
+          PROC SORT NODUPKEY;
+            BY &LX_PFX.B010 &LX_PFX.B030 &LX_PFX.B040;
+          RUN;
+
+        %END;
+		/*Delete non-household members from all SVAL mismatch tables*/
+        %sub_purge_NON_HH_MEMBER (Sval_mism_v);
+        %sub_purge_NON_HH_MEMBER (Sval_mism_f);
+        %sub_purge_NON_HH_MEMBER (Sval_mism_vf);
+
+        %sub_purge_NON_HH_MEMBER (Sval_mism_optional);
+        %sub_purge_NON_HH_MEMBER (Sval_mism_na);
+        %sub_purge_NON_HH_MEMBER (Sval_mism_parent);
+        %sub_purge_NON_HH_MEMBER (Sval_mism_childnull);
+        %sub_purge_NON_HH_MEMBER (Sval_mism_chksum);
+        %sub_purge_NON_HH_MEMBER (Sval_miss);
+        %sub_purge_NON_HH_MEMBER (Grid_mism_seq);
+        %sub_purge_NON_HH_MEMBER (Grid_mism_matrix);
+        %sub_purge_NON_HH_MEMBER (Grid_mism_age);
+        %sub_purge_NON_HH_MEMBER (Grid_mism_red);
+
+        %PUT *I* SVAL_MISM_MINUS7 IS NOT SUBJECT TO THE NON-HH PURGING
+        ;
+
+		/*Checks for incorrectly filled or missing variables for non-household members*/
+        %sub_compl_NON_HH_MEMBER;
+
+%END;
+%ELSE %DO;
+  %PUT *I* UNDEFINED NON_HH_MEMBER POLICY
+  ;
+%END;
+
+%MEND purge_NON_HH_MEMBER;
+
 /**
  * REPORT SVAL
  */
@@ -2130,6 +2485,9 @@ RUN;
 DATA SVAL_MISS_FULL_CSV_&F&_SPLIT_MODE_;
 LENGTH WARNING $32;
 LENGTH &F.B010 &F.B030 8;
+%IF &F = R %THEN %DO;
+	LENGTH RB040 8;
+%END;
 LENGTH RB110 8;
 LENGTH VARIABLE $12;
 LENGTH DIGIT 3.;
@@ -2974,312 +3332,3 @@ ODS &OUTPUTFORMAT CLOSE;
 %END;
 
 %MEND rep_SVAL;
-
-%MACRO reduce_TBL(TBL=,F=,MAXREC=3, COND=);
-
-PROC SORT DATA=&TBL &COND OUT=&TBL._2REP;
-  BY VARIABLE DESCENDING &F.B010;
-DATA _LAST_ (DROP=C);
-SET;
-  BY VARIABLE;
-  RETAIN C 1;
-  YR = &F.B010;
-  LGYR = LAG(&F.B010);
-  IF FIRST.VARIABLE THEN DO;
-         C = 1;
-         LGYR = 0;
-  END;
-  ELSE DO;
-          IF YR = LGYR AND LGYR ^= . THEN DO;
-                 C + 1;
-          END;
-          ELSE C = 1;
-  END;
-  IF C <= &MAXREC;
-RUN;
-
-DATA _LAST_;
-SET  _LAST_;
-     LENGTH LABEL $150;
-     LENGTH SHLABEL_1 SHLABEL_2 SHLABEL $150;
-     LABEL SHLABEL = 'LABEL';
-     LABEL = PUT(VARIABLE,$VARLABEL.);
-     _I_ = INDEX(LABEL,'-');
-     SHLABEL_1 = UPCASE(SUBSTR(LABEL,_I_+2,1));
-     SHLABEL_2 = LOWCASE(SUBSTR(LABEL,_I_+3));
-     SHLABEL = STRIP(SHLABEL_1)||SHLABEL_2;
-     LABEL = STRIP(VARIABLE) || ' - ' || SHLABEL;
-     DROP SHLABEL_: _I_;
-RUN;
-
-%MEND reduce_TBL;
-
-
-/**
- * RK MODULE SPECIFICITIES (NON-HOUSEHOLD MEMBERS)
- */
-%MACRO purge_NON_HH_MEMBER (F=);
-
-%LOCAL LX LX_PFX;
-
-%LET DS=RAW.&_SPLIT_MODE_&ss&cc&YY&F;
-
-%IF %SYSFUNC(EXIST(SVAL_NON_MEMB)) %THEN %DO;
-
-    PROC SQL;
-      DROP TABLE SVAL_NON_MEMB;
-    QUIT;
-
-%END;
-
-%LET HH_MEMBERSHIP_STATUS_FILTER=;
-%LET LX=;
-%LET LX_PFX=;
-DATA _NULL_;
-SET  SVAL_HH_MBR_STAT_LST;
-     CALL SYMPUT('HH_MEMBERSHIP_STATUS_FILTER',TRIM(LX)||' IN '||TRIM(RX));
-     CALL SYMPUTX('LX',UPCASE(LX));
-     CALL SYMPUTX('LX_PFX',UPCASE(SUBSTR(LX,1,1)));
-RUN;
-
-%PUT &LX &HH_MEMBERSHIP_STATUS_FILTER;
-
-
-%IF &LX_PFX ne %THEN %DO;
-
-        %PUT *I* LX: &LX | LX(1,1): &LX_PFX;
-
-        %IF &F EQ &LX_PFX %THEN %DO;
-
-          DATA NON_MEMB_LST (KEEP=&LX_PFX.B010 &LX_PFX.B030 &LX);
-          SET  &DS;
-            IF NOT( &HH_MEMBERSHIP_STATUS_FILTER );
-          PROC SORT NODUPKEY;
-            BY &LX_PFX.B010 &LX_PFX.B030;
-          RUN;
-
-        %END;
-
-        %sub_purge_NON_HH_MEMBER (Sval_mism_v);
-        %sub_purge_NON_HH_MEMBER (Sval_mism_f);
-        %sub_purge_NON_HH_MEMBER (Sval_mism_vf);
-
-        %sub_purge_NON_HH_MEMBER (Sval_mism_optional);
-        %sub_purge_NON_HH_MEMBER (Sval_mism_na);
-        %sub_purge_NON_HH_MEMBER (Sval_mism_parent);
-        %sub_purge_NON_HH_MEMBER (Sval_mism_childnull);
-        %sub_purge_NON_HH_MEMBER (Sval_mism_chksum);
-        %sub_purge_NON_HH_MEMBER (Sval_miss);
-        %sub_purge_NON_HH_MEMBER (Grid_mism_seq);
-        %sub_purge_NON_HH_MEMBER (Grid_mism_matrix);
-        %sub_purge_NON_HH_MEMBER (Grid_mism_age);
-        %sub_purge_NON_HH_MEMBER (Grid_mism_red);
-
-        %PUT *I* SVAL_MISM_MINUS7 IS NOT SUBJECT TO THE NON-HH PURGING
-        ;
-
-        %sub_compl_NON_HH_MEMBER;
-
-%END;
-%ELSE %DO;
-  %PUT *I* UNDEFINED NON_HH_MEMBER POLICY
-  ;
-%END;
-
-%MEND purge_NON_HH_MEMBER;
-
-%MACRO sub_purge_NON_HH_MEMBER (TBL);
-
-%LOCAL K LX_ITEM ID_LST;
-
-%IF %SYSFUNC(EXIST(&TBL)) %THEN %DO;
-    PROC SORT DATA=&TBL;
-      BY &LX_PFX.B010 &LX_PFX.B030;
-    RUN;
-        DATA
-          &TBL (DROP=&LX)
-          &TBL._NON_MEMB
-        ;
-        MERGE &TBL (in=A) NON_MEMB_LST (in=B);
-          BY &LX_PFX.B010 &LX_PFX.B030;
-          IF A AND B THEN OUTPUT &TBL._NON_MEMB;
-          ELSE IF A THEN OUTPUT &TBL;
-        RUN;
-
-        PROC SQL NOPRINT;
-          SELECT DISTINCT &LX INTO :LX_LST SEPARATED BY ' '
-          FROM   SVAL_HH_MEMBER_MANDATORY
-          ;
-        QUIT;
-        %LET K=1;
-        %LET LX_ITEM=%SCAN(&LX_LST,&K);
-        %DO %WHILE(&LX_ITEM ne);
-                PROC SQL NOPRINT;
-                  SELECT DISTINCT "'"||TRIM(ID)||"'" INTO :ID_LST SEPARATED BY ' '
-                  FROM   SVAL_HH_MEMBER_MANDATORY
-                  WHERE  &LX = &LX_ITEM
-                  ;
-                QUIT;
-
-                %PUT *I* XML_SVAL:HH_NON_MEMBER STATUS[&LX]:&LX_ITEM;
-                %PUT *I* &ID_LST;
-
-                DATA ADD_&LX_ITEM;
-                SET  &TBL._NON_MEMB;
-                        IF &LX eq &LX_ITEM AND VARIABLE IN ( &ID_LST );
-                RUN;
-
-                PROC APPEND FORCE BASE=&TBL DATA=ADD_&LX_ITEM;
-                RUN;
-                %LET K=%EVAL(&K+1);
-                %LET LX_ITEM=%SCAN(&LX_LST,&K);
-        %END;
-%END;
-
-%MEND sub_purge_NON_HH_MEMBER;
-
-%MACRO sub_compl_NON_HH_MEMBER;
-
-/*%LOCAL;*/%GLOBAL K LX_ITEM ID ID_LST ID_LST2 VAR VARS;
-
-        DATA NON_MEMB_LST (KEEP=&LX_PFX.B010 &LX_PFX.B030 &LX);
-        SET  &DS;
-          IF NOT( &HH_MEMBERSHIP_STATUS_FILTER );
-        PROC SORT NODUPKEY;
-            BY &LX_PFX.B010 &LX_PFX.B030 &LX;
-        RUN;
-
-        PROC SORT DATA=&DS OUT=R;
-          BY &LX_PFX.B010 &LX_PFX.B030 &LX;
-        RUN;
-
-        DATA
-            R_NON_MEMB
-            DUMP
-        ;
-        MERGE R (in=A) NON_MEMB_LST (in=B);
-          BY &LX_PFX.B010 &LX_PFX.B030 &LX;
-          IF A AND B THEN OUTPUT R_NON_MEMB;
-          ELSE IF B THEN OUTPUT DUMP;
-        RUN;
-
-        PROC SQL NOPRINT;
-          SELECT DISTINCT &LX INTO :LX_LST SEPARATED BY ' '
-          FROM   SVAL_HH_MEMBER_MANDATORY
-          WHERE  CHECKNULL = 'Y'
-          ;
-        QUIT;
-		RUN;
-		%PUT *I* LX_LST:  &LX_LST;
-
-        %LET K=1;
-        %LET LX_ITEM=%SCAN(&LX_LST,&K," ");
-        %DO %WHILE(&LX_ITEM ne);
-                PROC SQL NOPRINT;
-                  SELECT DISTINCT "'"||TRIM(ID)||"'" INTO :ID_LST SEPARATED BY ' '
-                  FROM   SVAL_HH_MEMBER_MANDATORY
-                  WHERE  &LX = &LX_ITEM
-                  ;
-                QUIT;
-                PROC SQL NOPRINT;
-                  SELECT DISTINCT TRIM(ID) INTO :ID_LST2 SEPARATED BY ' '
-                  FROM   SVAL_HH_MEMBER_MANDATORY
-                  WHERE  &LX = &LX_ITEM and ID NOT IN ("RB010","RB020","RB030")
-                  ;
-                QUIT;
-
-                %LET ID_LST=&ID_LST "&LX._F";
-
-
-                PROC CONTENTS DATA=R_NON_MEMB OUT=MEMBERS NOPRINT;
-                RUN;
-
-                PROC SQL;
-                  DELETE FROM MEMBERS T
-                  WHERE  NAME NOT IN
-                  ( SELECT VARIABLE FROM SVAL_&F WHERE FLAG_NAME IS NOT NULL )
-                  ;
-                QUIT;
-
-                PROC SQL;
-                  DELETE FROM MEMBERS T
-                  WHERE  NAME IN ( &ID_LST )
-                  ;
-                QUIT;
-
-                PROC SQL NOPRINT;
-                     SELECT strip(NAME) || ':' || put(TYPE,Z1.) INTO :VARS SEPARATED BY ' '
-                     FROM   MEMBERS
-                     ;
-                QUIT;
-
-                DATA SVAL_NON_MEMB_&K (KEEP=&F.B010 &F.B030 &LX VARIABLE VALUE FLAG WHERE=(FLAG ne -7));
-                SET  R_NON_MEMB (WHERE=(&LX=&LX_ITEM));
-                     LENGTH VARIABLE $12;
-                     LENGTH VALUE $32;
-                     LENGTH FLAG 8;
-                     %LET J=1;
-                     %LET VAR=%SCAN(&VARS,&J);
-                     %DO  %WHILE(&VAR ne);
-                          %LET VARX=%SCAN(&VAR,1,:);
-                          %LET TYP=%SCAN(&VAR,2,:);
-                          IF NOT ( ( &VARX = . ) AND ( &VARX._F = . ) ) THEN DO;
-                             VARIABLE = "&VARX";
-                             %IF &TYP EQ 1 %THEN %DO;
-                             VALUE = STRIP(put(&VARX,$10.));
-                             %END;
-                             %ELSE %IF &TYP EQ 2 %THEN %DO;
-                             VALUE = &VARX;
-                             %END;
-                             FLAG  = &VARX._F;
-                             OUTPUT;
-                          END;
-                          %LET J=%EVAL(&J+1);
-                          %LET VAR=%SCAN(&VARS,&J);
-                     %END;
-                RUN;
-
-                DATA SVAL_NON_MEMB_MISS_&K (KEEP=&F.B010 &F.B030 &LX VARIABLE VALUE FLAG WHERE=(FLAG ne -7));
-                SET  R_NON_MEMB (WHERE=(&LX=&LX_ITEM));
-                     LENGTH VARIABLE $12;
-                     LENGTH VALUE $32;
-                     LENGTH FLAG 8;
-                     %LET J=1;
-                     %LET ID=%SCAN(&ID_LST2,&J);
-                     %DO  %WHILE(&ID ne);
-                          IF ( &ID = . and &ID._F=. ) THEN DO;
-                             VARIABLE = "&ID";
-                             VALUE = &ID;
-                             FLAG  = &ID._F;
-                             OUTPUT;
-                          END;
-                          %LET J=%EVAL(&J+1);
-                          %LET ID=%SCAN(&ID_LST2,&J);
-                     %END;
-                RUN;
-
-
-                %IF &K eq 1 %THEN %DO;
-                    DATA SVAL_NON_MEMB;
-                    SET  SVAL_NON_MEMB_&K;
-                    RUN;
-                    DATA SVAL_NON_MEMB_MISS;
-                    SET  SVAL_NON_MEMB_MISS_&K;
-                    RUN;
-                %END;
-                %ELSE %DO;
-                    PROC APPEND BASE=SVAL_NON_MEMB
-                         DATA=SVAL_NON_MEMB_&K;
-                    RUN;
-                    PROC APPEND BASE=SVAL_NON_MEMB_MISS
-                         DATA=SVAL_NON_MEMB_MISS_&K;
-                    RUN;
-                %END;
-
-                %LET K=%EVAL(&K+1);
-                %LET LX_ITEM=%SCAN(&LX_LST,&K," ");
-
-       %END;
-
-%MEND sub_compl_NON_HH_MEMBER;
-

@@ -35,9 +35,20 @@ options compress=no;
 
 %MACRO VALID_WORKFLOW(F=);
 
+%global ID_VARS;
+
 %LET _doGRID_=0;
 
 OPTIONS FmtErr;*NOSOURCE NOMPRINT NOMLOGIC;
+
+/*LV 25.11.2025: Variables to be extracted in SVAL checks*/
+/*R file: ID variables include RB040 to handle household splits*/
+%IF &F EQ R %THEN %DO;
+	%LET ID_VARS = &F.B010 &F.B020 &F.B030 &F.B040;
+%END;
+%ELSE %DO;
+	%LET ID_VARS = &F.B010 &F.B020 &F.B030;
+%END;
 
 /*** SILC-FILE-SPECIFIC HANDLING */
 %IF &F EQ D OR &F EQ R OR &F EQ H OR &F EQ P %THEN %DO;
