@@ -2,6 +2,12 @@
 ### Revision History ###
 ########################
 
+Ver 5.0.4 [Internal]+[Github]
+14 January 2026 12:00
+-441: Corrections to LVAL checks 1505 and 1506 for variable HEE07: 
+	- 1505: Flag -2 expected when HC003A is non-applicable (HC003A_F=-2).
+	- 1506: If HC003A is missing (HC003A_F = -1) or HC006 is missing (HC006_F = -1), and no other conditions for non-applicable are met, then flag -2 is not allowed.
+
 Ver 5.0.3 [Internal]+[Github]
 06 January 2026 16:00
 -440: Correction to the titles of LVAL rules 1505 and 1506 to contemplate missing values for variables HC003A and HH021.
