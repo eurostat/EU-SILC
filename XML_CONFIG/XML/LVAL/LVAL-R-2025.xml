@@ -1575,16 +1575,16 @@
     <where>(HC003A_F = -2) AND (HH010 NE 5 OR HH010 IS NULL) AND HC006 IN (1,2,3,4,5,6) AND HB010=$YEAR</where>
   </check>
   <check id="1505" start="2025" module="adhoc">
-    <title>Ad hoc module on Energy and the environment - Error: HEE07 - Obstacles in improving energy efficiency - flag (-2) expected when HC003A in (1,2,3,5,99 or missing) or HH021 in (3,4,5 or missing) or (HH010=5 or HC006=8 (building built within last 4 years))</title>
-    <select>HB010,HB030,HEE07,HEE07_F,HC003A,HH021,HH010,HC006</select>
+    <title>Ad hoc module on Energy and the environment - Error: HEE07 - Obstacles in improving energy efficiency - flag (-2) expected when HC003A in (1,2,3,5,99 or non-applicable) or HH021 in (3,4,5) or HH010=5 or HC006=8 (building built within last 4 years)</title>
+    <select>HB010,HB030,HEE07,HEE07_F,HC003A,HC003A_F,HH021,HH010,HC006</select>
     <from>h</from>
-    <where>(HEE07_F ne -2) AND (HC003A NE 4 OR HC003A IS NULL OR HH021 in (3,4,5) OR HH021 IS NULL OR HH010=5 OR HC006 = 8) AND HB010=$YEAR</where>
+    <where>(HEE07_F ne -2) AND (HC003A in (1,2,3,5,99) OR HC003A_F=-2 OR HH021 in (3,4,5) OR HH010=5 OR HC006 = 8) AND HB010=$YEAR</where>
   </check>
   <check id="1506" start="2025" module="adhoc">
-    <title>Ad hoc module on Energy and the environment - Error: HEE07 - Obstacles in improving energy efficiency - flag (-2) not allowed when HC003A not in (1,2,3,5,99 or missing), HH021 not in (3,4,5 or missing), HH010 ne 5 and HC006 in (1,2,3,4,5,6)</title>
-    <select>HB010,HB030,HEE07,HEE07_F,HC003A,HH021,HH010,HC006</select>
+    <title>Ad hoc module on Energy and the environment - Error: HEE07 - Obstacles in improving energy efficiency - flag (-2) not allowed when HC003A not in (1,2,3,5,99 or non-applicable), HH021 not in (3,4,5), HH010 ne 5 and HC006 in (1,2,3,4,5,6,missing)</title>
+    <select>HB010,HB030,HEE07,HEE07_F,HC003A,HC003A_F,HH021,HH010,HC006</select>
     <from>h</from>
-    <where>(HEE07_F = -2) AND ((HC003A = 4) AND (HH021 not in (3,4,5) AND HH021 IS NOT NULL) AND (HH010 NE 5 OR HH010 IS NULL) AND HC006 in (1,2,3,4,5,6)) AND HB010=$YEAR</where>
+    <where>(HEE07_F = -2) AND ((HC003A = 4 OR HC003A IS NULL) AND HC003A_F ne -2 AND (HH021 not in (3,4,5) OR HH021 IS NULL) AND (HH010 NE 5 OR HH010 IS NULL) AND (HC006 in (1,2,3,4,5,6) OR HC006 IS NULL)) AND HB010=$YEAR</where>
   </check>
 <!--  ADHOC module checks END  -->
 
@@ -2032,6 +2032,8 @@
     <where>a.AGE LE b.AGE and a.RG_$x = 60</where>
   </check>
 </LVAL>
+
+
 
 
 
