@@ -2,6 +2,10 @@
 ### Revision History ###
 ########################
 
+Ver 5.0.5 [Internal]+[Github]
+19 January 2026 12:00
+-442: Logical validation - Correction of Household grid rules for step-parents and step-children. False positives were reported for cases of step-parents not recorded in RB220 and RB230. Codes 22 and 52 were removed from LVAL checks 2040, 2100 and 2130.
+
 Ver 5.0.4 [Internal]+[Github]
 14 January 2026 12:00
 -441: Corrections to LVAL checks 1505 and 1506 for variable HEE07: 
