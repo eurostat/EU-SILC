@@ -2,6 +2,10 @@
 ### Revision History ###
 ########################
 
+Ver 5.0.6 [Internal]+[Github]
+29 January 2026 12:00
+-443: SVAL configuration modified so that only 1 or 3 digit flags are allowed for all disaggregated income variables (HY051-054, HY061-064, HY071-074, PY091-094, PY111-114, PY121-124, PY131-134, PY141-144 and PY101-104), to be in accordance with Doc065.
+
 Ver 5.0.5 [Internal]+[Github]
 19 January 2026 12:00
 -442: Logical validation - Correction of Household grid rules for step-parents and step-children. False positives were reported for cases of step-parents not recorded in RB220 and RB230. Codes 22 and 52 were removed from LVAL checks 2040, 2100 and 2130.
