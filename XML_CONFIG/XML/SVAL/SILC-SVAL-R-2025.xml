@@ -570,7 +570,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -582,7 +582,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -594,7 +594,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -606,7 +606,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -649,7 +649,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -661,7 +661,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -673,7 +673,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -685,7 +685,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -728,7 +728,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -740,7 +740,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -752,7 +752,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -764,7 +764,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -1968,7 +1968,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -1980,7 +1980,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -1992,7 +1992,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2004,7 +2004,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2047,7 +2047,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2059,7 +2059,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2071,7 +2071,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2083,7 +2083,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2126,7 +2126,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2138,7 +2138,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2150,7 +2150,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2162,7 +2162,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2205,7 +2205,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2217,7 +2217,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2229,7 +2229,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2241,7 +2241,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2284,7 +2284,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2296,7 +2296,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2308,7 +2308,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2320,7 +2320,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,-4,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2363,7 +2363,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2375,7 +2375,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2387,7 +2387,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
@@ -2399,7 +2399,7 @@
 			<format>12.2</format>
 			<minval>0</minval>
 			<maxval>99999999.99</maxval>
-			<flag len="3-" digit="1">(-5,1,2,3,4,5,6,7)</flag>
+			<flag len="3" digit="1">(-5,1,2,3,4,5,6,7)</flag>
 			<flag digit="2">(1,2,3,4,5,6,7,8,9)</flag>
 			<flag digit="3">(1,2)</flag>
 			<impute>Y</impute>
