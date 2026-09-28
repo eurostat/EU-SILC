@@ -59,6 +59,22 @@ SET
   ELSE IF D THEN mod = 'RECUR6';
 RUN;
 
+	/*Module variables that are also optional variables in other years*/
+	/*Table used to purge errors from SVAL_MUST_MINUS7*/
+%if &YYYY >= 2026 %then %do;
+	PROC SQL;
+	CREATE TABLE SVAL_MOD_OPTIONAL AS 
+		SELECT MOD, VARIABLE, START_M, COUNT(DISTINCT START_M) AS COUNT
+		FROM SVAL&MODE
+		WHERE START_M NE .
+		GROUP BY MOD, VARIABLE
+		HAVING COUNT(DISTINCT START_M) > 1;
+	QUIT;
+	PROC SORT DATA=SVAL_MOD_OPTIONAL;
+		BY VARIABLE START_M;
+	RUN;
+%end;
+
 DATA SVAL&MODE;
 SET  SVAL&MODE;
   IF mod EQ '' or mod EQ 'NUCLEUS' THEN DO;
@@ -268,6 +284,10 @@ DATA SVAL&MODE;
 MERGE SVAL&MODE (in=A) NAS_PRIMARY (in=B);
   BY VARIABLE MOD_ID;
   IF A;
+RUN;
+
+PROC SORT DATA=SVAL_NAS&MODE;
+  BY VARIABLE MOD_ID DESCENDING NA_FLAG;
 RUN;
 
 DATA SVAL_NAS&MODE ;
@@ -641,7 +661,7 @@ QUIT;
         SET SVAL_&F END=EOF;
           WHERE  1 EQ 1
           AND    LIST is not null
-          AND    TYPE is null
+          AND    (TYPE is null OR TYPE = 'HGRID')
           ;
           LENGTH VARS _LIST_ $32767;
           RETAIN VARS '';
@@ -714,7 +734,7 @@ QUIT;
           DELETE FROM SVAL_FLAGS_&F
           WHERE  VARIABLE IN
           (      SELECT VARIABLE FROM SVAL_&F
-                 WHERE  FLAG is null or TYPE is not null    )
+                 WHERE  FLAG is null or (TYPE is not null AND TYPE ne 'HGRID')   )
       ;
         QUIT;
 
@@ -914,7 +934,7 @@ QUIT;
         SET SVAL_&F END=EOF;
           WHERE  1 EQ 1
           AND    FLAG is not null
-          AND    TYPE is null
+          AND    (TYPE is null OR TYPE = 'HGRID')
           ;
           LENGTH VARS _LIST_ $32767;
           RETAIN VARS '';
@@ -1234,6 +1254,18 @@ QUIT;
                          %END;
                          IF VARIABLE ^= '';
                 RUN;
+				/*PURGE ERRORS FOR MODULE VARIABLES THAT ARE OPTIONAL IN PREVIOUS YEARS*/
+				/*Example: HY030G is module variable in 2025 and optional in 23/24, so filled values should not be considered errors*/
+			%if &YYYY >= 2026 %then %do;
+				PROC SORT DATA=SVAL_MUST_MINUS7&MOD;
+					BY VARIABLE &F.B010;
+				RUN;
+				DATA SVAL_MUST_MINUS7&MOD;
+					MERGE SVAL_MUST_MINUS7&MOD (in=A) SVAL_MOD_OPTIONAL (in=B rename=(START_M=&F.B010));
+					BY VARIABLE &F.B010;
+					IF A AND NOT B THEN OUTPUT;
+				RUN;
+			%end;
        %END;
 
 %MEND check_MINUS7;
