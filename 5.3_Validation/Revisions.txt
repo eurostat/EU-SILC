@@ -2,11 +2,14 @@
 ### Revision History ###
 ########################
 
-Ver 6.0 [Internal]
+Ver 6.0.1 [Internal]+[Github]
+22 September 2026 12:00
+-446: Configuration file SILC-SVAL-R-2026.xml - Correction of variable HC007: Minimum value allowed was previously set to 1, corrected to 0.
+
+Ver 6.0 [Internal]+[Github]+[CIRCABC]
 22 September 2026 12:00
 -445: LVAL - New checks added for the 2026 modules: 1213-1216, 1450. Checks 1202-1207 removed, as the variables were discontinued.
 -444: SVAL - New variables for the 6-Year module on Over-indebtedness, consumption, and wealth added; Variables on the 3–Year module on Labour market and housing adapted to the 2026 operation.
-
 
 Ver 5.0.6 [Internal]+[Github]
 29 January 2026 12:00
